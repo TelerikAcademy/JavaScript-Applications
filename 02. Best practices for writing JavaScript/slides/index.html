@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript UI & DOM: Event Model</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/telerik-academy-dark.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+ 
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="title" class="slide-title">
+                <h1>JavaScript</h1>
+                <h2>Good Practices</h2>
+                <aside class="signature">
+                    <p class="signature-course">JavaScript Applications</p>
+                    <p class="signature-initiative">Telerik Software Academy</p>
+                    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+                </aside>
+            </section>            
+            <section data-markdown style="font-size: 44px">
+                <script type="text/template">
+# Table of Contents
+*   Naming in JavaScript
+*	Scoping
+	*	Global and function
+	*	Fake block scope
+*	Duplicated Object Identifiers
+*	The `this` object
+	*	In global, function and object scope
+	*	In event handler
+*	Variables
+*	`'strict mode'`
+*	JavaScript Execution
+                </script>
+            </section>
+            
+            <!-- Naming -->
+            <section>
+                <section data-markdown class="slide-section" id="event-model">
+                    <script type="text/template">
+                        # Naming in JavaScript
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+						# Naming
+
+						*   In JavaScript almost everything is **camelCase**
+							*	Variables, methods, properties
+							*	Objects, modules
+							
+						```
+						var number = 5;
+						function printMsg(message){ … }
+						var arr = [];
+						arr.toString();
+						controls = (function(){ … } ());
+						```
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 42px">
+                    <script type="text/template">
+						# Naming:
+						# Function Constructors
+						*	The only exception to the rule is function constructor
+							*	Function constructors use **PascalCase**
+						*	Function constructors are more special than the other objects
+							*	They are meant to be called with `new`
+							*	Without `new`, `this` has an incorrect value
+						*	Unfortunately, JavaScript has no way to restrict a call to a function constructor without `new`
+							*	All we have to do is prey the developer sees the visual difference
+                    </script>
+                </section>
+			</section>
+           
+            <!-- Scoping -->
+			<section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+						# Scoping
+						## Global, Function and Object
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Scoping
+
+						*	JavaScript has only two types of scope
+							*	`Global scope` and `function scope`
+								*	Function scope may be called `object scope` when used with `new`
+							*	There is no block scope in JavaScript
+								*	`{` and `}` do not define a scope
+								*	Use `IIFE` to define scope
+						*	All JavaScript code, in all files, share the same global scope
+					</script>
+				</section>			
+				<section data-markdown>
+					<script type="text/template">
+						# Scoping
+
+						*	Everything inside an `if-else`, `for` or `while` "block scope" is actually outside this block
+
+						```
+						if (false) {
+						  var count = 15;
+						  function printMsg(message) {
+							console.log("Message: " + message + "!");
+						  };
+						}
+						printMsg(count)
+						//outputs Message: undefined!
+						```
+
+						both count and printMsg are defined <!-- .element: class="balloon" style="top: 55%; left: 55%; width: 230px; text-align: center" -->
+
+						*	Both `printMsg` and `count` are declared
+							*	Yet, count has no value, because the execution flow cannot reach the initialization
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+						# Fake "Block" Scope
+						## Live Demo
+					</script>
+				</section>			
+				<section data-markdown>
+					<script type="text/template">
+						# Function Scope
+
+						*	Function scope is the only scope where variables are temporary
+							*	A variable, declared with var, cannot exist outside of its function scope
+
+						```
+						(function(){
+						  if (false) {
+							var count = 15;
+							function printMsg(message) {
+							  console.log("Message: " + message + "!");
+							};
+						  }  
+						}());
+						printMsg(count); 
+						//ReferenceError: printMsg is not defined
+						```
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+						# Functino Scope
+						## Live Demo
+					</script>
+				</section>
+			</section>
+			
+            <!-- Duplicated Object Identifiers -->
+			<section>			
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+						# Duplicated Object Identifiers
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Duplicated Object Identifiers
+
+						*	Due to the shared global scope in JavaScript, it is a common case to have a duplicated object identifiers
+							*	What happens if two or more libraries/frameworks/js files have a function with the same name?
+							*	Which one is the actual?
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Duplicated Object Identifiers
+
+						*	The solution to preventing duplicated identifiers is using function scope, or maybe a module
+							*	Do the stuff you need and expose only the meaningful pieces
+
+						```
+						jsConsole.write("Message");
+						document.write("Message");
+						database.write("Message");
+						```
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# Duplicated Object Identifiers
+						## Live Demo
+					</script>
+				</section>				
+			</section>
+			
+			<!-- The this Object -->
+			<section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# The `this` Object
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					# The `this` Object
+					
+					*	The this object has a different value depending on the scope
+						*	In function scope
+						*	In object scope
+						*	In global scope
+						*	In event handlers
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					# `this` in Global Scope
+					
+					*	In the global scope this means the global scope
+						*	i.e. window
+						
+						```
+						console.log( this === window) //logs true
+						```
+						*	These work exactly the same when in global scope
+						
+						```
+						this.message = "Hello";
+						```
+						```
+						var message = "Hello";
+						```
+						```
+						window.message = "Hello";
+						```
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# `this` in Global Scope
+						## Live Demo
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# `this` in Function Scope
+						
+						*	`this` in `function scope` almost always means the `this` of the `parent of the function`
+							*	If the function is in the global scope `this` means the global scope
+							*	In object scope – `this` means the `object itself`
+								*	Later in this presentation
+								
+						```
+						(function createAndSetVariable(n0umber){
+							this.number = number;
+						}(5));
+						console.log(number); //logs 5
+						```
+						
+						<div>`this` means window</div> <!-- .element: class="balloon" style="top: 80%; left: 50%;" -->
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# `this` in Function Scope
+						## Live Demo
+					</script>
+				</section>
+				<section data- style="font-size:44px">
+					<script type="text/template">
+						# `this` in Object Scope
+						
+						*	Object scope is created when a function is called with `new`
+							*	The rules that apply are the same as with regular function call
+								*	Except for the value of `this`
+
+								
+						```
+						function Person(fname, lname){
+							this.fname = fname;
+							this.lname = lname;
+						}
+						var person = new Person();
+						var invalidPerson = Person();
+						```
+						
+						<div>`this` means an instance of the person object</div> <!-- .element: class="balloon" style="top: 60%; left: 44%; width: 280px; text-align: center" -->
+						<div>`this` means the window</div> <!-- .element: class="balloon" style="top: 72%; left: 48%" -->
+						
+						*	Always beware of PascalCase-named functions
+							*	There is a reason for that!
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# `this` in Object Scope
+						## Live Demo
+					</script>
+				</section>
+				<section data-markdown style="font-size:42px">
+					<script type="text/template">
+						# `this` in Event Handlers
+						
+						*	`this` in an event handler means the `DOM element that the event was fired on`
+							*	i.e. if a click event fires on a anchor element, `this` means the `clicked anchor element`
+							
+						```
+						var button = document.getElementById("the-button");
+						function onButtonClick(ev){
+							console.log(this === button); //logs true
+						}
+						button.addEventListener("click", onButtonClick, false);
+						```	
+						```
+						var usernameTb = document.getElementById("tb-user");
+						function onUsernameTbChange(ev){
+						 console.log(this === usernameTb); //logs true
+						}
+						usernameTb.addEventListener("change", onUsernameTbChange, false);
+						```						
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# `this` in Event Handlers
+						## Live Demo
+					</script>
+				</section>
+			</section>
+			
+            <!-- Variables -->
+			<section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# Variables
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Variables
+						
+						*	Declare all the variables in the beginning of the scope
+							*	Even if they will not be used yet
+							*	This prevents lots of error-prone code
+						*	Many ways to structure variables declaration:
+
+						```
+						function something(){
+							var number;
+							var word;
+							var eventNumbers;
+						…
+						}
+						```
+						<!-- .element: style="width: 45%; float: left" -->
+						
+						```
+						function something(){
+							var number,
+								word,
+								eventNumbers;
+						…
+						}
+						```
+						<!-- .element: style="width: 45%; float: right" -->
+						
+						
+						Both work exactly the same <!-- .element: class="balloon fragment" style="width: 200px; text-align: center; top: 80%; left: 38%" -->
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# Variables
+						## Live Demo
+					</script>
+				</section>
+			</section>
+			
+            <!-- Strict Mode -->
+			<section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# Strict Mode
+					</script>
+				</section>
+				<section data-markdown style="font-size: 46px">
+					<script type="text/template">
+						# Strict Mode
+
+						*	Strict mode is a nice subset of the JavaScript functionality
+							*	Removes some of the bad parts of JavaScript
+							*	Adds parts of yet-to-be ECMAScript versions
+						*	Strict mode changes both syntax and runtime behavior
+							*	Makes changes to the syntax to prevent silent errors
+							*	Restricts functionality to remove bad JS
+							*	Makes the transition to new JS features more seamless
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Strict Mode
+						
+						*	Strict mode can be used either for the whole script or per-function
+							*	If used for the whole scripts, everything is in strict mode
+								*	Not a good idea, since a third-party script may fail in strict mode
+							*	Better use IIFE and per-function strict mode
+								*	That way only your code will run in strict mode
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Strict Mode
+						
+						*	Some of the characteristics of Strict mode:
+							*	Converts silent errors to exceptions
+								*	Trying to change the value of document
+								*	Deleting the prototype of an object
+							*	Makes this undefined inside a function scope
+								*	In a function scope, this is equal to undefined, instead of the parent this object
+							*	Forbids octal syntax
+							*	Prevents variable declaration without var
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# Strict Mode
+						## Live Demo
+					</script>
+				</section>
+			</section>
+			
+            <!-- JavaScript Execution -->
+			<section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# JavaScript Execution
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# JavaScript Execution
+						
+						*	As we know, JavaScript executes per-line-reached basis
+							*	The execution flow goes from top to bottom
+								*	Imagine all loaded JavaScript files, merged together in one really big JavaScript file
+							*	A JavaScript line of code is executed, when it is reached in the execution process
+						*	Yet execution may take time
+							*	Time that is not pleasant to the user
+					</script>
+				</section>
+				<section data-markdown style="font-size: 42px">
+					<script type="text/template">
+						# JavaScript Execution
+						
+						*	A common approach is to start execution of JavaScript, when the web page is ready
+							*	And there is an event for that
+							
+						```
+						window.onload = function(){
+						  //do the code preparations
+						}
+						```
+							
+						*	Or, if using jQuery, we can use its load event
+						
+						```
+						$(document).ready(function(){ });
+						$(function(){ });
+						```
+
+						*	Loading the script at the end of the load time, ensures that all the DOM is already rendered
+					</script>
+				</section>
+				<section data-markdown class="slide-section">
+					<script type="text/template">
+						# JavaScript Load in the HTML file
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# JavaScript Load
+						# in the HTML file
+						
+						*	A common questions is "Where to load the JavaScript?"
+							*	Load it in the header?
+							*	Load it at the end of the body element?
+							*	Load it anywhere in the document
+						*	All JavaScript files have the same global scope, so it really doesn't matter?
+							*	No, it does matter
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# JavaScript Load
+						# in the HTML file
+						
+						*	There are two common places to load the JavaScript files
+							*	In the header
+							*	At the end of the body element
+						*	What is really the difference?
+							*	Put simply – Performance
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# JavaScript Load
+						# in the HTML file 
+				
+						*	Loading of large script file at the document header, freezes the web page, and makes it unusable
+							*	Better show something to the user
+								*	Like the rendered HTML and CSS
+							*	And then load your JavaScript
+					</script>
+				</section>
+			</section>
+			
+            <!-- Questions -->
+           <section data-markdown class="slide-questions" id="questions">
+             <script type="text/template">
+                # JavaScript Good Practices
+                ## Questions
+             </script>             
+           </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    /* globals Reveal, hljs */
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: 'c / t',
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            /*condition: function() {
+                return !!document.querySelector('pre code');
+            },*/
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>
