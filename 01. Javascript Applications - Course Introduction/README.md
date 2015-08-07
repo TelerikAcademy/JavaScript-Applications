@@ -1,8 +1,6 @@
-# 01. JavaScript Applications - Course Introduction
-
-[Presentation](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html)
-
-## Table of Contents
+## 01. JavaScript Applications - Course Introduction
+### [ReviewJS Presentation](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html)
+### Table of Contents
 *   What's next in the Academy - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html#/2)
 *   The JavaScript Applications Course Program - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html#/4)
 *   Exams and Evaluation - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html#/5)
