@@ -1,14 +1,14 @@
 ## 01. JavaScript Applications - Course Introduction
-### [ReviewJS Presentation]()
+### [ReviewJS Presentation](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html)
 ### Table of Contents
-*   Naming in JavaScript - [go to slide]()
-*	Scoping - [go to slide]()
+*   Naming in JavaScript - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/event-model)
+*	Scoping - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/3)
 	*	Global and function
 	*	Fake block scope
-*	Duplicated Object Identifiers - [go to slide]()
-*	The `this` object - [go to slide]()
+*	Duplicated Object Identifiers - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/4)
+*	The `this` object - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/5)
 	*	In global, function and object scope
 	*	In event handler
-*	Variables - [go to slide]()
-*	`'strict mode'` - [go to slide]()
-*	JavaScript Execution - [go to slide]()
+*	Variables - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/6)
+*	`'strict mode'` - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/7)
+*	JavaScript Execution - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/8)
