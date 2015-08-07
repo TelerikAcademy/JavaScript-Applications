@@ -54,6 +54,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Samples: 
         *   [Telerik Backend Services](http://www.telerik.com/backend-services)
         *   [Parse](https://www.parse.com/)
+        *   [Microsoft Mobile App Services](http://azure.microsoft.com/en-us/services/app-service/mobile/)
 9.   Unit testing with Mocha & Chai
     *   Setup of Mocha and Chai
     *   [Mocha reporters](https://mochajs.org/#reporters)
