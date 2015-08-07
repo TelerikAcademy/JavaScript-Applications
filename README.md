@@ -30,10 +30,9 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
         *   `_.memoize()`, `_.compose()`
     *   Object extensions:
         *   `_.keys(obj)`, `_.values(obj)`, `_.extend(obj, props)`
-    *   Templates
-    *   Utility functions
+    *   Utility functions:
         *   `_.times(count, callback)`, `_.mixin(obj)`
-
+    *   Templates
     *   Chaining
 5.   Web Storages
     *   `localStorage`
