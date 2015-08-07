@@ -12,18 +12,29 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Course program
     *   Needed tools
 2.   Best practices for writing JavaScript
-    *   Scopes
+    *   Naming in JavaScript
+    *   Global scope
+    *   What is the value of `this`?
+    *   Function and "block" scopes
+        *   var and let
     *   `use strict`
-    *   
 3.   AMD and [SystemJS](https://github.com/systemjs/systemjs)
     *   Creating modules with SystemJS
     *   Loading modules
     *   Creating dependecies
     *   Supported types of modules
 4.   [Underscore.js](http://underscorejs.org)/[Lodash](https://lodash.com) overview
-    *   Helper functions
+    *   Collections and Array extensions:
+        *   `_.map()`, `_.each()`, `_.pluck()`, `_.sortBy()`, `_.groupBy()`, `_.first()`, `_.last()` etc...
+    *   Function extensions:
+        *   `_.memoize()`, `_.compose()`
+    *   Object extensions:
+        *   `_.keys(obj)`, `_.values(obj)`, `_.extend(obj, props)`
+    *   Templates
+    *   Utility functions
+        *   `_.times(count, callback)`, `_.mixin(obj)`
+
     *   Chaining
-    *   
 5.   Web Storages
     *   `localStorage`
     *   `sessionStorage`
@@ -34,12 +45,17 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Callbacks
     *   Promises
     *   Async operations with ES 2015 function generators
-7.   Business clouds for persistent data
+7.   Consuming web services and AJAX
+    *   Creating HTTP requests using:
+        *   Native JavaScript
+        *   jQuery.ajax
+    *   Build UI based on received data from a web service
+8.   Business clouds for persistent data
     *   Creating an application with a ready-to-use server
     *   Samples: 
         *   [Telerik Backend Services](http://www.telerik.com/backend-services)
         *   [Parse](https://www.parse.com/)
-8.   Unit testing with Mocha & Chai
+9.   Unit testing with Mocha & Chai
     *   Setup of Mocha and Chai
     *   [Mocha reporters](https://mochajs.org/#reporters)
     *   Unit testing DOM
@@ -47,15 +63,15 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
         *   With [PhantomJS](http://phantomjs.org/)
     *   Setting up Mocha with Karma
     *   Spy objects and mocking
-9.   App architecture workshop
+10.   App architecture workshop
     *   Creating a whole web app with:
         *   Backend data from business cloud
         *   AJAX
         *   Handlebars.js, System.js, jQuery
         *   Using promises
-10.  Exam preparation
-11.  Teamwork Defense
-12.  Exam
+11.  Exam preparation
+12.  Teamwork Defense
+13.  Exam
 
 ## Preparing the local machine for Unit testing with Mocha and Chai 
 
