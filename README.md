@@ -65,7 +65,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Spy objects and mocking
     *   Code coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
 10.   App architecture workshop
-    *   Creating a whole web app with:
+    *   Creating a complete web app with:
         *   Backend data from business cloud
         *   AJAX
         *   Handlebars.js, System.js, jQuery
