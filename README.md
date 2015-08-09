@@ -63,6 +63,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
         *   With [PhantomJS](http://phantomjs.org/)
     *   Setting up Mocha with Karma
     *   Spy objects and mocking
+    *   Code coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
 10.   App architecture workshop
     *   Creating a whole web app with:
         *   Backend data from business cloud
