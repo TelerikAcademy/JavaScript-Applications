@@ -10,7 +10,10 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Examination
     *   Trainers
     *   Course program
-    *   Needed tools
+    *   Tools needed for the course
+        *   Code Editors: Sublime text/Atom.io/Visual Studio Code/Web Storm
+        *   Platforms: Node.js and JavaScript IO
+        *   Servers: Microsoft IIS, WAMP, MAMP, XAMPP
 2.   Best practices for writing JavaScript
     *   Naming in JavaScript
     *   Global scope
