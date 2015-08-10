@@ -52,6 +52,8 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Async programming
 *   Callbacks
 *   Promises
+	*	Native with polyfill
+	*	Using a library: Bluebird, RSVP, Q
 *   Async operations with ES 2015 function generators
 
 #### 7.   Consuming web services and AJAX
