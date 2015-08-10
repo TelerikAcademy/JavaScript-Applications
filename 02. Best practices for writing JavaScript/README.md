@@ -1,5 +1,5 @@
 ## 02. Best practices for writing JavaScript
-### [RevealJS Presentation (online)](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html)
+### [View presentation online](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html)
 ### Table of Contents
 *   Naming in JavaScript - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/event-model)
 *	Scoping - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/3)
