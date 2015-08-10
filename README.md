@@ -6,7 +6,7 @@ The **JavaScript Applications** course introduces first steps for build web fron
 All homeworks for the course are test-driven, i.e. each task has a predefined set of unit tests. [Here](https://github.com/TelerikAcademy/JavaScript-UI-and-DOM/blob/master/README.md#user-content-preparing-the-local-machine-for-unit-testing-with-mocha-and-chai)  you can find information how to setup your machine for local testing
 
 ## Course Program
-### 1.   Course Introduction
+#### 1.   Course Introduction
 *   Examination
 *   Trainers
 *   Course program
@@ -15,7 +15,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 	*   Platforms: Node.js and JavaScript IO
 	*   Servers: Microsoft IIS, WAMP, MAMP, XAMPP
 	
-### 2.   Best practices for writing JavaScript
+#### 2.   Best practices for writing JavaScript
 *   Naming in JavaScript
 *   Global scope
 *   What is the value of `this`?
@@ -24,13 +24,13 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   `use strict`
 *	JavaScript Execution
 
-### 3.   [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) and [SystemJS](https://github.com/systemjs/systemjs)
+#### 3.   [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) and [SystemJS](https://github.com/systemjs/systemjs)
 *   Creating modules with SystemJS
 *   Loading modules
 *   Creating dependecies
 *   Supported types of modules
 	
-### 4.   [Underscore.js](http://underscorejs.org)/[Lodash](https://lodash.com) overview
+#### 4.   [Underscore.js](http://underscorejs.org)/[Lodash](https://lodash.com) overview
 *   Collections and Array extensions:
 	*   `_.map()`, `_.each()`, `_.pluck()`, `_.sortBy()`, `_.groupBy()`, `_.first()`, `_.last()` etc...
 *   Function extensions:
@@ -42,32 +42,32 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Templates
 *   Chaining
 
-### 5.   Web Storages
+#### 5.   Web Storages
 *   `localStorage`
 *   `sessionStorage`
 *   `cookies`
 *   Polyfills for `localStorage` and `sessionStorage`
 
-### 6.   Promises and asynchronous programming
+#### 6.   Promises and asynchronous programming
 *   Async programming
 *   Callbacks
 *   Promises
 *   Async operations with ES 2015 function generators
 
-### 7.   Consuming web services and AJAX
+#### 7.   Consuming web services and AJAX
 *   Creating HTTP requests using:
 	*   Native JavaScript
 	*   jQuery.ajax
 *   Build UI based on received data from a web service
 
-### 8.   Business clouds for persistent data
+#### 8.   Business clouds for persistent data
 *   Creating an application with a ready-to-use server
 *   Samples: 
 	*   [Telerik Backend Services](http://www.telerik.com/backend-services)
 	*   [Parse](https://www.parse.com/)
 	*   [Microsoft Mobile App Services](http://azure.microsoft.com/en-us/services/app-service/mobile/)
 
-### 9.   Unit testing with Mocha & Chai
+#### 9.   Unit testing with Mocha & Chai
 *   Setup of Mocha and Chai
 *   [Mocha reporters](https://mochajs.org/#reporters)
 *   Unit testing DOM
@@ -77,18 +77,18 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Spy objects and mocking
 *   Code coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
 
-### 10.   App architecture workshop
+#### 10.   App architecture workshop
 *   Creating a complete web app with:
 	*   Backend data from business cloud
 	*   AJAX
 	*   Handlebars.js, System.js, jQuery
 	*   Using promises
 
-### 11.  Exam preparation
+#### 11.  Exam preparation
 
-### 12.  Teamwork Defense
+#### 12.  Teamwork Defense
 
-### 13.  Exam
+#### 13.  Exam
 
 ## Preparing the local machine for Unit testing with Mocha and Chai 
 
