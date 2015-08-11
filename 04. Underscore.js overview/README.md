@@ -1,4 +1,4 @@
 ## 04. Underscore.js
-### [RevealJS Presentation (online)]()
+### [View Presentation online]()
 ### Table of Contents
 *    - [go to slide]()
