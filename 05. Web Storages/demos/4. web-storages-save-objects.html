@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>JavaScript APIs - local and session storage</title>
+	<script type="text/javascript" src="scripts/web-storage-objects.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+	var obj = {name:"Peter Petrov"};
+	var larr = localStorage.getObject("arr");
+	localStorage.setObject("obj", obj);
+	localStorage.setObject("arr",[1,2,3,4,5,6,7,8]);
+
+
+
+	console.log("-----localStorage: ")
+	console.log(localStorage.getObject("obj"));
+	console.log(larr);
+	console.log(larr[2]);
+
+	sessionStorage.setObject("obj",obj);	
+	sessionStorage.setObject("arr",[1,2,3,4,5,6,7,8]);
+	console.log("-----sessionStorage: ")
+
+	console.log(sessionStorage.getObject("obj"));
+	var sarr = sessionStorage.getObject("arr");
+	console.log(sarr);
+	console.log(sarr[2]);
+
+
+
+</script>
+</body>
+</html>
