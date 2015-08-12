@@ -46,9 +46,25 @@
 				<script type="text/template">
 # Table of Contents
 * Some contents
-  * Listed in bullets
+	* Listed in bullets
 * More contents
 				</script>
+			</section>
+
+			<section>
+				<section data-markdown>
+#Stuff
+* Collections and Array extensions:
+	* `_.map()`, `_.each()`, `_.pluck()`, `_.sortBy()`, `_.groupBy()`, `_.first()`, `_.last()`, etc...
+* Function extensions:
+	* `_.memoize()`, `_.compose()`
+* Object extensions:
+	* `_.keys(obj)`, `_.values(obj)`, `_.extend(obj, props)`
+* Utility functions:
+	* `_.times(count, callback)`, `_.mixin(obj)`
+* Templates
+* Chaining
+				</section>
 			</section>
 
 			<!--  -->
@@ -101,16 +117,16 @@
 		 * Delegates to the native `forEach` function if supported
 ```javascript
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
-`_.each(numbers, console.log)`;
-`_.each(numbers, function(item)` { console.log(item); }
+_.each(numbers, console.log);
+_.each(numbers, function(item) { console.log(item); }
 // log all the numbers
 ```
 * Can be used with objects as well:
 ```javascript
-`_.each(console, console.log)`;
+_.each(console, console.log);
 // logs all members of the console
 var person = new Person("Doncho", "Minkov");
-`_.each(person, console.log)`;
+_.each(person, console.log);
 // logs Doncho and Minkov
 ```
 				</section>
@@ -126,12 +142,12 @@ var person = new Person("Doncho", "Minkov");
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var numberNames = ["zero", "one", "two", "three", ...]
 function numbersToNames(item) { return numberNames[item];}
-`_.map(numbers, numbersToNames)`;e
+_.map(numbers, numbersToNames);
 // log the number names
 ```
-* Can be used with objects as well:
+	* Can be used with objects as well:
 ```javascript
-`_.map(console, function (item)` {
+_.map(console, function (item)` {
 		return item.toString();
 	});
 ```
@@ -148,8 +164,8 @@ function numbersToNames(item) { return numberNames[item];}
 ```javascript
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 function isEven(number){ return number%2 === 0;}
-var even = `_.filter(numbers, isEven)`;
-var odd = `_.reject(numbers, isEven)`;
+var even = _.filter(numbers, isEven);
+var odd = _.reject(numbers, isEven);
 ```
 				</section>
 				<section data-markdown class="slide-section">
@@ -162,11 +178,11 @@ var odd = `_.reject(numbers, isEven)`;
 	* Returns a subcollection of the original collection
 ```javascript
 var people = [{name: "Ivan Todorov", age: 21},
-					{name: "Todor Ivanov", age: 11},
-					{name: "Petra Georgieva", age: 14},
-					{name: "Georgi Petrov", age: 11},
-					{name: "Stamina Staminova", age: 19}];
-var elevenYearsOld = `_.where(people, {age: 11})`;
+              {name: "Todor Ivanov", age: 11},
+              {name: "Petra Georgieva", age: 14},
+              {name: "Georgi Petrov", age: 11},
+              {name: "Stamina Staminova", age: 19}];
+var elevenYearsOld = _.where(people, {age: 11});
 // returns Todor Ivanov and Georgi Petrov
 ```
 				</section>
@@ -200,7 +216,7 @@ var allEven = _.all(numbers,
 	* A simplified version of `_.map()`
 ```javascript
 var people = [...];
-var lnames = `_.pluck(people, 'lname')`;
+var lnames = _.pluck(people, 'lname');
 // lnames = ['Minkov', 'Kenov', 'Georgiev',
 //           'Kostov', 'Stoyanov' ]
 ```
@@ -217,14 +233,14 @@ var lnames = `_.pluck(people, 'lname')`;
 	* Sort by iterator function
 ```javascript
 var people = [...];
-people = `_.sortBy(people, 'fnames')`;
+people = _.sortBy(people, 'fnames');
 ```
 * `_.groupBy()` groups the elements of a collection
 	* Group by a property
 	* Group by with iterator function
 ```javascript
 var people = [...];
-people = `_.groupBy(people, 'age')`;
+people = _.groupBy(people, 'age');
 ```
 				</section>
 				<section data-markdown class="slide-section">
@@ -253,15 +269,15 @@ people = `_.groupBy(people, 'age')`;
 	* Can be used with a parameter to return the first N elements
 ```javascript
 var numbers = [1, 2, 3, 4, 5];
-var first = `_.first(numbers)`; // 1
-var firstTwo = `_.first(numbers, 2)`; // [1, 2]
+var first = _.first(numbers); // 1
+var firstTwo = _.first(numbers, 2); // [1, 2]
 ```
 * `_.initial()` returns all elements except the last one
 	* Can be used with a parameter to all the elements except the last N
 ```javascript
 var numbers = [1, 2, 3, 4, 5];
-var initial = `_.initial(numbers)`; // [1, 2, 3, 4] 
-var initialTwo = `_.initial(numbers, 2)`; // [1, 2, 3]
+var initial = _.initial(numbers); // [1, 2, 3, 4] 
+var initialTwo = _.initial(numbers, 2); // [1, 2, 3]
 ```
 				</section>
 				<section data-markdown class="slide-section">
@@ -274,15 +290,15 @@ var initialTwo = `_.initial(numbers, 2)`; // [1, 2, 3]
 	* Can be used with a parameter to return the last N elements
 ```javascript
 var numbers = [1, 2, 3, 4, 5];
-var last = `_.last(numbers)`; // 5
-var lastTwo = `_.last(numbers, 2)`; // [4, 5]
+var last = _.last(numbers); // 5
+var lastTwo = _.last(numbers, 2); // [4, 5]
 ```
 * `_.rest()` returns all elements except the first one
 	* Can be used with a parameter to all the elements except the first N
 ```javascript
 var numbers = [1, 2, 3, 4, 5];
-var rest = `_.rest(numbers)`; // [2, 3, 4, 5]
-var restTwo = `_.rest(numbers, 2)`; // [3, 4, 5]
+var rest = _.rest(numbers); // [2, 3, 4, 5]
+var restTwo = _.rest(numbers, 2); // [3, 4, 5]
 ```
 				</section>
 				<section data-markdown class="slide-section">
@@ -297,11 +313,11 @@ var restTwo = `_.rest(numbers, 2)`; // [3, 4, 5]
 				</section>
 				<section data-markdown>
 #Function Extensions
-* Function extensions provide some  additional functionality to regular functions
+* Function extensions provide some additional functionality to regular functions
 * Function extensions:
-	* `_.memorize(func)`
+	* `_.memoize(func)`
 		* Memorizes the invocation of a function
-		* If the function is called again with the same parameters, the memorized result is returned
+		* If the function is called again with the same parameters, the memoized result is returned
 	* `_.compose(func1, func2, func3)`
 		* Returns a composition list of function
 		* The same as func1( func2( func3 () ) );
@@ -318,7 +334,7 @@ var restTwo = `_.rest(numbers, 2)`; // [3, 4, 5]
 				</section>
 				<section data-markdown>
 #Object Extensions
-* Object extensions provide some  additional functionality to regular objects
+* Object extensions provide some additional functionality to regular objects
 * Object extensions:
 	* `_.keys(obj)` – list of all the keys of an object
 	* `_.values(obj)` – list of the values of an object
@@ -327,6 +343,23 @@ var restTwo = `_.rest(numbers, 2)`; // [3, 4, 5]
 				</section>
 				<section data-markdown class="slide-section">
 #Object Extensions
+##Live Demo
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown class="slide-section">
+#Utility Functions
+				</section>
+				<section data-markdown>
+#Utility Functions:
+* `_.times(count, callback)`
+	* Calls callback count times and returns array of the returned values
+* `_.mixin(obj)`
+	* Allows you to extend Underscore
+				</section>
+				<section data-markdown class="slide-section">
+#Utility Functions
 ##Live Demo
 				</section>
 			</section>
