@@ -1,4 +1,4 @@
-## 04. Underscore.js
+## 05. Web Storages
 ### [View Presentation online](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/05.%20Web%20Storages/slides/index.html#/title)
 ### Table of Contents
 *	Cookies - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/05.%20Web%20Storages/slides/index.html#/cookies)
