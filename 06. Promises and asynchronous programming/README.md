@@ -1,4 +1,4 @@
-## 04. Underscore.js
+## 06. Promises and asynchronous programming
 ### [View Presentation online](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html)
 ### Table of Contents
 *	Asynchrony in JavaScript - [go to slide](https://cdn.rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html#/asynchrony-in-js)
