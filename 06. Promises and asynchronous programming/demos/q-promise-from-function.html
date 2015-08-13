@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <div id="answer">The answer to Life, the Universe and Everything is: </div>
+
+    <script>
+        function answerToEverything(offset) {
+            return 42 + offset;
+        }
+
+        Q.fcall(answerToEverything, 50).then(function (theAnswer) {
+            document.getElementById("answer").innerHTML += theAnswer;
+        });
+
+        document.getElementById("answer").innerHTML += " some text ";
+        document.getElementById("answer").innerHTML += " some text ";
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <script>
+        function sqrtPromise(number) {
+            var deferred = Q.defer();
+
+            if (number >= 0) {
+                deferred.resolve(Math.sqrt(number));
+            }
+            else {
+                deferred.reject("number must be positive");
+            }
+            return deferred.promise;
+        }
+
+        //NOTE: Some the demos are commented, in order to prevent crowding of the console. Uncomment the demo you want to see.
+
+        //---Error propagating up to the first error handler
+        //sqrtPromise(-26).then(function (result) {
+        //    return Math.round(result);
+        //}).then(function (result) {
+        //    console.log(result);
+        //}, function (error) {
+        //    console.log(error);
+        //});
+
+        //---No error handler, but finished with done, logging the error as an exception
+        //sqrtPromise(-26).then(function (result) {
+        //    return Math.round(result);
+        //}).then(function (result) {
+        //    console.log(result);
+        //}).done();
+
+        //---Exception in one of the thens, calling the error handler in the next then
+        sqrtPromise(26).then(function (result) {
+            throw { message: "error on purpose", name: "error" };
+            return Math.round(result);
+        }).then(function (result) {
+            console.log(result);
+        }, function (error) { //comment out this function and the .done() below will re-throw the exception
+            console.log(error.message);
+        }).done();
+
+
+    </script>
+</body>
+</html>

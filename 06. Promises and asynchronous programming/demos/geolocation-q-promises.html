@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <div id="location-element">
+    </div>
+
+    <div id="clock">
+    </div>
+
+    <script>
+        var locationElement = document.getElementById("location-element");
+
+        function getGeolocationPositionPromise() {
+            var deferred = Q.defer();
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    deferred.resolve(position);
+                },
+                function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        }
+
+        function parseLatAndLongCoords(geolocationPosition) {
+            if (geolocationPosition.coords) {
+                return { lat: geolocationPosition.coords.latitude, long: geolocationPosition.coords.longitude };
+            }
+            else {
+                throw { message: "No coords element found", name: "UserException" };
+            }
+        }
+
+        function createGeolocationImage(coordsObj) {
+            var imgElement = document.createElement("img");
+
+            var imgSrc = "http://maps.googleapis.com/maps/api/staticmap?center=" + coordsObj.lat + "," + coordsObj.long + "&zoom=13&size=500x500&sensor=false";
+
+            imgElement.setAttribute("src", imgSrc);
+
+            locationElement.appendChild(imgElement);
+        }
+
+        function fadeOutPromise(selector, time) {
+            var deferred = Q.defer();
+
+            var target = $(selector);
+            target.fadeOut(time, null, function () {
+                deferred.resolve(target);
+            });
+
+            return deferred.promise;
+        }
+
+        getGeolocationPositionPromise().
+            then(parseLatAndLongCoords).
+            then(createGeolocationImage).
+            done();
+
+        setInterval(function () {
+            var currentDateTime = new Date();
+            document.getElementById("clock").innerHTML = currentDateTime.getHours() + ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds();
+        }, 1000);
+
+    </script>
+</body>
+</html>

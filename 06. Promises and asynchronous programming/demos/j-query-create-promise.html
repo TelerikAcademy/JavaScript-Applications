@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        function sqrtPromise(a) {
+            var d = $.Deferred();
+
+            d.resolve(Math.sqrt(a));
+
+            return d.promise();
+        }
+
+        sqrtPromise(9).then(function (result) {
+            console.log(result);
+            throw { message: "error", name: "exception" };
+        }).then().then(function () {
+            console.log("last in chain");
+        }, function (error) {
+            console.log(error);
+        });
+        
+    </script>
+</body>
+</html>
