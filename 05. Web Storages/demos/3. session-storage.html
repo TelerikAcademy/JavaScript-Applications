@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>JavaScript APIs - sessionStorage</title>
+<style>
+    body {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #loads-container {
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 15px;
+        border: 1px solid darkgray;
+        font-size: 64px;
+        width:150px;
+        height:80px;
+        position:relative;
+    }
+</style>
+<script>
+    var loadsContainer;
+    window.onload = function onWindowLoaded() {
+        loadsContainer = document.getElementById("loads-container");
+
+        if (!sessionStorage.loadCounter) {
+            sessionStorage.setItem("loadCounter", 0);
+        }
+
+        var loadCounter = sessionStorage.loadCounter;
+        sessionStorage.setItem('loadCounter', parseInt(loadCounter) + 1);
+        loadsContainer.innerHTML = sessionStorage.loadCounter;
+    }
+</script>
+</head>
+<body>
+<h1 id="loads-container"></h1>
+</body>
+</html>

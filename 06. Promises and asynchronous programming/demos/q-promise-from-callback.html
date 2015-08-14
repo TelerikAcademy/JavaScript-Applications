@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <button id="drop-bomb">Drop Bomb</button>
+    <div id="bomb" style="font-size: 20em; color: red"></div>
+    <div id="bomb-report" style="font-size: 10em;" ></div>
+
+    <script>
+        function dropBomb() {
+            var deferred = Q.defer();
+
+            setTimeout(function () {
+                document.getElementById("bomb").innerHTML = "BOOOM";
+                var bombDropDateTime = new Date();
+                deferred.resolve(bombDropDateTime);
+
+                if (error) {
+                    deferred.reject("shot ne me kefish");
+                }
+            }, 3000);
+
+            
+            return deferred.promise;
+        }
+
+        function reportBombDrop(time) {
+            document.getElementById("bomb-report").innerHTML = "Bomb dropped at " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+        }
+
+        document.getElementById("drop-bomb").onclick = function () {
+            dropBomb().then(reportBombDrop);
+        }
+
+
+    </script>
+</body>
+</html>

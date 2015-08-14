@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Applications: Promises and asynchronous programming</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/telerik-academy-dark.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+ 
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="title" class="slide-title">
+                <h1>Promises and Asynchronous Programming</h1>
+                <h2 style="font-size: 1em">Callback-oriented asynchrony, CommonJS Promise/A, Promises in Q, Promises in jQuery
+</h2>
+                <aside class="signature">
+                    <p class="signature-course">JavaScript Applications</p>
+                    <p class="signature-initiative">Telerik Software Academy</p>
+                    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+                </aside>
+            </section>            
+            <section data-markdown style="font-size: 0.9em">
+                <script type="text/template">
+# Table of Contents
+
+*	Asynchrony in JavaScript
+*	Callback-oriented programming
+	*	Simple callbacks
+	*	"Passing values" in callbacks
+	*	Example: Geolocation
+*	Promises
+	*	Overview
+	*	CommonJS Promise/A and A+
+*	Using Promises
+	*	Native with polyfill
+	*	Using a library: Bluebird, RSVP, Q
+*	Async operations with ES6 function generators
+
+                </script>
+            </section>
+            
+            <!-- Asynchrony in JavaScript -->
+            <section>
+                <section data-markdown class="slide-section" id="asynchrony-in-js">
+                    <script type="text/template">
+#	Asynchrony in JavaScript
+##	How to do it
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+#	Asynchrony in JavaScript
+
+*	JavaScript is single-threaded
+	*	Long-running operations block other operations
+*	Asynchronous operations in JavaScript
+	*	Break up long operations into shorter ones
+		*	So other operations can "squeeze in"
+	*	Delayed execution
+		*	Postpone heavy operations to the end of the event loop
+		*	To give event handlers the ability to respond
+					
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+#	Asynchrony in JavaScript
+
+*	Browsers provide some asynchronous APIs
+	*	Web workers
+	*	AJAX
+	*	Geolocation
+	*	CSS3 animations, etc.
+*	All of the above require callbacks
+	*	Functions to call at some point
+		*	When beginning to do work
+		*	After the work is done to transmit values
+					
+                    </script>
+                </section>
+			</section>
+            
+            <!-- Callback-oriented Programming -->
+            <section>
+                <section data-markdown class="slide-section" id="callback-oriented-programming">
+                    <script type="text/template">
+# Callback-oriented Programming
+## with JavaScript
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Callback-oriented Programming
+
+*	Callback function
+	*	A function object passed to another function
+	*	The other function can call the passed one
+	*	The other function can give arguments
+*	Examples of callbacks:
+	*	Event handlers are sort-of callbacks
+	*	setTimeout and setInterval take a callback argument
+	*	Some OOP patterns use callbacks for `_super`
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Simple Callback
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Callback-oriented Programming
+
+*	Callback-oriented programming
+	*	Functions get passed to each other
+	*	Each functions calls the passed ones
+		*	To continue the work
+		*	To process values
+	*	Inversion of control principle ("don't call us, we'll call you")
+	*	Problems:
+		*	"Return" values by passing to other functions
+		*	Heavily nested functions are hard to understand
+		*	Errors and exceptions are a nightmare to process
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Callback with Value Needed by Other Method
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Using Browser-provided Async APIs
+## How to access browser APIs asynchronously
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Using Browser-provided Asynchronous APIs
+
+*	How do asynchronous browser APIs work?
+	*	JavaScript runs in one thread of the browser
+	*	The browser can create other threads
+		*	For its own needs, including async APIs
+*	How do we use asynchronous APIs with JS?
+	*	Request some browser API
+		*	Pass arguments for what you want
+	*	Provide callback methods to execute when the API has processed your request
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Using Browser-provided Asynchronous APIs
+
+*	Using the Geolocation API
+	*	Locating the device takes time
+	*	To request the current position
+		*	Call `navigator.geolocation.getCurrentPosition`
+		*	Pass in a success and error handler
+		*	i.e. pass in callback functions
+		*	Process the data
+		*	Visualize it accordingly
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Callback-based usage of the Geolocation API
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Summary on callback-based usage of Geolocation
+
+*	We need some function nesting
+	*	We want to have good function cohesion
+	*	Provide separate functions for different operations
+*	What will happen with a larger application?
+	*	Lots of levels of nesting
+	*	Nightmarish error-handling
+		*	Errors are easy to get lost
+		*	Handling needs to happen in inappropriate places
+
+                    </script>
+                </section>
+			</section>
+			
+            <!-- Promises -->
+            <section>
+                <section data-markdown class="slide-section" id="promises">
+                    <script type="text/template">
+# Promises
+## The evolution of Callback-oriented programming
+## (switch on your imagination)
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+
+*	A promise is an object which represents an eventual (future) value
+	*	Methods "promise" they will `return` a value
+		*	Correct or representing an error
+*	A Promises can be in one of three states:
+	*	Fulfilled (resolved, succeded)
+	*	Rejected (an error happened)
+	*	Pending (unfulfilled yet, still being computed)
+		
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+
+*	Promise objects can be used in code as if their value is known
+	*	Actually we attach code which executes
+		*	When the promise is fulfilled
+		*	When the promise is rejected
+		*	When the promise reports progress (optionally)
+*	Promises are a pattern 
+	*	No defined implementation, but strict requirements
+	*	Initially described in **CommonJS Promises/A**
+
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 0.95em">
+                    <script type="text/template">
+# Promises
+
+*	More specifically:
+	*	Each promise has a `.then()` method accepting 3 parameters:
+		*	`Success`, `Error` and `Progress` functions
+		*	All parameters are optional
+	*	So we can write:
+
+```javascript
+promiseMeSomething()
+	.then(function (value) {
+		//handle success here
+	}, function (reason) {
+		//handle error here
+	});
+```
+Provided  `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+					
+*	Each `.then()` method returns a promise in turn
+	*	Meaning promises can be chained:
+
+```javascript
+asyncComputeTheAnswerToEverything()
+	.then(addTwo)
+	.then(printResult, onError);
+```	
+*	Promises enable us to:
+	*	Remove the callback functions from the parameters and attach them to the `"result"`
+	*	Make a sequence of operations happen
+	*	Catch errors when we can process them
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+					
+*	The full and modern description of Promises:
+	*	CommonJS Promises/A+
+	
+		http://promises-aplus.github.io/promises-spec/
+	*	An improvement of the Promises/A description
+	*	Better explanation of border cases
+	*	Several libraries fulfill the A+ spec:
+		*	A notable example is Kris Kowal's Q library
+	
+			https://github.com/kriskowal/q
+
+                    </script>
+                </section>
+			</section>
+            
+            <!-- The Q Promise Library -->
+            <section>
+                <section data-markdown class="slide-section" id="q-promise-library">
+                    <script type="text/template">
+# The Q Promise Library
+## A rich CommonJS Promises/A+ library
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Getting Started with Q
+
+*	Some ways of using the Q module:
+	*	Option 1: Download it from the Q repository
+		*	Add the q.js or q.min.js file to your project
+		*	Reference it with a `<script>` tag
+		*	The Q library will create a global Q object you can use
+	*	Option 2: Using NuGet in Visual Studio
+		*	Open the Package Manager Console
+		*	Type `Install-Package Q`
+		*	Go to step 2 in the previous option
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Getting Started with Q
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Creating Promises from Function Values
+
+*	Creating Promises with Q
+	*	We can make a regular function into a Promise
+	*	i.e. we take the return value as the value of the function
+	*	Using the function `Q.fcall()`
+	*	First parameter is the function to call
+	*	The following parameters are passed into the called function
+	*	The return value of `.fcall()` is a promise with the function's return value
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Creating Promises from Function Values
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 0.7em">
+                    <script type="text/template">
+# Creating Promises from 
+# Callback-based Functions
+
+*	Promises from callback-based functions
+	*	Often we need to wrap a callback in a promise
+	*	We can use the `Deferred` object in Q	
+	```javascript
+	var deferred = Q.defer()
+	```
+	*	`Deferred` is an object which can
+		*	self-fulfill itself with some argument:
+		```javascript
+		deferred.resolve(result)
+		```
+		*	Or self-reject itself with an error:
+		```javascript
+		deferred.reject(reason)
+		```
+		*	Get the promise which will be fulfilled/rejected:
+		```javascript
+		deferred.promise
+		```
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Creating Promises from Callback-based Functions
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Full-featured `.then()` in Q
+
+*	The `.then()` method in the Q library
+	*	Follows the specification
+	*	Success, error and progress handlers
+		*	Value returned from the promise is passed to the `success handler`
+		*	Errors in the promise are passed to the `error handler`
+		*	Any progress data the promise reports is passed to the `progress handler`
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Full-featured `.then()` in Q
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promise Chaining in Q
+
+*	Chaining promises
+	*	Each `.then()` method returns a new promise
+	*	The value of the promise is:
+		*	The return value of the success handler, if the previous promise is fulfilled
+		*	The error data if the previous promise failed
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Promise Chaining in Q
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Error Propagation in Q
+
+*	Error propagation
+	*	Errors are propagated up the promise chain
+	*	The first error handler processes the error
+		*	All promises after the error are in the rejected state
+		*	No success handler will be called
+*	`.done()` function
+	*	Good practice to place at the end of chain
+	*	If no error handler is triggered, done will throw an exception
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Error Propagation in Q
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Collections of Promises
+
+*	Use `Q.all([promise1, promise2, …])` to get a promise for a collection of promises:
+	*	Fulfilled when all promises are fulfilled
+		*	Success handler gets the results as an array
+	*	Rejected if any promise is rejected
+		*	Error handler gets the error of the first rejected
+*	Use `.spread()` instead of `.then()` to spread the array of results into`arguments` of success handler
+
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Collections of Promises
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Geolocation with Q Promises
+
+*	We now know the basics of the Q library and Promises
+	*	There's a lot more functionality in Q
+		*	E.g. each promise instance method has a 'static' counterpart:
+		*	`promise.then(…)` and `Q.then(promise, …)`
+	*	Read the [documentation](https://github.com/kriskowal/q/wiki/API-Reference)
+*	We will re-write the Geolocation example
+	*	Without callbacks
+	*	With promises and promise chains
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Geolocation with Q Promises
+## Live Demo
+                    </script>
+                </section>
+			</section>
+            
+            <!-- jQuery Promises -->
+            <section>
+                <section data-markdown class="slide-section" id="promises-in-jquery">
+                    <script type="text/template">
+# Promises in jQuery
+## Creation, Usage, Specifics
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises in jQuery
+					
+*	jQuery supports CommonJS Promises/A
+	*	Since jQuery 1.5
+	*	*almost (details [here](https://gist.github.com/domenic/3889970))
+		*	.then() didn't return a promise until jQuery 1.8
+			*	.pipe() was used
+		*	Errors in handlers don't propagate up
+*	Generally, jQuery promises look and feel the same as Q promises
+	*	Use them the same way, but be cautious
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises in jQuery
+					
+*	The `jQuery.Deferred` object
+	*	Extended, mutable promise
+		*	Just like in Q
+	*	Can resolve and reject itself with arguments
+	*	Can retrieve an immutable promise object
+		*	Which in fact will be resolved/rejected
+		
+```javascript
+var d = jQuery.Deferred(); // $.Deferred()
+d.resolve(result);
+// resolves the deferred, calling success handlers
+d.reject(reason);
+// rejects the deferred, calling error handlers
+d.promise();
+// note here promise is a function
+```
+                    </script>
+                </section>
+                <section data-markdown  class="slide-section">
+                    <script type="text/template">
+# Creating and Using Promises in jQuery
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises in jQuery
+
+*	Specifics of error propagation in jQuery
+	*	Calling reject (from deferred) works as expected
+		*	Only error handlers are called
+	*	Errors in success/error handlers are not propagated
+		*	Thrown exceptions will not be processed by error handlers in the chain
+
+```javascript
+promiseMeSomething().then(function(){
+	invalid code //throws an exception
+}).then(function(){}, function(err){
+	//this error handler will not be called
+})
+```
+                    </script>
+                </section>
+			</section>
+            
+            <!-- ES6 Promises -->
+            <section>
+                <section data-markdown class="slide-section" id="async-operations-es6">
+                    <script type="text/template">
+# Async operations with ES6 function generators
+					
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Async operations with ES6 function generators
+					
+                    </script>
+                </section>
+                <section data-markdown  class="slide-section">
+                    <script type="text/template">
+# Async operations with ES6 function generators
+## Live Demo
+                    </script>
+                </section>
+			</section>
+            
+            <!-- Questions -->
+           <section data-markdown class="slide-questions" id="questions">
+             <script type="text/template">
+                # Promises
+                ## Questions
+             </script>             
+           </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    /* globals Reveal, hljs */
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: 'c / t',
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            /*condition: function() {
+                return !!document.querySelector('pre code');
+            },*/
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>

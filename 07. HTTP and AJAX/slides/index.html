@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Applications: HTTP and AJAX</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/telerik-academy-dark.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+ 
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="title" class="slide-title">
+                <h1>HTTP and AJAX</h1>
+                <h2>WWW, HTTP, AJAX, JSONP</h2>
+                <aside class="signature">
+                    <p class="signature-course">JavaScript Applications</p>
+                    <p class="signature-initiative">Telerik Software Academy</p>
+                    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+                </aside>
+            </section>            
+            <section data-markdown style="font-size: 44px">
+                <script type="text/template">
+# Table of Contents
+
+*	WWW and URL
+*	HTML, XML, JSON, RSS, JSONP
+*	The HTTP Protocol
+	*	HTTP Request
+	*	HTTP Response
+*	Web Services
+*	AJAX Requests
+*	Same-Origin Policy
+	*	Workarounds
+*	JSONP
+*	Web Developer Tools
+                </script>
+            </section>
+            
+            <!-- WWW -->
+            <section>
+                <section data-markdown class="slide-section" id="www">
+                    <script type="text/template">
+# WWW
+## What is WWW?
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# What is WWW?
+
+*	WWW = `World Wide Web` = Web
+	*	Global distributed information system in Internet
+		*	A service in Internet (like E-mail, DNS, ...)
+	*	Consists of set of documents (and other resources) located on different Internet servers
+		*	Accessed through standard protocols like HTTP, HTTPS and FTP by their URL
+	*	`Web servers` provide Web content
+	*	`Web browsers` display the Web content
+					
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# WWW Components
+
+*	Structural components
+	*	Internet – provides data transfer channels over the TCP and HTTP protocols
+	*	Clients (Web browsers) – display Web content
+	*	Web servers – IIS, Apache, Tomcat, GWS, etc.
+*	Semantic components
+	*	Hyper Text Transfer Protocol (`HTTP`)
+	*	Hyper Text Markup Language (`HTML`)
+	*	Uniform Resource Locator (`URL`)
+	*	Uniform Resource Identifiers (`URIs`)					
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# WWW Infrastructure
+
+*	Clients use Web browser application to request resources from the Web servers via HTTP
+	*	Resources have unique URL address
+*	Servers send the requested resource as a response
+	*	Or reply with an error message
+*	Web pages are resources in WWW
+	*	HTML text, graphics, animations and other files
+*	Web sites
+	*	Web sites are sets of Web pages in WWW
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# WWW Infrastructure
+
+*	Client’s browser renders Web pages returned by the Web servers
+	*	Pages are in HTML (Hyper Text Markup Language)
+	*	Browsers show the text, graphics, sounds, etc.
+	*	HTML pages contain hyperlinks to other pages
+*	The entire WWW system runs over standard networking protocols
+	*	TCP, DNS, HTTP, FTP, …
+*	The HTTP protocol is fundamental for WWW
+                    </script>
+                </section>
+			</section>
+			
+			<!-- url -->
+            <section>
+                <section data-markdown class="slide-section" id="url">
+                    <script type="text/template">
+# URL
+## What is URL?
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# URL
+
+*	Uniform Resource Locator (URL)
+	*	Unique resource location in WWW, e.g.
+
+```http
+http://yoursite.com:8080/path/index.php?id=27&lang=en
+```
+*	It is just a formatted string, consisting of:
+	*	Protocol for communicating with the server (e.g., `http`, `ftp`, `https`, ...)
+	*	Name of the server or IP address + optional port (e.g. `www.telerik.com`, `mail.bg:8080`)
+	*	Path and name of the resource (e.g. `index.php`)
+	*	Parameters (optional, e.g. `?id=27&lang=en`)
+			
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# 	URL
+
+*	URLs are encoded according RFC 1738:
+
+```xml
+“... Only alphanumeric [0-9a-zA-Z], the special characters 
+$-_.+!*'() and reserved characters used for their reserved 
+purposes may be used unencoded within an URL.”
+```
+*	All other characters are escaped with the formula:
+```xml
+%[character hex code in ISO-Latin character set]
+```
+	*	Example: space has decimal code 32, in hex – 20, so space in URL becomes `%20`
+	*	Space can also be encoded as "`+`"
+		
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+#URL – Examples
+
+*	Some valid URLs:
+
+```http
+http://www.google.bg/search?sourceid=navclient&ie=UTF-8&
+rlz=1T4GGLL_enBG369BG369&q=http+get+vs+post
+```
+
+```http
+http://bg.wikipedia.org:80/wiki/
+%D0%A2%D0%B5%D0%BB%D0%B5%D1%80%D0%B8%D0%B3
+```
+*	Some invalid URLs:
+
+```http
+http://www.google.bg/search?&q=C# .NET 4.0
+```
+
+```http
+http://www.google.bg/search?&q=бира
+```
+ 
+*	Should be: ?q=C%23+.NET+4.0 <!-- .element: class="fragment balloon" style="top:60%;right:10%" -->
+*	Should be: ?q=%D0%B1%D0%B8%D1%80%D0%B0 <!-- .element: class="fragment balloon" style="top:83%;right:10%" -->
+                    </script>
+                </section>
+			</section>
+            
+            <!-- HTML, XML, JSON, RSS -->
+            <section>
+                <section data-markdown class="slide-section"  id="html-xml-rss-json">
+                    <script type="text/template">
+# HTML, XML, JSON, RSS
+## Comparing the Common Web Data Formats
+                    </script>
+                </section>
+                <section data-markdown id="html">
+                    <script type="text/template">
+# HTML
+
+*	`H`yper `T`ext `M`arkup `L`anguage (`HTML`)
+	*	Notation for describing formatted text with images and hyperlinks
+	*	Interpreted and displayed by the Web browsers
+*	A Web (`HTML`) page consists of:
+	*	HTML file
+	*	CSS stylesheet file (optional)
+	*	A bunch of images (optional)
+	*	Other resources (optional)
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTML
+
+*	HTML is straight-forward and easy to learn
+	*	HTML documents are plain text files
+		*	Easy to add formatting, hyperlinks, bullets, etc.
+		*	Images can be added as separate files
+	*	Can be automatically generated by authoring programs
+		*	Tools to help users creating HTML pages
+		*	E.g. FrontPage, Dreamweaver, Visual Studio
+		*	WYSIWYG HTML editors
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTML – Example
+
+```html
+<html>
+  <head><title>HTML Example</title></head>
+  <body>
+    <h1>Heading 1</h1>
+    <h2>Sub heading 2</h2>
+    <h3>Sub heading 3</h3>
+    <p>This is my first paragraph</p>
+    <p>This is my second paragraph</p>
+    <div align="center"
+      style="background:skyblue">
+      This is a div</div>	
+  </body>
+</html>
+```
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 0.98em" id="xml">
+                    <script type="text/template">
+# XML
+
+*	XML is markup-language for encoding documents in machine-readable form
+	*	Text-based format
+	*	Consists of tags, attributes and content
+	*	Provide data and meta-data in the same time
+
+```xml
+<?xml version="1.0"?>
+<library>
+  <book><title>HTML 5</title><author>Bay Ivan</author></book>
+  <book><title>WPF 4</title><author>Microsoft</author></book>
+  <book><title>WCF 4</title><author>Kaka Mara</author></book>
+  <book><title>UML 2.0</title><author>Bay Ali</author></book>
+</library>
+```
+<img src="imgs/xml.png" style="position:absolute; top:8%; right:0%; width:20%; border:none; background:none; box-shadow:none" />
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.98em" id="rss">
+                    <script type="text/template">
+# RSS
+
+*	RSS (Really Simple Syndication)
+	*	Family of Web feed formats for publishing frequently updated works
+		*	E.g. blog entries, news headlines, videos, etc.
+	*	Based on XML, with standardized XSD schema
+*	RSS documents (feeds) are list of items
+	*	Each containing title, author, publish date, summarized text, and metadata
+*	Atom protocol aimed to enhance / replace RSS
+
+<img src="imgs/rss.png" style="position:absolute; top:-5%; right:15%; width:20%; border:none; background:none; box-shadow:none" />
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# RSS – Example
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+  <title>W3Schools Home Page</title>
+  <link>http://www.w3schools.com</link>
+  <description>Free web building tutorials</description>
+  <item>
+    <title>RSS Tutorial</title>
+    <link>http://www.w3schools.com/rss</link>
+    <description>New RSS tutorial on W3Schools</description>
+  </item>
+  <item>
+    <title>XML Tutorial</title>
+    <link>http://www.w3schools.com/xml</link>
+    <description>New XML tutorial on W3Schools</description>
+  </item>
+</channel>
+</rss>
+```
+                    </script>
+                </section>
+                <section data-markdown id="json">
+                    <script type="text/template">
+# JSON
+
+*	JSON (JavaScript Object Notation)
+	*	Standard for representing simple data structures and associative arrays
+	*	Lightweight text-based open standard
+	*	Derived from the JavaScript language
+
+```json
+{
+  "firstName": "John", "lastName": "Smith", "age": 25,
+  "address": { "streetAddress": "33 Alex. Malinov Blvd.",
+     "city": "Sofia", "postalCode": "10021" },
+  "phoneNumber": [
+	{ "type": "home", "number": "212 555-1234"},
+    { "type": "fax", "number": "646 555-4567" }]
+},
+{ "firstName": "Bay", "lastName": "Ivan", "age": 79 }
+```
+<img src="imgs/json.png" style="position:absolute; top:30%; right:0%; width:20%; border:none; background:none; box-shadow:none" />
+                    </script>
+                </section>
+			</section>
+            
+            <!-- HTTP protocol -->
+            <section>
+                <section data-markdown class="slide-section" id="http-protocol">
+                    <script type="text/template">
+# The HTTP Protocol
+## How HTTP Works?
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP
+
+*	`H`yper `T`ext `T`ransfer `P`rotocol (HTTP)
+	*	Client-server protocol for transferring Web resources (HTML files, images, styles, etc.)
+*	Important properties of HTTP
+	*	Request-response model
+	*	Text-based format
+	*	Relies on unique resource URLs
+	*	Provides resource metadata (e.g. encoding)
+	*	Stateless (cookies can overcome this)
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP: Request-Response Protocol <!-- .element: style="font-size:1.1em" -->
+
+*	Client program
+	*	Running on end host
+	*	E.g. Web browser
+	*	Requests a resource
+*	Server program <!-- .element: style="position:absolute; top:12%; right:0%" -->
+	*	Running at the server
+	*	E.g. Web server
+	*	Provides resources
+
+`GET /index.html HTTP/1.0`<!-- .element: style="position:absolute; top:55%; left:35%; font-size:0.7em; width: 30%; text-align:center" -->
+`HTTP/1.0 200 OK "Welcome to our Web site!"`<!-- .element: style="position:absolute; top:73%; left:35%; font-size:0.7em; width: 30%; text-align:center" -->
+
+<img src="imgs/arrow-right.png" style="position:absolute; top:45%; left:26%; width:50%; border:none; background:none; box-shadow:none" />
+<img src="imgs/arrow-left.png" style="position:absolute; top:75%; left:23%; width:50%; border:none; background:none; box-shadow:none" />
+<img src="imgs/client.png" style="position:absolute; top:50%; left:0%; width:25%; border:none; background:none; box-shadow:none" />
+<img src="imgs/server.png" style="position:absolute; top:55%; right:0%; width:25%; border:none; background:none; box-shadow:none" />
+
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.85em">
+                    <script type="text/template">
+# Example: Hyper Text Transfer Protocol <!-- .element: style="font-size:1.1em" -->
+
+*	HTTP request:
+
+```http
+GET /academy/about.aspx HTTP/1.1
+Host: www.telerik.com
+User-Agent: Mozilla/5.0
+<CRLF>
+```
+The empty line denotes the end of the request header <!-- .element; class="balloon fragment" style="top:30%; right:25%; width:30%" -->
+
+*	HTTP response:
+
+```http
+HTTP/1.1 200 OK
+Date: Mon, 5 Jul 2010 13:09:03 GMT
+Server: Microsoft-HTTPAPI/2.0
+Last-Modified: Mon, 12 Jul 2010 15:33:23 GMT
+Content-Length: 54
+<CRLF>
+<html><title>Hello</title>
+Welcome to our site</html>
+```
+The empty line denotes the end of the response header  <!-- .element; class="balloon fragment" style="top:65%; right:25%; width:30%" -->
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP Request Message
+
+*	Request message sent by a client consists of
+	*	Request line – request method (GET, POST, HEAD, ...), resource URI, and protocol version
+	*	Request headers – additional parameters
+	*	Body – optional data
+		*	E.g. posted form data, files, etc.
+		
+```xml
+<request method> <resource> HTTP/<version>
+<headers>
+<empty line>
+<body>
+```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP GET Request – Example <!-- .element: style="font-size:1.1em" -->
+
+*	Example of HTTP GET request:
+
+```http
+GET /academy/winter-2009-2010.aspx HTTP/1.1
+Host: www.telerik.com
+Accept: */*
+Accept-Language: bg
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0(compatible;MSIE 6.0; Windows NT 5.0)
+Connection: Keep-Alive
+Cache-Control: no-cache
+<CRLF>
+```
+<!-- */ -->
+
+*	HTTP request line <!-- .element; class="balloon fragment" style="top:26%; right:8%" -->
+*	HTTP headers  <!-- .element; class="balloon fragment" style="top:40%; right:30%" -->
+*	The request body is empty <!-- .element; class="balloon fragment" style="top:62%; right:37%" -->
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP POST Request – Example <!-- .element: style="font-size:1.1em" -->
+
+*	Example of HTTP POST request:
+
+```http
+POST /webmail/login.phtml HTTP/1.1
+Host: www.abv.bg
+Accept: */*
+Accept-Language: bg
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0(compatible;MSIE 6.0; Windows NT 5.0)
+Connection: Keep-Alive
+Cache-Control: no-cache
+Content-Length: 59
+<CRLF>
+LOGIN_USER=mente
+DOMAIN_NAME=abv.bg
+LOGIN_PASS=top*secret!
+<CRLF>
+```
+<!-- */ -->
+
+*	HTTP request line <!-- .element; class="balloon fragment" style="top:25%; right:21%" -->
+*	HTTP headers  <!-- .element; class="balloon fragment" style="top:37%; right:30%" -->
+*	The request body contains the submitted form data <!-- .element; class="balloon fragment" style="top:64%; right:30%; width:30%" -->
+
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.97em">
+                    <script type="text/template">
+# Conditional HTTP GET – Example <!-- .element: style="font-size:1.1em" -->
+
+*	Example of HTTP conditional GET request:
+
+```http
+GET /academy/join.aspx HTTP/1.1
+Host: www.telerik.com
+User-Agent: Gecko/20100115 Firefox/3.6
+If-Modified-Since: Tue, 9 Mar 2010 11:12:23 GMT
+<CRLF>
+```
+*	Fetches the resource only if it has been changed at the server
+	*	Server replies with “`304 Not Modified`” if the resource has not been changed
+	*	Or “`200 OK`” with the latest version otherwise
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP Response Message
+
+*	Response message sent by the server
+	*	Status line – protocol version, status code, status phrase
+	*	Response headers – provide meta data
+	*	Body – the contents of the response (the requested resource)
+
+```http
+HTTP/<version> <status code> <status text>
+<headers>
+<CRLF>
+<response body – the requested resource>
+```
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.95em">
+                    <script type="text/template">
+# HTTP Response – Example
+
+*	Example of HTTP response from the Web server:
+
+```http
+HTTP/1.1 200 OK
+Date: Fri, 17 Jul 2010 16:09:18 GMT+2 
+Server: Apache/2.2.14 (Linux)
+Accept-Ranges: bytes
+Content-Length: 84
+Content-Type: text/html
+<CRLF>
+<html>
+  <head><title>Test</title></head>
+  <body>Test HTML page.</body>
+</html>
+```
+
+*	HTTP response status line <!-- .element; class="balloon fragment" style="top:22%; left:30%" -->
+*	HTTP response headers  <!-- .element; class="balloon fragment" style="top:39%; left:40%" -->
+*	The HTTP response body <!-- .element; class="balloon fragment" style="top:56%; left:55%" -->
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP Response – Example
+
+*	Example of HTTP response with error result:
+
+```http
+HTTP/1.1 404 Not Found
+Date: Fri, 17 Jul 2010 16:09:18 GMT+2
+Server: Apache/2.2.14 (Linux)
+Connection: close
+Content-Type: text/html
+<CRLF>
+<HTML><HEAD>
+<TITLE>404 Not Found</TITLE>
+</HEAD><BODY>
+<H1>Not Found</H1>
+The requested URL /img/telerik-logo.gif was not 
+found on this server.<P>
+<HR><ADDRESS>Apache/2.2.14 Server at Port 80</ADDRESS>
+</BODY></HTML>
+```
+
+*	HTTP response status line <!-- .element; class="balloon fragment" style="top:23%; left:41%" -->
+*	HTTP response headers  <!-- .element; class="balloon fragment" style="top:40%; left:40%" -->
+*	The HTTP response body <!-- .element; class="balloon fragment" style="top:56%; left:55%" -->
+
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.95em">
+                    <script type="text/template">
+# Content-Type and Disposition
+
+*	The Content-Type header at the server specifies how the output should be processed
+*	Examples:
+
+```http
+Content-Type: text/html; charset=utf-8
+```
+
+```http
+Content-Type: application/pdf
+Content-Disposition: attachment;
+  filename="Financial-Report-April-2010.pdf"
+```
+
+<div>UTF-8 encoded HTML page. Will be shown in the browser</div> <!-- .element; class="balloon fragment" style="top:30%; left:41%; width:31%" -->
+<div>This will download a PDF file named `Financial-Report-April-2010.pdf`</div>  <!-- .element; class="balloon fragment" style="top:64%; left:40%; Width: 44%" -->
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP Request Methods
+
+*	HTTP request methods:
+	*	`GET`
+		*	Return the specified resource, run a program at the server, or just download file, …
+	*	`HEAD`
+		*	Return the meta-data associated with a resource (headers only)
+	*	`POST`
+		*	Update a resource, provide input data for processing at the server, …
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# HTTP Response Codes
+
+*	HTTP response code classes
+	*	`1xx`: informational (e.g., "`100 Continue`")
+	*	`2xx`: success (e.g., "`200 OK`")
+	*	`3xx`: redirection (e.g., "`304 Not Modified`", "`302 Found`")
+	*	`4xx`: client error (e.g., "`404 Not Found`")
+	*	`5xx`: server error (e.g., "`503 Service Unavailable`")
+*	"`302 Found`" is used for redirecting the Web browser to another URL
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Browser Redirection
+
+*	HTTP browser redirection example
+	*	HTTP GET requesting a moved URL:
+```http
+GET / HTTP/1.1
+Host: academy.telerik.com
+User-Agent: Gecko/20100115 Firefox/3.6
+<CRLF>
+```
+	*	The HTTP response says the browser should request another URL:
+```http
+HTTP/1.1 301 Moved Permanently
+Location: http://www.telerik.com/academy/
+…
+```
+                    </script>
+                </section>
+			</section>
+            
+            <!-- Web Services -->
+            <section>
+                <section data-markdown class="slide-section" id="web-services">
+                    <script type="text/template">
+# Web Services
+## Web Services and SOA Architecture
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Web Services
+
+*	A web service is a method of communication between two devices in WWW
+	*	The server device exposes services
+	*	The client consumes these services
+*	Web services are a main part of the SOA architecture
+	*	Database and Business logic on the server
+		*	The server exposes public services 
+	*	UI logic on the client
+		*	Consumes these services
+                    </script>
+                </section>
+                <section data-markdown class="slide-section" id="restfull-web-services">
+                    <script type="text/template">
+# RESTful Web Services
+## Lightweight Architecture for Web Services
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# What is REST?
+
+```xml
+"Representational state transfer (REST) is a style of 
+software architecture for distributed hypermedia systems 
+such as the World Wide Web."
+```
+[Representational State Transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+
+*	Application state and functionality are resources 
+	*	Resources are used as common data files
+*	Every resource has an URI
+*	All resources share a uniform interface
+*	This natively maps to the HTTP protocol
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# RESTful Services
+
+*	One URI for a resource, multiple operations
+	*	Add a new document "RestTalk" in category "Code"
+		*	PUT http://mysite.com/docs/Code/RestTalk
+	*	Get the document / some page
+		*	GET http://mysite.com/docs/Code/RestTalk
+		*	GET http://mysite.com/docs/Code/RestTalk/pages/3
+	*	Remove the document
+		*	DELETE http://mysite.com/docs/Code/RestTalk
+	*	Retrieve metadata
+		*	HEAD http://mysite.com/docs/Code/RestTalk
+                    </script>
+                </section>
+			</section>
+			
+			<!-- AJAX -->
+			<section>
+                <section data-markdown class="slide-section" id="ajax">
+                    <script type="text/template">
+# AJAX
+## Asynchronous JavaScript and XML
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# AJAX
+
+*	AJAX is acronym of `Asynchronous JavaScript and XML`
+	*	Technique for background loading of dynamic content and data from the server side
+	*	Allows dynamic client-side changes
+*	Two types of AJAX
+	*	Partial page rendering – loading of HTML fragment and showing it in a `<div>` (AHAH)
+	*	JSON service – loading JSON object and client-side processing it with JavaScript / jQuery
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# AJAX
+
+*	Technically, AJAX is a group of technologies working together
+	*	HTML & CSS for presentation
+	*	The DOM for data display & interaction
+	*	XML (or JSON) for data interchange
+	*	XMLHttpRequest for async communication
+	*	JavaScript to use the above
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# AJAX
+
+*	AJAX uses HTTP
+	*	Requests have headers – GET, POST, HEAD, etc.
+	*	Requests have bodies – XML, JSON or plain text
+	*	The request must target a resource with a URI
+	*	The resource must understand the request
+		*	Server-side logic
+	*	Requests get a HTTP Response
+		*	Header with a body
+                    </script>
+                </section>
+			</section>
+				
+							
+			<!-- The Same Origin Policy -->
+			<section>
+                <section data-markdown class="slide-section" id="same-origin-policy">
+                    <script type="text/template">
+# The Same Origin Policy
+## i.e. Don't talk to strangers
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Same Origin Policy
+
+*	Security concept for browser-side programming languages
+*	Scripts running on pages from the same site
+	*	i.e. the same `origin`
+	*	Can access each other without restriction
+*	Scripts cannot access pages on different sites
+*	This also applies to XMLHttpRequest
+	*	Sent only between pages with same `origin`
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Origin Determination Rules
+
+*	Origin is defined using
+	*	Domain name (e.g. example.com)
+	*	Application layer protocol (e.g. http)
+	*	Port number (not all browsers!)
+	*	Two resources are of the same origin if all of the above match
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Origin Determination Example
+
+*	Say we have a resource at http://www.example.com/dir/page.html 
+*	The following table shows outcomes of origin checks with resources at similar URLs
+
+<img src="imgs/origin-policy.png" style="position:absolute; top:50%; left:0%; border:none; background:none;" />
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Relaxing Same Origin Policy
+
+*	Same origin policy is sometimes too restrictive
+	*	Large sites with lots of subdomains
+	*	Accessing web services
+*	Ways of "relaxing"
+	*	document.domain – can be set to a superdomain when in proper subdomain
+	*	Cross document messaging – HTML5, postMessage() to page in `<iframe>`
+	*	Cross Origin Resource Sharing
+*	Workaround – JSONP
+                    </script>
+                </section>
+			</section>
+            
+            <!-- JSONP -->
+            <section>
+                <section data-markdown class="slide-section" id="jsonp">
+                    <script type="text/template">
+# JSONP
+## i.e. not listening to mommy
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.95em">
+                    <script type="text/template">
+# JSONP
+
+*	JSON with padding (also JSON prefix)
+*	Same origin policy denies cross-origin requests
+	*	But not for the `<script>` tag
+	*	The `<script>` tag can be exploited
+*	Retrieve JS code and the browser executes it
+	*	In the case of a service, we get a JSON object
+	*	The script tag can have a callback
+```html
+<script type="text/javascript"
+src="http://server2.example.com/Users/1234?
+jsonp=parseResponse"></ script>
+```
+	*	We receive `parseResponse(…)`
+                    </script>
+                </section>
+                <section data-markdown style="font-size:0.95em">
+                    <script type="text/template">
+# JSONP – How it Works
+
+*	After the script URL, we add a query parameter `?jsonp=` (or `?callback=`)
+	*	This parameter tells the server what to return
+	*	The server wraps its return value in the specified callback
+	*	Example
+	*	server returns a JSON object `{"age":"5"}`
+	*	the query parameter is `?callback=parseResponse`
+	*	The browser executes the following JS code:
+```
+parseResponse({"age":"5"})```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# JSONP – the "Padding"
+
+*	The callback function in the example is called the "padding"
+*	Typically its used to pass the JSON to a function, which acts as a handler, but it can be anything else
+	*	Variable assignment, `if` statement, etc.
+	*	What we receive is JS code, not JSON
+		*	This is a security concern
+                    </script>
+                </section>
+			</section>
+            
+            <!-- Web Developer Tools -->
+            <section>
+                <section data-markdown class="slide-section" id="web-developer-tools">
+                    <script type="text/template">
+# Web Developer Tools
+## Simulating and Tracking Web Traffic
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Web Developer Tools
+
+*	Firebug plug-in for Firefox
+	*	A must have for Web developers
+	*	The ultimate tool for monitoring, editing and debugging HTTP, HTML, CSS, JavaScript, etc.
+	*	Free, open-source – [www.getfirebug.com](http://getfirebug.com/)
+*	Fiddler – HTTP proxy
+	*	Intercepts the HTTP traffic
+	*	Analyzes the HTTP conversation
+	*	Free tool (by Telerik) – [www.telerik.com/fiddler](http://www.telerik.com/fiddler) 
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Web Developer Tools
+
+*	Web Developer Tools
+	*	Built-in in Google Chrome and Opera
+	*	Network requests logging
+	*	Code execution timeline
+*	Postman
+	*	Google app
+	*	Perform HTTP requests
+	*	Get from [Chrome web store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=chrome-ntp-icon)
+
+                    </script>
+                </section>
+			</section>
+           
+            <!-- Questions -->
+           <section data-markdown class="slide-questions" id="questions">
+             <script type="text/template">
+                # HTTP and AJAX
+                ## Questions
+             </script>             
+           </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    /* globals Reveal, hljs */
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: 'c / t',
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            /*condition: function() {
+                return !!document.querySelector('pre code');
+            },*/
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>

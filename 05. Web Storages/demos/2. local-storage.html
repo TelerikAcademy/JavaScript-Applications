@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>JavaScript APIs - localStorage</title>
+    <style>
+        #pairs-container {
+            border-radius: 15px;
+            border: 3px solid black;
+            width:300px;
+            padding:15px;
+        }
+
+            #pairs-container ul {
+                list-style-type:none;
+            }
+                #pairs-container ul li {
+                    word-break:break-all;
+                    
+                }
+        input[type=text], textarea {
+            width:300px;
+        }
+    </style>
+
+    <script>
+        function loadPairs() {
+            if (!localStorage.length || localStorage.length == 0) {
+                document.getElementById("pairs-container").innerHTML = "{ key:empty, value=empty}";
+                return;
+            }
+            var resultHTML = "<ul>";
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                resultHTML +=
+                '<li>' +
+                '{<strong>key</strong>: "' + key + '", <br/><strong>value</strong>: "' + localStorage.getItem(key) + '"}' +
+                '</li>';
+            }
+            resultHTML += "</ul>";
+            document.getElementById("pairs-container").innerHTML = resultHTML;
+        }
+
+        function onSaveButtonClick() {
+            var key = document.getElementById("tb-key").value;
+            var value = document.getElementById("value-text").value;
+            localStorage.setItem(key, value);
+            loadPairs();
+        }
+
+        function onLoadButtonClick() {
+            var key = document.getElementById("tb-key").value;
+            document.getElementById("value-text").value = localStorage.getItem(key);
+        }
+
+        function onRemoveButtonClick() {
+            var key = document.getElementById("tb-key").value;
+            localStorage.removeItem(key);
+            loadPairs();
+        }
+
+        function onClearStorageButtonClick() {
+            localStorage.clear();
+            loadPairs();
+        }
+    </script>
+</head>
+<body onload="loadPairs()">
+    <input type="text" name="tb-key" id="tb-key" value="" /> <br />
+    <textarea id="value-text"> </textarea><br />
+    <button onclick="onSaveButtonClick()">Save</button>
+    <button onclick="onLoadButtonClick()">Load</button>
+    <button onclick="onRemoveButtonClick()">Remove</button>
+    <button onclick="onClearStorageButtonClick()">Clear storage</button>
+    <div id="pairs-container">
+    </div>
+</body>
+</html>

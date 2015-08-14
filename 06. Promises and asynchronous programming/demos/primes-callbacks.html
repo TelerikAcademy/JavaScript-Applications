@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <button id="calculate-primes-button">
+        Calculate Primes
+    </button>
+
+    <div id="array-display-element"></div>
+
+    <script>
+
+        var isPrime = function (number) {
+            for (var i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        var calculatePrimes = function (rangeStart, rangeLast) {
+            var currNum;
+            var primes = [];
+
+            for (currNum = rangeStart; currNum <= rangeLast; currNum++) {
+                if (isPrime(currNum)) {
+                    primes.push(currNum);
+                }
+            }
+
+            return primes;
+        }
+
+        var displayPrimesAsync = function (rangeStart, rangeEnd, displayFunction) {
+            setTimeout(function (rangeStart, rangeEnd) {
+                var primes = calculatePrimes(rangeStart, rangeEnd)
+                displayFunction(primes);
+            }, 0, rangeStart, rangeEnd);
+        }
+        
+        var writeArray = function (theArray) {
+            var targetElement = document.getElementById("array-display-element");
+            targetElement.innerHTML += theArray.join(", ") + " ";
+        }
+
+        var calculatePrimesButton = document.getElementById("calculate-primes-button");
+        calculatePrimesButton.onclick = function () {
+            displayPrimesAsync(2, 100000, writeArray);
+        }
+
+    </script>
+</body>
+</html>

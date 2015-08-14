@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <script>
+
+        function sumPromise(a, b) {
+            var d = Q.defer();
+
+            d.resolve(a + b);
+
+            return d.promise;
+        }
+
+        function sqrtPromise(a) {
+            var d = Q.defer();
+
+            d.resolve(Math.sqrt(a));
+
+            return d.promise;
+        }
+
+        Q.all([sumPromise(2, 3), sqrtPromise(9)]).spread(function (first, second) {
+            console.log(first, second);
+        });
+
+    </script>
+</body>
+</html>

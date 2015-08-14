@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <script>
+        function countOddInArray(numbers) {
+            var deferred = Q.defer();
+
+            //In order to see the progress handler working, we need to have something which is actually still running. Uncomment the commented lines, which will delay the execution, to see the progress function in action
+            setTimeout(function () {
+            if (numbers) {
+                var i;
+                var count = 0;
+                for (i = 0; i < numbers.length; i++) {
+                    if (numbers[i] % 2 == 1) {
+                        count++;
+                    }
+
+                    deferred.notify((i / numbers.length) * 100);
+                }
+
+                deferred.resolve(count);
+            }
+            else {
+                deferred.reject("numbers is null or undefined");
+            }
+            }, 1000);
+
+            return deferred.promise;
+        }
+
+        countOddInArray([1, 2, 3, 4, 5]).
+            then(function (oddCount) {
+                console.log(oddCount);
+            }, function (error) {
+                console.log(error);
+            }, function (progress) {
+                console.log(progress);
+            });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/q.js"></script>
+</head>
+<body>
+    <script>
+        function sqrtPromise(number) {
+            var deferred = Q.defer();
+
+            deferred.resolve(Math.sqrt(number));
+
+            return deferred.promise;
+        }
+
+        sqrtPromise(26).then(function (result) {
+            throw { message: "oops", name: "someexception" };
+            return sqrtPromise(result);
+        }).then(function (result) {
+            console.log(result);
+        }, function (error) {
+            console.log("Gyrmim syvsem kulturno: " + error.message);
+        });
+
+    </script>
+</body>
+</html>
