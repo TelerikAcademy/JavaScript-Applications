@@ -121,6 +121,7 @@ _.each(numbers, console.log);
 _.each(numbers, function(item) { console.log(item); }
 // log all the numbers
 ```
+
 * Can be used with objects as well:
 ```javascript
 _.each(console, console.log);
@@ -217,7 +218,7 @@ var allEven = _.all(numbers,
 ```javascript
 var people = [...];
 var lnames = _.pluck(people, 'lname');
-// lnames = ['Minkov', 'Kenov', 'Georgiev',
+// lnames = [ 'Minkov', 'Kenov', 'Georgiev',
 //           'Kostov', 'Stoyanov' ]
 ```
 				</section>
@@ -321,6 +322,32 @@ var restTwo = _.rest(numbers, 2); // [3, 4, 5]
 	* `_.compose(func1, func2, func3)`
 		* Returns a composition list of function
 		* The same as func1( func2( func3 () ) );
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+#Functions: memoize()
+* `_.memoize(func)`
+```javascript
+var fib = _.memoize(function(n) {
+	if(n < 2) return 2;
+	return fib(n-1) + fib(n-2);
+});
+console.log(fib(100));
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+#Functions: compose()
+* `_.compose(...)`
+```javascript
+var func1 = function(x) {return x + ' first';};
+var func2 = function(x) {return x + ' second';};
+var func3 = function(x) {return x + ' third';};
+var func = _.compose(func3, func2, func1);
+console.log(func('zero'));
+```
+					</script>
 				</section>
 				<section data-markdown class="slide-section">
 #Function Extensions
