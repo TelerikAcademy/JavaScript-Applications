@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Loop GIFs</title>
+    <style>
+        body, div, img {
+            margin: 0;
+        }
+
+        #gifs > img {
+            display: block;
+            float: left;
+            width: 49vw;
+            height: 50vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="gifs">
+        <h1>GIFS GO HERE!!</h1>
+    </div>
+
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        System.import('lib/main');
+    </script>
+</body>
+</html>

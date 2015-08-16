@@ -1,0 +1,22 @@
+<!doctype html>
+  <script src="jspm_packages/system@0.6.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import('markdown-component')
+    .catch(function(e) {
+      setTimeout(function() {
+        throw e;
+      });
+    });
+  </script>
+<body>
+  <x-markdown-component>
+   ### MARKDOWN
+   this really [works](google.com) 
+   ```language-javascript
+     System.import('stuff').then(function(m) {
+       // modules yay
+     });
+   ```
+  </x-markdown-component>
+</body>

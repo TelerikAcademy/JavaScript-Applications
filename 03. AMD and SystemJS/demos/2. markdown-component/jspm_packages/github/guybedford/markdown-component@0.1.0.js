@@ -1,0 +1,1 @@
+export * from "github:guybedford/markdown-component@0.1.0/markdown-component";

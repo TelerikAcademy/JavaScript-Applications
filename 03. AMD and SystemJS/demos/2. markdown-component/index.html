@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Markdown component</title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        System.import('app/app');
+    </script>
+</head>
+<body>
+    <div class="jumbotron">
+        <x-markdown-component>
+            # This is markdown component
+
+            It parses markdown with web components and ES6 modules
+
+            ```javascript
+            System.import('se6').then(function(modules) {
+            // yay
+            });
+            ```
+        </x-markdown-component>
+    </div>
+<div>
+    <button type="button" class="btn  btn-default">Click me</button>
+</div>
+</body>
+</html>
