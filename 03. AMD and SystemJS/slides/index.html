@@ -47,20 +47,18 @@
 # Table of Contents
 
 *	AMD
-	*	Modules and Module Loaders
-*	jspm.io
-*	ES6 Module Loader
+	*	Modules and Modules with dependecies
+*	ES6 Modules
 *	SystemJS
-	*	Creating Modules
-	*	Loading Modules
-	*	Creating dependecies
+	*	jspm.io
+	*	Creating and Loading Modules, Creating dependecies
 	*	Supported types of modules
                 </script>
             </section>
             
             <!-- AMD -->
             <section>
-                <section data-markdown class="slide-section" id="event-model">
+                <section data-markdown class="slide-section" id="amd">
                     <script type="text/template">
 # AMD <!-- .element: style="margin-top: 6%" -->
 ## Asynchronous Module Definition
@@ -81,10 +79,6 @@
 		*	Define dependencies that must load before a module is executed
                     </script>
                 </section>
-			</section>
-           
-            <!-- Modules -->
-			<section>
 				<section data-markdown class="slide-section" >
 					<script type="text/template">
 # Modules
@@ -190,7 +184,7 @@ define({
 			
             <!-- ES6 modules -->
 			<section>
-				<section data-markdown class="slide-section" >
+				<section data-markdown class="slide-section" id="es6-modules" >
 					<script type="text/template">
 # ES6 Modules
 					</script>
@@ -244,7 +238,7 @@ window.require = System.amdRequire;
            
             <!-- SystemJS -->
 			<section>
-				<section data-markdown class="slide-section" >
+				<section data-markdown class="slide-section" id="systemjs" >
 					<script type="text/template">
 # SystemJS
 ## Universal dynamic module loader
