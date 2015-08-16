@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Applications: AMD ad SystemJS</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/telerik-academy-dark.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+ 
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="title" class="slide-title">
+                <h1>AMD and SystemJS</h1>
+                <h2>Modular JavaScript</h2>
+                <aside class="signature">
+					<p class="signature-course">JavaScript Applications</p>
+                    <p class="signature-initiative">Telerik Software Academy</p>
+                    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+                </aside>
+            </section>            
+            <section data-markdown style="font-size: 44px">
+                <script type="text/template">
+# Table of Contents
+
+*	AMD
+	*	Modules and Module Loaders
+*	jspm.io
+*	ES6 Module Loader
+*	SystemJS
+	*	Creating Modules
+	*	Loading Modules
+	*	Creating dependecies
+	*	Supported types of modules
+                </script>
+            </section>
+            
+            <!-- AMD -->
+            <section>
+                <section data-markdown class="slide-section" id="event-model">
+                    <script type="text/template">
+# AMD <!-- .element: style="margin-top: 6%" -->
+## Asynchronous Module Definition
+<img src="imgs/AMD.png" style="border-radius: 15px">                  
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# AMD
+
+*	Asynchronous Module Definition ([AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md))
+*	JavaScript API for defining modules and their dependencies
+	*	Loading them asynchronously
+	*	Performance improvements
+		*	Load smaller JavaScript files
+		*	Loaded only when they're needed
+	*	Fewer page errors
+		*	Define dependencies that must load before a module is executed
+                    </script>
+                </section>
+			</section>
+           
+            <!-- Modules -->
+			<section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# Modules
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Modules
+
+*	A module is a well-scoped object that avoids polluting the global scope
+	*	It can explicitly list its dependencies and get a handle on those dependencies
+		*	Dependencies are received as arguments to the define function
+*	The module is an extension of the Module Pattern
+*	Modules **export** values, which can then be **imported** by other modules
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Modules
+
+*	The syntax for modules allows them to be loaded as fast as possible
+	*	Even out of order, yet evaluated in the correct dependency order
+	*	Since global variables are not created it is possible to load multiple versions of a module
+*	There should only be one module definition in a single JavaScript file!
+	*	The modules can be grouped into optimized bundles
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Modules with Dependencies 
+
+*	Some modules use other modules
+	*	The module loader can "request" a file to be loaded
+*	Pass the names of the required module as an array in the define function
+	*	If any of them is not loaded, the module loader will load it
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Defining Modules with AMD 
+
+*	The specification defines a single function "define" that is available as a free variable or a global variable
+*	The signature of the function:
+```javascript
+define(id?, dependencies?, factory);
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Defining Modules with AMD 
+
+*	Sets up the module with ID of "alpha", that uses require, exports and the module with ID of "beta"
+
+```javascript
+define("alpha", ["require", "exports", "beta"],
+	function (require, exports, beta) {
+       exports.verb = function() {
+           return beta.verb();
+       }
+   });
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Defining Modules with AMD 
+
+*	An anonymous module that returns an object literal:
+
+```javascript
+define(["alpha"], function (alpha) {
+       return {
+         verb: function(){
+           return alpha.verb() + 2;
+         }
+       };
+   });
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Defining Modules with AMD 
+
+*	A dependency-free module can define a direct object literal:
+
+```javascript
+define({
+     add: function(x, y){
+       return x + y;
+     }
+   });
+```
+
+
+					</script>
+				</section>
+			</section>
+			
+            <!-- ES6 modules -->
+			<section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# ES6 Modules
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# ES6 Modules
+
+*	ES6 module syntax is most similar to the pattern in NodeJS of creating multiple named exports
+
+
+*	Not all modules need dependencies
+	*	If no dependencies are needed, just pass a function handler or an object
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# ES6 Modules
+
+exporter.js:
+```javascript
+export function someMethod() {
+	// do something
+}
+
+export var another = {};
+```
+
+importer.js:
+```javascript
+import { someMethod, another as newName } from './exporter';
+
+someMethod();
+typeof newName == 'object';
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# RequireJS Support
+
+*	To have SystemJS provide a RequireJS-like API in an application set
+```
+window.define = System.amdDefine;
+window.require = System.amdRequire;
+```
+					</script>
+				</section>
+			</section>
+           
+            <!-- SystemJS -->
+			<section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# SystemJS
+## Universal dynamic module loader
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# SystemJS
+
+*	Universal dynamic module loader
+	*	Loads any module format
+		*	ECMAScript Module, CommonJS, AMD, Global shim module format
+	*	Loads modules in the browser or in NodeJS
+*	Built on top of the [ES6 Module Loader](https://github.com/ModuleLoader/es6-module-loader) polyfill
+	*	Works with both [Traceur](https://github.com/google/traceur-compiler) and [Babel](http://babeljs.io/)
+*	Compiles Modules into a Bundle for production
+*	Supports RequireJS-style map, paths, bundles and global shims
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# SystemJS
+
+*	Using SystemJS makes code more simpler and optimized
+	*	Instead of loading all the JavaScript files on the page load, load them when needed
+*	Handles the many-scripts-hell in a web page
+	*	Load a single file/module (app.js)
+	*	And this file will require other files/modules
+	*	And these other modules will require more modules etc…
+
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# Using SystemJS
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Using SystemJS
+
+*	Install [jspm.io](http://jspm.io/) - JavaScript package manager
+*	In Browser
+
+```html
+<script src="system.js"><script>
+<script>
+  // set our baseURL reference path
+  System.config({
+    baseURL: '/app'
+  });
+
+  // loads /app/main.js
+  System.import('main.js');
+<script>
+```
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# Using SystemJS
+## Live Demo
+					</script>
+				</section>
+			</section>
+			
+            <!-- Questions -->
+           <section data-markdown class="slide-questions" id="questions">
+             <script type="text/template">
+# AMD and SystemJS
+## Questions
+             </script>             
+           </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    /* globals Reveal, hljs */
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: 'c / t',
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            /*condition: function() {
+                return !!document.querySelector('pre code');
+            },*/
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>
