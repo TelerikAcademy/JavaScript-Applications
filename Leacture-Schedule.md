@@ -2,7 +2,7 @@
 # JavaScript-Applications
 #JavaScript Applications: Lectures Schedule
 
-| &#35; | Presentation                                  | Group 1                  | Group 2                     
+| &#35; | Presentation                                  | Delivery date 1          | Delivery date 2
 | ----- | -----------------------------------           | ------------------------ | --------------------------
 | 1     | Cousre Introduction                           | 18:00, Mon, 17 aug 2015  | 14:00, Tue, 18 aug 2015
 | 2     | Best Practises in JavaScript                  | 18:00, Mon, 17 aug 2015  | 14:00, Tue, 18 aug 2015
