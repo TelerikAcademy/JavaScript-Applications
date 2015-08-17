@@ -48,11 +48,11 @@
 
 *	AMD
 	*	Modules and Modules with dependecies
-*	ES6 Modules
 *	SystemJS
 	*	jspm.io
 	*	Creating and Loading Modules, Creating dependecies
 	*	Supported types of modules
+*	ES6 Modules
                 </script>
             </section>
             
@@ -182,6 +182,124 @@ define({
 				</section>
 			</section>
 			
+            <!-- SystemJS -->
+			<section>
+				<section data-markdown class="slide-section" id="systemjs" >
+					<script type="text/template">
+# SystemJS
+## Universal dynamic module loader
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# SystemJS
+
+*	Universal dynamic module loader
+	*	Loads any module format
+		*	ECMAScript Module, CommonJS, AMD, Global shim module format
+	*	Loads modules in the browser or in NodeJS
+*	Built on top of the [ES6 Module Loader](https://github.com/ModuleLoader/es6-module-loader) polyfill
+	*	Works with both [Traceur](https://github.com/google/traceur-compiler) and [Babel](http://babeljs.io/)
+*	Compiles Modules into a Bundle for production
+*	Supports RequireJS-style map, paths, bundles and global shims
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# SystemJS
+
+*	Using SystemJS makes code more simpler and optimized
+	*	Instead of loading all the JavaScript files on the page load, load them when needed
+*	Handles the many-scripts-hell in a web page
+	*	Load a single file/module (app.js)
+	*	And this file will require other files/modules
+	*	And these other modules will require more modules etc…
+
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# Using SystemJS
+					</script>
+				</section>
+				<section data-markdown style="font-size:40px">
+					<script type="text/template">
+# Using SystemJS
+
+*	Install [jspm.io](http://jspm.io/) - JavaScript package manager
+*	Install any packages from the jspm Registry, GitHub or npm
+
+```
+jspm install jquery
+jspm install github:components/jquery
+jspm install npm:lodash-node
+```
+
+*	In Browser
+
+```html
+<script src="jspm_packages/system.js"><script>
+<script src="config.js"><script>
+<script>
+  // set our baseURL reference path
+  System.config({ baseURL: '/app' });
+  // loads /app/main.js
+  System.import('main.js');
+<script>
+```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Using SystemJS
+
+*	`config.js` - auto-generated with `jspm init`
+*	Path in `config.js`
+	*	`github:*": "jspm_packages/github/*.js"`	<!-- // */ -->
+	*	Then use in code
+	
+```
+import 'github:guybedford/markdown-component@0.1.0'
+```
+*	Bundles for production
+	*	The entire app loaded from a single bundle file
+
+```xml
+jspm bundle lib/main --inject
+```
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# Using SystemJS - Examples
+
+*	Loading from npm
+
+```javascript
+System.import('npm:lodash').then(function(_) {
+    console.log(_.max([1, 2, 3, 4]));
+});
+```
+
+*	Loading jQuery
+
+```javascript
+System.import('jquery').then(function($) {
+	$(window).scrollTop(0);
+});
+```
+					</script>
+				</section>
+				<section data-markdown class="slide-section" >
+					<script type="text/template">
+# Using SystemJS
+## Live Demo
+					</script>
+				</section>
+			</section>
+			
             <!-- ES6 modules -->
 			<section>
 				<section data-markdown class="slide-section" id="es6-modules" >
@@ -236,76 +354,6 @@ window.require = System.amdRequire;
 				</section>
 			</section>
            
-            <!-- SystemJS -->
-			<section>
-				<section data-markdown class="slide-section" id="systemjs" >
-					<script type="text/template">
-# SystemJS
-## Universal dynamic module loader
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-# SystemJS
-
-*	Universal dynamic module loader
-	*	Loads any module format
-		*	ECMAScript Module, CommonJS, AMD, Global shim module format
-	*	Loads modules in the browser or in NodeJS
-*	Built on top of the [ES6 Module Loader](https://github.com/ModuleLoader/es6-module-loader) polyfill
-	*	Works with both [Traceur](https://github.com/google/traceur-compiler) and [Babel](http://babeljs.io/)
-*	Compiles Modules into a Bundle for production
-*	Supports RequireJS-style map, paths, bundles and global shims
-
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-# SystemJS
-
-*	Using SystemJS makes code more simpler and optimized
-	*	Instead of loading all the JavaScript files on the page load, load them when needed
-*	Handles the many-scripts-hell in a web page
-	*	Load a single file/module (app.js)
-	*	And this file will require other files/modules
-	*	And these other modules will require more modules etc…
-
-					</script>
-				</section>
-				<section data-markdown class="slide-section" >
-					<script type="text/template">
-# Using SystemJS
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-# Using SystemJS
-
-*	Install [jspm.io](http://jspm.io/) - JavaScript package manager
-*	In Browser
-
-```html
-<script src="system.js"><script>
-<script>
-  // set our baseURL reference path
-  System.config({
-    baseURL: '/app'
-  });
-
-  // loads /app/main.js
-  System.import('main.js');
-<script>
-```
-					</script>
-				</section>
-				<section data-markdown class="slide-section" >
-					<script type="text/template">
-# Using SystemJS
-## Live Demo
-					</script>
-				</section>
-			</section>
-			
             <!-- Questions -->
            <section data-markdown class="slide-questions" id="questions">
              <script type="text/template">
