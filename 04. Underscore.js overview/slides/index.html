@@ -44,17 +44,17 @@
 			</section>
 			<section data-markdown style="font-size: 44px">
 				<script type="text/template">
-# Table of Contents
-* Underscore.js
-	* What is it?
-	* Functionality
-		* Extensions
-			* Collections and Array extensions
-			* Function extensions
-			* Object extensions
-			* Utility functions
-		* Templates
-		* Chaining
+					# Table of Contents
+					* Underscore.js
+						* What is it?
+						* Functionality
+							* Extensions
+								* Collections and Array extensions
+								* Function extensions
+								* Object extensions
+								* Utility functions
+							* Templates
+							* Chaining
 				</script>
 			</section>
 
@@ -62,331 +62,331 @@
 			<section>
 				<section data-markdown>
 					<script type="text/template">
-#Underscore.js
-* Underscore.js is a JavaScript library, that extends regular JavaScript functionality
-	* Provides extensions to object, arrays, selection, etc..
-	* Usable is client JavaScript (web and mobile) and server JavaScript (Node.js)
+						#Underscore.js
+						* Underscore.js is a JavaScript library, that extends regular JavaScript functionality
+							* Provides extensions to object, arrays, selection, etc..
+							* Usable is client JavaScript (web and mobile) and server JavaScript (Node.js)
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-#Underscore.js Functionality
-* Underscore extends the functionality for:
-	* Collections
-		* each, map, find, filter, where, some, countBy
-	* Arrays
-		* first, last, union, uniq, range
-	* Functions
-		* Bind, delay, defer, once, after
-	* Objects
-		* Keys, values, extend, functions, clone
-* Templates and Chaining
+						#Underscore.js Functionality
+						* Underscore extends the functionality for:
+							* Collections
+								* each, map, find, filter, where, some, countBy
+							* Arrays
+								* first, last, union, uniq, range
+							* Functions
+								* Bind, delay, defer, once, after
+							* Objects
+								* Keys, values, extend, functions, clone
+						* Templates and Chaining
 					</script>
 				</section>
 			</section>
 
 			<section>
 				<section data-markdown class="slide-section">
-#Extensions for Collections
+					#Extensions for Collections
 				</section>
 				<section data-markdown>
-#Collections
-* Collections means both arrays and objects
-	* All underscore methods work both on arrays and objects (associative arrays)
-* Collection extensions:
-	* `_.each()` - iterates over a collection
-	* `_.map()`, `_.pluck()` - a projection of a collection
-	* `_.filter()`, `_.reject()` and `_.where()` - filter elements
-	* `_.all()` and `_.any()` - evaluate a collection
-	* `_.sortBy()`, `_.groupBy()` - sorts and groups
+					#Collections
+					* Collections means both arrays and objects
+						* All underscore methods work both on arrays and objects (associative arrays)
+					* Collection extensions:
+						* `_.each()` - iterates over a collection
+						* `_.map()`, `_.pluck()` - a projection of a collection
+						* `_.filter()`, `_.reject()` and `_.where()` - filter elements
+						* `_.all()` and `_.any()` - evaluate a collection
+						* `_.sortBy()`, `_.groupBy()` - sorts and groups
 				</section>
 
 				<section data-markdown>
-#Collections: each()
- * `_.each()` iterates over a list of elements, yielding each in turn to an iterator function
-	 * Just like for-in
-		 * Delegates to the native `forEach` function if supported
-```javascript
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
-_.each(numbers, console.log);
-_.each(numbers, function(item) { console.log(item); }
-// log all the numbers
-```
+					#Collections: each()
+					 * `_.each()` iterates over a list of elements, yielding each in turn to an iterator function
+						 * Just like for-in
+							 * Delegates to the native `forEach` function if supported
+					```javascript
+					var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+					_.each(numbers, console.log);
+					_.each(numbers, function(item) { console.log(item); }
+					// log all the numbers
+					```
 
-* Can be used with objects as well:
-```javascript
-_.each(console, console.log);
-// logs all members of the console
-var person = new Person("Doncho", "Minkov");
-_.each(person, console.log);
-// logs Doncho and Minkov
-```
+					* Can be used with objects as well:
+					```javascript
+					_.each(console, console.log);
+					// logs all members of the console
+					var person = new Person("Doncho", "Minkov");
+					_.each(person, console.log);
+					// logs Doncho and Minkov
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.each()`
-##Live Demo
+					#`_.each()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: map()
-* `_.map()` produces a new array of elements, after the values are computed
-	* Delegates to the native map, if supported
-```javascript
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-var numberNames = ["zero", "one", "two", "three", ...]
-function numbersToNames(item) { return numberNames[item];}
-_.map(numbers, numbersToNames);
-// log the number names
-```
-	* Can be used with objects as well:
-```javascript
-_.map(console, function (item)` {
-		return item.toString();
-	});
-```
+					#Collections: map()
+					* `_.map()` produces a new array of elements, after the values are computed
+						* Delegates to the native map, if supported
+					```javascript
+					var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+					var numberNames = ["zero", "one", "two", "three", ...]
+					function numbersToNames(item) { return numberNames[item];}
+					_.map(numbers, numbersToNames);
+					// log the number names
+					```
+						* Can be used with objects as well:
+					```javascript
+					_.map(console, function (item)` {
+							return item.toString();
+						});
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.map()`
-##Live Demo
+					#`_.map()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: filter() and reject()
-* Filter and reject return a subset of the original collection, based on an boolean expression
-	* Filter returns all items matching the condition
-	* Reject returns all items that don't fulfill the condition
-```javascript
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-function isEven(number){ return number%2 === 0;}
-var even = _.filter(numbers, isEven);
-var odd = _.reject(numbers, isEven);
-```
+					#Collections: filter() and reject()
+					* Filter and reject return a subset of the original collection, based on an boolean expression
+						* Filter returns all items matching the condition
+						* Reject returns all items that don't fulfill the condition
+					```javascript
+					var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+					function isEven(number){ return number%2 === 0;}
+					var even = _.filter(numbers, isEven);
+					var odd = _.reject(numbers, isEven);
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.filter()` and `_.reject()`
-##Live Demo
+					#`_.filter()` and `_.reject()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: where()
-* `_.where()` filters a collection based on a property value
-	* Returns a subcollection of the original collection
-```javascript
-var people = [{name: "Ivan Todorov", age: 21},
-              {name: "Todor Ivanov", age: 11},
-              {name: "Petra Georgieva", age: 14},
-              {name: "Georgi Petrov", age: 11},
-              {name: "Stamina Staminova", age: 19}];
-var elevenYearsOld = _.where(people, {age: 11});
-// returns Todor Ivanov and Georgi Petrov
-```
+					#Collections: where()
+					* `_.where()` filters a collection based on a property value
+						* Returns a subcollection of the original collection
+					```javascript
+					var people = [{name: "Ivan Todorov", age: 21},
+					              {name: "Todor Ivanov", age: 11},
+					              {name: "Petra Georgieva", age: 14},
+					              {name: "Georgi Petrov", age: 11},
+					              {name: "Stamina Staminova", age: 19}];
+					var elevenYearsOld = _.where(people, {age: 11});
+					// returns Todor Ivanov and Georgi Petrov
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.where()`
-##Live Demo
+					#`_.where()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: all() and any()
-* `_.all()` returns true if ALL of the elements that meet a boolean expression
-* `_.any()` returns true if ANY of the elements fulfill a boolean condition
-	* And false if none if the elements fulfull the condition
-```javascript
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-var anyEven = _.any(numbers,
-		function(el){ return el%2==0;});
-// anyEven = true
-var allEven = _.all(numbers,
-		function(el){ return el%2==0;});
-// allEven = false;
-```
+					#Collections: all() and any()
+					* `_.all()` returns true if ALL of the elements that meet a boolean expression
+					* `_.any()` returns true if ANY of the elements fulfill a boolean condition
+						* And false if none if the elements fulfull the condition
+					```javascript
+					var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					var anyEven = _.any(numbers,
+							function(el){ return el%2==0;});
+					// anyEven = true
+					var allEven = _.all(numbers,
+							function(el){ return el%2==0;});
+					// allEven = false;
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.all()` and `_.any()`
-##Live Demo
+					#`_.all()` and `_.any()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: pluck()
-* `_.pluck()` returns a projection of a collection
-	* Select all elements, but only part of them
-	* A simplified version of `_.map()`
-```javascript
-var people = [...];
-var lnames = _.pluck(people, 'lname');
-// lnames = [ 'Minkov', 'Kenov', 'Georgiev',
-//           'Kostov', 'Stoyanov' ]
-```
+					#Collections: pluck()
+					* `_.pluck()` returns a projection of a collection
+						* Select all elements, but only part of them
+						* A simplified version of `_.map()`
+					```javascript
+					var people = [...];
+					var lnames = _.pluck(people, 'lname');
+					// lnames = [ 'Minkov', 'Kenov', 'Georgiev',
+					//           'Kostov', 'Stoyanov' ]
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.pluck()`
-##Live Demo
+					#`_.pluck()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Collections: sortBy() and groupBy()
-* `_.sortBy()` sorts the elements of a collection
-	* Much like the native sort function
-	* Sort by a property
-	* Sort by iterator function
-```javascript
-var people = [...];
-people = _.sortBy(people, 'fnames');
-```
-* `_.groupBy()` groups the elements of a collection
-	* Group by a property
-	* Group by with iterator function
-```javascript
-var people = [...];
-people = _.groupBy(people, 'age');
-```
+					#Collections: sortBy() and groupBy()
+					* `_.sortBy()` sorts the elements of a collection
+						* Much like the native sort function
+						* Sort by a property
+						* Sort by iterator function
+					```javascript
+					var people = [...];
+					people = _.sortBy(people, 'fnames');
+					```
+					* `_.groupBy()` groups the elements of a collection
+						* Group by a property
+						* Group by with iterator function
+					```javascript
+					var people = [...];
+					people = _.groupBy(people, 'age');
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.sortBy()` and `_.groupBy()`
-##Live Demo
+					#`_.sortBy()` and `_.groupBy()`
+					##Live Demo
 				</section>
 			</section>
 			<section>
 				<section data-markdown class="slide-section">
-#Array Extensions
+					#Array Extensions
 				</section>
 				<section data-markdown>
-#Array Extensions
-* Array extensions work only on array objects
-	* Does not work on associative arrays or objects
-* Array extensions:
-	* `_.first()` and `_.initial()` selects the first N items
-	* `_.last()` and `_.rest()` selects the last N items
-	* `_.compact()` - removes all false values
-	* `_.union()` and `_.intersect()` - unites or intersects two or more arrays
+					#Array Extensions
+					* Array extensions work only on array objects
+						* Does not work on associative arrays or objects
+					* Array extensions:
+						* `_.first()` and `_.initial()` selects the first N items
+						* `_.last()` and `_.rest()` selects the last N items
+						* `_.compact()` - removes all false values
+						* `_.union()` and `_.intersect()` - unites or intersects two or more arrays
 				</section>
 
 				<section data-markdown>
-#Arrays: ﬁrst() and initial()
-* `_.first()` returns the first element in an array
-	* Can be used with a parameter to return the first N elements
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-var first = _.first(numbers); // 1
-var firstTwo = _.first(numbers, 2); // [1, 2]
-```
-* `_.initial()` returns all elements except the last one
-	* Can be used with a parameter to all the elements except the last N
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-var initial = _.initial(numbers); // [1, 2, 3, 4] 
-var initialTwo = _.initial(numbers, 2); // [1, 2, 3]
-```
+					#Arrays: ﬁrst() and initial()
+					* `_.first()` returns the first element in an array
+						* Can be used with a parameter to return the first N elements
+					```javascript
+					var numbers = [1, 2, 3, 4, 5];
+					var first = _.first(numbers); // 1
+					var firstTwo = _.first(numbers, 2); // [1, 2]
+					```
+					* `_.initial()` returns all elements except the last one
+						* Can be used with a parameter to all the elements except the last N
+					```javascript
+					var numbers = [1, 2, 3, 4, 5];
+					var initial = _.initial(numbers); // [1, 2, 3, 4] 
+					var initialTwo = _.initial(numbers, 2); // [1, 2, 3]
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.first()` and `_.initial()`
-##Live Demo
+					#`_.first()` and `_.initial()`
+					##Live Demo
 				</section>
 				<section data-markdown>
-#Arrays: last() and rest()
-* `_.last()` returns the last element in an array
-	* Can be used with a parameter to return the last N elements
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-var last = _.last(numbers); // 5
-var lastTwo = _.last(numbers, 2); // [4, 5]
-```
-* `_.rest()` returns all elements except the first one
-	* Can be used with a parameter to all the elements except the first N
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-var rest = _.rest(numbers); // [2, 3, 4, 5]
-var restTwo = _.rest(numbers, 2); // [3, 4, 5]
-```
+					#Arrays: last() and rest()
+					* `_.last()` returns the last element in an array
+						* Can be used with a parameter to return the last N elements
+					```javascript
+					var numbers = [1, 2, 3, 4, 5];
+					var last = _.last(numbers); // 5
+					var lastTwo = _.last(numbers, 2); // [4, 5]
+					```
+					* `_.rest()` returns all elements except the first one
+						* Can be used with a parameter to all the elements except the first N
+					```javascript
+					var numbers = [1, 2, 3, 4, 5];
+					var rest = _.rest(numbers); // [2, 3, 4, 5]
+					var restTwo = _.rest(numbers, 2); // [3, 4, 5]
+					```
 				</section>
 				<section data-markdown class="slide-section">
-#`_.last()` and `_.rest()`
-##Live Demo
+					#`_.last()` and `_.rest()`
+					##Live Demo
 				</section>
 			</section>
 
 			<section>
 				<section data-markdown class="slide-section">
-#Function Extensions
+					#Function Extensions
 				</section>
 				<section data-markdown>
-#Function Extensions
-* Function extensions provide some additional functionality to regular functions
-* Function extensions:
-	* `_.memoize(func)`
-		* Memorizes the invocation of a function
-		* If the function is called again with the same parameters, the memoized result is returned
-	* `_.compose(func1, func2, func3)`
-		* Returns a composition list of function
-		* The same as func1( func2( func3 () ) );
+					#Function Extensions
+					* Function extensions provide some additional functionality to regular functions
+					* Function extensions:
+						* `_.memoize(func)`
+							* Memorizes the invocation of a function
+							* If the function is called again with the same parameters, the memoized result is returned
+						* `_.compose(func1, func2, func3)`
+							* Returns a composition list of function
+							* The same as func1( func2( func3 () ) );
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-#Functions: memoize()
-* `_.memoize(func)`
-```javascript
-var fib = _.memoize(function(n) {
-	if(n < 2) return 2;
-	return fib(n-1) + fib(n-2);
-});
-console.log(fib(100));
-```
+					#Functions: memoize()
+					* `_.memoize(func)`
+					```javascript
+					var fib = _.memoize(function(n) {
+						if(n < 2) return 2;
+						return fib(n-1) + fib(n-2);
+					});
+					console.log(fib(100));
+					```
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-#Functions: compose()
-* `_.compose(...)`
-```javascript
-var func1 = function(x) {return x + ' first';};
-var func2 = function(x) {return x + ' second';};
-var func3 = function(x) {return x + ' third';};
-var func = _.compose(func3, func2, func1);
-console.log(func('zero'));
-```
+					#Functions: compose()
+					* `_.compose(...)`
+					```javascript
+					var func1 = function(x) {return x + ' first';};
+					var func2 = function(x) {return x + ' second';};
+					var func3 = function(x) {return x + ' third';};
+					var func = _.compose(func3, func2, func1);
+					console.log(func('zero'));
+					```
 					</script>
 				</section>
 				<section data-markdown class="slide-section">
-#Function Extensions
-##Live Demo
+					#Function Extensions
+					##Live Demo
 				</section>
 			</section>
 
 			<section>
 				<section data-markdown class="slide-section">
-#Object Extensions
+					#Object Extensions
 				</section>
 				<section data-markdown>
-#Object Extensions
-* Object extensions provide some additional functionality to regular objects
-* Object extensions:
-	* `_.keys(obj)` – list of all the keys of an object
-	* `_.values(obj)` – list of the values of an object
-	* `_.invert(obj)` – inverts the keys and the values
-	* `_.extend(obj, properties)` – performs prototypal inheritance
+					#Object Extensions
+					* Object extensions provide some additional functionality to regular objects
+					* Object extensions:
+						* `_.keys(obj)` – list of all the keys of an object
+						* `_.values(obj)` – list of the values of an object
+						* `_.invert(obj)` – inverts the keys and the values
+						* `_.extend(obj, properties)` – performs prototypal inheritance
 				</section>
 				<section data-markdown class="slide-section">
-#Object Extensions
-##Live Demo
+					#Object Extensions
+					##Live Demo
 				</section>
 			</section>
 
 			<section>
 				<section data-markdown class="slide-section">
-#Utility Functions
+					#Utility Functions
 				</section>
 				<section data-markdown>
-#Utility Functions:
-* `_.times(count, callback)`
-	* Calls callback count times and returns array of the returned values
-* `_.mixin(obj)`
-	* Allows you to extend Underscore
+					#Utility Functions:
+					* `_.times(count, callback)`
+						* Calls callback count times and returns array of the returned values
+					* `_.mixin(obj)`
+						* Allows you to extend Underscore
 				</section>
 				<section data-markdown class="slide-section">
-#Utility Functions
-##Live Demo
+					#Utility Functions
+					##Live Demo
 				</section>
 			</section>
 
 			<!-- Questions -->
 			<section data-markdown class="slide-questions" id="questions">
 				<script type="text/template">
-# Underscore.js
-## Questions
+					# Underscore.js
+					## Questions
 				</script>
 			</section>
 		</div>
