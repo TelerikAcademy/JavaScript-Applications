@@ -1,5 +1,4 @@
 
-# JavaScript-Applications
 #JavaScript Applications: Lectures Schedule
 
 | &#35; | Presentation                                  | Delivery date 1          | Delivery date 2
