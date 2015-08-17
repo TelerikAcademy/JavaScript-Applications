@@ -75,7 +75,7 @@
 							*	Variables, methods, properties
 							*	Objects, modules
 							
-						```
+						```javascript
 						var number = 5;
 						function printMsg(message){ … }
 						var arr = [];
@@ -126,7 +126,7 @@
 
 						*	Everything inside an `if-else`, `for` or `while` "block scope" is actually outside this block
 
-						```
+						```javascript
 						if (false) {
 						  var count = 15;
 						  function printMsg(message) {
@@ -156,7 +156,7 @@
 						*	Function scope is the only scope where variables are temporary
 							*	A variable, declared with var, cannot exist outside of its function scope
 
-						```
+						```javascript
 						(function(){
 						  if (false) {
 							var count = 15;
@@ -220,7 +220,7 @@
 						*	The solution to preventing duplicated identifiers is using function scope, or maybe a module
 							*	Do the stuff you need and expose only the meaningful pieces
 
-						```
+						```javascript
 						jsConsole.write("Message");
 						document.write("Message");
 						database.write("Message");
@@ -260,18 +260,18 @@
 					*	In the global scope this means the global scope
 						*	i.e. window
 						
-						```
+						```javascript
 						console.log( this === window) //logs true
 						```
 						*	These work exactly the same when in global scope
 						
-						```
+						```javascript
 						this.message = "Hello";
 						```
-						```
+						```javascript
 						var message = "Hello";
 						```
-						```
+						```javascript
 						window.message = "Hello";
 						```
 					</script>
