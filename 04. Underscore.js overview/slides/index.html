@@ -80,7 +80,8 @@
 								* Bind, delay, defer, once, after
 							* Objects
 								* Keys, values, extend, functions, clone
-						* Templates and Chaining
+						* Templates
+						* Chaining
 					</script>
 				</section>
 			</section>
@@ -88,6 +89,7 @@
 			<section>
 				<section data-markdown class="slide-section">
 					#Extensions for Collections
+					##each(), map(), filter(), all(), sortBy(), ...
 				</section> 
 				<section data-markdown style="font-size:40px">
 					#Collections
@@ -108,7 +110,7 @@
 							 * Delegates to the native `forEach` function if supported
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+					var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
 					_.each(numbers, console.log);
 					_.each(numbers, function(item) { console.log(item); }
 					// log all the numbers
@@ -134,8 +136,8 @@
 						* Delegates to the native map, if supported
 
 						```javascript
-						var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-						var numberNames = ["zero", "one", "two", "three", ...]
+						var numbers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
+						var numberNames = [ "zero", "one", "two", "three", ... ]
 						function numbersToNames(item) {
 							return numberNames[item];
 						}
@@ -165,7 +167,7 @@
 						</ul>
 					</ul>
 
-					<pre><code class="lang-javascript hljs">var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+					<pre><code class="lang-javascript hljs">var numbers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
 function isEven(number){ return number%2 === 0;}
 var even = _.filter(numbers, isEven);
 var odd = _.reject(numbers, isEven);</code></pre>
@@ -200,7 +202,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* And false if none if the elements fulfull the condition
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 					var anyEven = _.any(numbers,
 							function(el){ return el%2==0;});
 					// anyEven = true
@@ -220,7 +222,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* A simplified version of `_.map()`
 
 					```javascript
-					var people = [...];
+					var people = [ ... ];
 					var lnames = _.pluck(people, 'lname');
 					// lnames = [ 'Minkov', 'Kenov', 'Georgiev',
 					//           'Kostov', 'Stoyanov' ]
@@ -238,7 +240,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* Sort by iterator function
 
 					```javascript
-					var people = [...];
+					var people = [ ... ];
 					people = _.sortBy(people, 'fnames');
 					```
 					* `_.groupBy()` groups the elements of a collection
@@ -246,7 +248,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* Group by with iterator function
 
 					```javascript
-					var people = [...];
+					var people = [ ... ];
 					people = _.groupBy(people, 'age');
 					```
 				</section>
@@ -258,6 +260,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 			<section>
 				<section data-markdown class="slide-section">
 					#Array Extensions
+					##first(), last(), compact(), union(), ...
 				</section>
 				<section data-markdown>
 					#Array Extensions
@@ -276,17 +279,17 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* Can be used with a parameter to return the first N elements
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5];
+					var numbers = [ 1, 2, 3, 4, 5 ];
 					var first = _.first(numbers); // 1
-					var firstTwo = _.first(numbers, 2); // [1, 2]
+					var firstTwo = _.first(numbers, 2); // [ 1, 2 ]
 					```
 					* `_.initial()` returns all elements except the last one
 						* Can be used with a parameter to all the elements except the last N
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5];
-					var initial = _.initial(numbers); // [1, 2, 3, 4] 
-					var initialTwo = _.initial(numbers, 2); // [1, 2, 3]
+					var numbers = [ 1, 2, 3, 4, 5 ];
+					var initial = _.initial(numbers); // [ 1, 2, 3, 4 ] 
+					var initialTwo = _.initial(numbers, 2); // [ 1, 2, 3 ]
 					```
 				</section>
 				<section data-markdown class="slide-section">
@@ -299,17 +302,17 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						* Can be used with a parameter to return the last N elements
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5];
+					var numbers = [ 1, 2, 3, 4, 5 ];
 					var last = _.last(numbers); // 5
-					var lastTwo = _.last(numbers, 2); // [4, 5]
+					var lastTwo = _.last(numbers, 2); // [ 4, 5 ]
 					```
 					* `_.rest()` returns all elements except the first one
 						* Can be used with a parameter to all the elements except the first N
 
 					```javascript
-					var numbers = [1, 2, 3, 4, 5];
-					var rest = _.rest(numbers); // [2, 3, 4, 5]
-					var restTwo = _.rest(numbers, 2); // [3, 4, 5]
+					var numbers = [ 1, 2, 3, 4, 5 ];
+					var rest = _.rest(numbers); // [ 2, 3, 4, 5 ]
+					var restTwo = _.rest(numbers, 2); // [ 3, 4, 5 ]
 					```
 				</section>
 				<section data-markdown class="slide-section">
@@ -321,6 +324,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 			<section>
 				<section data-markdown class="slide-section">
 					#Function Extensions
+					##memoize(), compose()
 				</section>
 				<section data-markdown>
 					#Function Extensions
@@ -370,6 +374,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 			<section>
 				<section data-markdown class="slide-section">
 					#Object Extensions
+					##keys(), values(), invert(), extend()
 				</section>
 				<section data-markdown>
 					#Object Extensions
@@ -389,13 +394,39 @@ var odd = _.reject(numbers, isEven);</code></pre>
 			<section>
 				<section data-markdown class="slide-section">
 					#Utility Functions
+					##times(), mixin()
 				</section>
 				<section data-markdown>
 					#Utility Functions:
 					* `_.times(count, callback)`
 						* Calls callback count times and returns array of the returned values
+
+						```javascript
+						function dice() {
+							return (Math.random() * 6 + 1) | 0;
+						}
+						var dices = _(5).times(dice); // or _.times(5, dice)
+						console.log(dices);
+						// example: [ 2, 4, 5, 6, 2 ]
+						```
+				</section>
+				<section data-markdown>
+					#Utility Functions:
 					* `_.mixin(obj)`
 						* Allows you to extend Underscore
+
+					```javascript
+					_.mixin({
+							getNumbers: function(str) {
+								return str.match(/[0-9]+/g);
+							},
+							getWords: function(str) {
+								return str.match(/[a-z]+/g);
+							}
+					});
+					_('spam 42').getNumbers();
+					_.getNumbers('spam 42');
+					```
 				</section>
 				<section data-markdown class="slide-section">
 					#Utility Functions
