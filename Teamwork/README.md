@@ -46,6 +46,9 @@ Please define and implement the following assets in your project:
 *   Use some kind of local storage, one of the following is Ok:
     *   `localStorage`
     *   `sessionStorage`
+*   Use [Twitter Bootstrap](http://getbootstrap.com/)
+    *   Research and use Bootstrap for your application
+    *   Make the application responsive for different screens and resolutions
 *   At least one third-party API to share something from your application
     *   Samples:
         *   Share status to Facebook, Google+, Twitter, etc...
