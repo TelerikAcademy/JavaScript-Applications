@@ -106,6 +106,7 @@
 					 * `_.each()` iterates over a list of elements, yielding each in turn to an iterator function
 						 * Just like for-in
 							 * Delegates to the native `forEach` function if supported
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 					_.each(numbers, console.log);
@@ -114,6 +115,7 @@
 					```
 
 					* Can be used with objects as well:
+
 					```javascript
 					_.each(console, console.log);
 					// logs all members of the console
@@ -130,35 +132,43 @@
 					#Collections: map()
 					* `_.map()` produces a new array of elements, after the values are computed
 						* Delegates to the native map, if supported
-					```javascript
-					var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-					var numberNames = ["zero", "one", "two", "three", ...]
-					function numbersToNames(item) { return numberNames[item];}
-					_.map(numbers, numbersToNames);
-					// log the number names
-					```
+
+						```javascript
+						var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+						var numberNames = ["zero", "one", "two", "three", ...]
+						function numbersToNames(item) {
+							return numberNames[item];
+						}
+						_.map(numbers, numbersToNames);
+						// log the number names
+						```
+
 						* Can be used with objects as well:
-					```javascript
-					_.map(console, function (item)` {
-							return item.toString();
-						});
-					```
+
+						```javascript
+						_.map(console, function (item)` {
+								return item.toString();
+							});
+						```
 				</section>
 				<section data-markdown class="slide-section">
 					#`_.map()`
 					##Live Demo
 				</section>
-				<section data-markdown>
-					#Collections: filter() and reject()
-					* Filter and reject return a subset of the original collection, based on an boolean expression
-						* Filter returns all items matching the condition
-						* Reject returns all items that don't fulfill the condition
-					```javascript
-					var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-					function isEven(number){ return number%2 === 0;}
-					var even = _.filter(numbers, isEven);
-					var odd = _.reject(numbers, isEven);
-					```
+				<section>
+					<h1>Collections: filter() and reject()</h1>
+					<ul>
+						<li>Filter and reject return a subset of the original collection, based on an boolean expression</li>
+						<ul>
+							<li>Filter returns all items matching the condition</li>
+							<li>Reject returns all items that don't fulfill the condition</li>
+						</ul>
+					</ul>
+
+					<pre><code class="lang-javascript hljs">var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+function isEven(number){ return number%2 === 0;}
+var even = _.filter(numbers, isEven);
+var odd = _.reject(numbers, isEven);</code></pre>
 				</section>
 				<section data-markdown class="slide-section">
 					#`_.filter()` and `_.reject()`
@@ -168,6 +178,7 @@
 					#Collections: where()
 					* `_.where()` filters a collection based on a property value
 						* Returns a subcollection of the original collection
+
 					```javascript
 					var people = [{name: "Ivan Todorov", age: 21},
 					              {name: "Todor Ivanov", age: 11},
@@ -187,6 +198,7 @@
 					* `_.all()` returns true if ALL of the elements that meet a boolean expression
 					* `_.any()` returns true if ANY of the elements fulfill a boolean condition
 						* And false if none if the elements fulfull the condition
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 					var anyEven = _.any(numbers,
@@ -206,6 +218,7 @@
 					* `_.pluck()` returns a projection of a collection
 						* Select all elements, but only part of them
 						* A simplified version of `_.map()`
+
 					```javascript
 					var people = [...];
 					var lnames = _.pluck(people, 'lname');
@@ -223,6 +236,7 @@
 						* Much like the native sort function
 						* Sort by a property
 						* Sort by iterator function
+
 					```javascript
 					var people = [...];
 					people = _.sortBy(people, 'fnames');
@@ -230,6 +244,7 @@
 					* `_.groupBy()` groups the elements of a collection
 						* Group by a property
 						* Group by with iterator function
+
 					```javascript
 					var people = [...];
 					people = _.groupBy(people, 'age');
@@ -259,6 +274,7 @@
 					#Arrays: ﬁrst() and initial()
 					* `_.first()` returns the first element in an array
 						* Can be used with a parameter to return the first N elements
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5];
 					var first = _.first(numbers); // 1
@@ -266,6 +282,7 @@
 					```
 					* `_.initial()` returns all elements except the last one
 						* Can be used with a parameter to all the elements except the last N
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5];
 					var initial = _.initial(numbers); // [1, 2, 3, 4] 
@@ -280,6 +297,7 @@
 					#Arrays: last() and rest()
 					* `_.last()` returns the last element in an array
 						* Can be used with a parameter to return the last N elements
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5];
 					var last = _.last(numbers); // 5
@@ -287,6 +305,7 @@
 					```
 					* `_.rest()` returns all elements except the first one
 						* Can be used with a parameter to all the elements except the first N
+
 					```javascript
 					var numbers = [1, 2, 3, 4, 5];
 					var rest = _.rest(numbers); // [2, 3, 4, 5]
@@ -318,6 +337,7 @@
 					<script type="text/template">
 					#Functions: memoize()
 					* `_.memoize(func)`
+
 					```javascript
 					var fib = _.memoize(function(n) {
 						if(n < 2) return 2;
@@ -331,6 +351,7 @@
 					<script type="text/template">
 					#Functions: compose()
 					* `_.compose(...)`
+
 					```javascript
 					var func1 = function(x) {return x + ' first';};
 					var func2 = function(x) {return x + ' second';};
