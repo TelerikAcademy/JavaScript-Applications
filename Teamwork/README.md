@@ -78,14 +78,11 @@ If you have a chance, time and a suitable situation, you might add some of the f
 *   Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
 
 ##Deliverables
-Put the following in a ZIP archive and submit it (each team member submits the same file):
-*   The **complete source code**
-*   **Brief documentation** of your project (2-3 pages). It should provide the following information (in brief):
-    *   **Team name** and **list of team members**
-    *   Project purpose – **what problem do you solve?**
-    *   The **URL of your Git repository**
-    *   Any other information (optionally)
-*   Optionally provide a presentation designed for the project defense
+
+*   Register your application at [Telerik Academy Showcase System](http://best.telerikacademy.com)
+    *   Provide a link for the github repository of your application
+    *   Host your application on a server, and provide a link
+        *   You can host your application on http://appharbor.com, http://heroku.com or just use the http://rawgit.com
 
 ##Public Project Defense
 Each team will have to deliver a public defense of its work to the other students and trainers. You will have only 10 minutes for the following:
