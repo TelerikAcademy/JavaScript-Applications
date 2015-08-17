@@ -56,6 +56,23 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 	*	Using a library: Bluebird, RSVP, Q
 *   Async operations with ES 2015 function generators
 
+#### 7.   HTTP and AJAX
+*   What is HTTP?
+*   Request-response model
+*   HTTP Methods
+*   HTTP request:
+    *   Headers
+    *   Body
+    *   Methods
+*   HTTP response
+    *   Headers
+    *   Body
+*   AJAX
+    *   AJAX principle
+    *   Performing AJAX
+    *   Types of data
+        *   HTML, XML/RSS, plain text, JSON
+
 #### 7.   Consuming web services and AJAX
 *   Creating HTTP requests using:
 	*   Native JavaScript
