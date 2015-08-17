@@ -3,7 +3,7 @@
 [![TRAVIS](https://secure.travis-ci.org/dcousens/buffer-xor.png)](http://travis-ci.org/dcousens/PROJECTNAME)
 [![NPM](http://img.shields.io/npm/v/buffer-xor.svg)](https://www.npmjs.org/package/PROJECTNAME)
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+[![js-standard-style](https://rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 
 ## Example
