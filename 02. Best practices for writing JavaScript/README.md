@@ -5,6 +5,7 @@
 *	Scoping - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/3)
 	*	Global and function
 	*	Fake block scope
+	*	`var` and `let`
 *	Duplicated Object Identifiers - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/4)
 *	The `this` object - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html#/5)
 	*	In global, function and object scope
