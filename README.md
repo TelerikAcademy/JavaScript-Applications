@@ -20,14 +20,14 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Global scope
 *   What is the value of `this`?
 *   Function and "block" scopes
-	*   var and let
+	*   `var` and `let`
 *   `use strict`
 *	JavaScript Execution
 
 #### 3.   [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) and [SystemJS](https://github.com/systemjs/systemjs)
 *   Creating modules with SystemJS
 *   Loading modules
-*   Creating dependecies
+*   Creating dependencies
 *   Supported types of modules
 	
 #### 4.   [Underscore.js](http://underscorejs.org)/[Lodash](https://lodash.com) overview
