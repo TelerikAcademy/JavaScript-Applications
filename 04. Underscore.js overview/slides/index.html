@@ -425,23 +425,31 @@ var odd = _.reject(numbers, isEven);</code></pre>
 							}
 					});
 					console.log(_.getNumbers('spam word 42 is 12'));
-					// [ 42, 12 ]
+					// [ "42", "12" ]
 					```
 				</section>
-				<section data-markdown>
-					#Utility Functions:
-					* `_.template(str)` compiles JavaScript templates into functions
-						* `<%= … %>` - interpolate value
-						* `<%- … %>` - interpolate HTML-escaped value
-						* `<% … %>` - execute code
-
-					```javascript
-					var compiled_greeting = _.template("Hello, <%= name %>!");
-					compiled({name: 'World'});
-
-					var compiled_code = _.template("<% console.log('My name is ' + name); %>");
-					compiled_code({name: 'Underscore'});
-					```
+				<section data-markdown style="font-size:40px">
+					<script type="text/template">
+						#Utility Functions:
+						* `_.template(str)` compiles JavaScript templates into functions
+							* `<%= … %>` - interpolate value
+							* `<%- … %>` - interpolate HTML-escaped value
+							* `<% … %>` - execute code
+        	
+						```javascript
+						var compiled_greeting = _.template("Hello, <%= name %>!");
+						console.log(compiled_greeting({name: 'World'}));
+						// Hello, world!
+        	
+						var compiled_tag = _.template("<%- tag %>");
+						console.log(compiled_tag({tag: '<script>'}));
+						// &lt;script&gt;
+        	
+						var compiled_code = _.template("<% console.log('My name is ' + name); %>");
+						compiled_code({name: 'Underscore'});
+						// My name is Underscore
+						```
+					</script>
 				</section>
 				<section data-markdown class="slide-section">
 					#Utility Functions
@@ -475,11 +483,12 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					var foods = [{name: 'chocolate', price: 42},
 					             {name: 'tomatoes', price: -1000},
 					             {name: 'watermelon', price: 17}];
-					console.log(_.chain(foods).sortBy(function(food) {
+					var sentence = _.chain(foods).sortBy(function(food) {
 							return -food.price; // sort in reverse
 					}).map(function(food) {
 							return 'The price of ' + food.name + ' is ' + food.price + '.';
-					}).first().value());
+					}).first().value();
+					console.log(sentence);
 					// The price of chocolate is 42.
 					```
 				</section>
