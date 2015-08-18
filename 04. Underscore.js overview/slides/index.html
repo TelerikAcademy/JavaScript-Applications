@@ -3,7 +3,7 @@
 
 <head>
 		<meta charset="utf-8">
-		<title>JavaScript UI & DOM: Event Model</title>
+		<title>JavaScript Applications: Underscore.js</title>
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,7 +53,6 @@
 								* Function extensions
 								* Object extensions
 								* Utility functions
-							* Templates
 							* Chaining
 				</script>
 			</section>
@@ -242,8 +241,8 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					```javascript
 					var people = [ ... ];
 					people = _.sortBy(people, 'fnames');
-					```
-					* `_.groupBy()` groups the elements of a collection
+					```		
+					* `		_.groupBy()` groups the elements of a collection
 						* Group by a property
 						* Group by with iterator function
 
@@ -405,8 +404,8 @@ var odd = _.reject(numbers, isEven);</code></pre>
 						function dice() {
 							return (Math.random() * 6 + 1) | 0;
 						}
-						var dices = _(5).times(dice); // or _.times(5, dice)
-						console.log(dices);
+						var values = _.times(5, dice);
+						console.log(values);
 						// example: [ 2, 4, 5, 6, 2 ]
 						```
 				</section>
@@ -424,12 +423,51 @@ var odd = _.reject(numbers, isEven);</code></pre>
 								return str.match(/[a-z]+/g);
 							}
 					});
-					_('spam 42').getNumbers();
-					_.getNumbers('spam 42');
+					_.getNumbers('spam word 42 is 12');
 					```
 				</section>
 				<section data-markdown class="slide-section">
 					#Utility Functions
+					##Live Demo
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown class="slide-section">
+					#Chaining
+					##chain(), value()
+				</section>
+				<section data-markdown>
+					#Chaining
+					* Underscore.js usage
+						* object-oriented
+						* functional
+
+					```javascript
+					// these do the same
+					_map([ 1, 2, 3 ], function(n) { return n*2; });
+					_([ 1, 2, 3 ]).map(function(n) { return n*2; });
+					```
+				</section>
+				<section data-markdown style="font-size: 40px">
+					#Chaining
+					* `_.chain()` causes future methods to return wrapped objects
+					* `_.value()` extracts the value of a wrapped object
+
+					```javascript
+					var foods = [{name: 'chocolate', price: 42},
+					            {name: 'tomatoes', price: -1000},
+					            {name: 'watermelon', price: 17}];
+					_.chain(foods).sortBy(function(food) {
+							return -food.price;
+					}).map(function(food) {
+							return 'The price of ' + food.name + ' is ' + food.price + '.';
+					}).first().value();
+					// The price of chocolate is 42.
+					```
+				</section>
+				<section data-markdown class="slide-section">
+					#Chaining
 					##Live Demo
 				</section>
 			</section>
