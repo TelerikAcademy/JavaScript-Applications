@@ -1,6 +1,7 @@
 #Demo with System.js, jQuery and localStorage
 
 For the demo to work, perform the following:
+
 1.   Open a Terminal/CMD to the folder of the demo
 2.   Run `$ npm install`
 3.   Run `$ bower install`
