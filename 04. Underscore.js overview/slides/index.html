@@ -64,7 +64,7 @@
 						#Underscore.js
 						* Underscore.js is a JavaScript library, that extends regular JavaScript functionality
 							* Provides extensions to object, arrays, selection, etc..
-							* Usable is client JavaScript (web and mobile) and server JavaScript (Node.js)
+							* Usable in client JavaScript (web and mobile) and server JavaScript (Node.js)
 					</script>
 				</section>
 				<section data-markdown>
@@ -160,7 +160,7 @@
 				<section>
 					<h1>Collections: filter() and reject()</h1>
 					<ul>
-						<li>Filter and reject return a subset of the original collection, based on an boolean expression</li>
+						<li>Filter and reject return a subset of the original collection, based on a boolean expression</li>
 						<ul>
 							<li>Filter returns all items matching the condition</li>
 							<li>Reject returns all items that don't fulfill the condition</li>
@@ -197,9 +197,9 @@ var odd = _.reject(numbers, isEven);</code></pre>
 				</section>
 				<section data-markdown style="font-size:40px">
 					#Collections: all() and any()
-					* `_.all()` returns true if ALL of the elements that meet a boolean expression
-					* `_.any()` returns true if ANY of the elements fulfill a boolean condition
-						* And false if none if the elements fulfull the condition
+					* `_.all()` returns true if ALL of the elements fulfill the boolean condition
+					* `_.any()` returns true if ANY of the elements fulfills the boolean condition
+						* And false if none of the elements fulfill the condition
 
 					```javascript
 					var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
@@ -265,12 +265,12 @@ var odd = _.reject(numbers, isEven);</code></pre>
 				<section data-markdown>
 					#Array Extensions
 					* Array extensions work only on array objects
-						* Does not work on associative arrays or objects
+						* Do not work on associative arrays or objects
 					* Array extensions:
-						* `_.first()` and `_.initial()` selects the first N items
-						* `_.last()` and `_.rest()` selects the last N items
+						* `_.first()` and `_.initial()` select the first N items
+						* `_.last()` and `_.rest()` select the last N items
 						* `_.compact()` - removes all false values
-						* `_.union()` and `_.intersect()` - unites or intersects two or more arrays
+						* `_.union()` and `_.intersect()` - unite or intersect two or more arrays
 				</section>
 
 				<section data-markdown style="font-size:40px">
@@ -284,7 +284,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					var firstTwo = _.first(numbers, 2); // [ 1, 2 ]
 					```
 					* `_.initial()` returns all elements except the last one
-						* Can be used with a parameter to all the elements except the last N
+						* Can be used with a parameter to return all the elements except the last N
 
 					```javascript
 					var numbers = [ 1, 2, 3, 4, 5 ];
@@ -307,7 +307,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					var lastTwo = _.last(numbers, 2); // [ 4, 5 ]
 					```
 					* `_.rest()` returns all elements except the first one
-						* Can be used with a parameter to all the elements except the first N
+						* Can be used with a parameter to return all the elements except the first N
 
 					```javascript
 					var numbers = [ 1, 2, 3, 4, 5 ];
@@ -332,7 +332,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					* Function extensions:
 						* `_.memoize(func)`
 							* Memorizes the invocation of a function
-							* If the function is called again with the same parameters, the memoized result is returned
+							* If the function is called again with the same parameters, the memorized result is returned
 						* `_.compose(func1, func2, func3)`
 							* Returns a composition list of function
 							* The same as func1( func2( func3 () ) );
