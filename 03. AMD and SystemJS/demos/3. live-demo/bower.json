@@ -1,0 +1,21 @@
+{
+  "name": "System.js-localstorage-jquery-demo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/TelerikAcademy/JavaScript-Applications",
+  "authors": [
+    "Doncho Minkov <DonchoMinkov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "app.js",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "system.js": "~0.18.11"
+  }
+}

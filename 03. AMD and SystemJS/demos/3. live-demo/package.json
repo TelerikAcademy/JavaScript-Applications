@@ -1,0 +1,16 @@
+{
+  "name": "live-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "dependencies": {
+    "babel-core": "^5.8.22",
+    "http-server": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "iojs ./node_modules/http-server/bin/http-server -p 8888"
+  },
+  "author": "Doncho Minkov <DonchoMinkov@gmail.com>",
+  "license": "ISC"
+}
