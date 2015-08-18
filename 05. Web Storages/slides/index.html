@@ -68,7 +68,7 @@
 # WebStorages
 
 *	WebStorages are places to store data
-	*	Save user settings, so next time he opens the application, they can be loaded
+	*	Save user settings, so next time the application is opened, they can be loaded
 *	Three common types of Web Storage
 	*	Cookies
 		*	Accessible only from a single document
@@ -118,7 +118,7 @@
 
 *	A cookie consists of three parts
 	1.	A name-value pair that holds the cookie information
-	2.	An expire date, after which this cookie is not available
+	2.	An expiration date, after which this cookie is not available
 	3.	A domain and path to the server, that the cookie belongs to
 					
                     </script>
@@ -130,10 +130,10 @@
 *	Name-value pairs hold the cookie's data
 	*	The name is used to reach the data stored in the value
 	*	To read a cookie, you must search for the name
-*	Expire date
+*	Expiration date
 	*	Used to give timeframe for the work of the cookie
 		*	If not set, the cookie is removed when closing the browser
-	*	To make a forever cookie, set the expire date after enough years
+	*	To make a permanent cookie, set the expiration date after enough years
 
                     </script>
                 </section>
@@ -143,7 +143,7 @@
 
 *	Cookies can be accessed with JavaScript
 	*	Use `document.cookie` property
-	*	Thought cookies are not strings, they are used as strings
+	*	Though cookies are not strings, they are used as strings
 
 ```javascript
 //sets a cookie
@@ -267,7 +267,7 @@ function restoreState(){
 
 *	Session Storage
 	*	Similar to `localStorage`
-	*	Lasts as long as browser is open
+	*	Lasts as long as the browser is open
 	*	Opening page in new window or tab starts new session
 	*	Great for sensitive data (e.g. banking sessions)
 *	Can store only strings
