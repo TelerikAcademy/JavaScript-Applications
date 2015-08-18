@@ -73,20 +73,20 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
     *   Types of data
         *   HTML, XML/RSS, plain text, JSON
 
-#### 7.   Consuming web services and AJAX
+#### 8.   Consuming web services and AJAX
 *   Creating HTTP requests using:
 	*   Native JavaScript
 	*   jQuery.ajax
 *   Build UI based on received data from a web service
 
-#### 8.   Business clouds for persistent data
+#### 9.   Business clouds for persistent data
 *   Creating an application with a ready-to-use server
 *   Samples: 
 	*   [Telerik Backend Services](http://www.telerik.com/backend-services)
 	*   [Parse](https://www.parse.com/)
 	*   [Microsoft Mobile App Services](http://azure.microsoft.com/en-us/services/app-service/mobile/)
 
-#### 9.   Unit testing with Mocha & Chai
+#### 10.   Unit testing with Mocha & Chai
 *   Setup of Mocha and Chai
 *   [Mocha reporters](https://mochajs.org/#reporters)
 *   Unit testing DOM
@@ -96,18 +96,18 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Spy objects and mocking
 *   Code coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
 
-#### 10.   App architecture workshop
+#### 11.   App architecture workshop
 *   Creating a complete web app with:
 	*   Backend data from business cloud
 	*   AJAX
 	*   Handlebars.js, System.js, jQuery
 	*   Using promises
 
-#### 11.  Exam preparation
+#### 12.  Exam preparation
 
-#### 12.  Teamwork Defense
+#### 13.  Teamwork Defense
 
-#### 13.  Exam
+#### 14.  Exam
 
 ## Preparing the local machine for Unit testing with Mocha and Chai 
 
