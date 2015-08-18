@@ -79,7 +79,8 @@
 								* Bind, delay, defer, once, after
 							* Objects
 								* Keys, values, extend, functions, clone
-						* Templates
+						* Utilities
+							* Templates
 						* Chaining
 					</script>
 				</section>
@@ -224,7 +225,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 					var people = [ ... ];
 					var lnames = _.pluck(people, 'lname');
 					// lnames = [ 'Minkov', 'Kenov', 'Georgiev',
-					//           'Kostov', 'Stoyanov' ]
+					//            'Kostov', 'Stoyanov' ]
 					```
 				</section>
 				<section data-markdown class="slide-section">
@@ -393,7 +394,7 @@ var odd = _.reject(numbers, isEven);</code></pre>
 			<section>
 				<section data-markdown class="slide-section">
 					#Utility Functions
-					##times(), mixin()
+					##times(), mixin(), template()
 				</section>
 				<section data-markdown>
 					#Utility Functions:
@@ -423,7 +424,23 @@ var odd = _.reject(numbers, isEven);</code></pre>
 								return str.match(/[a-z]+/g);
 							}
 					});
-					_.getNumbers('spam word 42 is 12');
+					console.log(_.getNumbers('spam word 42 is 12'));
+					// [ 42, 12 ]
+					```
+				</section>
+				<section data-markdown>
+					#Utility Functions:
+					* `_.template(str)` compiles JavaScript templates into functions
+						* `<%= … %>` - interpolate value
+						* `<%- … %>` - interpolate HTML-escaped value
+						* `<% … %>` - execute code
+
+					```javascript
+					var compiled_greeting = _.template("Hello, <%= name %>!");
+					compiled({name: 'World'});
+
+					var compiled_code = _.template("<% console.log('My name is ' + name); %>");
+					compiled_code({name: 'Underscore'});
 					```
 				</section>
 				<section data-markdown class="slide-section">
@@ -456,13 +473,13 @@ var odd = _.reject(numbers, isEven);</code></pre>
 
 					```javascript
 					var foods = [{name: 'chocolate', price: 42},
-					            {name: 'tomatoes', price: -1000},
-					            {name: 'watermelon', price: 17}];
-					_.chain(foods).sortBy(function(food) {
-							return -food.price;
+					             {name: 'tomatoes', price: -1000},
+					             {name: 'watermelon', price: 17}];
+					console.log(_.chain(foods).sortBy(function(food) {
+							return -food.price; // sort in reverse
 					}).map(function(food) {
 							return 'The price of ' + food.name + ' is ' + food.price + '.';
-					}).first().value();
+					}).first().value());
 					// The price of chocolate is 42.
 					```
 				</section>
