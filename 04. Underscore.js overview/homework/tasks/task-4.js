@@ -6,6 +6,7 @@ Create a function that:
     *   the groups are sorted by `species` descending
 *   **sorts** them ascending by `legsCount`
 *   **prints** them to the console in the format:
+
 ```
     ----------- (number of underscores is equal to the length of the GROUP_1_NAME + 1)
     GROUP_1_NAME:
