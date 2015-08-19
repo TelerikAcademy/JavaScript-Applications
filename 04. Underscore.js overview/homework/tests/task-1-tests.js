@@ -16,7 +16,7 @@ describe('Task #1 Students Tests', function () {
 		global._ = _;
 	});
 
-	it('Expect empty array when an empty array is given', function() {
+	it('Expect empty array when an empty array is given', function () {
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
 			actual.push(msg);
@@ -26,7 +26,7 @@ describe('Task #1 Students Tests', function () {
 
 		expect(actual).to.eql([]);
 	});
-	it('Expect empty array when all names should be filtered', function() {
+	it('Expect empty array when all names should be filtered', function () {
 		var students = [{
 			firstName: 'NAME #3',
 			lastName: 'NAME #2'
@@ -47,7 +47,7 @@ describe('Task #1 Students Tests', function () {
 
 		expect(actual).to.eql([]);
 	});
-	it('Expect valid names to not be filtered', function() {
+	it('Expect valid names to not be filtered', function () {
 		var students = [{
 			firstName: 'NAME #3',
 			lastName: 'NAME #2'
@@ -69,7 +69,7 @@ describe('Task #1 Students Tests', function () {
 		expect(actual).to.eql(['NAME #4 NAME #7']);
 	});
 
-	it('Expect sorting to work properly', function() {
+	it('Expect sorting to work properly', function () {
 		var students = [{
 			firstName: 'Ester',
 			lastName: 'Reba'
@@ -92,15 +92,15 @@ describe('Task #1 Students Tests', function () {
 		console.log.restore();
 
 		var expected = [
-				'Naomi Tichaona',
-				'Germano Sabina',
-				'Ester Reba',
-				'Abdullo Vilma'
+			'Naomi Tichaona',
+			'Germano Sabina',
+			'Ester Reba',
+			'Abdullo Vilma'
 		];
 		expect(actual).to.eql(expected);
 	});
 
-	it('Expect filtering and sorting to work properly', function() {
+	it('Expect filtering and sorting to work properly', function () {
 		var students = [{
 			firstName: 'Ester',
 			lastName: 'Reba'
@@ -165,38 +165,5 @@ describe('Task #1 Students Tests', function () {
 			'Abdullo Vilma'
 		];
 		expect(actual).to.eql(expected);
-	});
+	});	
 });
-
-	it('test', function () {
-		var students = [{
-			firstName: 'NAME #2',
-			lastName: 'NAME #3'
-		}, {
-			firstName: 'NAME #0',
-			lastName: 'NAME #5'
-		}, {
-			firstName: 'NAME #3',
-			lastName: 'NAME #2'
-		}, {
-			firstName: 'NAME #1',
-			lastName: 'NAME #4'
-		}, {
-			firstName: 'NAME #4',
-			lastName: 'NAME #1'
-		}];
-
-		var actual = [];
-		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
-		});
-		result(students);
-		console.log.restore();
-
-		var expected = [
-			'NAME #2 NAME #3',
-			'NAME #1 NAME #4',
-			'NAME #0 NAME #5',
-		];
-		expect(actual).to.eql(expected);
-	});
