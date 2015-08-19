@@ -7,6 +7,7 @@ Create a function that:
 *   Then **sorts** them in descending order by fullname
     *   fullname is the concatenation of `firstName`, ' ' (empty space) and `lastName`
 *   Then **prints** them to the console
+*   **Use underscore.js for all operations**
 */
 
 function solve(){
