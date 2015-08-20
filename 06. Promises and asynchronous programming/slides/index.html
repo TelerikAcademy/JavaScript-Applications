@@ -35,8 +35,7 @@
         <div class="slides">
             <section id="title" class="slide-title">
                 <h1>Promises and Asynchronous Programming</h1>
-                <h2 style="font-size: 1em">Callback-oriented asynchrony, CommonJS Promise/A, Promises in Q, Promises in jQuery
-</h2>
+                <h2 style="font-size: 1em">Callback-oriented asynchrony, CommonJS Promise/A, Promises in Q, Promises in jQuery</h2>
                 <aside class="signature">
                     <p class="signature-course">JavaScript Applications</p>
                     <p class="signature-initiative">Telerik Software Academy</p>
@@ -215,8 +214,7 @@
                     </script>
                 </section>
 			</section>
-			
-			
+					
 			<!-- function generators -->
 			<section>
 				<section data-markdown class="slide-section">
@@ -322,6 +320,47 @@ asyncComputeTheAnswerToEverything()
 	
 			https://github.com/kriskowal/q
 
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises composing
+
+```javascript
+var promise1 = new Promise(function(resolve, reject) {
+	resolve('one');
+})
+
+var promise2 = new Promise(function(resolve, reject) {
+	resolve(promise1);
+})
+
+promise2.then(function(data) {
+	console.log(data); // 'one'
+})
+```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises - async example
+
+```javascript
+var async = false,
+	promise = new Promise(function(resolve, reject) {
+		resolve();
+	});
+promise.then(function() {
+	console.log(async);
+});
+async = true;
+```
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Promises
+## Live Demo
                     </script>
                 </section>
 			</section>
@@ -754,6 +793,7 @@ var postsPromise = get('posts.everyone');
 // Wait until BOTH are settled
 Promise.all([usersPromise, postsPromise])
 	.then(function(results) {
+		// results is an array of the responses
 		myController.users = results[0];
 		myController.posts = results[1];
 	})
