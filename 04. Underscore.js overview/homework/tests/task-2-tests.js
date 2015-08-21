@@ -19,7 +19,7 @@ describe('Task #2 Students Tests', function () {
 	it('Expect empty array when an empty array is given', function() {
 		var actual = [];
 		sinon.stub(console, 'log', function(msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result([]);
 		console.log.restore();
@@ -43,7 +43,7 @@ describe('Task #2 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(students);
 		console.log.restore();
@@ -67,7 +67,7 @@ describe('Task #2 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(students);
 		console.log.restore();
@@ -323,7 +323,7 @@ describe('Task #2 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(students);
 		console.log.restore();

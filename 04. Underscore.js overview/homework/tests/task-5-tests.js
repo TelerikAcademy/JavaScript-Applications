@@ -25,7 +25,7 @@ describe('Task #5 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(animals);
 		console.log.restore();
@@ -46,7 +46,7 @@ describe('Task #5 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(animals);
 		console.log.restore();
@@ -99,7 +99,7 @@ describe('Task #5 Students Tests', function () {
 
 		var actual = [];
 		sinon.stub(console, 'log', function (msg) {
-			actual.push(msg);
+			actual.push('' +msg);
 		});
 		result(animals);
 		console.log.restore();
