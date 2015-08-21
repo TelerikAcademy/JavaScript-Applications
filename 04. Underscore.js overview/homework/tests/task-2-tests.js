@@ -329,14 +329,14 @@ describe('Task #2 Students Tests', function () {
 		console.log.restore();
 
 		var expected = [
-			'Valtteri Mansoor',
-			'Zlatko Denis',
+			'Ferdi Dorijan',
 			'Giotto Damir',
 			'Lucjan Thaddeus',
-			'Ferdi Dorijan',
-			'Toninho Armen',
-			'Setiawan Igon',
 			'Manuel Evan',
+			'Setiawan Igon',
+			'Toninho Armen',
+			'Valtteri Mansoor',
+			'Zlatko Denis',
 		];
 		expect(actual).to.eql(expected);
 	});
