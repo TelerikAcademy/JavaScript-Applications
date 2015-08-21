@@ -8,7 +8,7 @@ Create a function that:
 */
 
 function solve(){
-  return function (students) {
+  return function (animals) {
   };
 }
 
