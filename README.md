@@ -6,7 +6,7 @@ The **JavaScript Applications** course introduces first steps for build web fron
 All homeworks for the course are test-driven, i.e. each task has a predefined set of unit tests. [Here](https://github.com/TelerikAcademy/JavaScript-UI-and-DOM/blob/master/README.md#user-content-preparing-the-local-machine-for-unit-testing-with-mocha-and-chai)  you can find information how to setup your machine for local testing
 
 ## Course Program
-#### [1. Course Introduction](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html)
+#### 1. Course Introduction [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/01.%20Javascript%20Applications%20-%20Course%20Introduction/slides/index.html)
 *   Examination
 *   Trainers
 *   Course program
@@ -15,7 +15,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 	*   Platforms: Node.js and JavaScript IO
 	*   Servers: Microsoft IIS, WAMP, MAMP, XAMPP
 
-#### 2.   Best practices for writing JavaScript [View online](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html)
+#### 2.   Best practices for writing JavaScript [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/02.%20Best%20practices%20for%20writing%20JavaScript/slides/index.html)
 *   Naming in JavaScript
 *   Global scope
 *   What is the value of `this`?
@@ -24,14 +24,14 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   `use strict`
 *	JavaScript Execution
 
-#### [3.	AMD and SystemJS](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/03.%20AMD%20and%20SystemJS/slides/index.html)
+#### 3.	AMD and SystemJS [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/03.%20AMD%20and%20SystemJS/slides/index.html)
 *		[Asynchronous Module Definition (AMD)](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)
 *   Creating modules with [SystemJS](https://github.com/systemjs/systemjs)
 *   Loading modules
 *   Creating dependencies
 *   Supported types of modules
 
-#### 4.		Underscore.js Overview [view online](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/04.%20Underscore.js%20overview/slides/index.html)
+#### 4.		Underscore.js Overview [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/04.%20Underscore.js%20overview/slides/index.html)
 *	What is [Underscore.js](http://underscorejs.org)?
 *   Collections and Array extensions:
 	*   `_.map()`, `_.each()`, `_.pluck()`, `_.sortBy()`, `_.groupBy()`, `_.first()`, `_.last()` etc...
@@ -44,7 +44,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Templates
 *   Chaining
 
-#### 5.   Web Storages
+#### 5.   Web Storages [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/05.%20Web%20Storages/slides/index.html#/title)
 *   `localStorage`
 *   `sessionStorage`
 *   `cookies`
@@ -115,12 +115,11 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 
 * Install [JavaScript I/O](https://iojs.org/en/index.html "JavaScript I/O")
     * Try if it is working by typing in CMD/Terminal `$ iojs -v` (should produce result)
-*   Open CMD/Terminal and run `$ npm install -g mocha`
 
 ## Preparing for the tests for each homework
 
 *   Checkout the repository for the particular homework
-*   Open CMD/Terminal and navigate to the checked out repository with the homework
+*   Open CMD/Terminal and navigate to the checked-out repository with the homework
 *   Run `npm install` in CMD/Terminal
     *   A folder `node_modules` should appear
 *   You are ready to run the tests
