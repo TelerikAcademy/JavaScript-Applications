@@ -1,0 +1,33 @@
+{
+  "name": "dom-and-jquery-tests-with-mocha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "iojs node_modules/mocha/bin/mocha  tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha.git"
+  },
+  "author": "Doncho Minkov (donchominkov@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha/issues"
+  },
+  "homepage": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha",
+  "devDependencies": {},
+  "dependencies": {
+    "chai": "^3.2.0",
+    "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
+    "jsdom": "^5.6.1",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0",
+    "underscore": "^1.8.3"
+  }
+}
