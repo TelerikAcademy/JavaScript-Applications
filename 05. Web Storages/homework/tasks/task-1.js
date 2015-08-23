@@ -13,7 +13,7 @@ function solve() {
   }
 
   return {
-    init, guees, getHighScore
+    init, guess, getHighScore
   }
 }
 
