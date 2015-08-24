@@ -14,4 +14,4 @@
 	*	Using a library: Bluebird, RSVP, Q
 	*	The Q Promise Library - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html#/q-promise-library)
 	*	Promises in jQuery - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html#/promises-in-jquery)
-*	Async operations with ES6 function generators - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html#/async-operations-es6)
+*	Async operations with ES2015 function generators - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html#/async-operations-es6)
