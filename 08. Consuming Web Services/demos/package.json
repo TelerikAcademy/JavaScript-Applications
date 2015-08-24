@@ -1,0 +1,22 @@
+{
+  "name": "consuming-remote-data-demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "iojs ./node_modules/http-server/bin/http-server -p 8887"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telerikacademy/javascript-applications.git"
+  },
+  "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/telerikacademy/javascript-applications/issues"
+  },
+  "homepage": "https://github.com/telerikacademy/javascript-applications#readme",
+  "dependencies": {
+    "http-server": "^0.8.0"
+  }
+}
