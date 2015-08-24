@@ -539,7 +539,7 @@ Promise.all(['module1', 'module2', 'module3']
             
             <!-- ES6 function generators -->
             <section>
-                <section data-markdown class="slide-section" id="async-operations-es6">
+                <section data-markdown class="slide-section" id="function-generators">
                     <script type="text/template">
 # Function generators
 ## new to EcmaScript 6
@@ -719,7 +719,7 @@ sequence.next(true).value;     // 1
 ```
                     </script>
                 </section>
-                <section data-markdown class="slide-section" id="async-operations-es6">
+                <section data-markdown class="slide-section">
                     <script type="text/template">
 # Function generators
 ## Live Demo
@@ -740,6 +740,10 @@ sequence.next(true).value;     // 1
 # Async operations with ES6
 # function generators
 
+*	Fantastic for controlling async code
+*	Function generators can be used fto execute step-by-step async calls
+	*	Example: Upload multiple files asynchronously one at a time
+	*	Needs a wrapper function to call `.next()`
                     </script>
                 </section>
                 <section data-markdown  class="slide-section">
