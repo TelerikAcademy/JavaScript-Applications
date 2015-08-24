@@ -215,14 +215,207 @@
                 </section>
 			</section>
 					
-			<!-- function generators -->
-			<section>
-				<section data-markdown class="slide-section">
-					<script type="text/template">
-# Function generators in ES6
-## 
-					</script>
-				</section>
+            <!-- Async operations ES6 -->
+            <section>
+                <section data-markdown class="slide-section" id="async-operations-es6">
+                    <script type="text/template">
+# Async operations with ES6
+## function generators					
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 42px">
+                    <script type="text/template">
+# Async operations
+
+*	Once the function starts running, it will always run to completion before any other JS code can run
+
+```javascript
+setTimeout(function(){
+    console.log("Hello World");
+},1);
+
+function foo() { // never do loops like this
+    for (var i=0; i<=1E10; i++) {
+        console.log(i);
+    }
+}
+foo();
+// 0..1E10
+// "Hello World"
+```
+
+*	JavaScript is always single-threaded
+	*	Only one command/function executing at any given time
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 42px">
+                    <script type="text/template">
+# ES6 Function generators
+
+*	Different kind of function
+	*	May be paused in the middle
+		*	One or many times and resumed later
+	*	Allowing other code to run during these paused periods
+*	ES6 generator functions are **cooperative** in their concurrency behavior
+	*	It pauses itself when it comes across a `yield`
+	*	It cannot resume on its own
+*	Enables 2-way message passing
+	*	Send messages **out** with each `yield`
+	*	Send messages **in** with each restart
+	
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# ES6 Function generators
+
+*	A function becomes a generator if:
+	*	Contains one or more `yield` expressions
+	*	Uses the `function*` syntax
+	
+```javascript
+function *foo() { // OR function* foo() {
+    // .. yield something
+}
+```
+
+*	`yield` expression (not a statement)
+	*	Send value **out** and stops execution
+	*	Takes value back **in**	when function is restarted
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# ES6 Function generators
+# Examples
+
+```javascript
+function *foo() {
+    var x = 1 + (yield "foo");
+    console.log(x);
+}
+```
+
+
+```javascript
+function foo(x) {
+    console.log("x: " + x);
+}
+
+function *bar() {
+    yield; // just pause
+    foo( yield );
+	// pause waiting for a parameter to pass into `foo(..)`
+}
+```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Generator Iterator
+
+*	Step through an ordered set of values one at a time by calling `next()`
+
+```javascript
+function* foo(){
+// OR function *genFun(){
+  yield 1;
+  yield 2;
+  yield 'ivan';
+  yield {name: 'stamat'};
+}
+
+var it = foo();
+it.next(); // { value:1, done:false }
+it.next(); // { value:2, done:false }
+it.next(); // { value:'ivan', done:false }
+it.next(); // { value:{name: "stamat"}, done:false }
+it.next(); // { value:undefined, done:true }
+```
+                    </script>
+                </section>
+                <section data-markdown style="font-size;40px">
+                    <script type="text/template">
+# Generator Iterator
+# Examples
+
+```javascript
+function *foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+    return 5;
+}
+
+for (var v of foo()) {
+    console.log( v );
+}
+// 1 2 3 4
+```
+<!-- .element: style="float:left; width: 45%; margin-right: 20px" -->
+
+```javascript
+function* idMaker(){
+  var index = 0;
+  while(true)
+    yield index++;
+}
+
+var gen = idMaker();
+
+gen.next().value; // 0
+gen.next().value; // 1
+gen.next().value; // 2
+```
+<!-- .element: style="float:left; width: 45%" -->
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Advanced function generators
+# Examples
+
+```javascript
+function* fibonacci(){
+  var fn1 = 1, fn2 = 1, currnet, reset;
+  while (true){  
+    current = fn2;
+    fn2 = fn1;
+    fn1 = fn1 + current;
+    reset = yield current;
+    if (reset){
+        fn1 = 1;
+        fn2 = 1;
+    }
+  }
+}
+
+var sequence = fibonacci();
+sequence.next(true).value;     // 1
+```
+                    </script>
+                </section>
+                <section data-markdown  class="slide-section">
+                    <script type="text/template">
+# Async operations with function generators
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown >
+                    <script type="text/template">
+# Async operations with ES6
+# function generators
+
+                    </script>
+                </section>
+                <section data-markdown  class="slide-section">
+                    <script type="text/template">
+# Async operations with ES6
+## Live Demo
+                    </script>
+                </section>
 			</section>
 			
             <!-- Promises -->
@@ -365,285 +558,6 @@ async = true;
                 </section>
 			</section>
             
-            <!-- The Q Promise Library -->
-            <!-- <section>
-                <section data-markdown class="slide-section" id="q-promise-library">
-                    <script type="text/template">
-# The Q Promise Library
-## A rich CommonJS Promises/A+ library
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Getting Started with Q
-
-*	Some ways of using the Q module:
-	*	Option 1: Download it from the Q repository
-		*	Add the q.js or q.min.js file to your project
-		*	Reference it with a `<script>` tag
-		*	The Q library will create a global Q object you can use
-	*	Option 2: Using NuGet in Visual Studio
-		*	Open the Package Manager Console
-		*	Type `Install-Package Q`
-		*	Go to step 2 in the previous option
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Getting Started with Q
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Creating Promises from Function Values
-
-*	Creating Promises with Q
-	*	We can make a regular function into a Promise
-	*	i.e. we take the return value as the value of the function
-	*	Using the function `Q.fcall()`
-	*	First parameter is the function to call
-	*	The following parameters are passed into the called function
-	*	The return value of `.fcall()` is a promise with the function's return value
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Creating Promises from Function Values
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown style="font-size: 0.7em">
-                    <script type="text/template">
-# Creating Promises from 
-# Callback-based Functions
-
-*	Promises from callback-based functions
-	*	Often we need to wrap a callback in a promise
-	*	We can use the `Deferred` object in Q	
-	```javascript
-	var deferred = Q.defer()
-	```
-	*	`Deferred` is an object which can
-		*	self-fulfill itself with some argument:
-		```javascript
-		deferred.resolve(result)
-		```
-		*	Or self-reject itself with an error:
-		```javascript
-		deferred.reject(reason)
-		```
-		*	Get the promise which will be fulfilled/rejected:
-		```javascript
-		deferred.promise
-		```
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Creating Promises from Callback-based Functions
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Full-featured `.then()` in Q
-
-*	The `.then()` method in the Q library
-	*	Follows the specification
-	*	Success, error and progress handlers
-		*	Value returned from the promise is passed to the `success handler`
-		*	Errors in the promise are passed to the `error handler`
-		*	Any progress data the promise reports is passed to the `progress handler`
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Full-featured `.then()` in Q
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promise Chaining in Q
-
-*	Chaining promises
-	*	Each `.then()` method returns a new promise
-	*	The value of the promise is:
-		*	The return value of the success handler, if the previous promise is fulfilled
-		*	The error data if the previous promise failed
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Promise Chaining in Q
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Error Propagation in Q
-
-*	Error propagation
-	*	Errors are propagated up the promise chain
-	*	The first error handler processes the error
-		*	All promises after the error are in the rejected state
-		*	No success handler will be called
-*	`.done()` function
-	*	Good practice to place at the end of chain
-	*	If no error handler is triggered, done will throw an exception
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Error Propagation in Q
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Collections of Promises
-
-*	Use `Q.all([promise1, promise2, …])` to get a promise for a collection of promises:
-	*	Fulfilled when all promises are fulfilled
-		*	Success handler gets the results as an array
-	*	Rejected if any promise is rejected
-		*	Error handler gets the error of the first rejected
-*	Use `.spread()` instead of `.then()` to spread the array of results into`arguments` of success handler
-
-
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Collections of Promises
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Geolocation with Q Promises
-
-*	We now know the basics of the Q library and Promises
-	*	There's a lot more functionality in Q
-		*	E.g. each promise instance method has a 'static' counterpart:
-		*	`promise.then(…)` and `Q.then(promise, …)`
-	*	Read the [documentation](https://github.com/kriskowal/q/wiki/API-Reference)
-*	We will re-write the Geolocation example
-	*	Without callbacks
-	*	With promises and promise chains
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Geolocation with Q Promises
-## Live Demo
-                    </script>
-                </section>
-			</section> -->
-			
-            <!-- jQuery Promises -->
-            <!-- <section>
-                <section data-markdown class="slide-section" id="promises-in-jquery">
-                    <script type="text/template">
-# Promises in jQuery
-## Creation, Usage, Specifics
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises in jQuery
-					
-*	jQuery supports CommonJS Promises/A
-	*	Since jQuery 1.5
-	*	*almost (details [here](https://gist.github.com/domenic/3889970))
-		*	.then() didn't return a promise until jQuery 1.8
-			*	.pipe() was used
-		*	Errors in handlers don't propagate up
-*	Generally, jQuery promises look and feel the same as Q promises
-	*	Use them the same way, but be cautious
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises in jQuery
-					
-*	The `jQuery.Deferred` object
-	*	Extended, mutable promise
-		*	Just like in Q
-	*	Can resolve and reject itself with arguments
-	*	Can retrieve an immutable promise object
-		*	Which in fact will be resolved/rejected
-		
-```javascript
-var d = jQuery.Deferred(); // $.Deferred()
-d.resolve(result);
-// resolves the deferred, calling success handlers
-d.reject(reason);
-// rejects the deferred, calling error handlers
-d.promise();
-// note here promise is a function
-```
-                    </script>
-                </section>
-                <section data-markdown  class="slide-section">
-                    <script type="text/template">
-# Creating and Using Promises in jQuery
-## Live Demo
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises in jQuery
-
-*	Specifics of error propagation in jQuery
-	*	Calling reject (from deferred) works as expected
-		*	Only error handlers are called
-	*	Errors in success/error handlers are not propagated
-		*	Thrown exceptions will not be processed by error handlers in the chain
-
-```javascript
-promiseMeSomething().then(function(){
-	invalid code //throws an exception
-}).then(function(){}, function(err){
-	//this error handler will not be called
-})
-```
-                    </script>
-                </section>
-			</section> -->
-            
-            <!-- Async operations ES6 -->
-            <section>
-                <section data-markdown class="slide-section" id="async-operations-es6">
-                    <script type="text/template">
-# Async operations with ES6
-## function generators					
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Async operations with ES6
-# function generators
-					
-                    </script>
-                </section>
-                <section data-markdown  class="slide-section">
-                    <script type="text/template">
-# Async operations with ES6
-# function generators
-## Live Demo
-                    </script>
-                </section>
-			</section>
-			
             <!-- ES6 Promises -->
             <section>
                 <section data-markdown class="slide-section" id="es6-promises">
@@ -838,14 +752,14 @@ get('users.all').then(JSON.parse)
                     <script type="text/template">
 # Promise methods
 
-*	Promise.all(_iterable_)
+*	`Promise.all(`_iterable_`)`
 	*	Wait until all settled
-*	Promise.race(_iterable_)
+*	`Promise.race(`_iterable_`)`
 	*	Wait until 1 settles
-*	Promise.reject(_reason_)
+*	`Promise.reject(`_reason_`)`
 	*	Create a Promise that is already rejected
 	*	Useful to not do aync operation in some condition
-*	Promise.resolve(_value_)
+*	`Promise.resolve(`_value_`)`
 	*	Create a promise that is already resolved
                     </script>
                 </section>
@@ -874,13 +788,9 @@ System.import('some_module')
 		// process error
 	})
 ```
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Import modules with Promises
 
 *	Multiple promisses at once
+
 ```javascript
 Promise.all(['module1', 'module2', 'module3']
 	.map(x => System.import(x)))
@@ -888,12 +798,6 @@ Promise.all(['module1', 'module2', 'module3']
 		// my code...
 	})
 ```
-                    </script>
-                </section>
-                <section data-markdown  class="slide-section">
-                    <script type="text/template">
-# Import modules with Promises
-## Live Demo
                     </script>
                 </section>
 			</section>
