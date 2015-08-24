@@ -54,9 +54,7 @@
 *	Promises
 	*	Overview
 	*	CommonJS Promise/A and A+
-*	Using Promises
-	*	Native with polyfill
-	*	Using a library: Bluebird, RSVP, Q
+*	Using ES6 Promises
 *	Async operations with ES6 function generators
 
                 </script>
@@ -215,12 +213,336 @@
                 </section>
 			</section>
 					
-            <!-- Async operations ES6 -->
+            <!-- Promises -->
+            <section>
+                <section data-markdown class="slide-section" id="promises">
+                    <script type="text/template">
+# Promises
+## The evolution of Callback-oriented programming
+## (switch on your imagination)
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+
+*	A promise is an object which represents an eventual (future) value
+	*	Methods "promise" they will `return` a value
+		*	Correct or representing an error
+*	A Promises can be in one of three states:
+	*	Fulfilled (resolved, succeded)
+	*	Rejected (an error happened)
+	*	Pending (unfulfilled yet, still being computed)
+		
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+
+*	Promise objects can be used in code as if their value is known
+	*	Actually we attach code which executes
+		*	When the promise is fulfilled
+		*	When the promise is rejected
+		*	When the promise reports progress (optionally)
+*	Promises are a pattern 
+	*	No defined implementation, but strict requirements
+	*	Initially described in **CommonJS Promises/A**
+
+                    </script>
+                </section>
+                <section data-markdown style="font-size: 0.95em">
+                    <script type="text/template">
+# Promises
+
+*	More specifically:
+	*	Each promise has a `.then()` method accepting 3 parameters:
+		*	`Success`, `Error` and `Progress` functions
+		*	All parameters are optional
+	*	So we can write:
+
+```javascript
+promiseMeSomething()
+	.then(function (value) {
+		//handle success here
+	}, function (reason) {
+		//handle error here
+	});
+```
+Provided  `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+					
+*	Each `.then()` method returns a promise in turn
+	*	Meaning promises can be chained:
+
+```javascript
+asyncComputeTheAnswerToEverything()
+	.then(addTwo)
+	.then(printResult, onError);
+```	
+*	Promises enable us to:
+	*	Remove the callback functions from the parameters and attach them to the `"result"`
+	*	Make a sequence of operations happen
+	*	Catch errors when we can process them
+
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promises
+					
+*	The full and modern description of Promises:
+	*	[CommonJS Promises/A+](http://promises-aplus.github.io/promises-spec/)
+	*	An improvement of the Promises/A description
+	*	Better explanation of border cases
+	*	Several libraries fulfill the A+ spec:
+		*	A notable example is Kris Kowal's Q library
+	
+			https://github.com/kriskowal/q
+
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Promises
+## Live Demo
+                    </script>
+                </section>
+			</section>
+            
+            <!-- ES6 Promises -->
+            <section>
+                <section data-markdown class="slide-section" id="es6-promises">
+                    <script type="text/template">
+# ES6 Promises <!-- .element: style="margin-top: 15%" -->
+<img src="imgs/why-so-asynchronous.jpg" style="border:none; position:absolute; top:35; left:25%; width: 50%" />
+                    </script>
+                </section>
+                <section data-markdown style="font-size:42px">
+                    <script type="text/template">
+# ES6 Promises
+
+*	Constructor
+
+```javascript
+var promise = new Promise(function(resolve, reject) {
+	// do a thing, possibly async, then...	
+	if (/* everything turned out fine */) {
+		resolve('Stuff worked!'); // or pass some data
+	} else {
+		reject(Error('It broke'));
+	}
+});
+return promise; // give this to someone
+```
+
+*	What can we do `async`
+	*	AJAX
+	*	Web Sockets - load image
+	*	Write LOTS to DOM
+	*	Others..
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# ES6 Promises
+
+```javascript
+var promise = new Promise(function(resolve, reject) {
+	// do something	
+	if (somethingWorked() {
+		resolve('Stuff worked!');
+	} else {
+		reject(Error('It broke'));
+	}
+});
+
+promise.then(function(result) {
+	console.log(result); // "Stuff worked!"
+}, function (err) {
+	console.log(err); // "It broke"
+}
+```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# ES6 Promises
+
+```javascript
+function get(url) {
+	return new Promise(function(resolve, reject) {
+		// jQuery http get request
+		$.get(url, function(data) { 
+			resolve(data);
+		})
+		.fail(function() {
+			reject();
+		});
+	});
+}
+
+// in code
+get('users.all').then(function(users) {
+	myController.users = users;
+}, function() { // OR .catch(function() {
+	delete yController.users;
+})
+```
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promise chaining
+
+*	When server returns a JSON string
+
+```javascript
+get('users.all')
+	.then(function(usersString) {
+		return JSON.parse(usersString);
+	})
+	.then(function(users) {
+		myController.users = users;
+	})
+```
+
+*	Or
+
+```javascript
+get('users.all')
+	.then(JSON.parse)
+	.then((users) => {
+		myController.users = users;
+	})
+```
+                    </script>
+                </section>
+                <section data-markdown style="font-size:38px">
+                    <script type="text/template">
+# Promises - Exapmles
+
+
+*	Promises - async example
+
+```javascript
+var async = false;
+var promise = new Promise(function(resolve, reject) {
+		resolve();
+	});
+promise.then(function() {
+	console.log(async); // true
+});
+async = true;
+```
+
+*	Promise composing
+
+```javascript
+var promise1 = new Promise(function(resolve, reject) {
+	resolve('one');
+})
+var promise2 = new Promise(function(resolve, reject) {
+	resolve(promise1);
+})
+promise2.then(function(data) {
+	console.log(data); // 'one'
+})
+```
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Promise methods
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promise methods
+
+*	`Promise.all(`_iterable_`)`
+	*	Wait until all settled
+*	`Promise.race(`_iterable_`)`
+	*	Wait until 1 settles
+*	`Promise.reject(`_reason_`)`
+	*	Create a Promise that is already rejected
+	*	Useful to not do aync operation in some condition
+*	`Promise.resolve(`_value_`)`
+	*	Create a promise that is already resolved
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Promise.all()
+
+```javascript
+var usersPromise = get('users.all');
+var postsPromise = get('posts.everyone');
+
+// Wait until BOTH are settled
+Promise.all([usersPromise, postsPromise])
+	.then(function(results) {
+		// results is an array of the responses
+		myController.users = results[0];
+		myController.posts = results[1];
+	})
+	.catch(function(){
+		delete myController.users;
+		delete myController.posts;
+	})
+```
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Promise methods
+## Live Demo
+                    </script>
+                </section>
+                <section data-markdown class="slide-section">
+                    <script type="text/template">
+# Import modules with Promises
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+# Import modules with Promises
+
+```javascript
+System.import('some_module')
+	.then(some_module => {
+		// work with the module
+	})
+	.catch(error => {
+		// process error
+	})
+```
+
+*	Multiple promisses at once
+
+```javascript
+Promise.all(['module1', 'module2', 'module3']
+	.map(x => System.import(x)))
+	.then(function ([module1, module2, module3]) {
+		// my code...
+	})
+```
+                    </script>
+                </section>
+			</section>
+            
+            <!-- ES6 function generators -->
             <section>
                 <section data-markdown class="slide-section" id="async-operations-es6">
                     <script type="text/template">
-# Async operations with ES6
-## function generators					
+# Function generators
+## new to EcmaScript 6
                     </script>
                 </section>
                 <section data-markdown style="font-size: 42px">
@@ -397,10 +719,20 @@ sequence.next(true).value;     // 1
 ```
                     </script>
                 </section>
-                <section data-markdown  class="slide-section">
+                <section data-markdown class="slide-section" id="async-operations-es6">
                     <script type="text/template">
-# Async operations with function generators
+# Function generators
 ## Live Demo
+                    </script>
+                </section>
+			</section>
+						
+            <!-- Async operations with function generators -->
+			<section>            
+				<section data-markdown  class="slide-section">
+                    <script type="text/template">
+# Async operations
+## with function generators
                     </script>
                 </section>
                 <section data-markdown >
@@ -418,390 +750,6 @@ sequence.next(true).value;     // 1
                 </section>
 			</section>
 			
-            <!-- Promises -->
-            <section>
-                <section data-markdown class="slide-section" id="promises">
-                    <script type="text/template">
-# Promises
-## The evolution of Callback-oriented programming
-## (switch on your imagination)
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises
-
-*	A promise is an object which represents an eventual (future) value
-	*	Methods "promise" they will `return` a value
-		*	Correct or representing an error
-*	A Promises can be in one of three states:
-	*	Fulfilled (resolved, succeded)
-	*	Rejected (an error happened)
-	*	Pending (unfulfilled yet, still being computed)
-		
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises
-
-*	Promise objects can be used in code as if their value is known
-	*	Actually we attach code which executes
-		*	When the promise is fulfilled
-		*	When the promise is rejected
-		*	When the promise reports progress (optionally)
-*	Promises are a pattern 
-	*	No defined implementation, but strict requirements
-	*	Initially described in **CommonJS Promises/A**
-
-                    </script>
-                </section>
-                <section data-markdown style="font-size: 0.95em">
-                    <script type="text/template">
-# Promises
-
-*	More specifically:
-	*	Each promise has a `.then()` method accepting 3 parameters:
-		*	`Success`, `Error` and `Progress` functions
-		*	All parameters are optional
-	*	So we can write:
-
-```javascript
-promiseMeSomething()
-	.then(function (value) {
-		//handle success here
-	}, function (reason) {
-		//handle error here
-	});
-```
-Provided  `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises
-					
-*	Each `.then()` method returns a promise in turn
-	*	Meaning promises can be chained:
-
-```javascript
-asyncComputeTheAnswerToEverything()
-	.then(addTwo)
-	.then(printResult, onError);
-```	
-*	Promises enable us to:
-	*	Remove the callback functions from the parameters and attach them to the `"result"`
-	*	Make a sequence of operations happen
-	*	Catch errors when we can process them
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises
-					
-*	The full and modern description of Promises:
-	*	CommonJS Promises/A+
-	
-		http://promises-aplus.github.io/promises-spec/
-	*	An improvement of the Promises/A description
-	*	Better explanation of border cases
-	*	Several libraries fulfill the A+ spec:
-		*	A notable example is Kris Kowal's Q library
-	
-			https://github.com/kriskowal/q
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises composing
-
-```javascript
-var promise1 = new Promise(function(resolve, reject) {
-	resolve('one');
-})
-
-var promise2 = new Promise(function(resolve, reject) {
-	resolve(promise1);
-})
-
-promise2.then(function(data) {
-	console.log(data); // 'one'
-})
-```
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promises - async example
-
-```javascript
-var async = false,
-	promise = new Promise(function(resolve, reject) {
-		resolve();
-	});
-promise.then(function() {
-	console.log(async);
-});
-async = true;
-```
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Promises
-## Live Demo
-                    </script>
-                </section>
-			</section>
-            
-            <!-- ES6 Promises -->
-            <section>
-                <section data-markdown class="slide-section" id="es6-promises">
-                    <script type="text/template">
-# ES6 Promises
-## Why so asynchronous?
-// TODO: put joker img
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-* Why do we need Promises?
-	*	Async code can look scary
-	*	Callback Piramid of Death
-	*	Code Organization
-	*	Example
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-*	Without Promises
-
-```javascript
-var img1 = document.querySelector('.img-1);
-
-function loaded() {
-// yey image loaded
-}
-
-if (img1.complete) {
-	loaded();
-} else {
-	img1.addEventListener('loaded', loaded);
-}
-
-img1.addEventListener('error', function() {
-	// argh.. everything's broken
-})
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-*	Constructor
-
-```javascript
-var promise = new Promise(function(resolve, reject) {
-	// do a thing, possibly async, then...
-	
-	if (/* everything turned out fine */) {
-		resolve('Stuff worked!'); // or pass some data
-	} else {
-		reject(Error('It broke'));
-	}
-});
-
-return promise; // give this to someone
-```
-
-*	What can we do `async`
-	*	AJAX
-	*	Web Sockets - load image
-	*	Write LOTS to DOM
-	*	Others..
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-*	We have a `promise` object. Now what?
-*	A promise can be in 1 of 4 states
-	*	fulfilled: sucessfully resolved - 1
-	*	rejected: rejected - 2
-	*	pending: hasn't been resolved or rejected yet - undefined
-	*	error: 
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-```javascript
-var promise = new Promise(function(resolve, reject) {
-	// do something	
-	if (somethingWorked() {
-		resolve('Stuff worked!');
-	} else {
-		reject(Error('It broke'));
-	}
-});
-
-promise.then(function(result) {
-	console.log(result); // "Stuff worked!"
-}, function (err) {
-	console.log(err); // "It broke"
-}
-```
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# ES6 Promises
-
-```javascript
-function get(url) {
-	return new Promise(function(resolve, reject) {
-		$.get(url, function(data) { // jQuery http get request
-			resolve(data);
-		})
-		.fail(function() {
-			reject();
-		});
-	});
-}
-
-// in code
-get('users.all').then(function(users) {
-	myController.users = users;
-}, function() {
-	delete yController.users;
-})
-
-// OR
-get('users.all').then(function(users) {
-	myController.users = users;
-})
-.catch(function() {
-	delete yController.users;
-});
-```
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promise.all()
-
-```javascript
-var usersPromise = get('users.all');
-var postsPromise = get('posts.everyone');
-
-// Wait until BOTH are settled
-Promise.all([usersPromise, postsPromise])
-	.then(function(results) {
-		// results is an array of the responses
-		myController.users = results[0];
-		myController.posts = results[1];
-	})
-	.catch(function(){
-		delete myController.users;
-		delete myController.posts;
-	})
-```
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promise chaining
-
-*	Serer returns a JSON string
-
-```javascript
-get('users.all').then(function(usersString) {
-	return JSON.parse(usersString);
-}).then(function(users) {
-	myController.users = users;
-})
-```
-
-Or
-
-```javascript
-get('users.all').then(JSON.parse)
-	.then((users) => {
-		myController.users = users;
-	})
-```
-                    </script>
-                </section>
-				
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Promise methods
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Promise methods
-
-*	`Promise.all(`_iterable_`)`
-	*	Wait until all settled
-*	`Promise.race(`_iterable_`)`
-	*	Wait until 1 settles
-*	`Promise.reject(`_reason_`)`
-	*	Create a Promise that is already rejected
-	*	Useful to not do aync operation in some condition
-*	`Promise.resolve(`_value_`)`
-	*	Create a promise that is already resolved
-                    </script>
-                </section>
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Promise methods
-## Live Demo
-                    </script>
-                </section>
-				
-                <section data-markdown class="slide-section">
-                    <script type="text/template">
-# Import modules with Promises
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-# Import modules with Promises
-
-```javascript
-System.import('some_module')
-	.then(some_module => {
-		// work with the module
-	})
-	.catch(error => {
-		// process error
-	})
-```
-
-*	Multiple promisses at once
-
-```javascript
-Promise.all(['module1', 'module2', 'module3']
-	.map(x => System.import(x)))
-	.then(function ([module1, module2, module3]) {
-		// my code...
-	})
-```
-                    </script>
-                </section>
-			</section>
-            
             <!-- Questions -->
            <section data-markdown class="slide-questions" id="questions">
              <script type="text/template">

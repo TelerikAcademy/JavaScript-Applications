@@ -8,12 +8,13 @@
     <div id="bomb" style="font-size: 20em; color: red"></div>
 
     <script>
-        function dropBomb() {
-            setTimeout(function () {
-                document.getElementById("bomb").innerHTML = "BOOOM";
-            }, 3000);
-        }
-
+        (function() {
+            function dropBomb() {
+                setTimeout(function () {
+                    document.getElementById("bomb").innerHTML = "BOOOM";
+                }, 3000);
+            }
+        }());
         document.getElementById("drop-bomb").onclick = dropBomb
     </script>
 </body>

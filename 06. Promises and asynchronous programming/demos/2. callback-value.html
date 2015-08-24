@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="drop-bomb">Drop Bomb</button>
+    <div id="bomb" style="font-size: 20em; color: red"></div>
+    <div id="bomb-report" style="font-size: 10em;" ></div>
+
+    <script>
+        (function() {
+            function dropBomb(success) {
+                setTimeout(function () {
+                    document.getElementById("bomb").innerHTML = "BOOOM";
+
+                    var bombDropDateTime = new Date();
+
+                    success(bombDropDateTime);
+                }, 2000);
+            }
+
+            function reportBombDrop(time) {
+                document.getElementById("bomb-report").innerHTML = "Bomb dropped at " +
+                        time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+            }
+
+            document.getElementById("drop-bomb").onclick = function () {
+                dropBomb(function (time) {
+                    document.getElementById("bomb-report").
+                            innerHTML = "Bomb dropped at " +
+                            time.getHours() + ":" +
+                            time.getMinutes() + ":" +
+                            time.getSeconds();
+                });
+            }
+        }());
+
+    </script>
+</body>
+</html>
