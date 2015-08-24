@@ -527,8 +527,8 @@ System.import('some_module')
 *	Multiple promisses at once
 
 ```javascript
-Promise.all(['module1', 'module2', 'module3']
-	.map(x => System.import(x)))
+Promise.all(['module1', 'module2', 'module3'])
+	.map(x => System.import(x))
 	.then(function ([module1, module2, module3]) {
 		// my code...
 	})
