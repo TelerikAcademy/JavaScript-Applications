@@ -24,7 +24,7 @@
           .before()
           .html(msg + '<br/>')
           .appendTo($output);
-          $output.append(line)
+        $output.append(line)
           .append('<br/>');
       }
     }();
@@ -34,14 +34,12 @@
       cors: true,
       contentType: 'application/json',
       success: function(data) {
-        for(var key in data){
+        for (var key in data) {
           print(`${key}: ${data[key]}`);
         }
       }
     });
   </script>
-
-  <script src="http://localhost:35729/livereload.js"></script>
 </body>
 
 </html>
