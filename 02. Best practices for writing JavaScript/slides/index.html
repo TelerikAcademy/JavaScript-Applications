@@ -185,7 +185,7 @@
 *	The [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) statement declares a block scope local variable
 	*	Scoped to the nearest enclosing block
 	*	Or global if outside any block
-*	Just like `var`, variables declared with `let` are visible before they are declared in their enclosing block
+*   [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) does not hoist the variable to the top of the block. If you reference a variable in a block before the `let` declaration for that variable is reached, this results in a `ReferenceError`.
 
 					</script>
 				</section>
