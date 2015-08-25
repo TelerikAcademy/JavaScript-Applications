@@ -46,7 +46,14 @@
 
       <!-- Table of contents -->
       <section data-markdown>
-        #Table of Contents ##TODO
+        #Table of Contents
+        *	Web Services Overview
+        *	RESTful Services Overview
+        *	`XMLHttpRequest` object
+        	*	Creating request
+        	*	Using the data
+    	*	jQuery.ajax()
+    		*	Creating HTTP requests with jQuery
       </section>
 
       <!-- Web services -->
@@ -262,20 +269,20 @@
               *  Isn't a method like the following better?
 
               ```javascript
-              httpRequest.create({
-                url: '/data.js', type:'POST',
-                headers: { 'content-type': 'appllication/json'},
-                success: successCallback, error: errorCallback
-              }).send(data);
+              httpRequest.post({
+                url: '/data.json', method: 'POST', data: data,
+                headers: { 'content-type': 'appllication/json' },
+                success: successCb, error: errorCb
+              });
               ```
 
               or even with promises:
 
               ```javascript
-              httpRequest.create({
-                url: '/data.js', type:'POST',
-                headers: { 'content-type': 'appllication/json'},
-              }).send(data).then(resolveCb, rejectCb);
+              httpRequest.send({
+                url: '/data.json',
+                headers: { 'content-type': 'appllication/json' }
+              }).then(successCb, errorCb);
               ```
           </section>
           <section data-markdown class="slide-section">
@@ -291,13 +298,16 @@
             ##The easy way of AJAX
           </section>
           <section data-markdown>
-            #jQuery AJAX
-            *  [jQuery](http://jquery.com) has a functionality for creating HTTP requests
-            *  jQuery AJAX methods:
-              *  `$.ajax(options)`
-              *  `$.getJSON(url, success).error()`
-              *  `$.post(url, data, success, 'json').error()`
-              *  `$(selector).load(urlToPartialHTML)`
+            <script type="text/markdown">
+              #jQuery AJAX
+              *  [jQuery](http://jquery.com) <!--.element: target="_blank" -->
+              has a functionality for creating HTTP requests
+              *  jQuery AJAX methods:
+                *  `$.ajax(options)`
+                *  `$.getJSON(url, success).error()`
+                *  `$.post(url, data, success, 'json').error()`
+                *  `$(selector).load(urlToPartialHTML)`
+            </script>
           </section>
 
           <section data-markdown>
@@ -353,7 +363,6 @@
             #`$(selector).load()`
             ##Live Demo
           </section>
-
         </section>
 
         <!-- Questions -->
@@ -366,7 +375,7 @@
   <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/js/head.min.js"></script>
   <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/reveal.js"></script>
   <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/setup.js"></script>
-  <script src="http://localhost:35729/livereload.js"></script>
+  <script src="http://localhost:35730/livereload.js"></script>
 </body>
 
 </html>
