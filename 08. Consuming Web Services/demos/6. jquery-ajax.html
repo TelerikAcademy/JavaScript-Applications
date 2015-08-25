@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: $.ajax()</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    if (typeof(window.$) === 'undefined') {
+      alert('jQuery not <loaded!></loaded!> \nrun "$ bower install" on the CMD/Terminal');
+    }
+
+    var url = 'data.json';
+
+    var print = function() {
+      var $output = $('#output'),
+        line = new Array(50).join('-');
+      return function(msg) {
+        $('<strong/>')
+          .before()
+          .html(msg + '<br/>')
+          .appendTo($output);
+        $output.append(line)
+          .append('<br/>');
+      }
+    }();
+
+    $.ajax({
+      url: url,
+      cors: true,
+      contentType: 'application/json',
+      success: function(data) {
+        for (var key in data) {
+          print(`${key}: ${data[key]}`);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

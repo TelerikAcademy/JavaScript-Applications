@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: $(selector).load(url)</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    if (typeof(window.$) === 'undefined') {
+      alert('jQuery not <loaded!></loaded!> \nrun "$ bower install" on the CMD/Terminal');
+    }
+
+    $('#output').load('/partials/details.html');
+  </script>
+
+</body>
+
+</html>

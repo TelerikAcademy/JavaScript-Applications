@@ -237,10 +237,10 @@ function restoreState(){
 
 ```javascript
 function saveState(text){
-  localStorage.setValue("text", text);
+  localStorage.setItem("text", text);
 }
 function restoreState(){
-  return localStorage.getValue("text");
+  return localStorage.getItem("text");
 }
 ```			
                     </script>

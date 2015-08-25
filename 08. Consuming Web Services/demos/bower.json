@@ -1,0 +1,19 @@
+{
+  "name": "consuming-remote-data-demos",
+  "version": "0.0.0",
+  "homepage": "https://github.com/telerikacademy/javascript-applications",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Doncho Minkov (donchominkov@gmail.com)"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

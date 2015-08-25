@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: Method for sending requests</title>
+</head>
+
+<body>
+  <script src="js/http-request.js"></script>
+  <script>
+    httpRequest.getJSON({
+        url: 'data.json'
+      })
+      .then(function(obj) {
+        console.log(obj.name);
+      });
+  </script>
+</body>
+
+</html>

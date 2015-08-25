@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: $.ajax()</title>
+  <style>
+    .message {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <h1>$.getJSON() and $.post()</h1>
+    <div class="controls">
+      <label for="">Name:
+        <input id="tb-name" type="text">
+      </label>
+      <br/>
+      <label for="">age:
+        <input id="tb-age" type="number">
+      </label>
+      <br/>
+      <label for="">isCool:
+        <input id="tb-isCool" type="checkbox">
+      </label>
+      <br/>
+      <button id="btn-save">Save</button>
+    </div>
+    <div class="items"></div>
+    <div class="messages">
+      <span class="success message"></span>
+      <span class="error message"></span>
+    </div>
+  </div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    if (typeof(window.$) === 'undefined') {
+      alert('jQuery not <loaded!></loaded!> \nrun "$ bower install" on the CMD/Terminal');
+    }
+
+    var url = 'http://localhost:8886/api/people';
+
+    var db = (function() {
+      function save(data) {
+        var promise = new Promise(function(resolve, reject) {
+          $.ajax(url, {
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function(data) {
+              resolve(data);
+            },
+            error: function(err) {
+              reject({
+                err: JSON.parse(err.responseText).err
+              });
+            }
+          })
+        });
+        return promise;
+      }
+
+      function load() {
+        var promise = new Promise(function(resolve, reject) {
+          $.getJSON(url, function(data) {
+              resolve(data);
+            })
+            .error(function(err) {
+              reject({
+                message: JSON.parse(err.responseText).err
+              });
+            });
+        });
+        return promise;
+      }
+
+      return {
+        save, load
+      };
+    }());
+
+    $(function() {
+      /* test */
+
+      $('#tb-name').val('Doncho');
+      $('#tb-age').val('25');
+
+      var $list = $('<ul/>')
+        .appendTo('#root');
+      db.load()
+        .then(function(items) {
+          items.forEach(function(item) {
+            $('<li/>')
+              .html(JSON.stringify(item))
+              .appendTo($list);
+          });
+        });
+
+      var $tbName = $('#tb-name'),
+        $tbAge = $('#tb-age'),
+        $tbIsCool = $('#tb-isCool'),
+        $successBox = $('.success'),
+        $errorBox = $('.error');
+
+      $('#btn-save').on('click', function() {
+        var name = $tbName.val(),
+          age = +$tbAge.val(),
+          isCool = !!$tbIsCool.checked;
+
+        var data = {
+          name, age, isCool
+        };
+
+        $tbName.val('');
+        $tbAge.val('');
+        $tbIsCool.val('');
+
+        db.save(data)
+          .then(function(item) {
+            $('<li/>')
+              .html(JSON.stringify(item))
+              .appendTo($list);
+            $successBox.html('Item created successfully')
+              .fadeIn(2000, function() {
+                $successBox.fadeOut(2000, function() {
+                  $successBox.html('');
+                });
+              });
+          }, function(err) {
+            $errorBox.html(err.message)
+              .fadeIn(2000, function() {
+                $errorBox.fadeOut(2000, function() {
+                  $errorBox.html('');
+                });
+              });
+          });
+      });
+    });
+  </script>
+</body>
+
+</html>

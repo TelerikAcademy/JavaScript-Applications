@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: Using xhr</title>
+</head>
+<body>
+  <script>
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', 'data.json', true);
+    httpRequest.send(null);
+
+    httpRequest.onreadystatechange = function(){
+      if(httpRequest.readyState === 4){
+        var statusType = (httpRequest.status / 100) | 0;
+        switch (statusType) {
+          case 2:
+            console.log('Success!');
+            break;
+          case 4:
+          case 5:
+            console.log('Error!')
+          break;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
