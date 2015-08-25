@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .error{
+      color: red;
+    }
+    .success{
+      color: green; 
+    }
+  </style>
+</head>
+
+<body>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <h1>Hello!!!</h1>
+  <label for="">Name:
+    <input id="tb-name" type="text">
+  </label>
+  <button id="button">Add</button>
+  <div class="messages">
+    <span class="success message"></span>
+    <span class="error message"></span>
+  </div>
+  <ul id="people-list"></ul>
+  <script>
+    var $list = $('#people-list');
+
+    var db = (function() {
+      var url = 'http://localhost:8886/api/people';
+
+      function save(data) {
+        var promise = new Promise(function(resolve, reject) {
+          $.ajax({
+            url: url,
+            method: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            success: function(data) {
+              resolve(data);
+            },
+            error: function(err) {
+              reject(JSON.parse(err.responseText));
+            }
+          });
+        });
+        return promise;
+      }
+
+      function load() {
+        var promise = new Promise(function(resolve, reject) {
+          $.getJSON(url, function(data) {
+              resolve(data);
+            })
+            .error(function(err) {
+              reject(JSON.parse(err.responseText));
+            });
+        });
+        return promise;
+      }
+
+      return {
+        save,
+        load
+      }
+    }());
+
+    function parseObjectsToLi(objects, parseFunc) {
+      var $items = $('<div/>');
+      objects.forEach(function(obj) {
+        $('<li/>')
+          .html(parseFunc(obj))
+          .appendTo($items);
+      });
+
+      return $items.html();
+    }
+
+    function personToJSON(person) {
+      return JSON.stringify(person);
+    }
+
+    db.load()
+      .then(function(people) {
+        $list.append(parseObjectsToLi(people, personToJSON));
+      });
+
+    $('#button').on('click', function() {
+      var person = {
+        name: $('#tb-name').val(),
+        age: 18,
+        isCool: true
+      };
+
+      $('#tb-name').val('');
+
+      db.save(person)
+        .then(function(person) {
+          $list.append(parseObjectsToLi([person], personToJSON));
+        }, function(err) {
+          $('.error.message').html(err.err)
+            .fadeIn(2000, function() {
+              $('.error.message')
+                .fadeOut(2000);
+            });
+        });
+    });
+
+
+
+    /*
+(index):92 Object {err: "Name must be a string with length between 3 and 30"}*/
+  </script>
+
+</body>
+
+</html>
