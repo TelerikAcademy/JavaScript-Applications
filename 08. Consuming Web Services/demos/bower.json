@@ -12,5 +12,8 @@
   ],
   "authors": [
     "Doncho Minkov (donchominkov@gmail.com)"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
 }

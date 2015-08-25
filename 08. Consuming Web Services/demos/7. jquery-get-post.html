@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Consuming Remote Data: $.ajax()</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    if (typeof(window.$) === 'undefined') {
+      alert('jQuery not <loaded!></loaded!> \nrun "$ bower install" on the CMD/Terminal');
+    }
+
+    var url = 'http://localhost:8886/api/people';
+
+    $(function(){
+      $.getJSON(url, function(data){
+        data.forEach((item) => console.log(item));
+      });
+    });
+
+  </script>
+
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>
+
+</html>
