@@ -50,7 +50,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   `cookies`
 *   Polyfills for `localStorage` and `sessionStorage`
 
-#### 6.   Promises and asynchronous programming
+#### 6.   Promises and asynchronous programming [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/06.%20Promises%20and%20asynchronous%20programming/slides/index.html)
 *   Async programming
 *   Callbacks
 *   Promises
@@ -58,7 +58,7 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 	*	Using a library: Bluebird, RSVP, Q
 *   Async operations with ES 2015 function generators
 
-#### 7.   HTTP and AJAX
+#### 7.   HTTP and AJAX [(view online)](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/title)
 *   What is HTTP?
 *   Request-response model
 *   HTTP Methods
