@@ -1,0 +1,14 @@
+{
+  "name": "research",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"iojs ./node_modules/http-server/bin/http-server -p 8881"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.8.0"
+  }
+}

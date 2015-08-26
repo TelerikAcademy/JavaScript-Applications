@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Parse.com Demos</title>
+
+</head>
+
+<body>
+  <script src="bower_components/parse-1.5.0/index.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <!-- <script src="bower_components/jquery-hashchange/jquery.ba-hashchange.js"></script> -->
+  <script src="js/db.js"></script>
+
+  <div id="root">
+  </div>
+  <script>
+    $(function() {
+      function appendItemsToContainer(items, $container) {
+        $container = $($container);
+        items.forEach(function(item) {
+          $('<li />')
+            .attr('data-id', item.id)
+            .append(
+              $('<strong />')
+              .addClass('item-name')
+              .html(item.name)
+            )
+            .append(
+              $('<span />')
+              .addClass('item-age')
+              .html(item.age)
+            )
+            .appendTo($container);
+        });
+      };
+
+      $(window).on('hashchange', function(e) {
+        var hash = location.hash;
+
+        if (hash !== '#login' && !db.hasUser()) {
+          location = '/#login';
+          return;
+        }
+        switch (hash) {
+          case '#login':
+            $('#root').load('partials/login-view.html', function() {
+              console.log('--------------#LOGIN');
+
+              $('#btn-login').on('click', function() {
+                console.log('Clicked');
+                var user = $('#tb-user').val(),
+                  pass = $('#tb-pass').val();
+                db.login(user, pass)
+                  .then(function(state) {
+                    document.location = '/#home';
+                  }, function(err) {
+                    window.error = err;
+                    document.location = '/#error';
+                  });
+              });
+            });
+            break;
+          case '#home':
+            $('#root').load('partials/home-view.html', function() {
+              console.log('--------------#HOME');
+              var $list = $('.items');
+
+              $('#username').html(db.getUser());
+
+              $('#btn-logout').on('click', function() {
+                db.logout()
+                  .then(function() {
+                    document.location = '/#login';
+                  });
+              });
+
+              $('#btn-add').on('click', function() {
+                var name = $('#tb-name').val(),
+                  age = +$('#tb-age').val();
+
+                db.save({
+                    name, age
+                  })
+                  .then(function(item) {
+                    appendItemsToContainer([item], $list);
+                  });
+              });
+              db.load()
+                .then(function(items) {
+                  appendItemsToContainer(items, $list);
+                });
+            });
+
+            break;
+          default:
+            $('#root').load('partials/error-view.html', function() {
+              if (window.err) {
+                $('.error-text').html(JSON.stringify(err));
+              } else {
+                $('.error-text').html('Unknown error');
+              }
+            });
+            break;
+        }
+      });
+
+      document.location = '/#home-1';
+      document.location = '/#home';
+    });
+
+    // Parse.User.logIn('Doncho', '123456q');
+  </script>
+
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>
+
+</html>
