@@ -98,18 +98,27 @@ All homeworks for the course are test-driven, i.e. each task has a predefined se
 *   Spy objects and mocking
 *   Code coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
 
-#### 11.   App architecture workshop
+#### 11. Creating Simple SPA applications with Sammy.js and jQuery
+*	What is a SPA application?
+*	[Sammy.js](http://sammyjs.org/) overview
+	*	Creating routes
+		*	i.e. 'pages'
+	*	Using Templates
+		*	Handlebars, Mustache, etc...
+*	Creating a simple SPA app using Sammy.js
+
+#### 12.   App architecture workshop
 *   Creating a complete web app with:
 	*   Backend data from business cloud
 	*   AJAX
 	*   Handlebars.js, System.js, jQuery
 	*   Using promises
 
-#### 12.  Exam preparation
+#### 13.  Exam preparation
 
-#### 13.  Teamwork Defense
+#### 14.  Teamwork Defense
 
-#### 14.  Exam
+#### 15.  Exam
 
 ## Preparing the local machine for Unit testing with Mocha and Chai
 
