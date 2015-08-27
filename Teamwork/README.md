@@ -5,7 +5,7 @@ This document describes the teamwork assignment for Telerik Academy students in 
 
 #Project Description
 
-Design and implement an **object-oriented web application** by choice.
+Design and implement an **object-oriented web SPA application** by choice.
 
 It could be a simple game , component library , business application or any other
 *   You are absolutely free to choose the topic of your work
@@ -36,7 +36,7 @@ Please define and implement the following assets in your project:
     *   At least 7 types of objects
 *   Unit tests
     *   Using [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [SinonJS](http://sinonjs.org/)
-*   Implement a UI for your application 
+*   Implement a UI for your application
     *   Use KendoUI, jQueryUI or implement your own UI logic
 *   Use some kind of web data storage, one of the following is Ok
     *   Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc...
@@ -52,11 +52,11 @@ Please define and implement the following assets in your project:
 *   At least one third-party API to share something from your application
     *   Samples:
         *   Share status to Facebook, Google+, Twitter, etc...
-        *   Upload images to Facebook, Flickr, Instagram             
+        *   Upload images to Facebook, Flickr, Instagram
 *   **The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, Internet Explorer 10/11, Opera and Apple Safari**
 
 ##Additional Requirements
-Follow the best practices for producing high-quality code: 
+Follow the best practices for producing high-quality code:
 *   **Correct naming**
 *   **Data encapsulation**
     *   Use OOP and modules
@@ -64,7 +64,7 @@ Follow the best practices for producing high-quality code:
 *   Use **GIT** as a source control system
 *   Host it on [http://github.com](http://github.com)
 
-##Optional Requirements    
+##Optional Requirements
 If you have a chance, time and a suitable situation, you might add some of the following to your project:
 *   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
 *   Integration tests
