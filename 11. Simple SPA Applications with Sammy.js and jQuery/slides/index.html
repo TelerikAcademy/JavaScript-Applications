@@ -43,7 +43,11 @@
   <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/setup-func.js"></script>
   <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/render.js"></script>
   <script>
-    var readmeLocation = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + '/' + 'README.md';
+    var protocal = window.location.protocol,
+      host = window.location.host,
+      pathname = window.location.pathname;
+    pathname = pathname.substring(pathname.indexOf('index.html'));
+    var readmeLocation = protocol + "//" + host + pathname + '/' + 'README.md';
 
     console.log(readmeLocation);
 
