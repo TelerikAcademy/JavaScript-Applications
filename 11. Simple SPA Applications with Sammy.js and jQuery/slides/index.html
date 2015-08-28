@@ -47,6 +47,7 @@
       host = window.location.host,
       pathname = window.location.pathname;
     pathname = pathname.substring(pathname.indexOf('index.html'));
+    
     var readmeLocation = protocol + "//" + host + pathname + '/' + 'README.md';
 
     console.log(readmeLocation);
