@@ -4,11 +4,12 @@
   "description": "<!-- section start -->",
   "main": "index.js",
   "dependencies": {
-    "http-server": "^0.8.0"
+    "http-server": "^0.8.0",
+    "openurl": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ./node_modules/http-server/bin/http-server -p 8888 & node open.js"
+    "start": "node ./node_modules/http-server/bin/http-server -p 8123 & node open.js"
   },
   "repository": {
     "type": "git",
