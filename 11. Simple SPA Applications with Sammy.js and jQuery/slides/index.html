@@ -43,7 +43,8 @@
   <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/setup-func.js"></script>
   <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/render.js"></script>
   <script>
-    render('/README.md');
+    var readmeLocation = window.location.protocol + "//" + window.location.host + '/README.md';
+    render(readmeLocation);
   </script>
 </body>
 
