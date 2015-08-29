@@ -51,7 +51,6 @@
 # What is REST?
 
 <div>
-
 > "Representational state transfer (REST) is a style of software architecture for distributed hypermedia systems such as the World Wide Web."</cite>
 > -- [Wikipedia](http://en.wikipedia.org/wiki/Representational_State_Transfer)
 
