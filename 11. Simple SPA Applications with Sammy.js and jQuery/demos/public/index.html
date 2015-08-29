@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript applications: Sammy.js Overview</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="#/home">Home</a>
+      </li>
+      <li>
+        <a href="#/details">Details</a>
+      </li>
+    </ul>
+  </nav>
+  <div id="root"></div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/sammy/lib/sammy.js"></script>
+  <script>
+    var sammyApp = Sammy('#root', function() {
+      this.get('#/', function() {
+        this.redirect('#/home');
+      });
+
+      this.get('#/home/:id', function() {
+        console.log('-----HOME');
+        var $heading = $('<h1 />').html('Home')
+        this.app.swap($heading);
+        console.log(this.params);
+      });
+
+      this.get('#/home', function() {
+        console.log('-----HOME');
+        var $heading = $('<h1 />').html('Home')
+        this.app.swap($heading);
+        console.log(this.params);
+      });
+
+      this.get('#/details', function() {
+        var $heading = $('<h1 />').html('Details')
+        this.app.swap($heading);
+      });
+
+    });
+
+    sammyApp.run('#/');
+  </script>
+</body>
+
+</html>
