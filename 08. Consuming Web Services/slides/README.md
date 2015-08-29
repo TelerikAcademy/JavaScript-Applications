@@ -51,7 +51,7 @@
 # What is REST?
 <div>
   > "Representational state transfer (REST) is a style of software architecture for distributed hypermedia systems such as the World Wide Web."</cite>
-  > -- <cite style="font-size: 14px">[Wikipedia](http://en.wikipedia.org/wiki/Representational_State_Transfer)</cite>
+  > -- [Wikipedia](http://en.wikipedia.org/wiki/Representational_State_Transfer)
 </div>
 * **Application state** and **functionality** are resources
 * Resources are used as **common data files**
@@ -181,7 +181,6 @@
   *  Based on the value of the `Accept` HTTP header it can be in format **HTML**, **XML**, **JSON** or **plain text**
   *  Must be parsed to the correct data format
 
-        <section data-markdown class="slide-section">
 <!-- attr: {class: 'slide-section'} -->
 # Using the Response from HTTP
 ##  Live Demo
