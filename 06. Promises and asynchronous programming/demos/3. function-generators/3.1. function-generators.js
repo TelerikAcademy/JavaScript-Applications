@@ -6,5 +6,5 @@
     }
 
     var gen = idMaker();
-    gen.next().value; // 0
+    console.log(gen.next().value); // 0
 }());
