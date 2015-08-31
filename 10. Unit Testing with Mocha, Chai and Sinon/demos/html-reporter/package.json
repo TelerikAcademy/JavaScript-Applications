@@ -1,0 +1,24 @@
+{
+  "name": "mocha-html-reporter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "istanbul": "^0.3.19",
+    "sinon": "^1.16.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/telerikacademy/javascript-applications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/telerikacademy/javascript-applications/issues"
+  },
+  "homepage": "https://github.com/telerikacademy/javascript-applications#readme",
+  "description": ""
+}

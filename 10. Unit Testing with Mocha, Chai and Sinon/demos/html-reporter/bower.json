@@ -1,0 +1,21 @@
+{
+  "name": "mocha-html-reporter",
+  "version": "0.0.0",
+  "homepage": "https://github.com/telerikacademy/javascript-applications",
+  "authors": [
+    "Doncho Minkov <DonchoMinkov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chai": "~3.2.0",
+    "mocha": "~2.3.0",
+    "sinon-chai": "~2.8.0"
+  }
+}

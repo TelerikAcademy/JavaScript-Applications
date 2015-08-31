@@ -1,0 +1,79 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2015-08-31T14:17:35.498Z",
+    "end": "2015-08-31T14:17:35.507Z",
+    "duration": 9
+  },
+  "tests": [
+    {
+      "title": "expect sum(1,2,3) to equal 6",
+      "fullTitle": "#sum expect sum(1,2,3) to equal 6",
+      "duration": 0,
+      "err": {
+        "stack": "TypeError: numbers.reduce is not a function\n    at sum (app/app.js:5:18)\n    at Context.<anonymous> (tests/tests-sum.js:6:18)",
+        "message": "numbers.reduce is not a function"
+      }
+    },
+    {
+      "title": "expect sum([1,2,3]) to equal 6",
+      "fullTitle": "#sum expect sum([1,2,3]) to equal 6",
+      "duration": 0,
+      "err": {}
+    },
+    {
+      "title": "expect sum() to equal 0",
+      "fullTitle": "#sum expect sum() to equal 0",
+      "duration": 0,
+      "err": {
+        "stack": "TypeError: Cannot read property 'reduce' of undefined\n    at sum (app/app.js:5:17)\n    at Context.<anonymous> (tests/tests-sum.js:16:18)",
+        "message": "Cannot read property 'reduce' of undefined"
+      }
+    },
+    {
+      "title": "expect sum([]) to equal 0",
+      "fullTitle": "#sum expect sum([]) to equal 0",
+      "duration": 1,
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "expect sum(1,2,3) to equal 6",
+      "fullTitle": "#sum expect sum(1,2,3) to equal 6",
+      "duration": 0,
+      "err": {
+        "stack": "TypeError: numbers.reduce is not a function\n    at sum (app/app.js:5:18)\n    at Context.<anonymous> (tests/tests-sum.js:6:18)",
+        "message": "numbers.reduce is not a function"
+      }
+    },
+    {
+      "title": "expect sum() to equal 0",
+      "fullTitle": "#sum expect sum() to equal 0",
+      "duration": 0,
+      "err": {
+        "stack": "TypeError: Cannot read property 'reduce' of undefined\n    at sum (app/app.js:5:17)\n    at Context.<anonymous> (tests/tests-sum.js:16:18)",
+        "message": "Cannot read property 'reduce' of undefined"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "expect sum([1,2,3]) to equal 6",
+      "fullTitle": "#sum expect sum([1,2,3]) to equal 6",
+      "duration": 0,
+      "err": {}
+    },
+    {
+      "title": "expect sum([]) to equal 0",
+      "fullTitle": "#sum expect sum([]) to equal 0",
+      "duration": 1,
+      "err": {}
+    }
+  ]
+}
