@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
+    "handlebars": "~3.0.3",
     "sammy": "~0.7.6"
   }
 }

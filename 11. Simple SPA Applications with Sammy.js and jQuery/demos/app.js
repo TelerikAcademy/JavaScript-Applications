@@ -1,23 +1,22 @@
 'use strict';
 let express = require('express'),
   bodyParser = require('body-parser');
+
 let app = express();
 
 app.use(bodyParser.json());
+
 app.use('/', express.static(__dirname + '/public'));
 
-let db = require('./db/db');
+// let db = require('./db/db');
 
-app.get('api/items', function(req, res) {
-  db.get()
-    .then(function(items) {
-      res.json({
-        result: items
-      });
-    });
+var items = [];
+
+app.get('/api/items', function(req, res) {
+  res.json(items);
 });
 
-app.get('api/items/:id', function(req, res) {
+app.get('/api/items/:id', function(req, res) {
   var id = req.params.id;
   db.byId(id)
     .then(function(item) {
@@ -25,12 +24,13 @@ app.get('api/items/:id', function(req, res) {
     });
 });
 
+var lastId = 0;
 app.post('/api/items', function(req, res) {
-  db.save(req.body)
-    .then(function(item) {
-      res.status(201)
-        .json(item);
-    });
+  var item = req.body;
+  item.id = lastId += 1;
+  items.push(item);
+  res.status(201)
+    .json(item);
 });
 
 let port = 3001;

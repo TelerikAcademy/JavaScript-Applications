@@ -18,34 +18,50 @@
       </li>
     </ul>
   </nav>
-  <div id="root"></div>
+  <div id="content"></div>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/sammy/lib/sammy.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"></script>
+  <script src="js/polyfills/array.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/templates.js"></script>
   <script>
-    var sammyApp = Sammy('#root', function() {
+    var sammyApp = Sammy('#content', function() {
       this.get('#/', function() {
-        this.redirect('#/home');
+        this.redirect('#/items');
       });
 
-      this.get('#/home/:id', function() {
-        console.log('-----HOME');
-        var $heading = $('<h1 />').html('Home')
-        this.app.swap($heading);
-        console.log(this.params);
+      this.get('#/items', function() {
+        var items;
+        data.get()
+          .then(function(res) {
+            items = res.result;
+            return templates.get('/templates/items.handlebars');
+          })
+          .then(function(templateHTML) {
+            var template = Handlebars.compile(templateHTML);
+            var html = template({
+              items
+            });
+            $('#content').html(html);
+          });
       });
 
-      this.get('#/home', function() {
-        console.log('-----HOME');
-        var $heading = $('<h1 />').html('Home')
-        this.app.swap($heading);
-        console.log(this.params);
-      });
+      this.get('#/items/:id', function() {
+        var id = this.params.id;
+        var item;
+        data.getById(id)
+          .then(function(res) {
+            item = res.result;
+            return templates.get('/templates/item.handlebars');
+          })
+          .then(function(templateHTML) {
+            var template = Handlebars.compile(templateHTML);
+            var html = template(item);
+            $('#content').html(html);
+          });
 
-      this.get('#/details', function() {
-        var $heading = $('<h1 />').html('Details')
-        this.app.swap($heading);
-      });
-
+      })
     });
 
     sammyApp.run('#/');
