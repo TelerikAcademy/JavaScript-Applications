@@ -5,7 +5,7 @@
     }
 
     var g = powGenerator();
-    g.next().value;
-    g.next(10).value;
-    g.next(2).value;
+    console.log(g.next().value);
+    console.log(g.next(10).value);
+    console.log(g.next(2).value);
 }());

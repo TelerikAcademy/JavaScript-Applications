@@ -70,8 +70,8 @@
 # XMLHttpRequest Object
 *  `XMLHttpRequest` is a JavaScript Object, that provides a way to retrieve a resource by an URL
   *  Designed by Microsoft
-    *  Adopted by Mizilla, Apple and Google
-  *  Nowadays standardized bny the W3C
+    *  Adopted by Mozilla, Apple and Google
+  *  Nowadays standardized by the W3C
   *  XHR can retrieve resources both **synchronously** and **asynchronously**
   *  Тhe data can be of any format, not strictly XML
     *  JSON, HTML or just plain tex
