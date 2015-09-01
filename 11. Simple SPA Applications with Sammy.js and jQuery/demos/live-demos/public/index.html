@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="#/items">Items</a>
+      </li>
+      <li>
+        <a href="#/items/add">Add Item</a>
+      </li>
+    </ul>
+  </nav>
+  <div id="content" class="container">
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/sammy/lib/sammy.js"></script>
+
+  <script src="bower_components/handlebars/handlebars.js"></script>
+
+  <script src="app/db.js">
+  </script>
+  <script src="app/templates.js">
+  </script>
+  <script src="app/routes.js">
+  </script>
+
+  <script>
+    $(function() {
+      sammyApp.run('#/');
+    });
+  </script>
+</body>
+
+</html>

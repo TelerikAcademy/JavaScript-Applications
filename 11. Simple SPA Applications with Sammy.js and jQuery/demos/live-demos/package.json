@@ -1,0 +1,15 @@
+{
+  "name": "creating-spa-apps-with-sammy-jquery-and-handlebars-live-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
+  "license": "MIT"
+}

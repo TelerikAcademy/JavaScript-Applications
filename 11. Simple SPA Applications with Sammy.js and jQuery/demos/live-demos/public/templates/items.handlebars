@@ -1,0 +1,9 @@
+<div class="row">
+  {{#if items}}
+    {{#items}}
+      <a class="col-md-4 btn btn-lg btn-primary" href="#/items/{{id}}">See {{name}}</a>
+    {{/items}}
+  {{else}}
+    <h2>No items!</h2>
+  {{/if}}
+</div>
