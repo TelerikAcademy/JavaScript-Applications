@@ -1,0 +1,15 @@
+{
+  "name": "research-simple-forum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "research-simple-forum",
+  "version": "0.0.0",
+  "authors": [
+    "Doncho Minkov <DonchoMinkov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "handlebars": "~3.0.3",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.6",
+    "sammy": "~0.7.6",
+    "sha1": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"
+  }
+}

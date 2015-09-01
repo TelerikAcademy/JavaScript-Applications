@@ -1,0 +1,13 @@
+<h1>Threads</h1>
+<a href="#/threads/add" class="btn btn-primary">Add</a>
+{{#if this}}
+  {{#each this}}
+    <h2><a href="#/threads/{{id}}">{{title}}</a></h2>
+    <strong>created 
+      <span>{{postDate}}</span>
+    </strong>
+    <br/> created by<a href="#/users/{{user.id}}">{{user.username}}</a>
+  {{/each}}
+{{else}}
+  <h2>No threads</h2>
+{{/if}}
