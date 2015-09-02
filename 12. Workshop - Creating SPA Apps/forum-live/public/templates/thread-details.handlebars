@@ -1,0 +1,6 @@
+<h1>{{title}}</h1>
+<a href="#/threads/{{id}}/messages/add" class="btn btn-danger ">Add new message</a>
+{{#messages}}
+  <p>{{text}}</p>
+  <a href="#/users/{{user.id}}">by {{user.username}}</a>
+{{/messages}}
