@@ -247,6 +247,8 @@ describe('#sum', function() {
     * `$ mocha tests/ -R spec`
     * `$ mocha tests/ -R json`
     * `$ mocha tests/ -R doc`
+  * When mocha is not installed globaly
+	* `$ iojs node_pakages/mocha/bin/mocha tests/`
 
 
 <!-- section start -->
