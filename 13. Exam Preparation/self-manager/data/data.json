@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "username": "Minkov",
+      "passHash": "4cb5ba2355368d4dfd14c9eee9a134791f7001cb",
+      "usernameLower": "minkov",
+      "id": 814565,
+      "authKey": "814565gid-zeb)*uv&no^=^@shylqo=qaoummfsvqju%%cfp#j-ocyanfcj%",
+      "todos": [
+        {
+          "id": 200167,
+          "text": "Wash the dishes",
+          "category": "Home",
+          "state": false
+        },
+        {
+          "id": 797498,
+          "text": "Wash the dishes",
+          "state": false,
+          "category": "My new category"
+        },
+        {
+          "id": 662556,
+          "text": "Text",
+          "state": false,
+          "category": "My new category"
+        }
+      ],
+      "events": [
+        {
+          "id": 826042,
+          "title": "Pay the phone bill",
+          "category": "Bills",
+          "description": "Pay the bill, before they suspend it",
+          "date": "2015-10-01T21:00:00.000Z"
+        },
+        {
+          "id": 831305,
+          "title": "My new event",
+          "category": "Home",
+          "description": "asdasd",
+          "date": "2015-10-05T21:00:00.000Z"
+        },
+        {
+          "id": 314980,
+          "title": "Feed the Cat",
+          "category": "Home",
+          "description": "Otherwise he will be grumpy :(",
+          "date": "2015-09-03T21:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}
