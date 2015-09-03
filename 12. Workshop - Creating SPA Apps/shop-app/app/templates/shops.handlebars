@@ -1,0 +1,26 @@
+<h1>Shops</h1>
+
+<table class="table">
+    <tfoot>
+        <tr>
+            <td>
+                <input id="tb-shop-name" />
+                <button class="btn btn-default" id="btn-add-shop">Add+</button>
+            </td>
+        </tr>
+    </tfoot>
+
+    <tbody>
+    {{#shops}}
+        <tr data-shop-id="{{id}}">
+            <td>{{name}}</td>
+            <td>
+                <a id="btn-info-shop" href="#/shops/{{id}}" class="btn btn-info">Info</a>
+                {{#if iAmOwner}}
+                <button id="btn-remove-shop" class="btn btn-danger">Remove</button>
+                {{/if}}
+            </td>
+        </tr>
+    {{/shops}}
+    </tbody>
+</table>

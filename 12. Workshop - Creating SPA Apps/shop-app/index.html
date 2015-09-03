@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+</head>
+<body>
+
+<div id="wrapper" class="container">
+    <header>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/home">Home</a></li>
+                <li><a href="#/shops">Shops</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><input id="search"/></li>
+                <li><button id="btn-search" class="btn btn-default">Search</button></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <div id="main"></div>
+</div>
+
+<script src="bower_components/system.js/dist/system.js"></script>
+<script src="node_modules/babel-core/browser.js"></script>
+<script type="text/babel">
+    System.config({
+        baseURL: '/app',
+        transpiler: 'babel',
+        map: {
+            babel: '/node_modules/babel-core/browser.js',
+            sammy: '/bower_components/sammy/lib/sammy.js',
+            jquery: '/bower_components/jquery/dist/jquery.js',
+            handlebars: '/bower_components/handlebars/handlebars.js'
+        }
+    });
+
+    System.import('app.js');
+</script>
+</body>
+</html>
