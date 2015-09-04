@@ -1,0 +1,9 @@
+<ul class="nav navbar-nav pull-right">
+    {{#if this}}
+        <li>Hello, <strong>{{this}}</strong></li>
+        <li><a id="btn-logout" href="#/">Logout</a></li>
+    {{else}}
+        <li><a href="#/login">Register</a></li>
+        <li><a href="#/login">Login</a></li>
+    {{/if}}
+</ul>

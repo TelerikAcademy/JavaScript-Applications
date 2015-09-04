@@ -1,0 +1,26 @@
+{
+  "name": "shop-app",
+  "version": "0.0.1",
+  "homepage": "https://github.com/TelerikAcademy/JavaScript-Applications",
+  "authors": [
+    "evlogihr <evlogihristov@yahoo.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "handlebars": "~4.0.1",
+    "jquery": "~2.1.4",
+    "sammy": "~0.7.6",
+    "system.js": "~0.18.17"
+  }
+}
