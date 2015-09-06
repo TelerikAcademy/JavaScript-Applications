@@ -338,8 +338,10 @@ var promise = new Promise(function(resolve, reject) {
 	} else {
 		reject(Error('It broke'));
 	}
+	
+	return promise; // give this to someone
 });
-return promise; // give this to someone
+
 ```
 
 *	What can we do `async`
