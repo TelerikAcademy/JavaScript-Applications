@@ -1,0 +1,35 @@
+<div>
+    <label>
+        <span>Page size:</span>
+        <select id="dd-page-size">
+            <option>2</option>
+            <option>4</option>
+            <option>8</option>
+            <option>16</option>
+        </select>
+    </label>
+
+    <ul class="pagination">
+        {{#pages}}
+            <li>
+                <a class="btn btn-sm btn-default" href="#/posts/{{size}}/{{page}}">{{displayPage}}</a>
+            </li>
+        {{/pages}}
+    </ul>
+
+    <button id="btn-filter" class="btn btn-default">Filter</button>
+</div>
+
+<div id="posts">
+    {{#posts}}
+       <div class="well">
+           {{id}} - {{title}}: "{{body}}" by {{user.username}}
+       </div>
+    {{/posts}}
+</div>
+
+<div>
+    <input id="post-title" >
+    <input id="post-body" >
+    <button id="btn-post" class="btn btn-success">Post</button>
+</div>
