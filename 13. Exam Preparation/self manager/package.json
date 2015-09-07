@@ -1,5 +1,5 @@
 {
-  "name": "vouchers-app",
+  "name": "self-manager",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,8 @@
     "start": "node app.js",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.3",
     "bower": "^1.5.2",
