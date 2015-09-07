@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "username": "Minkov",
+      "passHash": "aa95f6e4ccc679dcdf2627efff6832aa4a4ac44a",
+      "usernameLower": "minkov",
+      "authKey": "undefinedb+!K=hzTb&Kkm(XPQ&D!j$qAArMC=lHEhzPj(=G(wB^hk$hk*qs",
+      "id": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+      "events": [
+        {
+          "id": 260967,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        },
+        {
+          "id": 298606,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        }
+      ]
+    },
+    {
+      "username": "Cuki",
+      "passHash": "6edbb5c948d25789eccdfb37b70ff7f728f49786",
+      "usernameLower": "cuki",
+      "authKey": "undefinedvATd&fe=eZt=ERo!YLJgNC!UT^@LC)JHZ(XQQ=_%@xaM+)sK!FL",
+      "id": "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+      "events": [
+        {
+          "id": 260967,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        },
+        {
+          "id": 298606,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        }
+      ]
+    }
+  ]
+}

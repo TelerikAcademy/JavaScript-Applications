@@ -1,0 +1,24 @@
+<style>
+  .event-box .btn-cancel {
+    display: none;
+  }
+
+  .event-box h4:hover .btn-cancel {
+    display: inline;
+  }
+</style>
+<h2>Events</h2>
+<a href="#/events/add">Add new</a>
+{{#each this}}
+  <h3><a href="#/events?category={{category}}">{{category}}</a></h3>
+  {{#each items}}
+    <div class="event-box" data-id="{{id}}">
+      <h4>{{title}}
+        <small><a href="#" class="btn-cancel">X</a></small>
+      </h4>
+      <strong>{{timeRemaining}}</strong>, on
+      <span>{{date}}</span>
+      <p>{{description}}</p>
+    </div>
+  {{/each}}
+{{/each}}
