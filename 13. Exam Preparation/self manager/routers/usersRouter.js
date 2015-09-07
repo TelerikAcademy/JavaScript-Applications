@@ -16,13 +16,20 @@ module.exports = function(db) {
         .take(size).value();
 
       res.json({
-        result: users
+        result: users || []
       });
     })
     .post('/', function(req, res) {
       var user = req.body;
       user.usernameLower = user.username.toLowerCase();
       user.authKey = authKeyGenerator.get(user.id);
+      if (db('users').find({
+          usernameLower: user.username.toLowerCase()
+        })) {
+        res.status(400)
+          .json('Username is already taken');
+        return;
+      }
       db('users').insert(user);
 
       res.status(201)

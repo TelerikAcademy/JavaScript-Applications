@@ -78,7 +78,6 @@ module.exports = function(db) {
       }).filter(function(user) {
         return !!user;
       });
-
       if (users.length !== usersUsernames.length) {
         res.status(400)
           .json('Invalid users added');
