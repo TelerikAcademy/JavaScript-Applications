@@ -1,0 +1,10 @@
+<ul>
+  {{#each this}}
+    <li class="notification-box" data-id="{{id}}" data-sender-id="{{from.id}}">
+      <p>
+        <strong>{{from.username}}</strong> sent you a friend request</p>
+      <button class="btn-confirm btn btn-success">Confirm</button>
+      <button class="btn-reject btn btn-danger">Reject</button>
+    </li>
+  {{/each}}
+</ul>
