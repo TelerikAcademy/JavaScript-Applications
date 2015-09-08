@@ -101,7 +101,7 @@ The logout service **ends the current user session, invalidating the current ses
 *	_URL:_ `http://services-root/user`
 *	_Method:_ **PUT**
 *	_Body:_ `true`
-*	_Headers:_ The logout service requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user |
+*	_Headers:_ The logout service requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user
 
 In case of success, the service returns a body ‘true’ with an HTTP status code 200.
 
