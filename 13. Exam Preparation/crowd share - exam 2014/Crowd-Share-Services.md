@@ -11,8 +11,13 @@ On **success**, the server returns the **HTTP status code 200, along with a JSON
 
 On **error**, the server returns a 3-digit **HTTP error code** (4xx or 5xx), along with an error description. Error descriptions are in the following form:
 
-|:------|:--|
-| Body	| `{"Message":"Username already exists","errCode":"ERR_DUP_USR"}` |
+*	_Body:_ 
+```javascript
+{	
+	"Message":"Username already exists",
+	"errCode":"ERR_DUP_USR"
+}
+```
 
 Where **Message** should be shown to the user and the **errCode** can be used by the client application to process the type of error, but should not be shown to the user.
 
@@ -36,10 +41,15 @@ The registration endpoint is located at:
 
 The registration service allows a client to register a user account. This account is later used to access any other services. Requests to the register endpoint must be in the following form:
 
-|:------|:-----|
-| URL	| `http://services-root/user` |
-| Method	| POST |
-| Body	| {<br />  "username":"obiwan",<br />  "authCode":"c79e32c27a1f1241f0da218d57bf15ea9e09e7dc"<br />} |
+*	_URL:_ `http://services-root/user`
+*	_Method:_ **POST**
+*	_Body:_ 
+```javascript
+{
+	"username":"obiwan",
+	"authCode":"c79e32c27a1f1241f0da218d57bf15ea9e09e7dc"
+}
+```
 
 Here **authCode** is the result of a concatenation of the user's username and password, encoded with the SHA1 algorithm. For example, if the user's password is **"secret"** and the username is **"benfranklin"**, authCode = **SHA1("benfranklinsecret")** = **"9aab5aedfa56b93dd9e035ff2ecd2215a148e3d9"**.
 
@@ -47,8 +57,7 @@ Username's length must be between 6 and 40 symbols, inclusive.
 
 In case of success, the registration service returns an HTTP status code 201 and a JSON object in the form:
 
-|:------|:-----|
-| Body	| true |
+Body: `true`
 
 In case of an error, the service returns an HTTP error code, along with an error description as aforementioned.
 
@@ -58,16 +67,26 @@ The login endpoint is located at: `http://services-root/auth`
 
 The login service allows a client to enter an existing account, requiring a username and password. The request is in the following form:
 
-|:------|:-----|
-| URL	| http://services-root/auth
-| Method: | POST |
-| Body	| {<br/>  "username":"obiwan",<br/>  "authCode":"c79e32c27a1f1241f0da218d57bf15ea9e09e7dc"<br/>} |
+*	_URL:_	`http://services-root/auth`
+*	_Method:_ **POST**
+*	_Body:_
+```javascript
+{
+	"username":"obiwan",
+	"authCode":"c79e32c27a1f1241f0da218d57bf15ea9e09e7dc"
+}
+```
 
 Here **authCode** is the result of a concatenation of the user's username and password, encoded with the SHA1 algorithm. For example, if the user's password is **"secret"** and the username is **"benfranklin"**, authCode = **SHA1("benfranklinsecret")** = **"9aab5aedfa56b93dd9e035ff2ecd2215a148e3d9"**.
 In case of success, the registration service returns an HTTP status code 200 and a JSON object in the form:
 
-|:------|:-----|
-| Body	{<br/>  "sessionKey":"172Jp3twchjt8I3DpI3Fdb4t5z7weEQgnDey5HZTDgJEBRp3Yn",<br/>  "username":"obiwan"<br/>} |
+*	_Body:_
+```javascript
+{
+	"sessionKey":"172Jp3twchjt8I3DpI3Fdb4t5z7weEQgnDey5HZTDgJEBRp3Yn",
+	"username":"obiwan"
+}
+```
 
 The **client should store the returned sessionKey**, as it is necessary to use the other Crowd Share endpoint
 
@@ -79,11 +98,10 @@ The logout endpoint is located at: `http://services-root/user`
 
 The logout service **ends the current user session, invalidating the current session key**, disabling access to the other services (except login and register). The user can later login again, to receive a new session key.
 
-|:------|:-----|
-| URL	| http://services-root/user |
-| Method | PUT |
-| Body	| true |
-| Headers	| The logout service requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user |
+*	_URL:_ `http://services-root/user`
+*	_Method:_ **PUT**
+*	_Body:_ `true`
+*	_Headers:_ The logout service requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user |
 
 In case of success, the service returns a body ‘true’ with an HTTP status code 200.
 
@@ -110,14 +128,13 @@ The endpoints variations:
 | http://services-root/post?pattern=Again%20Ipsum	| Return only the posts that contain the pattern “Again%20Ipsum” (“Again Ipsum”) in either their title or their body. The pattern is case-insensitive. |
 | http://services-root/post?pattern=lorem%20ipsum&user=minkov	| Return only the posts that contain the pattern “Again%20Ipsum” (“Again Ipsum”) in either their title or their body, and are from user Minkov. The pattern and the username are case-insensitive. |
 
-| URL	| http://services-root/posts |
-| Method: | GET |
-| Body	| (GET request => empty) |
+*	_URL:_ `http://services-root/posts`
+*	_Method:_ **GET**
+*	_Body:_ _GET request => empty)_
 
 In case of success, the service returns a response, containing the posts, with an HTTP status code 200:
 
-|:------|:------------|
-| Body	| 
+*	_Body:_ 
 ```javascript
 [{
   "id": 1,
@@ -157,11 +174,16 @@ The **"create post"** endpoint is located at: `http://services-root/post`
 
 Requests to the service **require a session key** to be provided as value to the HTTP header “X-SessionKey” – the session key is used to **authenticate the current user**.
 
-|:------|:---------|
-| URL	| http://services-root/post	|
-| Method | POST |
-| Body	| {<br/>  "title": "To Lightsabers! ",<br/>  "body": "Dear sith friends, it is about time to crush these puny jedi and their troppers. They are powerful, but we have Dark Side with us! "<br/>  } |
-| Headers	| The create post endpoint requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user |
+*	_URL:_ `http://services-root/post`
+*	_Method:_ **POST**
+*	_Body:_
+```javascript
+{
+	"title": "To Lightsabers! ",
+	"body": "Dear sith friends, it is about time to crush these puny jedi and their troppers. They are powerful, but we have Dark Side with us! "
+}
+```
+*	_Headers:_ The create post endpoint requires an additional header (X-SessionKey) with value that is equal to the session key of the logged-in user
 
 In case of success, the service returns a response with the created post with an HTTP status code 200.
 
