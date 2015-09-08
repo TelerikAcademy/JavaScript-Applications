@@ -28,7 +28,8 @@
       });
     } else {
       $('#container-sign-out').addClass('hidden');
-      $('#btn-sign-in').on('click', function() {
+      $('#btn-sign-in').on('click', function(e) {
+      	e.preventDefault();
         var user = {
           username: $('#tb-username').val(),
           password: $('#tb-password').val()
@@ -38,7 +39,8 @@
             document.location = '#/';
             document.location.reload(true);
           }, function(err) {
-            console.log(err);
+            $('#container-sign-in').trigger("reset");
+            toastr.error(err.responseText);
           });
       });
     }
