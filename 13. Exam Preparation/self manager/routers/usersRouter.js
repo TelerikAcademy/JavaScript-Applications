@@ -43,7 +43,7 @@ module.exports = function(db) {
       var dbUser = db('users').find({
         usernameLower: user.username.toLowerCase()
       });
-      if (!dbUser || dbUser.pashHash !== user.pashHash) {
+      if (!dbUser || dbUser.passHash !== user.passHash) {
         res.status(404)
           .json('Username or password is invalid');
       }
