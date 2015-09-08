@@ -10,12 +10,16 @@ var data = (function() {
       passHash: CryptoJS.SHA1(user.username + user.password).toString()
     };
 
-    return jsonRequester.post('api/users', reqUser)
-      .then(function(res) {
+    return jsonRequester.post('api/users', {
+        data: reqUser
+      })
+      .then(function(resp) {
         var user = resp.result;
         localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, user.username);
         localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, user.authKey);
-        resolve();
+        return {
+          username: resp.result.username
+        };
       });
   }
 

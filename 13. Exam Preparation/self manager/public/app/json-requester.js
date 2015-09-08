@@ -1,11 +1,12 @@
 var jsonRequester = (function() {
 
   function send(method, url, options) {
-    var promise = new Promise(function(resolve, reject) {
-      options = options || {};
+    options = options || {};
 
-      var headers = options.headers || {},
-        data = options.data || undefined;
+    var headers = options.headers || {},
+      data = options.data || undefined;
+
+    var promise = new Promise(function(resolve, reject) {
       $.ajax({
         url: url,
         method: method,
