@@ -4,7 +4,6 @@ var eventsController = (function() {
     var category = this.params.category || null;
     data.events.get()
       .then(function(resEvents) {
-        console.log(resEvents);
         events = _.chain(resEvents)
           .map(controllerHelpers.fixDate)
           .groupBy(controllerHelpers.groupByCategory)
@@ -15,7 +14,6 @@ var eventsController = (function() {
           events = events.filter(controllerHelpers.filterByCategory(category));
         }
 
-        console.log(events);
         return templates.get('events');
       })
       .then(function(template) {
@@ -34,12 +32,15 @@ var eventsController = (function() {
         $('#tb-event-time').timepicker();
 
         $('#btn-event-add').on('click', function() {
+          var user = $('#tb-event-users').val(),
+            users = (!!user.trim()) ? [user] : [];
+
           var event = {
             title: $('#tb-event-title').val(),
             category: $('#tb-event-category').val(),
             description: $('#tb-event-description').val(),
             date: $('#tb-event-date').val() + ' ' + $('#tb-event-time').val(),
-            users: [$('#tb-event-users').val()]
+            users: users
           };
 
           data.events.add(event)

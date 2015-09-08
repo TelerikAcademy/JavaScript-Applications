@@ -16,13 +16,21 @@ module.exports = function(db) {
         .take(size).value();
 
       res.json({
-        result: users
+        result: users || []
       });
     })
     .post('/', function(req, res) {
       var user = req.body;
+      console.log(user);
       user.usernameLower = user.username.toLowerCase();
       user.authKey = authKeyGenerator.get(user.id);
+      if (db('users').find({
+          usernameLower: user.username.toLowerCase()
+        })) {
+        res.status(400)
+          .json('Username is already taken');
+        return;
+      }
       db('users').insert(user);
 
       res.status(201)
@@ -35,7 +43,7 @@ module.exports = function(db) {
       var dbUser = db('users').find({
         usernameLower: user.username.toLowerCase()
       });
-      if (!dbUser || dbUser.pashHash !== user.pashHash) {
+      if (!dbUser || dbUser.passHash !== user.passHash) {
         res.status(404)
           .json('Username or password is invalid');
       }

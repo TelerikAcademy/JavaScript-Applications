@@ -29,6 +29,7 @@ var usersController = function() {
 
           data.users.register(user)
             .then(function() {
+              toastr.success('User registered!');
               context.redirect('#/');
               document.location.reload(true);
             });
