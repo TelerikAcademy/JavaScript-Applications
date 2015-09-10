@@ -19,7 +19,8 @@
 
     if (data.users.hasUser()) {
       $('#container-sign-in').addClass('hidden');
-      $('#btn-sign-out').on('click', function() {
+      $('#btn-sign-out').on('click', function(e) {
+        e.preventDefault();
         data.users.signOut()
           .then(function() {
             document.location = '#/';
