@@ -4,11 +4,10 @@
 
 ### Users (up to 10 points)
 
-*   Registering users
-  *   (up to 2)
+*   Registering users (up to 2)
 *   Login users (up to 2)
 *   User login is persistent(works  after closing and reopening the browser) (up to 2)
-*   Logout (up to 2)
+*   Logout users (up to 2)
 *   Hashing the password (up to 2)
 
 ### Fortune Cookies (up to 20 points)
