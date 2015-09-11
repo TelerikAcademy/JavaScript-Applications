@@ -20,7 +20,7 @@
   * Show on different route
   * or filter in an input with auto complete
   * or drop-down
-  * hide (1 point)
+  * hide DOM elements (1 point)
 * Share a fortune cookie (up to 2)
   * With text, category and optional image
 * Reshare a fortune cookie (up to 4)
@@ -73,7 +73,7 @@
 * Hide `#/my-cookies` for not logged in users (up to 1)
   * or redirect to `#/home`/`#/login`
 * Easy way to add categories (up to 1)
-* Success/Error notifications for every operations (up to 1)
+* Success/Error notifications for every operation (up to 1)
 * Show like/dislike buttons for each fortune cookie (up to 1)
 * Show share button for each fortune cookie (up to 1)
 * Show likes and dislikes count (up to 1)
@@ -103,7 +103,7 @@
 * Using jQuery for event handling (up to 2)
 * Using jQuery for DOM manipulations (up to 1)
 
-### Bonus
+### Bonus (up to 4 points)
 *  Using module loader (up to 1)
   * System.js or Require.js or other
 *  Using Sammy.js for routes (up to 1)
