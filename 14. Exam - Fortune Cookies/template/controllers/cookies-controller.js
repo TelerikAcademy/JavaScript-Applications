@@ -9,14 +9,10 @@ module.exports = function(db) {
   }
 
   function get(req, res) {
-    var page = req.query.page || 0;
-
     var cookies = _.chain(db('cookies'))
       .sortBy(function(cookie) {
         return -cookie.likes || (cookie.postDate - 0);
-      })
-      .slice(page * PAGE_SIZE)
-      .take(PAGE_SIZE);
+      });
 
     res.json({
       result: cookies
