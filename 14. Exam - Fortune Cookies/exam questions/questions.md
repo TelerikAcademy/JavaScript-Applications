@@ -90,9 +90,11 @@
   * i.e. `data` object
 * Using promises (up to 3)
 * Separate object for loading handlebars templates/views (up to 2)
-* Abstract way to handle AJAX requests (up to 4)
+* Abstract way to handle AJAX requests (up to 3)
   * i.e. using it, does not couple with jQuery AJAX
-* Separate object for saving authentication key (up to 3)
+* Separate object for saving authentication key (up to 2)
+* Separate object for validation (up to 2)
+  * Reusing the methods 
 
 ## Libraries (up to 12 points)
 
