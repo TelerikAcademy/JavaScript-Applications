@@ -20,6 +20,7 @@
   * Show on different route
   * or filter in an input with auto complete
   * or drop-down
+  * hide (1 point)
 * Share a fortune cookie (up to 2)
   * With text, category and optional image
 * Reshare a fortune cookie (up to 4)
@@ -83,19 +84,19 @@
 
 * Show the user, that created the fortune cookie (up to 2)
 
-## Code quality (up to 17)
+## Code quality (up to 18)
 
 * Separate object for creating AJAX requests (up to 5)
   * i.e. `data` object
 * Using promises (up to 3)
 * Separate object for loading handlebars templates/views (up to 2)
-* Abstract way to handle AJAX requests (up to 3)
+* Abstract way to handle AJAX requests (up to 4)
   * i.e. using it, does not couple with jQuery AJAX
 * Separate object for saving authentication key (up to 2)
 * Separate object for validation (up to 2)
   * Reusing the methods 
 
-## Libraries (up to 12 points)
+## Libraries (up to 11 points)
 
 * Using jQuery for AJAX requests (up to 2)
 * Using Handlebars for all templates/views (up to 2)
@@ -106,6 +107,5 @@
 *  Using module loader (up to 1)
   * System.js or Require.js or other
 *  Using Sammy.js for routes (up to 1)
-*  Using Underscore.js/Lodash (up to 1)
 *  Using Underscore.js/Lodash (up to 1)
 *  Using library for hashing passwords (up to 1)
