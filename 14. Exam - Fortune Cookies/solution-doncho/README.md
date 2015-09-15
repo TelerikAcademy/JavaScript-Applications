@@ -3,6 +3,8 @@ JavaScript Applications Exam, 10 September 2015
 
 Implement a SPA application for fortune cookies.
 
+**Find solution at https://fortune-cookies-demo.herokuapp.com/** 
+
 ## Application description
 
 The application must provide the following functionality
