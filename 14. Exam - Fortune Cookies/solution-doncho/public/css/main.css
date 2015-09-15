@@ -1,0 +1,55 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin-bottom: 60px;
+}
+.footer {
+  background-color: #f5f5f5;
+  bottom: 0;
+  height: 60px;
+  position: absolute;
+  width: 100%;
+}
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+code {
+  font-size: 80%;
+}
+.cookie-box {
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  margin-left: 30px;
+}
+.cookie-box:nth-of-type(2n) {
+  border-right: none;
+  padding-right: 0;
+  margin-left: 0
+}
+
+.cookie-box{
+  height: 300px;
+}  
+
+.cookies-list img{
+  max-height: 280px !important;
+}
+
+img{
+  border-radius: 20px;
+}
+
+/*.cookies-list img{
+  height: 100px !important;
+}*/

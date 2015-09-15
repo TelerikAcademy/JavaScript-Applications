@@ -1,0 +1,28 @@
+<h2>Your Hourly Cookie!</h2>
+<div class="row" data-id="{{id}}">
+  <h3 class="col-md-12">{{text}}
+    <small>
+      <button type="button" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-danger">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+    </small>
+  </h3>
+  <img src="{{img}}" class="col-md-6" />
+
+  <div class="col-md-6">
+    <p>
+      <a href="#/home?category={{category}}">Category: {{category}}</a> Date:
+    </p>
+    <p>
+      <strong>{{shareDate}}</strong>
+    </p>
+    <p> Likes:
+      <strong class="likes">{{likes}}</strong>
+      , Dislikes:
+      <strong class="dislikes">{{dislikes}}</strong>
+    </p>
+  </div>
+</div>

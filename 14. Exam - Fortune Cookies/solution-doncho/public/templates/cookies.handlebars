@@ -1,0 +1,53 @@
+<h2>Cookies</h2>
+<a href="#/home/add">Add new Cookie</a>
+<br/> Sort by <a href="#/home?sortby=likes">Likes</a> or <a href="#/home?sortby=date">date</a>
+<div class="form-group form-inline">
+  <label for="tb-filter-category">Filter by category:</label>
+  <input data-type="category" type="text" class="tb-filter" class="form-control" />
+  <label for="tb-filter-text">Filter by text:</label>
+  <input data-type="text" type="text" class="tb-filter" class="form-control" />
+</div>
+<div class="cookies-list row container">
+  {{#each this}}
+    <div class="cookie-box container col-offset-1 col-xs-5 row" data-id="{{id}}">
+      <h3 class="col-md-12 row">
+        <span class="text col-md-6">{{text}}
+        </span>
+        <small class="col-md-6 row">
+          <button type="button" class="btn btn-success col-md-6 btn-like-dislike" data-type="like">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-danger col-md-6 btn-like-dislike" data-type="dislike">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </small>
+      </h3>
+      <img src="{{img}}" class="col-md-6">
+      <div class="col-md-6">
+        <p>
+          Category
+          <br/>
+          <a href="#/home?category={{category}}">
+            <big class="category">{{category}}</big>
+          </a>
+        </p>
+        <p>
+          <strong>
+            Shared {{timePast}}</strong>,
+          <br/> on {{shareDate}}
+        </p>
+        <p> Likes:
+          <strong class="likes">{{likes}}</strong>
+          Dislikes:
+          <strong class="dislikes">{{dislikes}}</strong>
+        </p>
+        {{#if user}}
+          <p>
+            by <a href="#/home?user={{user.username}}">{{user.username}}</a>
+          </p>
+        {{/if}}
+        <button class="btn btn-primary btn-block btn-share">Share</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
