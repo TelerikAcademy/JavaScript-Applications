@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        System.config({
+            baseURL: '/app'
+        });
+        System.import('main');
+    </script>
+</head>
+<body>
+    <x-markdown-component>
+        # Markdown component
+        *   First Point
+        *   Second point
+
+    </x-markdown-component>
+</body>
+</html>

@@ -1,0 +1,28 @@
+*	Install jspm
+	*	npm install jspm -g
+	*	install jspn github:guybedford/markdown-component
+		*	import 'github:guybedford/markdown-component@0.1.0'
+	*	jspm install bootstrap
+		*	import 'bootstrap'
+	
+
+	
+# GIFS
+https://www.reddit.com/r/perfectloops/top?sort=top&t=week
+*	npm init 
+*	jspm init
+	*	git --version
+		*	install git bash if no git
+*	mkdir app
+*	jspm install npm:jsonp
+*	To not blacklist anything:
+
+```
+"babelOptions": {
+	"blacklist": []
+}
+```
+
+*	index.html
+*	jspm bundle-sfx --minify lib/main
+

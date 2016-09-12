@@ -1,0 +1,23 @@
+    <section class="suite">
+      <h1>#sum</h1>
+      <dl>
+        <dt class="error">expect sum(1,2,3) to equal 6</dt>
+        <dd class="error"><pre><code>var actual = sum(1, 2, 3),
+  expected = 6;
+expect(actual).to.equal(expected);</code></pre></dd>
+        <dd class="error">TypeError: undefined is not a function</dd>
+        <dt>expect sum([1,2,3]) to equal 6</dt>
+        <dd><pre><code>var actual = sum([1, 2, 3]),
+  expected = 6;
+expect(actual).to.equal(expected);</code></pre></dd>
+        <dt class="error">expect sum() to equal 0</dt>
+        <dd class="error"><pre><code>var actual = sum(),
+  expected = 0;
+expect(actual).to.equal(expected);</code></pre></dd>
+        <dd class="error">TypeError: Cannot read property 'reduce' of undefined</dd>
+        <dt>expect sum([]) to equal 0</dt>
+        <dd><pre><code>var actual = sum([]),
+  expected = 0;
+expect(actual).to.equal(expected);</code></pre></dd>
+      </dl>
+    </section>
