@@ -119,7 +119,7 @@
 	- 	Locating the device takes time
 	- 	To request the current position
 		- 	Call:
-```
+```js
 navigator.geolocation.getCurrentPosition
 ```
 		- 	Pass in a success and error handler
@@ -174,7 +174,7 @@ navigator.geolocation.getCurrentPosition
 	- 	Initially described in **CommonJS Promises/A**
 
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # Promises -->
 - 	More specifically:
 	- 	Each promise has a `.then()` method accepting 3 parameters:
@@ -182,7 +182,7 @@ navigator.geolocation.getCurrentPosition
 		- 	All parameters are optional
 	- 	So we can write:
 
-```javascript
+```js
 promiseMeSomething()
 	.then(function (value) {
 		//handle success here
@@ -190,15 +190,15 @@ promiseMeSomething()
 		//handle error here
 	});
 ```
-Provided `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
+-   _Note_: Provided `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
 
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.95em' } -->
 <!-- # Promises -->
 - 	Each `.then()` method returns a promise in turn
 	- 	Meaning promises can be chained:
 
-```javascript
+```js
 asyncComputeTheAnswerToEverything()
 	.then(addTwo)
 	.then(printResult, onError);
@@ -216,8 +216,8 @@ asyncComputeTheAnswerToEverything()
 	- 	[CommonJS Promises/A+](http://promises-aplus.github.io/promises-spec/)
 	   - 	An improvement of the Promises/A description
 	   - 	Better explanation of border cases
-	- 	Several libraries fulfill the A+ spec:
-		- 	[bluebirdjs](http://bluebirdjs.com)
+	- 	Several libraries fulfill the Promises spec:
+		- 	[bluebirdjs](http://bluebirdjs.com) -	use as polyfill if no ES2015
 
 
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
@@ -261,40 +261,41 @@ var promise = new Promise(function(resolve, reject) {
 ```javascript
 var promise = new Promise(function(resolve, reject) {
 	// do something	
-	if (somethingWorked() {
+	if (somethingWorked()) {
 		resolve('Stuff worked!');
 	} else {
 		reject(Error('It broke'));
 	}
 });
 
-promise.then(function(result) {
+promise.then((result) => {
 	console.log(result); // "Stuff worked!"
-}, function (err) {
+}, (err) => {
 	console.log(err); // "It broke"
 }
 ```
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # ES2015 Promises -->
-```javascript
+```js
 function get(url) {
-	return new Promise(function(resolve, reject) {
+	return new Promise((resolve, reject) => {
 		// jQuery http get request
-		$.get(url, function(data) { 
+		$.get(url, (data) => { 
 			resolve(data);
 		})
-		.fail(function() {
+		.fail(() => {
 			reject();
 		});
 	});
 }
-
+```
+```js
 // in code
-get('users.all').then(function(users) {
+get('users.all').then((users) => {
 	myController.users = users;
 }, function() { // OR .catch(function() {
-	delete yController.users;
+	delete myController.users;
 })
 ```
 
@@ -302,7 +303,7 @@ get('users.all').then(function(users) {
 # Promise chaining
 - 	When server returns a JSON string
 
-```javascript
+```js
 get('users.all')
 	.then(function(usersString) {
 		return JSON.parse(usersString);
@@ -314,7 +315,7 @@ get('users.all')
 
 - 	Or
 
-```javascript
+```js
 get('users.all')
 	.then(JSON.parse)
 	.then((users) => { myController.users = users })
@@ -324,7 +325,7 @@ get('users.all')
 # Promises: Exapmles
 - 	Promises - async example
 
-```javascript
+```js
 var async = false;
 var promise = new Promise((resolve, reject) =>	resolve());
 
@@ -334,7 +335,7 @@ async = true;
 
 - 	Promise composing
 
-```javascript
+```js
 var promise1 = new Promise((resolve, reject) => resolve('one'))
 var promise2 = new Promise((resolve, reject) => resolve(promise1))
 
@@ -363,7 +364,7 @@ promise2.then((data) => console.log(data)) // 'one'
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # `Promise.all()`
 
-```javascript
+```js
 var usersPromise = get('users.all');
 var postsPromise = get('posts.everyone');
 
@@ -392,7 +393,7 @@ Promise.all([usersPromise, postsPromise])
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.95em' } -->
 <!-- # Import modules</br>with Promises -->
 
-```javascript
+```js
 System.import('some_module')
 	.then(some_module => {
 		// work with the module
@@ -404,7 +405,7 @@ System.import('some_module')
 
 - 	Multiple promisses at once
 
-```javascript
+```js
 Promise.all(['module1', 'module2', 'module3'])
 	.map(x => System.import(x))
 	.then(([module1, module2, module3]) => {
@@ -424,7 +425,7 @@ Promise.all(['module1', 'module2', 'module3'])
 
 - 	Once the function starts running, it will always run to completion before any other JS code can run
 
-```javascript
+```js
 setTimeout(() => {
     console.log("Hello World");
 },1);
@@ -462,7 +463,7 @@ setTimeout(() => {
 	- 	Contains one or more `yield` expressions
 	- 	Uses the `function*` syntax
 	
-```javascript
+```js
 function *foo() { // OR function* foo() {
     // .. yield something
 }
@@ -476,7 +477,7 @@ function *foo() { // OR function* foo() {
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Function generators<br/>Examples -->
 
-```javascript
+```js
 function *foo() {
     var x = 1 + (yield "foo");
     console.log(x);
@@ -484,7 +485,7 @@ function *foo() {
 ```
 
 
-```javascript
+```js
 function foo(x) {
     console.log("x: " + x);
 }
@@ -501,7 +502,7 @@ function *bar() {
 # Generator Iterator
 - 	Step through an ordered set of values one at a time by calling `next()`
 
-```javascript
+```js
 function *foo(){
 // OR function *genFun(){
   yield 1;
@@ -522,7 +523,7 @@ it.next(); // { value:undefined, done:true }
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Generator Iterator<br/>Examples -->
 
-```javascript
+```js
 function *foo() {
     yield 1;
     yield 2;
@@ -538,7 +539,7 @@ for (var v of foo()) {
 ```
 <!-- .element: style="float:left; width: 45%; margin-right: 20px" -->
 
-```javascript
+```js
 function *idMaker(){
   var index = 0;
   while(true)
@@ -557,7 +558,7 @@ gen.next().value; // 2
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Advanced function<br/>generators
 
-```javascript
+```js
 function* fibonacci(){
   var fn1 = 1, fn2 = 1, currnet, reset;
   while (true){  
