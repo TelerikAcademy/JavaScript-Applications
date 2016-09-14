@@ -114,9 +114,10 @@
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Course Evaluation
 
--   **Practical exam** - up to `55%`
+-   **Practical exam** - up to `50%`
 -   **Practical exam peer review** - up to `10%`
 -   **Homework** - up to `10%`
+-   **Homework peer review** - up to `5%`
 -   **Team work** - up to `20%`
 -   **Attendance** in class - up to `5%`
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic24.png" style="top:58%; left:55%; width:34.99%; z-index:-1" /> -->
