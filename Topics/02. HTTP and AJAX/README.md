@@ -1,15 +1,739 @@
-## 07. HTTP and AJAX
-### [View Presentation online](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html)
-### Table of Contents
-*	WWW - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/www)
-*	URL - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/url)
-*	HTML, XML, JSON, RSS, JSONP - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/html-xml-rss-json)
-*	The HTTP Protocol - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/http-protocol)
-	*	HTTP Request
-	*	HTTP Response
-*	Web Services - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/web-services)
-*	AJAX Requests - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/ajax)
-*	Same-Origin Policy - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/same-origin-policy)
-	*	Workarounds
-*	JSONP - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/jsonp)
-*	Web Developer Tools - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/07.%20HTTP%20and%20AJAX/slides/index.html#/web-developer-tools)
+<!-- section start -->
+<!-- attr: { class:'slide-title', showInPresentation:true, hasScriptWrapper:true } -->
+# HTTP and AJAX
+## WWW, HTTP, AJAX, JSONP
+<article class="signature">
+	<p class="signature-course">JavaScript Applications</p>
+	<p class="signature-initiative">Telerik Software Academy</p>
+	<a href="http://academy.telerik.com " class="signature-link">http://academy.telerik.com </a>
+</div>
+
+<!-- section start -->
+
+# Table of Contents
+
+-  WWW and URL
+-  HTML, XML, JSON, RSS, JSONP
+-  The HTTP Protocol
+  -  HTTP Request
+  -  HTTP Response
+-  Web Services
+-  AJAX Requests
+-  Same-Origin Policy
+  -  Workarounds
+-  JSONP
+-  Web Developer Tools
+
+<!-- attr: {class: "slide-section", showInPresentation: true} -->
+<!-- # WWW
+## What is WWW? -->
+
+# What is WWW?
+
+-  WWW = **World Wide Web**, or just **Web**
+  -  Global distributed information system on the Internet
+    -  A service on the Internet (like E-mail, DNS, ...)
+  -  Consists of set of documents (and other resources) located on different Internet servers
+    -  Accessed through standard protocols like HTTP, HTTPS and FTP by their URL
+  -  **Web servers** provide Web content
+  -  **Web browsers** display the Web content
+
+
+# WWW Components
+
+-  Structural components
+  -  **Internet** – provides data transfer channels over the TCP and HTTP protocols
+  -  **Clients** (Web browsers) – display Web content
+  -  **Web servers** – IIS, Apache, Tomcat, GWS, etc.
+-  Semantic components
+  -  Hyper Text Transfer Protocol (`HTTP`)
+  -  Hyper Text Markup Language (`HTML`)
+  -  Uniform Resource Locator (`URL`)
+  -  Uniform Resource Identifiers (`URIs`)
+
+
+# WWW Infrastructure
+
+-  Clients use Web browser application to request resources from the Web servers via HTTP
+  -  Resources have unique URL address
+-  Servers send the requested resource as a response
+  -  Or reply with an error message
+-  Web pages are resources in WWW
+  -  HTML text, graphics, animations and other files
+-  Web sites
+  -  Web sites are sets of Web pages in WWW
+
+# WWW Infrastructure
+
+-  Client’s browser renders Web pages returned by the Web servers
+  -  Pages are in HTML (Hyper Text Markup Language)
+  -  Browsers show the text, graphics, sounds, etc.
+  -  HTML pages contain hyperlinks to other pages
+-  The entire WWW system runs over standard networking protocols
+  -  TCP, DNS, HTTP, FTP, …
+-  The HTTP protocol is fundamental for WWW
+
+<!-- section start -->
+
+<!-- attr: {class: "slide-section", showInPresentation: true} -->
+<!-- # URL
+## What is URL? -->
+# URL
+
+-  Uniform Resource Locator (URL)
+  -  Unique resource location in WWW, e.g.
+
+```http
+http://yoursite.com:8080/path/index.php?id=27&lang=en
+```
+
+-  It is just a formatted string, consisting of:
+  -  **Protocol** for communicating with the server (e.g., `http`, `ftp`, `https`, ...)
+  -  **Name of the server** or **IP address** + **optional port** (e.g. `www.telerik.com`, `mail.bg:8080`)
+  -  **Path** and name of the resource (e.g. `index.php`)
+  -  **Parameters** (optional, e.g. `?id=27&lang=en`)
+
+<!-- attr: {showInPresentation: true, style: 'font-size: 0.9em'} -->
+<!-- #  URL -->
+-  URLs are encoded according **RFC 1738**:
+
+> ... Only alphanumeric [0-9a-zA-Z], the special characters
+> $-_.+!*'() and reserved characters used for their reserved
+> purposes may be used unencoded within an URL.
+
+-  All other characters are escaped with the formula:
+
+```xml
+%[character hex code in ISO-Latin character set]
+```
+
+  -  _Example_: space has decimal code 32, in hex – 20, so space in URL becomes `%20`
+    -  Space can also be encoded as "`+`"
+
+<!-- attr: {style: 'font-size: 0.85em'} -->
+#   URL – Examples
+
+-  Some valid URLs:
+
+```http
+http://www.google.bg/search?sourceid=navclient&ie=UTF-8&
+rlz=1T4GGLL_enBG369BG369&q=http+get+vs+post
+```
+
+```http
+http://bg.wikipedia.org:80/wiki/
+%D0%A2%D0%B5%D0%BB%D0%B5%D1%80%D0%B8%D0%B3
+```
+-  Some invalid URLs:
+
+  ```http
+  http://www.google.bg/search?&q=C# .NET 4.0
+  ```
+
+  -  Should be: `C%23+.NET+4.0`
+
+  ```http
+  http://www.google.bg/search?&q=бира
+  ```
+
+  -  Should be: `%D0%B1%D0%B8%D1%80%D0%B0`
+
+<!-- section start -->
+
+<!-- attr: {class: 'slide-section', showInPresentation: true} -->
+<!-- # HTML, XML, JSON, RSS
+## Comparing the Common Web Data Formats -->
+# HTML
+
+-  **H**yper **T**ext **M**arkup **L**anguage (**HTML**)
+  -  Notation for describing formatted text with images and hyperlinks
+  -  Interpreted and displayed by the Web browsers
+-  A Web (**HTML**) page consists of:
+  -  HTML file
+  -  CSS stylesheet file (optional)
+  -  A bunch of images (optional)
+  -  Other resources (optional)
+
+# HTML
+
+-  HTML is straight-forward and easy to learn
+  -  HTML documents are plain text files
+    -  Easy to add formatting, hyperlinks, bullets, etc.
+    -  Images can be added as separate files
+  -  Can be automatically generated by authoring programs
+    -  Tools to help users creating HTML pages
+    -  E.g. FrontPage, Dreamweaver, Visual Studio
+    -  WYSIWYG HTML editors
+
+<!-- attr: {hasScriptWrapper: true} -->
+# HTML – Example
+
+- _Example:_
+
+```html
+<html>
+  <head><title>HTML Example</title></head>
+  <body>
+    <h1>Heading 1</h1>
+    <h2>Sub heading 2</h2>
+    <h3>Sub heading 3</h3>
+    <p>This is my first paragraph</p>
+    <p>This is my second paragraph</p>
+    <div align="center"
+      style="background:skyblue">
+      This is a div</div>
+  </body>
+</html>
+```
+
+<!-- attr: {hasScriptWrapper: true} -->
+# XML
+
+-  XML is markup-language for encoding documents in machine-readable form
+  -  Text-based format
+  -  Consists of tags, attributes and content
+  -  Provide data and meta-data in the same time
+
+```xml
+<?xml version="1.0"?>
+<library>
+  <book><title>HTML 5</title><author>John Doe</author></book>
+  <book><title>WPF 4</title><author>Microsoft</author></book>
+  <book><title>UML 2.0</title><author>Jane Doe</author></book>
+</library>
+```
+
+<img src="imgs/xml.png" style="position:absolute; top:8%; right:0%; width:20%; border:none; background:none; box-shadow:none" />
+
+<!-- attr: {hasScriptWrapper: true} -->
+# RSS
+
+-  RSS (Really Simple Syndication)
+  -  Family of Web feed formats for publishing frequently updated works
+    -  E.g. blog entries, news headlines, videos, etc.
+  -  Based on XML, with standardized XSD schema
+-  RSS documents (feeds) are list of items
+  -  Each containing title, author, publish date, summarized text, and metadata
+-  Atom protocol aimed to enhance / replace RSS
+
+<img src="imgs/rss.png" style="position:absolute; top:-5%; right:15%; width:20%; border:none; background:none; box-shadow:none" />
+
+<!-- attr: {hasScriptWrapper: true} -->
+# RSS – Example
+
+- _Example_:
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+  <title>W3Schools Home Page</title>
+  <link>http://www.w3schools.com</link>
+  <description>Free web building tutorials</description>
+  <item>
+    <title>RSS Tutorial</title>
+    <link>http://www.w3schools.com/rss</link>
+    <description>New RSS tutorial on W3Schools</description>
+  </item>
+  <item>
+    <title>XML Tutorial</title>
+    <link>http://www.w3schools.com/xml</link>
+    <description>New XML tutorial on W3Schools</description>
+  </item>
+</channel>
+</rss>
+```
+
+# JSON
+
+-  JSON (JavaScript Object Notation)
+  -  Standard for representing simple data structures and associative arrays
+  -  Lightweight text-based open standard
+  -  Derived from the JavaScript language
+
+```json
+{
+  "firstName": "John", "lastName": "Smith", "age": 25,
+  "address": { "streetAddress": "33 Alex. Malinov Blvd.",
+     "city": "Sofia", "postalCode": "10021" },
+  "phoneNumber": [
+	{ "type": "home", "number": "212 555-1234"},
+    { "type": "fax", "number": "646 555-4567" }]
+},
+{ "firstName": "Bay", "lastName": "Ivan", "age": 79 }
+```
+
+<!-- section start -->
+
+<!-- attr: {class:"slide-section", showInPresentation: true} -->
+<!-- # The HTTP Protocol
+## How HTTP Works? -->
+
+# HTTP
+
+-  **H**yper **T**ext **T**ransfer **P**rotocol (**HTTP**)
+  -  Client-server protocol for transferring Web resources (HTML files, images, styles, etc.)
+-  Important properties of HTTP
+  -  Request-response model
+  -  Text-based format
+  -  Relies on unique resource URLs
+  -  Provides resource metadata (e.g. encoding)
+  -  Stateless (cookies can overcome this)
+
+
+# HTTP: Request-Response Protocol
+
+-  Client program
+  -  Running on end host
+  -  E.g. Web browser
+  -  Requests a resource
+-  Server program <!-- .element: style="position:absolute; top:12%; right:0%" -->
+  -  Running at the server
+  -  E.g. Web server
+  -  Provides resources
+
+<!-- attr: {style: 'font-size: 0.9em'} -->
+# Example: HTTP
+
+-  HTTP request:
+
+  ```http
+  GET /academy/about.aspx HTTP/1.1
+  Host: www.telerik.com
+  User-Agent: Mozilla/5.0
+  <CRLF>
+  ```
+
+-  HTTP response:
+
+  ```http
+  HTTP/1.1 200 OK
+  Date: Mon, 5 Jul 2010 13:09:03 GMT
+  Server: Microsoft-HTTPAPI/2.0
+  Last-Modified: Mon, 12 Jul 2010 15:33:23 GMT
+  Content-Length: 54
+  <CRLF>
+  <html><title>Hello</title>
+  Welcome to our site</html>
+  ```
+
+  - The empty line denotes the end of the response/request headers
+
+<!-- attr: {hasScriptWrapper: true} -->
+# HTTP Request Message
+
+-  Request message sent by a client consists of
+  -  Request line:
+    - Request method (GET, POST, HEAD, ...), resource URI, and protocol version
+  -  Request headers – additional parameters
+  -  Body – optional data
+    -  E.g. posted form data, files, etc.
+
+```xml
+<request method> <resource> HTTP/<version>
+<headers>
+<empty line>
+<body>
+```
+
+# HTTP GET Request – Example
+
+-  Example of HTTP GET request:
+
+```http
+GET /academy/winter-2009-2010.aspx HTTP/1.1
+Host: www.telerik.com
+Accept: */*
+Accept-Language: bg
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0(compatible;MSIE 6.0; Windows NT 5.0)
+Connection: Keep-Alive
+Cache-Control: no-cache
+<CRLF>
+```
+<!-- */ -->
+
+-  HTTP request line
+-  HTTP headers
+-  The request body is empty
+
+# HTTP POST Request – Example
+
+-  Example of HTTP POST request:
+
+```http
+POST /webmail/login.phtml HTTP/1.1
+Host: www.abv.bg
+Accept: */*
+Accept-Language: bg
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0(compatible;MSIE 6.0; Windows NT 5.0)
+Connection: Keep-Alive
+Cache-Control: no-cache
+Content-Length: 59
+<CRLF>
+LOGIN_USER=mente
+DOMAIN_NAME=abv.bg
+LOGIN_PASS=top*secret!
+<CRLF>
+```
+<!-- */ -->
+
+-  HTTP request line
+-  HTTP headers
+-  The request body contains the submitted form data
+
+# Conditional HTTP GET – Example
+
+-  Example of HTTP conditional GET request:
+
+  ```http
+  GET /academy/join.aspx HTTP/1.1
+  Host: www.telerik.com
+  User-Agent: Gecko/20100115 Firefox/3.6
+  If-Modified-Since: Tue, 9 Mar 2010 11:12:23 GMT
+  <CRLF>
+  ```
+
+  -  Fetches the resource only if it has been changed at the server
+    -  Server replies with “`304 Not Modified`” if the resource has not been changed
+    -  Or “`200 OK`” with the latest version otherwise
+
+
+
+
+# HTTP Response Message
+
+-  Response message sent by the server
+  -  Status line – protocol version, status code, status phrase
+  -  Response headers – provide meta data
+  -  Body – the contents of the response (the requested resource)
+
+```http
+HTTP/<version> <status code> <status text>
+<headers>
+<CRLF>
+<response body – the requested resource>
+```
+
+# HTTP Response – Example
+
+-  Example of HTTP response from the Web server:
+
+```http
+HTTP/1.1 200 OK
+Date: Fri, 17 Jul 2010 16:09:18 GMT+2
+Server: Apache/2.2.14 (Linux)
+Accept-Ranges: bytes
+Content-Length: 84
+Content-Type: text/html
+<CRLF>
+<html>
+  <head><title>Test</title></head>
+  <body>Test HTML page.</body>
+</html>
+```
+
+-  HTTP response status line
+-  HTTP response headers
+-  The HTTP response body
+
+# HTTP Response – Example
+
+-  Example of HTTP response with error result:
+
+```http
+HTTP/1.1 404 Not Found
+Date: Fri, 17 Jul 2010 16:09:18 GMT+2
+Server: Apache/2.2.14 (Linux)
+Connection: close
+Content-Type: text/html
+<CRLF>
+<HTML><HEAD>
+<TITLE>404 Not Found</TITLE>
+</HEAD><BODY>
+<H1>Not Found</H1>
+The requested URL /img/telerik-logo.gif was not
+found on this server.<P>
+<HR><ADDRESS>Apache/2.2.14 Server at Port 80</ADDRESS>
+</BODY></HTML>
+```
+
+-  HTTP response status line
+-  HTTP response headers
+-  The HTTP response body
+
+# Content-Type and Disposition
+
+-  The Content-Type header at the server specifies how the output should be processed
+-  _Examples_:
+  - UTF-8 encoded HTML page. Will be shown in the browser
+
+    ```http
+    Content-Type: text/html; charset=utf-8
+    ```
+
+  - This will download a PDF file named `Financial-Report-April-2010.pdf`
+
+    ```http
+    Content-Type: application/pdf
+    Content-Disposition: attachment;
+      filename="Financial-Report-April-2010.pdf"
+    ```
+
+# HTTP Request Methods
+
+-  HTTP request methods:
+  -  `GET`
+    -  Return the specified resource, run a program at the server, or just download file, …
+  -  `HEAD`
+    -  Return the meta-data associated with a resource (headers only)
+  -  `POST`
+    -  Update a resource, provide input data for processing at the server, …
+
+# HTTP Response Codes
+
+-  HTTP response code classes
+  -  `1xx`: informational (e.g., "`100 Continue`")
+  -  `2xx`: success (e.g., "`200 OK`")
+  -  `3xx`: redirection (e.g., "`304 Not Modified`", "`302 Found`")
+  -  `4xx`: client error (e.g., "`404 Not Found`")
+  -  `5xx`: server error (e.g., "`503 Service Unavailable`")
+-  "`302 Found`" is used for redirecting the Web browser to another URL
+
+# Browser Redirection
+
+-  HTTP browser redirection example
+  -  HTTP GET requesting a moved URL:
+```http
+GET / HTTP/1.1
+Host: academy.telerik.com
+User-Agent: Gecko/20100115 Firefox/3.6
+<CRLF>
+```
+  -  The HTTP response says the browser should request another URL:
+```http
+HTTP/1.1 301 Moved Permanently
+Location: http://www.telerik.com/academy/
+…
+```
+
+
+<!-- section start -->
+
+<!-- attr: {class:"slide-section", showInPresentation: true} -->
+<!-- # Web Services
+## Web Services and SOA Architecture -->
+# Web Services
+
+-  A web service is a method of communication between two devices in WWW
+  -  The server device exposes services
+  -  The client consumes these services
+-  Web services are a main part of the SOA architecture
+  -  Database and Business logic on the server
+    -  The server exposes public services
+  -  UI logic on the client
+    -  Consumes these services
+
+<!-- attr: {class:"slide-section", showInPresentation: true} -->
+<!-- # RESTful Web Services
+## Lightweight Architecture for Web Services -->
+
+# What is REST?
+
+```xml
+"Representational state transfer (REST) is a style of
+software architecture for distributed hypermedia systems
+such as the World Wide Web."
+```
+[Representational State Transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+
+-  Application state and functionality are resources
+  -  Resources are used as common data files
+-  Every resource has an URI
+-  All resources share a uniform interface
+-  This natively maps to the HTTP protocol
+
+# RESTful Services
+
+-  One URI for a resource, multiple operations
+  -  Get all posts:
+    -  GET `http://mysite.com/api/posts`
+  -  Get the second page of 10 posts:
+    -  GET `http://mysite.com/api/posts?page=2&size=10`
+  - Get a single post with id 5:
+    - GET `http://mysite.com/api/posts/5`
+  - Create a new post:
+    - POST `http://mysite.com/api/posts`
+  -  Remove a post by id
+    - DELETE `http://mysite.com/api/posts`
+
+<!-- section start -->
+
+<!-- attr: {class:"slide-section", showInPresentation: true} -->
+<!-- # AJAX
+## Asynchronous JavaScript and XML -->
+
+# AJAX
+
+-  AJAX is acronym of `Asynchronous JavaScript and XML`
+  -  Technique for background loading of dynamic content and data from the server side
+  -  Allows dynamic client-side changes
+-  Two types of AJAX
+  -  Partial page rendering – loading of HTML fragment and showing it in a `<div>` (AHAH)
+  -  JSON service – loading JSON object and client-side processing it with JavaScript / jQuery
+
+<!-- attr: {showInPresentation: true} -->
+<!-- # AJAX -->
+-  Technically, AJAX is a group of technologies working together
+  -  HTML & CSS for presentation
+  -  The DOM for data display & interaction
+  -  XML (or JSON) for data interchange
+  -  XMLHttpRequest for async communication
+  -  JavaScript to use the above
+
+<!-- attr: {showInPresentation: true} -->
+<!-- # AJAX -->
+-  AJAX uses HTTP
+  -  Requests have headers – GET, POST, HEAD, etc.
+  -  Requests have bodies – XML, JSON or plain text
+  -  The request must target a resource with a URI
+  -  The resource must understand the request
+    -  Server-side logic
+  -  Requests get a HTTP Response
+    -  Header with a body
+
+<!-- section start -->
+
+<!-- attr: {class: "slide-section", showInPresentation: true} -->
+<!-- # The Same Origin Policy
+## i.e. Don't talk to strangers -->
+
+# Same Origin Policy
+
+-  Security concept for browser-side programming languages
+-  Scripts running on pages from the same site
+  -  i.e. the same `origin`
+  -  Can access each other without restriction
+-  Scripts cannot access pages on different sites
+-  This also applies to XMLHttpRequest
+  -  Sent only between pages with same `origin`
+
+# Origin Determination Rules
+
+-  Origin is defined using
+  -  Domain name (e.g. example.com)
+  -  Application layer protocol (e.g. http)
+  -  Port number (some of the browsers only)
+  -  Two resources are of the same origin if all of the above match
+
+# Origin Determination Example
+
+-  Say we have a resource at http://www.example.com/dir/page.html
+-  The following table shows outcomes of origin checks with resources at similar URLs
+
+<img src="imgs/origin-policy.png" style="position:absolute; top:50%; left:0%; border:none; background:none;" />
+
+
+
+
+# Relaxing Same Origin Policy
+
+-  Same origin policy is sometimes too restrictive
+  -  Large sites with lots of subdomains
+  -  Accessing web services
+-  Ways of "relaxing"
+  -  document.domain – can be set to a superdomain when in proper subdomain
+  -  Cross document messaging – HTML5, `postMessage()` to page in `<iframe>`
+  -  Cross Origin Resource Sharing
+  -  WebSockets
+-  Workaround – JSONP
+
+# JSONP
+## i.e. not listening to mommy
+
+<!-- attr: {hasScriptWrapper: true} -->
+# JSONP
+
+-  JSON with padding (also JSON prefix)
+-  Same origin policy denies cross-origin requests
+  -  But not for the `<script>` tag
+  -  The `<script>` tag can be exploited
+-  Retrieve JS code and the browser executes it
+  -  In the case of a service, we get a JSON object
+  -  The script tag can have a callback
+
+```html
+<script type="text/javascript"
+src="http://server2.example.com/Users/1234?jsonp=parseResponse"></script>
+```
+
+  -  We receive `parseResponse(…)`
+
+# JSONP – How it Works
+
+-  After the script URL, we add a query parameter `?jsonp=` (or `?callback=`)
+  -  This parameter tells the server what to return
+  -  The server wraps its return value in the specified callback
+  -  Example
+  -  server returns a JSON object `{"age":"5"}`
+  -  the query parameter is `?callback=parseResponse`
+  -  The browser executes the following JS code:
+```
+parseResponse({"age":"5"})
+```
+
+# JSONP – the "Padding"
+
+-  The callback function in the example is called the "padding"
+-  Typically its used to pass the JSON to a function, which acts as a handler, but it can be anything else
+  -  Variable assignment, `if` statement, etc.
+  -  What we receive is JS code, not JSON
+    -  This is a security concern
+
+<!-- section start  -->
+# Web Developer Tools
+## Simulating and Tracking Web Traffic
+
+# Web Developer Tools
+
+-  Firebug plug-in for Firefox
+  -  A must have for Web developers
+  -  The ultimate tool for monitoring, editing and debugging HTTP, HTML, CSS, JavaScript, etc.
+  -  Free, open-source – [www.getfirebug.com](http://getfirebug.com/)
+-  Fiddler – HTTP proxy
+  -  Intercepts the HTTP traffic
+  -  Analyzes the HTTP conversation
+  -  Free tool (by Telerik) – [www.telerik.com/fiddler](http://www.telerik.com/fiddler)
+
+# Web Developer Tools
+
+-  Web Developer Tools
+  -  Built-in in Google Chrome and Opera
+  -  Network requests logging
+  -  Code execution timeline
+-  Postman
+  -  Google app
+  -  Perform HTTP requests
+  -  Get from [Chrome web store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=chrome-ntp-icon)
+
+
+
+<!-- Questions -->
+<!-- section start -->
+<!-- attr: { hasScriptWrapper:true, class:"slide-questions", id:"questions" } -->
+<!-- # HTTP & AJAX
+## Questions? -->
+
+
+<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
+# Free Trainings<br/>@ Telerik Academy
+- "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
+    - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
+  - Telerik Software Academy
+    - [academy.telerik.com](academy.telerik.com)
+  - Telerik Academy @ Facebook
+    - [facebook.com/TelerikAcademy](facebook.com/TelerikAcademy)
+  - Telerik Software Academy Forums
+    - [forums.academy.telerik.com](http://telerikacademy.com/Forum/Home)
+
+<!-- <img class="slide-image" showInPresentation="true"  src="imgs/pic00.png" style="top:58.18%; left:90.52%; width:16.97%; z-index:-1" /> -->
