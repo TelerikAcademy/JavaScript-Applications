@@ -1,19 +1,60 @@
-## 07. HTTP and AJAX
-### [View Presentation online](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html)
-### Table of Contents
-*	Web Services Overview - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/web-services)
-*	RESTful Web Services Overview - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/restful-web-services)
-*	XMLHttpRequest Object - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/xhr-object)
-	*	Sending request over HTTP
-*	HTTP Client-Server Communication - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/http-client-server)
-	*	The client
-	*	The server
-*	Using the Response from HTTP - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/using-the-response)
-*	Building an HTTP Request - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/building-http-request)
-	*	Headers
-	*	Verbs
-	*	With promises and callbacks
-*	jQuery AJAX - [go to slide](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/08.%20Consuming%20Web%20Services/slides/index.html#/jquery-ajax)
-	*	`$.ajax()`
-	*	`$.getJSON()` and `$.post()`
-	*	`$(selector).load(partialViewUrl)`
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Applications: Consuming Web Services</title>
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/css/reveal.css">
+  <link rel="stylesheet" href="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/css/theme/telerik-academy-dark.css">
+
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/css/github.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <!--[if lt IE 9]>
+    <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+    <div id="slides-container" class="slides">
+    </div>
+  </div>
+  <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/js/head.min.js"></script>
+  <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/reveal.js"></script>
+  <script src="https://rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/js/jquery.js"></script>
+  <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/lib/js/jquery.js"></script>
+  <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/setup-func.js"></script>
+  <script src="https://cdn.rawgit.com/TelerikAcademy/Common/master/revealjs-theme/js/render.js"></script>
+  <script>
+    var protocol = window.location.protocol,
+      pathname = window.location.pathname.substring(0, window.location.pathname.indexOf('index.html')),
+      host = window.location.host,
+      readmeLocation = protocol + "//" + host + pathname;
+
+    if (readmeLocation[readmeLocation.length - 1] !== '/') {
+      readmeLocation += '/';
+    }
+    readmeLocation += 'README.md';
+
+    render(readmeLocation);
+  </script>
+</body>
+
+</html>
