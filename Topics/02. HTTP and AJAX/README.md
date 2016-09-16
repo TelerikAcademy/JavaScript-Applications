@@ -22,7 +22,6 @@
 -  Same-Origin Policy
   -  Workarounds
 -  JSONP
--  Web Developer Tools
 
 <!-- attr: {class: "slide-section", showInPresentation: true} -->
 <!-- # WWW
