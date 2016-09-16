@@ -627,7 +627,7 @@ found on this server.<P>
 
 <img src="imgs/origin-policy.png" style=" border:none; background:none;" />
 
-<!-- attr: {hasScriptWrapper: true} -->
+<!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # Relaxing SOP
 
 -  Same origin policy is sometimes too restrictive
