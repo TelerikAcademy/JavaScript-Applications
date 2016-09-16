@@ -203,8 +203,6 @@ http://bg.wikipedia.org:80/wiki/
 </library>
 ```
 
-<img src="imgs/xml.png" style="position:absolute; top:8%; right:0%; width:20%; border:none; background:none; box-shadow:none" />
-
 <!-- attr: {hasScriptWrapper: true} -->
 # RSS
 
@@ -218,10 +216,11 @@ http://bg.wikipedia.org:80/wiki/
 
 <img src="imgs/rss.png" style="position:absolute; top:-5%; right:15%; width:20%; border:none; background:none; box-shadow:none" />
 
-<!-- attr: {hasScriptWrapper: true} -->
+<!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # RSS – Example
 
 - _Example_:
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0">
@@ -243,6 +242,7 @@ http://bg.wikipedia.org:80/wiki/
 </rss>
 ```
 
+<!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # JSON
 
 -  JSON (JavaScript Object Notation)
@@ -291,7 +291,7 @@ http://bg.wikipedia.org:80/wiki/
   -  E.g. Web server
   -  Provides resources
 
-<!-- attr: {style: 'font-size: 0.9em'} -->
+<!-- attr: {style: 'font-size: 0.85em'} -->
 # Example: HTTP
 
 -  HTTP request:
@@ -335,6 +335,7 @@ http://bg.wikipedia.org:80/wiki/
 <body>
 ```
 
+<!-- attr: {style: 'font-size: 0.95em'} -->
 # HTTP GET Request – Example
 
 -  Example of HTTP GET request:
@@ -452,7 +453,7 @@ found on this server.<P>
 ```
 
 <!-- attr: {style: 'font-size: 0.85'} -->
-# Content-Type and Disposition
+# Content-Type
 
 -  The Content-Type header at the server specifies how the output should be processed
 -  _Examples_:
@@ -627,7 +628,7 @@ found on this server.<P>
 <img src="imgs/origin-policy.png" style=" border:none; background:none;" />
 
 <!-- attr: {hasScriptWrapper: true} -->
-# Relaxing Same Origin Policy
+# Relaxing SOP
 
 -  Same origin policy is sometimes too restrictive
   -  Large sites with lots of subdomains
