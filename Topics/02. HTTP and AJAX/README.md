@@ -371,16 +371,11 @@ Connection: Keep-Alive
 Cache-Control: no-cache
 Content-Length: 59
 <CRLF>
-LOGIN_USER=mente
+LOGIN_USER=donchominkov
 DOMAIN_NAME=abv.bg
 LOGIN_PASS=top*secret!
 <CRLF>
 ```
-<!-- */ -->
-
--  HTTP request line
--  HTTP headers
--  The request body contains the submitted form data
 
 # Conditional HTTP GET – Example
 
@@ -400,7 +395,7 @@ LOGIN_PASS=top*secret!
 
 
 
-
+<!-- attr: {hasScriptWrapper: true} -->
 # HTTP Response Message
 
 -  Response message sent by the server
@@ -415,6 +410,7 @@ HTTP/<version> <status code> <status text>
 <response body – the requested resource>
 ```
 
+<!-- attr: {hasScriptWrapper: true} -->
 # HTTP Response – Example
 
 -  Example of HTTP response from the Web server:
@@ -433,10 +429,7 @@ Content-Type: text/html
 </html>
 ```
 
--  HTTP response status line
--  HTTP response headers
--  The HTTP response body
-
+<!-- attr: {hasScriptWrapper: true} -->
 # HTTP Response – Example
 
 -  Example of HTTP response with error result:
@@ -458,15 +451,12 @@ found on this server.<P>
 </BODY></HTML>
 ```
 
--  HTTP response status line
--  HTTP response headers
--  The HTTP response body
-
+<!-- attr: {style: 'font-size: 0.85'} -->
 # Content-Type and Disposition
 
 -  The Content-Type header at the server specifies how the output should be processed
 -  _Examples_:
-  - UTF-8 encoded HTML page. Will be shown in the browser
+  - UTF-8 encoded HTML page (in the browser)
 
     ```http
     Content-Type: text/html; charset=utf-8
@@ -503,20 +493,21 @@ found on this server.<P>
 # Browser Redirection
 
 -  HTTP browser redirection example
-  -  HTTP GET requesting a moved URL:
-```http
-GET / HTTP/1.1
-Host: academy.telerik.com
-User-Agent: Gecko/20100115 Firefox/3.6
-<CRLF>
-```
-  -  The HTTP response says the browser should request another URL:
-```http
-HTTP/1.1 301 Moved Permanently
-Location: http://www.telerik.com/academy/
-…
-```
+  -  HTTP `GET` requesting a moved URL:
 
+  ```http
+  GET / HTTP/1.1
+  Host: academy.telerik.com
+  User-Agent: Gecko/20100115 Firefox/3.6
+  <CRLF>
+  ```
+  -  The HTTP response says the browser should request another URL:
+
+  ```http
+  HTTP/1.1 301 Moved Permanently
+  Location: http://www.telerik.com/academy/
+  …
+  ```
 
 <!-- section start -->
 
@@ -538,13 +529,12 @@ Location: http://www.telerik.com/academy/
 <!-- # RESTful Web Services
 ## Lightweight Architecture for Web Services -->
 
+<!-- attr: {style: 'font-size: 0.9em'} -->
 # What is REST?
 
-```xml
-"Representational state transfer (REST) is a style of
-software architecture for distributed hypermedia systems
-such as the World Wide Web."
-```
+>Representational state transfer (REST) is a style of
+>software architecture for distributed hypermedia systems
+>such as the World Wide Web.
 [Representational State Transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
 
 -  Application state and functionality are resources
@@ -553,19 +543,20 @@ such as the World Wide Web."
 -  All resources share a uniform interface
 -  This natively maps to the HTTP protocol
 
+<!-- attr: {style: 'font-size: 0.95em'} -->
 # RESTful Services
 
 -  One URI for a resource, multiple operations
   -  Get all posts:
-    -  GET `http://mysite.com/api/posts`
-  -  Get the second page of 10 posts:
-    -  GET `http://mysite.com/api/posts?page=2&size=10`
+    - `GET http://mysite.com/api/posts`
+  - Get the second page of 10 posts:
+    - `GET http://mysite.com/api/posts?page=2&size=10`
   - Get a single post with id 5:
-    - GET `http://mysite.com/api/posts/5`
+    - `GET http://mysite.com/api/posts/5`
   - Create a new post:
-    - POST `http://mysite.com/api/posts`
+    - `POST http://mysite.com/api/posts`
   -  Remove a post by id
-    - DELETE `http://mysite.com/api/posts`
+    - `DELETE http://mysite.com/api/posts`
 
 <!-- section start -->
 
@@ -573,29 +564,30 @@ such as the World Wide Web."
 <!-- # AJAX
 ## Asynchronous JavaScript and XML -->
 
+<!-- attr: {hasScriptWrapper: true} -->
 # AJAX
 
--  AJAX is acronym of `Asynchronous JavaScript and XML`
+-  AJAX is acronym of **Asynchronous JavaScript and XML**
   -  Technique for background loading of dynamic content and data from the server side
   -  Allows dynamic client-side changes
 -  Two types of AJAX
-  -  Partial page rendering – loading of HTML fragment and showing it in a `<div>` (AHAH)
-  -  JSON service – loading JSON object and client-side processing it with JavaScript / jQuery
+  -  **Partial page rendering** – loading of HTML fragment and showing it in a `<div>`
+  -  **JSON service** – loading JSON object and client-side processing it with JavaScript / jQuery
 
 <!-- attr: {showInPresentation: true} -->
 <!-- # AJAX -->
 -  Technically, AJAX is a group of technologies working together
-  -  HTML & CSS for presentation
-  -  The DOM for data display & interaction
-  -  XML (or JSON) for data interchange
-  -  XMLHttpRequest for async communication
-  -  JavaScript to use the above
+  -  **HTML & CSS** for presentation
+  -  **The DOM** for data display & interaction
+  -  **XML (or JSON)** for data interchange
+  -  **XMLHttpRequest** for async communication
+  -  **JavaScript** to use the above
 
 <!-- attr: {showInPresentation: true} -->
 <!-- # AJAX -->
 -  AJAX uses HTTP
-  -  Requests have headers – GET, POST, HEAD, etc.
-  -  Requests have bodies – XML, JSON or plain text
+  -  Requests have headers – `GET`, `POST`, `HEAD`, etc.
+  -  Requests have bodies – `XML`, `JSON` or `plain text`
   -  The request must target a resource with a URI
   -  The resource must understand the request
     -  Server-side logic
@@ -612,30 +604,29 @@ such as the World Wide Web."
 
 -  Security concept for browser-side programming languages
 -  Scripts running on pages from the same site
-  -  i.e. the same `origin`
+  -  i.e. the same **origin**
   -  Can access each other without restriction
--  Scripts cannot access pages on different sites
--  This also applies to XMLHttpRequest
-  -  Sent only between pages with same `origin`
+-  Scripts **cannot** access pages on **different sites**
+-  This also applies to `XMLHttpRequest`
+-  Sent only between pages with same **origin**
 
 # Origin Determination Rules
 
 -  Origin is defined using
-  -  Domain name (e.g. example.com)
-  -  Application layer protocol (e.g. http)
-  -  Port number (some of the browsers only)
+  -  **Domain name** (e.g. example.com)
+  -  **Application layer protocol** (e.g. http)
+  -  **Port** number (some of the browsers only)
   -  Two resources are of the same origin if all of the above match
 
+<!-- attr: {hasScriptWrapper: true} -->
 # Origin Determination Example
 
 -  Say we have a resource at http://www.example.com/dir/page.html
 -  The following table shows outcomes of origin checks with resources at similar URLs
 
-<img src="imgs/origin-policy.png" style="position:absolute; top:50%; left:0%; border:none; background:none;" />
+<img src="imgs/origin-policy.png" style=" border:none; background:none;" />
 
-
-
-
+<!-- attr: {hasScriptWrapper: true} -->
 # Relaxing Same Origin Policy
 
 -  Same origin policy is sometimes too restrictive
@@ -648,10 +639,12 @@ such as the World Wide Web."
   -  WebSockets
 -  Workaround – JSONP
 
-# JSONP
-## i.e. not listening to mommy
 
-<!-- attr: {hasScriptWrapper: true} -->
+<!-- attr: {class: 'slide-section', showInPresentation: true} -->
+<!-- # JSONP
+## i.e. not listening to mommy -->
+
+<!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # JSONP
 
 -  JSON with padding (also JSON prefix)
@@ -662,22 +655,23 @@ such as the World Wide Web."
   -  In the case of a service, we get a JSON object
   -  The script tag can have a callback
 
-```html
-<script type="text/javascript"
-src="http://server2.example.com/Users/1234?jsonp=parseResponse"></script>
-```
+    ```html
+    < script type="text/javascript"
+    src="http://server2.example.com/Users/1234?jsonp=parseResponse"></ script>
+    ```
 
-  -  We receive `parseResponse(…)`
+    -  We receive `parseResponse(…)`
 
+<!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # JSONP – How it Works
 
 -  After the script URL, we add a query parameter `?jsonp=` (or `?callback=`)
   -  This parameter tells the server what to return
   -  The server wraps its return value in the specified callback
-  -  Example
-  -  server returns a JSON object `{"age":"5"}`
-  -  the query parameter is `?callback=parseResponse`
-  -  The browser executes the following JS code:
+  -  _Example_
+    -  server returns a JSON object `{"age":"5"}`
+    -  the query parameter is `?callback=parseResponse`
+    -  The browser executes the following JS code:
 ```
 parseResponse({"age":"5"})
 ```
@@ -691,39 +685,11 @@ parseResponse({"age":"5"})
     -  This is a security concern
 
 <!-- section start  -->
-# Web Developer Tools
-## Simulating and Tracking Web Traffic
 
-# Web Developer Tools
-
--  Firebug plug-in for Firefox
-  -  A must have for Web developers
-  -  The ultimate tool for monitoring, editing and debugging HTTP, HTML, CSS, JavaScript, etc.
-  -  Free, open-source – [www.getfirebug.com](http://getfirebug.com/)
--  Fiddler – HTTP proxy
-  -  Intercepts the HTTP traffic
-  -  Analyzes the HTTP conversation
-  -  Free tool (by Telerik) – [www.telerik.com/fiddler](http://www.telerik.com/fiddler)
-
-# Web Developer Tools
-
--  Web Developer Tools
-  -  Built-in in Google Chrome and Opera
-  -  Network requests logging
-  -  Code execution timeline
--  Postman
-  -  Google app
-  -  Perform HTTP requests
-  -  Get from [Chrome web store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=chrome-ntp-icon)
-
-
-
-<!-- Questions -->
 <!-- section start -->
 <!-- attr: { hasScriptWrapper:true, class:"slide-questions", id:"questions" } -->
 <!-- # HTTP & AJAX
 ## Questions? -->
-
 
 <!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
 # Free Trainings<br/>@ Telerik Academy
