@@ -3,13 +3,15 @@
 ##  Description
 - You are given a partially implemented forum system.
   - It supports `Threads` that have `title`, `creator`
-      - 
+  - Each `Thread` has `Messages`
+  - `Messages` have `content`, `author`
+  - It supports a Gallery of images that come from Reddit
 
 1. Finish the implementation of the SPA app for forum with threads and message following the requirements
     - Mandatory use:
       - jQuery for ajax calls
       - ES2015 `Promise`
-  - Implement the functions in `data.js`
+  - Implement the functions in `public/scripts/data.js`
       - Your AJAX calls should be made to the server endpoints below
 2. Implement the Gallery functionality
 
@@ -99,3 +101,10 @@ _Note: You are not required to do anything on the UI. If the implementation of t
   - **GET** `https://www.reddit.com/r/aww.json`
       -  Make a `jsonp` request
 
+
+
+## Additional Tasks
+- Fix any bugs you manage to find
+  - _Examples_:
+      - The UI representation of the messages
+      - Refresh the UI component when a new thread or message is created (without refreshing the page. Remeber this is a SPApplication)
