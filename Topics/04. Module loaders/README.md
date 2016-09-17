@@ -81,7 +81,7 @@
 <sсript src="./module3.js"></sсript>
 ```
 
-<!-- <img class="slide-image" showInPresentation="true" src="imgs/AMD.png" style="top:45%; left:30%; width:40%;" /> -->
+<img class="slide-image" showInPresentation="true" src="imgs/AMD.png" style="top:45%; left:30%; width:40%;" />
 
 <!-- section start -->
 <!-- attr: { id: 'system-and-es6-modules', class: 'slide-section', hasScriptWrapper: true, showInPresentation: true } -->
