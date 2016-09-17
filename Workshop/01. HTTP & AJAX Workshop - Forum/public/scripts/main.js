@@ -1,15 +1,15 @@
 ﻿$(() => { // on document ready
   const GLYPH_UP = 'glyphicon-chevron-up',
-        GLYPH_DOWN = 'glyphicon-chevron-down';
-  let root = $('#root'),
-      navbar = root.find('nav.navbar'),
-      mainNav = navbar.find('#main-nav'),
-      contentContainer = $('#root #content'),
-      loginForm = $('#login'),
-      logoutForm = $('#logout'),
-      usernameSpan = $('#span-username'),
-      usernameInput = $('#login input'),
-      alertTemplate = $($('#alert-template').text());
+        GLYPH_DOWN = 'glyphicon-chevron-down',
+        root = $('#root'),
+        navbar = root.find('nav.navbar'),
+        mainNav = navbar.find('#main-nav'),
+        contentContainer = $('#root #content'),
+        loginForm = $('#login'),
+        logoutForm = $('#logout'),
+        usernameSpan = $('#span-username'),
+        usernameInput = $('#login input'),
+        alertTemplate = $($('#alert-template').text());
 
   (function checkForLoggedUser() {
     data.users.current()
@@ -56,6 +56,7 @@
     })
     threadsContainer.append(getAddNewThreadUI());
 
+    contentContainer.find('#container-thraeds').remove();
     contentContainer.html('').prepend(container);
   }
 
@@ -117,7 +118,6 @@
   navbar.on('click', '#btn-threads', (ev) => {
     data.threads.get()
         .then((data) => {
-          contentContainer.find('#container-thraeds').remove();
           loadThreadsContent(data.result)
         })
   });

@@ -133,10 +133,8 @@ app.post('/api/threads/:id/messages', function(req, res) {
   message.user = {
     username: req.body.username
   };
-  console.log(req.params.id);
-  console.log(message);
 
-  db.threads.addMessage(req.params.id, message)
+  db.threads.addMessage(+req.params.id, message)
     .then(function(message) {
       res.status(201)
         .json(message);

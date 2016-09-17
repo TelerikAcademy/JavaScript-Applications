@@ -1,13 +1,16 @@
 # Workshop 1: Simple Forum with jQuery and Promises
 
 ##  Description
+- You are given a partially implemented forum system.
+  - It supports `Threads` that have `title`, `creator`
+      - 
 
 1. Finish the implementation of the SPA app for forum with threads and message following the requirements
     - Mandatory use:
       - jQuery for ajax calls
       - ES2015 `Promise`
-  - Your AJAX calls should be made to the server endpoints below
   - Implement the functions in `data.js`
+      - Your AJAX calls should be made to the server endpoints below
 2. Implement the Gallery functionality
 
 _Note: You are not required to do anything on the UI. If the implementation of the requests is correct, you should see the results on the page._
@@ -54,10 +57,13 @@ _Note: You are not required to do anything on the UI. If the implementation of t
 
 - **POST** `api/threads`
   - Needs authentication
-  - Takes a `title`:
+  - Takes a `title` that should be sent in the body of the request:
+      - _TIPS_:
+          - Use `JSON.stringify()`
+          - Set the contentType to `application/json`
       - _Example:_
     ```js
-      var thread = {
+      var body = {
         title: 'JS Rocks!',
       }
     ```
@@ -77,11 +83,15 @@ _Note: You are not required to do anything on the UI. If the implementation of t
 
 - **POST** `api/threads/:id/messages`
   - Adds a message to a thread
-  - Takes a `title`:
+  - Takes a `content` and `username` that should be sent in the body of the request:
+      - _TIPS_:
+          - Use `JSON.stringify()`
+          - Set the contentType to `application/json`
       - _Example:_
     ```js
-      var message = {
-        content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+      var body = {
+        username: 'JohnDoe',
+        content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book'
       }
     ```
 
