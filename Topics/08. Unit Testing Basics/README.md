@@ -1,7 +1,5 @@
 <!-- section start -->
-
 <!-- attr: {id: 'title', class: 'slide-title', hasScriptWrapper: true} -->
-
 # Unit testing with Mocha, Chai and Sinon
 ##  How to write tests in JavaScript
 <div class="signature">
@@ -11,7 +9,6 @@
 </div>
 
 <!-- section start -->
-
 <!-- attr: {style: 'font-size: 44px', id: 'table-of-contents'} -->
 # Table of Contents
 * Unit testing Overview
@@ -28,7 +25,6 @@
 * Code coverage with Istanbul
 
 <!-- section start -->
-
 <!-- attr: {class: 'slide-section', id: 'unit-testing-overview'} -->
 # Unit Testing Overview
 ##  What is Unit Testing
@@ -50,7 +46,6 @@
   * Not repeatable
   * Not on all the
   * Not easy to do as it should
-
 
 # Manual Unit Tests: Example
 * Code:
@@ -98,11 +93,9 @@ void testSum() {
 * Unit tests **decrease the defect-injection rate** due to refactoring / changes
 
 <!-- section start -->
-
 <!-- attr: {class: 'slide-section', id: 'unit-testing-js'} -->
 # Unit Testing in JavaScript
 ##  Mocha, Jasmine, QUnit, etc...
-
 
 # Unit Testing in JavaScript
 * There are too many frameworks for unit testing JavaScipt code
@@ -147,7 +140,6 @@ void testSum() {
   * The most used plugin for spies is Sinon
 
 <!-- section start -->
-
 <!-- attr: {class: 'slide-section', id: 'unit-testing-mocha'} -->
 # Mocha Overview
 ##  Install, setup, reporters, tests
@@ -159,7 +151,6 @@ void testSum() {
   * Compatible with Karma & other test runners
   * Pluggable
     * Different plugins to add even more features
-
 
 # Mocha: Install & Setup
 * To use Mocha, follow the steps:
@@ -179,7 +170,6 @@ void testSum() {
     * `$ npm install chai`
   *  Start with the tests
     * On the next slide
-
 
 # Simple Tests: Examples
 
@@ -201,9 +191,7 @@ describe('#sum', function() {
 # Simple tests with <br/>Mocha and Chai
 ## Live Demo
 
-
 <!-- section start -->
-
 <!-- attr: {class:'slide-section', id:'mocha-reporters'} -->
 # Mocha Reporters
 ##  Where to show the result of the tests?
@@ -250,9 +238,7 @@ describe('#sum', function() {
   * When mocha is not installed globaly
 	* `$ iojs node_pakages/mocha/bin/mocha tests/`
 
-
 <!-- section start -->
-
 <!-- attr: {class: 'slide-questions', id: 'questions'} -->
 # Unit Testing with Mocha, Chai and Sinon
 ## Questions
