@@ -10,6 +10,9 @@
       height: 200px;
       margin: 15px;
     }
+      .gallery-item img {
+        width: 100%;
+      }
 
       .gallery-item .gallery-item-title {
         overflow: hidden;
@@ -149,7 +152,7 @@
   </script>
 
   <script id="gallery-img-tempalte" type="text/template">
-    <div class="gallery-item img-thumbnail pull-xs-left col-lg-2">
+    <div class="gallery-item img-thumbnail pull-xs-left col-lg-2 col-md-2 col-sm-2 col-xs-2">
       <img class="gallery-item-img" />
       <h4 class="gallery-item-title"></h4>
     </div>
@@ -159,7 +162,7 @@
   <script src="bower_components/jquery/dist/jquery.js"></script>
 
   <!-- app code -->
-  <script src="./scripts/data.js"></script>
+  <script src="./scripts/data-solution.js"></script>
   <script src="./scripts/main.js"></script>
 
 </body>
