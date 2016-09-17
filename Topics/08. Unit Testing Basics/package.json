@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ./node_modules/http-server/bin/http-server -p 8110"
+    "start": "node ./node_modules/http-server/bin/http-server -p 8010"
   },
   "repository": {
     "type": "git",
