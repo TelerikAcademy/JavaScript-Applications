@@ -1,7 +1,7 @@
 <!-- section start -->
 <!-- attr: {id: 'title', class: 'slide-title', hasScriptWrapper: true} -->
 # Unit testing with Mocha, Chai and Sinon
-##  How to write tests in JavaScript
+## How to write tests in JavaScript
 <div class="signature">
     <p class="signature-course">JavaScript Applications</p>
     <p class="signature-initiative">Telerik Software Academy</p>
@@ -27,7 +27,7 @@
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-overview'} -->
 # Unit Testing Overview
-##  What is Unit Testing
+## What is Unit Testing
 
 # Unit Testing - Definition
 - A unit test is a piece of code written by a developer that exercises a very small, specific area of functionality of the code being tested.
@@ -64,7 +64,6 @@ void testSum() {
     if(sum([-2]) !== -2) throw new Error('-2 !== -2');
     if(sum([]) !== 0) throw new Error('0 !== 0');
 }
-
 ```
 
 # Unit Testing: Some Facts
@@ -95,7 +94,7 @@ void testSum() {
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-js'} -->
 # Unit Testing in JavaScript
-##  Mocha, Jasmine, QUnit, etc...
+## Mocha, Jasmine, QUnit, etc...
 
 # Unit Testing in JavaScript
 - There are too many frameworks for unit testing JavaScipt code
@@ -107,7 +106,7 @@ void testSum() {
   - BDD
     - Jasmine, Mocha
 
-#   Testing with QUnit
+# Testing with QUnit
 - QUnit was developed to test jQuery
   - Developed by John Resig
 - QUnit has the following features:
@@ -142,7 +141,7 @@ void testSum() {
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-mocha'} -->
 # Mocha Overview
-##  Install, setup, reporters, tests
+## Install, setup, reporters, tests
 
 # Mocha Overview
 - Mocha is a feature-rich framework for testing JavaScript
@@ -194,7 +193,7 @@ describe('#sum', function() {
 <!-- section start -->
 <!-- attr: {class:'slide-section', id:'mocha-reporters'} -->
 # Mocha Reporters
-##  Where to show the result of the tests?
+## Where to show the result of the tests?
 
 # Mocha Reporters
 - Mocha supports a lot of reporters
@@ -236,7 +235,7 @@ describe('#sum', function() {
     - `$ mocha tests/ -R json`
     - `$ mocha tests/ -R doc`
   - When mocha is not installed globaly
-	- `$ iojs node_pakages/mocha/bin/mocha tests/`
+	- `$ node node_pakages/mocha/bin/mocha tests/`
 
 <!-- section start -->
 <!-- attr: {class: 'slide-questions', id: 'questions'} -->
