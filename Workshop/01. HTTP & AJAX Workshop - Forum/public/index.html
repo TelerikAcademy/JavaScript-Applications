@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: Simple Forum with jQuery and Promises</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <style>
+    .gallery-item {
+      padding: 20px;
+      height: 200px;
+      margin: 1.5%;
+    }
+      .gallery-item img {
+        width: 100%;
+      }
+
+      .gallery-item .gallery-item-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+  </style>
+</head>
+<body>
+  <div id="root" class="container">
+    <header class="row">
+      <div class="row">
+        <h1 class="col-sm-9"><a href="#">Simple Forum with jQuery and Promises</a></h1>
+      </div>
+      <nav class="navbar navbar-default navbar-collapse collapse">
+        <ul id="main-nav" class="nav navbar-nav">
+          <li><a href="#" id="btn-threads">Threads</a></li>
+          <li><a href="#" id="btn-gallery">Gallery</a></li>
+        </ul>
+        <ul class="nav nav navbar-nav navbar-right">
+          <li><a href="#">Chat <span class="badge">42</span></a></li>
+        </ul>
+        <form id="nav-login-form" class="navbar-form navbar-right">
+          <div id="login" class="form-group">
+            <input type="text" class="form-control" placeholder="Username">
+            <button id="btn-login" type="submit" class="btn btn-default">Login</button>
+          </div>
+          <div id="logout" class="form-group hidden">
+            Hello, <a href="#"><strong id="span-username"></strong></a>
+            <button id="btn-logout" type="submit" class="btn btn-default">Logout</button>
+          </div>
+        </form>
+      </nav>
+    </header>
+
+    <div id="content" class="row">
+    </div>
+
+
+    <footer class="row" style="position:fixed; bottom:0; left:40%">
+      <h4>Telerik Academy - JavaScript Applications 2016</h4>
+    </footer>
+  </div>
+
+  <!-- start templates -->
+  <script id="threads-container-template" type="text/template">
+    <div id="container-thraeds" class="col-xs-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Threads</h3>
+        </div>
+        <div id="threads" class="panel-body">
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="thread-template" type="text/template">
+    <div class="thread">
+      <div><h3><a class="thread-title" href="#"></a></h3></div>
+      <div>
+        <p>
+          <span>Created on</span><span class="thread-date"></span>
+          by <a class="thread-creator" href="#"></a>
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <script id="thread-new-template" type="text/template">
+    <form class="navbar-form navbar-left" role="search">
+      <h4>Create new Thread:</h4>
+      <div class="input-group">
+        <input id="input-add-thread" class="thread-title form-control" placeholder="Thread Title" />
+        <span class="input-group-btn">
+          <button id="btn-add-thread" class="btn btn-success" type="submit">Add</button>
+        </span>
+      </div>
+    </form>
+  </script>
+
+  <script id="messages-container-template" type="text/template">
+    <div class="container-messages col-xs-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Messages for <strong class="thread-title"></strong>
+            <button class="btn-close-msg btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" title="close"></button>
+            <button class="btn-collapse-msg btn btn-xs pull-right glyphicon glyphicon-chevron-up" title="collapse"></button>
+          </h3>
+        </div>
+        <div class="messages panel-body">
+
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="messages-template" type="text/template">
+    <div class="message">
+      <div>
+        <p class="message-content"></p>
+        <p>
+          <span>Created on </span><span class="message-date"></span>
+          by <a class="message-creator" href="#"></a>
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <script id="message-new-template" type="text/template">
+
+    <form class="" role="search">
+      <div class="input-group">
+        <input class="input-add-message message-content form-control" placeholder="Add new message..." />
+        <span class="input-group-btn">
+          <button class="btn-add-message btn btn-success " type="submit">Add</button>
+        </span>
+      </div>
+    </form>
+  </script>
+
+  <script id="alert-template" type="text/template">
+    <div class="alert col-lg-6" style="position: absolute; top: 14%; left: 25%;"></div>
+  </script>
+
+  <script id="gallery-container-tempalte" type="text/template">
+    <div id="container-gallery" class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Gallery</h3>
+        </div>
+        <div id="gallery-imgs" class="panel-body">
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="gallery-img-tempalte" type="text/template">
+    <div class="gallery-item img-thumbnail pull-xs-left col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <img class="gallery-item-img" />
+      <h4 class="gallery-item-title"></h4>
+    </div>
+  </script>
+  <!-- end templates -->
+  <!-- libs -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+
+  <!-- app code -->
+  <script src="./scripts/data-solution.js"></script>
+  <script src="./scripts/main.js"></script>
+
+</body>
+</html>
