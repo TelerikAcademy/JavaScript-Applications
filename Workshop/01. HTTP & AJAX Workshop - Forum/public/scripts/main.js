@@ -125,7 +125,7 @@
   contentContainer.on('click', '#btn-add-thread', (ev) => {
     let title = $(ev.target).parents('form').find('input#input-add-thread').val() || null;
     data.threads.add(title)
-        .then(console.log)
+        .then(/* add to UI */)
         .then(showMsg('Successfuly added the new thread', 'Success', 'alert-success'))
         .catch((err) => showMsg(JSON.parse(err.responseText).err, 'Error', 'alert-danger'));
   })
@@ -146,7 +146,7 @@
         msg = $container.find('.input-add-message').val();
 
     data.threads.addMessage(thId, msg)
-        .then(console.log)
+        .then(/* add to UI */)
         .then(showMsg('Successfuly added the new mssagee', 'Success', 'alert-success'))
         .catch((err) => showMsg(JSON.parse(err.responseText).err, 'Error', 'alert-danger'));
   })

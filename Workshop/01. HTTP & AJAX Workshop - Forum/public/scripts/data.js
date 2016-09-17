@@ -43,7 +43,6 @@ var data = (function () {
   function galleryGet() {
     const REDDIT_URL = `https://www.reddit.com/r/aww.json?jsonp=?`;
     
-
   }
   // end gallery
 
