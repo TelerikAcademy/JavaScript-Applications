@@ -72,7 +72,7 @@ function _getMsgDate(msg) {
 app.post('/api/threads', function(req, res) {
   var thread = req.body;
 
-  console.log(req.body);
+  // console.log(req.body);
   thread.user = { username: req.body.username };
 
   db.threads.create(thread)
@@ -111,7 +111,7 @@ app.get('/api/threads', function(req, res) {
 });
 
 app.get('/api/threads/:id', function(req, res) {
-  console.log(typeof req.params.id);
+  // console.log(typeof req.params.id);
   db.threads.find({ id: +req.params.id })
     .then(function(threads) {
       if (!threads || !threads.length) {
