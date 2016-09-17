@@ -41,7 +41,7 @@
 # Manual Testing
 - You have already done unit testing
   - Manually, by hand
-- **Manual tests** are less effient
+- **Manual tests** are less efficient
   - Not structured
   - Not repeatable
   - Not on all the
