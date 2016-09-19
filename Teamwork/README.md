@@ -1,5 +1,4 @@
 # JavaScript Applications: Teamwork Assignment
-*****************************************
 
 This document describes the teamwork assignment for Telerik Academy students in "JavaScript Applications" course
 
@@ -42,7 +41,7 @@ Please define and implement the following assets in your project:
 - Use some kind of web data storage, one of the following is Ok
   - Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc...
   - Telerik Backend Services
-  - Parse
+  - Firebase
   - Microsoft Mobile App Services
 - Use some kind of local storage, one of the following is Ok:
   - `localStorage`
@@ -64,11 +63,15 @@ Follow the best practices for producing high-quality code:
 -   **Strong cohesion** and **loose coupling**
 -   Use **GIT** as a source control system
 -   Host it on [http://github.com](http://github.com)
+-   Deploy your application on a cloud server of your choice - Heroku, Firebase, Amazon S3, Microsoft Azure
 
 ##  Optional Requirements
 If you have a chance, time and a suitable situation, you might add some of the following to your project:
 -   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
 -   Integration tests
+-   Minify your application source - minified and concatanated javascript and css files
+-   Use a module loader of your choice - SystemJS, RequireJS, etc, or roll up your own loader
+-   Use semantic tags and semantic html
 -   Usage of a structural JavaScript framework:
   -     AngularJS, KendoUI, Knockout.js, Backbone.js, etc...
 
