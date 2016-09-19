@@ -63,7 +63,7 @@ Follow the best practices for producing high-quality code:
   -     Use OOP and modules
 -   **Strong cohesion** and **loose coupling**
 -   Use **GIT** as a source control system
--   Host it on [http://github.com](http://github.com)
+-   Host it on [https://github.com](https://github.com)
 
 ##  Optional Requirements
 If you have a chance, time and a suitable situation, you might add some of the following to your project:
