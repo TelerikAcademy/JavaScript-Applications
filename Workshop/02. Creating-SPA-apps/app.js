@@ -4,7 +4,7 @@
 
 let db = require("./db");
 
-let app = require("./config/express");
+let app = require("./config/express")();
 
 require("./config/routes")(app, db);
 
