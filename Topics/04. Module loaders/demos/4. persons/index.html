@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Systemjs demo</title>
+</head>
+<body>
+    <input type="text" id="person-name">
+    <input type="number" id="person-age">
+    <button id="btn-add">Add</button>
+    <button id="btn-all">All</button>
+    <ul id="list-all"></ul>
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+    <script>
+        SystemJS.config({
+            'transpiler': 'plugin-babel',
+            'map': {
+                'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+                'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+                'main': './app-modules/main.js',
+                'data': './app-modules/data.js',
+                'utils': './app-modules/utils.js',
+                'jquery': './bower_components/jquery/dist/jquery.js',
+                'seed-data': './app-modules/seed-data.js',
+                'person-component': './app-modules/person-component.js' 
+            }
+        });
+
+        System.import('main');
+    </script>
+</body>
+</html>
