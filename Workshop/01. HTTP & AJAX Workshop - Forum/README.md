@@ -18,14 +18,18 @@
 _Note: You are not required to do anything on the UI. If the implementation of the requests is correct, you should see the results on the page._
 
 ## Starting the node server
+- You'll need to start the server which will server the ajax requests that you implement.
 - Open CMD/Terminal and navigate to the checked-out repository with the workshop
 - Run `npm install` in the CMD/Terminal
-    - A folder `node_modules` should appear
+    - `npm install` will look in the `package.json` file and will download the packages listed there
+    - A folder `node_modules` should appear, containing the dependencies of the server
 - Run `bower install` in the CMD/Terminal
     - _Note_: If you do not have bower installed do so by running `npm install -g bower`
+    - `bower install` will look in the `bower.json` file and will download the packages listed there
     - A folder `bower_modules` should appear
 - Run `npm start` and you should see a message like: `Server is running at http://localhost:1509`
     - You can test it by browsing to `http://localhost:1509/api/threads`
+- Once you start the server with `npm start`, go to `http://localhost:1509`.
 
 ##  Server endpoints
 ### Thread endpoints
