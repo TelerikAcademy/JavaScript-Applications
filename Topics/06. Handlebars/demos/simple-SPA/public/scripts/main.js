@@ -27,39 +27,6 @@ $(() => { // on document ready
       });
   })();
 
-
-  // start threads
-  function loadMessagesContent(data) {
-    let container = $($('#messages-container-template').text()),
-        messagesContainer = container.find('.panel-body');
-    container.attr('data-thread-id', data.result.id);
-
-    function getMsgUI(msg, author, date) {
-      let template = $($('#messages-template').text());
-      template.find('.message-content').text(msg);
-      template.find('.message-creator').text(author || 'anonymous');
-      template.find('.message-date').text(date || 'unknown');
-      return template.clone(true);
-    }
-    function getAddNewMsgUI() {
-      let template = $($('#message-new-template').html());
-      return template.clone(true);
-    }
-
-    if (data.result.messages && data.result.messages.length > 0) {
-      data.result.messages.forEach((msg) => {
-        messagesContainer.append(getMsgUI(msg))
-      })
-    } else {
-      messagesContainer.append(getMsgUI('No messages!'))
-    }
-
-    messagesContainer.append(getAddNewMsgUI());
-
-    container.find('.thread-title').text(data.result.title);
-    contentContainer.append(container);
-  }
-
   navbar.on('click', 'li', (ev) => {
     let $target = $(ev.target);
     $target.parents('nav').find('li').removeClass('active');
@@ -100,7 +67,6 @@ $(() => { // on document ready
 
     $target.parents('.container-messages').find('.messages').toggle();
   });
-  // end threads
 
   // start login/logout
   navbar.on('click', '#btn-login', (ev) => {

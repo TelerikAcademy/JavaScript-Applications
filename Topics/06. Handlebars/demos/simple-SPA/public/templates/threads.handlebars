@@ -1,0 +1,26 @@
+<div id="container-thraeds" class="col-xs-4 pull-left">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Threads</h3>
+    </div>
+
+    <div id="threads" class="panel-body">
+        {{#result}}
+        <div class="thread">
+            <div><h3><a class="thread-title" href="#/threads/{{id}}">{{title}}</a></h3></div>
+        </div>
+        {{/result}}
+
+        <form class="navbar-form navbar-left" role="search">
+            <h4>Create new Thread:</h4>
+            <div class="input-group">
+            <input id="input-add-thread" class="thread-title form-control" placeholder="Thread Title" />
+            <span class="input-group-btn">
+                <button id="btn-add-thread" class="btn btn-success" type="submit">Add</button>
+            </span>
+            </div>
+        </form>
+    </div>
+    
+    </div>
+</div>
