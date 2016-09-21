@@ -1,0 +1,15 @@
+<div id="container-gallery" class="col-xs-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Gallery</h3>
+    </div>
+    <div id="gallery-imgs" class="panel-body">
+        {{#data.children}}
+            <div class="gallery-item img-thumbnail pull-xs-left col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <img class="gallery-item-img" src="{{data.thumbnail}}" />
+                <h4 class="gallery-item-title">{{data.title}}</h4>
+            </div>
+        {{/data.children}}
+    </div>
+    </div>
+</div>
