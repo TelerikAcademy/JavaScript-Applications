@@ -112,7 +112,7 @@ function readCookie(name) {
 ```
 	
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
-# Cookies
+<!-- # Cookies -->
 ## [Demo](/demos/1.%20cookies.html)
 
 <!-- <img class="slide-image" showInPresentation="true" src="imgs/cookie-monster.png" style="border:none; background:none; box-shadow:none; position:absolute; bottom:-5%; right:0%;" />	-->
@@ -140,7 +140,7 @@ function readCookie(name) {
 	- 	`length`
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->		
-# localStorage
+<!-- # localStorage -->
 - 	Local Storage
 
 ```javascript
@@ -164,7 +164,7 @@ function restoreState(){
 
 
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
-# localStorage
+<!-- # localStorage -->
 ## [Demo](/demos/2.%20local-storage.html)
 
 
@@ -173,8 +173,8 @@ function restoreState(){
 # sessionStorage
 ## Access a session Storage object
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->		
-# sessionStorage
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->	
+<!-- # sessionStorage -->
 - 	Session Storage
 	- 	Similar to `localStorage`
 	- 	Lasts as long as the browser is open
@@ -182,8 +182,8 @@ function restoreState(){
 	- 	Great for sensitive data (e.g. banking sessions)
 - 	Can store only **strings**
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->		
-# sessionStorage
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->	
+<!-- # sessionStorage -->
 - 	Session Storage
 
 ```javascript
@@ -202,7 +202,7 @@ function incrementLoads() {
 ```
 
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
-# sessionStorage
+<!-- # sessionStorage -->
 ## [Demo](/demos/3.%20session-storage.html)
 
 
@@ -232,5 +232,5 @@ Storage.prototype.getObject =
 
 <!-- section start -->
 <!-- attr: { id:'questions', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-# Web Storages
-## Questions
+<!-- # Web Storages
+## Questions -->
