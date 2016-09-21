@@ -128,17 +128,17 @@ router.on('/home', callback)
   - In this case ordering matters
 
 ```js
-router.on({
-  '/products/:name': () => { ... }, 
-  '/products': () => { ... }
-})
+router.on('/products/list', () => { ... })
+      .on('/clients/list', () => { ... })
       .resolve();
 ```
   - In this case ordering **does not** matters
 
 ```js
-router.on('/products/list', () => { ... })
-      .on('/clients/list', () => { ... })
+router.on({
+  '/products/:name': () => { ... }, 
+  '/products': () => { ... }
+})
       .resolve();
 ```
 
