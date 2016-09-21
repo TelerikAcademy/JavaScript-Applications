@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+
+  <script src="./node_modules/systemjs/dist/system.js"></script>
+  <script src="./js/system-config.js"></script>
+
+  <script src="./node_modules/navigo/lib/navigo.js"></script>
+
+  <script>
+      System.import('main');
+  </script>
+
+</head>
+<body>
+  <h3>Static paths</h3>
+  <a href="#test">Test</a><br />
+  <a href="#settings">Settings</a><br />
+  <a href="#quit">Quit</a><br />
+  <hr />
+  <h3>Dynamic paths</h3>
+  <a href="#book/1">Book1</a><br />
+  <a href="#book/2">Book2</a><br />
+  <a href="#book/3/note/1">Note1</a><br />
+  <a href="#book/3/note/2">Note2</a><br />
+  <hr />
+  <h3>Query strings</h3>
+  <a href="#test/?framework=qunit">Test</a><br />
+  <a href="#book/1/?title=HelpMe">Book1</a><br />
+  <a href="#book/3/note/1/?body=LOL">Note1</a><br />
+  <hr />
+  <h3>Output</h3>
+  <div id="result"></div>
+</body>
+</html>
