@@ -1,15 +1,15 @@
 ﻿$(() => { // on document ready
   const GLYPH_UP = 'glyphicon-chevron-up',
-    GLYPH_DOWN = 'glyphicon-chevron-down',
-    root = $('#root'),
-    navbar = root.find('nav.navbar'),
-    mainNav = navbar.find('#main-nav'),
-    contentContainer = root.find('#content'),
-    loginForm = $('#login'),
-    logoutForm = $('#logout'),
-    usernameSpan = $('#span-username'),
-    usernameInput = loginForm.find('input'),
-    alertTemplate = $($('#alert-template').text());
+      GLYPH_DOWN = 'glyphicon-chevron-down',
+      root = $('#root'),
+      navbar = root.find('nav.navbar'),
+      mainNav = navbar.find('#main-nav'),
+      contentContainer = root.find('#content'),
+      loginForm = $('#login'),
+      logoutForm = $('#logout'),
+      usernameSpan = $('#span-username'),
+      usernameInput = loginForm.find('input'),
+      alertTemplate = $($('#alert-template').text());
 
   (function checkForLoggedUser() {
     data.users.current()
@@ -35,13 +35,13 @@
   // start threads
   function loadThreadsContent() {
     let container = $($('#threads-container-template').text()),
-      threadsContainer = container.find('#threads');
+        threadsContainer = container.find('#threads');
 
     getThreads()
-      .then((threads) => threads.forEach((thread) => {
-        let currentThreadUI = getThreadUI(thread);
-        threadsContainer.append(currentThreadUI);
-      }));
+        .then((threads) => threads.forEach((thread) => {
+          let currentThreadUI = getThreadUI(thread);
+          threadsContainer.append(currentThreadUI);
+        }));
 
     function getThreads() {
       return data.threads.get()
@@ -52,10 +52,10 @@
       let dateString = getDateTimeAgoString(thread.postDate);
 
       let template = $($('#thread-template').text()).attr('data-id', thread.id),
-        threadTitle = template.find('.thread-title').text(thread.title),
-        threadCreator = template.find('.thread-creator')
-                                .text(thread.username || 'anonymous'),
-        threadDate = template.find('.thread-date').text(dateString);
+          threadTitle = template.find('.thread-title').text(thread.title),
+          threadCreator = template.find('.thread-creator')
+                                  .text(thread.username || 'anonymous'),
+          threadDate = template.find('.thread-date').text(dateString);
 
       return template.clone(true);
     }
@@ -77,7 +77,7 @@
     container.attr('data-thread-id', threadId);
 
     getThread(threadId)
-      .then(loadThreadMessages);
+        .then(loadThreadMessages);
 
     function getThread(threadId) {
       return data.threads.getById(threadId)
@@ -122,11 +122,11 @@
 
   function loadGalleryContent(data) {
     let list = data.data.children,
-      containerGallery = $($('#gallery-container-tempalte').text()),
-      containerImgs = containerGallery.find('#gallery-imgs'),
-      item = $($('#gallery-img-tempalte').text()),
-      itemImg = item.find('img.gallery-item-img'),
-      itemTitle = item.find('.gallery-item-title')
+        containerGallery = $($('#gallery-container-tempalte').text()),
+        containerImgs = containerGallery.find('#gallery-imgs'),
+        item = $($('#gallery-img-tempalte').text()),
+        itemImg = item.find('img.gallery-item-img'),
+        itemTitle = item.find('.gallery-item-title')
 
     list.forEach((el) => {
       itemTitle.text(el.data.title);
@@ -168,16 +168,16 @@
 
   contentContainer.on('click', 'a.thread-title', (ev) => {
     let $target = $(ev.target),
-      threadId = $target.parents('.thread').attr('data-id');
+        threadId = $target.parents('.thread').attr('data-id');
 
     loadMessagesContent(threadId);
   });
 
   contentContainer.on('click', '.btn-add-message', (ev) => {
     let $target = $(ev.target),
-      $container = $target.parents('.container-messages'),
-      thId = $container.attr('data-thread-id'),
-      msg = $container.find('.input-add-message').val();
+        $container = $target.parents('.container-messages'),
+        thId = $container.attr('data-thread-id'),
+        msg = $container.find('.input-add-message').val();
 
     data.threads.addMessage(thId, msg)
         .then(appendMessage)
