@@ -32,11 +32,9 @@
 # Unit Testing - Definition
 - A unit test is a piece of code written by a developer that exercises a very small, specific area of functionality of the code being tested.
 
-<div>
-  > “Program testing can be used to show the presence of bugs, but never to show their absence!”
-  --  Edsger Dijkstra, [1972]
+> “Program testing can be used to show the presence of bugs, but never to show their absence!”
 
-</div>
+> Edsger Dijkstra, [1972]
 
 # Manual Testing
 - You have already done unit testing
@@ -44,25 +42,27 @@
 - **Manual tests** are less efficient
   - Not structured
   - Not repeatable
-  - Not on all the
+  - Not on all the code
   - Not easy to do as it should
 
 # Manual Unit Tests: Example
 - Code:
+
 ```javascript
 function sum (numbers) {
-    var sum = 0;
-    numbers.forEach((number) => sum += number);
-    return num;
+  var sum = 0;
+  numbers.forEach((number) => sum += number);
+  return num;
 }
 ```
 
 - Tests:
+
 ```javascript
 void testSum() {
-    if(sum([1, 2]) !== 3) throw new Error('1 + 2 !== 3');
-    if(sum([-2]) !== -2) throw new Error('-2 !== -2');
-    if(sum([]) !== 0) throw new Error('0 !== 0');
+  if(sum([1, 2]) !== 3) throw new Error('1 + 2 !== 3');
+  if(sum([-2]) !== -2) throw new Error('-2 !== -2');
+  if(sum([]) !== 0) throw new Error('0 !== 0');
 }
 ```
 
@@ -119,7 +119,7 @@ void testSum() {
   - Can run in both the browser and on Node.js
   - Uses behavior-driven development
   - Widely used
-  - Introduces in 2008
+  - Introduced in 2008
 - Jasmine has the following features:
   - Easy-to-read (expressional) syntax
   - Testing async code
@@ -128,7 +128,7 @@ void testSum() {
 
 # Testing with Mocha
 - Mocha is the new kid on the block
-  - Open source framework, introduces in 2012
+  - Open source framework, introduced in 2012
   - Can run in both the browser and on Node.js
   - Plugins for test syntax, spies, etc…
 - Mocha has the following features:
@@ -143,7 +143,8 @@ void testSum() {
 # Mocha Overview
 ## Install, setup, reporters, tests
 
-# Mocha Overview
+<!-- attr: {hasScriptWrapper: true, showInPresentation: true} -->
+<!-- # Mocha Overview -->
 - Mocha is a feature-rich framework for testing JavaScript
   - Run in both the browser and on Node.js
   - Can test async code
@@ -161,10 +162,10 @@ void testSum() {
     - HTML reporter
     - Spec reporter
 
-<!-- attr: {hasScriptWrapper: true} -->
-# Mocha: Install & Setup (cont)
+<!-- attr: {hasScriptWrapper: true, showInPresentation: true} -->
+<!-- # Mocha: Install & Setup -->
 - To use Mocha, follow the steps:
-  -  Select an assertion syntax (plugin):
+  - Select an assertion syntax (plugin):
     - `$ bower install chai`
     - `$ npm install chai`
   -  Start with the tests
@@ -195,7 +196,8 @@ describe('#sum', function() {
 # Mocha Reporters
 ## Where to show the result of the tests?
 
-# Mocha Reporters
+<!-- attr: {hasScriptWrapper: true, showInPresentation: true} -->
+<!-- # Mocha Reporters -->
 - Mocha supports a lot of reporters
   - HTML reporters
   - Console reporters
