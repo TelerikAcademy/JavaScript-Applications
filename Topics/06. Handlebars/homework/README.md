@@ -1,0 +1,3 @@
+# Homework: SPA Routing & Handlebars
+
+- Re-write the [01. HTTP & AJAX Workshop - Forum](https://github.com/TelerikAcademy/JavaScript-Applications/blob/master/Workshop/01.%20HTTP%20%26%20AJAX%20Workshop%20-%20Forum/README.md) using SPA Routing and Handlebars for the different components loading the UI (as shown in the [video](https://telerikacademy.com/Courses/LectureResources/Video/8726/%D0%92%D0%B8%D0%B4%D0%B5%D0%BE-21-%D1%81%D0%B5%D0%BF%D1%82%D0%B5%D0%BC%D0%B2%D1%80%D0%B8-%D0%95%D0%B2%D0%BB%D0%BE%D0%B3%D0%B8) from the lecture)
