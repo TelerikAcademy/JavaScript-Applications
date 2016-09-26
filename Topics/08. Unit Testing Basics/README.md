@@ -236,8 +236,8 @@ describe('#sum', function() {
     - `$ mocha tests/ -R spec`
     - `$ mocha tests/ -R json`
     - `$ mocha tests/ -R doc`
-  - When mocha is not installed globaly
-	- `$ node node_pakages/mocha/bin/mocha tests/`
+  - When mocha is not installed globally
+	- `$ node node_modules/mocha/bin/mocha tests/`
 
 <!-- section start -->
 <!-- attr: {class: 'slide-questions', id: 'questions'} -->
