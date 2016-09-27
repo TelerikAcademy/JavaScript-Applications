@@ -2,6 +2,7 @@
 <!-- attr: {id: 'title', class: 'slide-title', hasScriptWrapper: true} -->
 # Unit testing with Mocha, Chai and Sinon
 ## How to write tests in JavaScript
+
 <div class="signature">
     <p class="signature-course">JavaScript Applications</p>
     <p class="signature-initiative">Telerik Software Academy</p>
@@ -11,8 +12,8 @@
 <!-- section start -->
 <!-- attr: {style: 'font-size: 44px', id: 'table-of-contents'} -->
 # Table of Contents
-- Unit testing Overview
-- Mocha Unit Testing Framework
+- [Unit testing Overview](#unit-testing-overview)
+- [Mocha Unit Testing Framework](#unit-testing-mocha)
   - Setup of Mocha
   - Adding assertion framework
 - Chai assertion framework
@@ -22,7 +23,7 @@
 
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-overview'} -->
-# Unit Testing Overview
+# <a id="unit-testing-overview"></a>Unit Testing Overview
 ## What is Unit Testing
 
 # Unit Testing - Definition
@@ -136,7 +137,7 @@ void testSum() {
 
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-mocha'} -->
-# Mocha Overview
+# <a id="unit-testing-mocha"></a>Mocha Overview
 ## Install, setup, reporters, tests
 
 <!-- attr: {hasScriptWrapper: true, showInPresentation: true} -->
@@ -210,7 +211,7 @@ describe('#sum', function() {
 <!-- ... -->
 <div id="mocha"></div>
 <!-- include mocha.js and chai.js -->
-<script>
+<script >
     mocha.setup('bdd');
     expect = chai.expect;
 </ script>
