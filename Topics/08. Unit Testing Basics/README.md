@@ -19,10 +19,6 @@
   - `expect`, `should` and `assert`
 - Unit testing DOM
   - With jsdom
-- SinonJS
-  - Creating spy objects
-  - Stubbing methods
-- Code coverage with Istanbul
 
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'unit-testing-overview'} -->
