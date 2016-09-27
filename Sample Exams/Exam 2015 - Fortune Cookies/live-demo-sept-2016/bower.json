@@ -1,0 +1,16 @@
+{
+  "name": "Forture-Cookies-Sep-2015",
+  "version": "0.0.0",
+  "authors": [
+    "DonchoMinkov <donchominkov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}

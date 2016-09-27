@@ -1,0 +1,23 @@
+.list-cookies {
+    list-style-type: none;
+}
+
+.list-cookies li {
+    margin-top: 50px;
+}
+
+.list-cookies li img {
+    height: 100px
+}
+
+.hidden-when-not-logged-in {
+    display: none;
+}
+
+.logged-in .hidden-when-not-logged-in {
+    display: block;
+}
+
+.logged-in .visible-when-not-logged-in {
+    display: none;
+}
