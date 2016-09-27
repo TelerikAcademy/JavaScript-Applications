@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Fortune Cookies</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="bower_components/jquery/dist/jquery.js">
+    </script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
-<body>
-    <header>
+<body id="page">
+    <header id="header">
         <h1>The Fortune Cookies</h1>
-        <nav>
-            <ul>
-                <li>
+        <nav id="main-nav" class="nav-navbar">
+            <ul class="nav nav-tabs">
+                <li class="home active">
                     <a href="#/home">Home</a>
                 </li>
-                <li>
+                <li class="hidden-when-not-logged-in">
                     <a href="#/cookie-add">Add cookie</a>
                 </li>
                 <li class="visible-when-not-logged-in">
@@ -31,8 +35,6 @@
     <div id="container">
     </div>
     <script src="bower_components/handlebars/handlebars.js">
-    </script>
-    <script src="bower_components/jquery/dist/jquery.js">
     </script>
     <script src="bower_components/navigo/lib/navigo.js">
     </script>

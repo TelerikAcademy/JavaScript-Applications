@@ -1,0 +1,19 @@
+<h1>Cookies!</h1>
+<ul class="list list-cookies">
+    {{#each result}}
+    <li data-id="{{id}}">
+        <h3>{{text}}</h3>
+        <span>Likes: <strong>{{likes}}</strong></span>
+        <span>Dislikes: <strong>{{dislikes}}</strong></span>
+        <div>
+            <a href="#" data-type="like" class="btn-like-dislike hidden-when-not-logged-in glyphicon glyphicon-thumbs-up"></a>
+            <a href="#" data-type="dislike" class="btn-like-dislike hidden-when-not-logged-in glyphicon glyphicon-thumbs-down"></a>
+        </div>
+        <br />
+        <p>Category: <a href="#/home?category={{category}}">{{category}}</a></p>
+        <br />
+        <img src="{{img}}" />
+        <br />
+    </li>
+    {{/each}}
+</ul>

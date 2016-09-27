@@ -1,0 +1,33 @@
+#page {
+    text-align: center
+}
+
+#main-nav {
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.list-cookies {
+    list-style-type: none;
+}
+
+.list-cookies li {
+    margin-top: 50px;
+}
+
+.list-cookies li img {
+    height: 350px
+}
+
+#page .hidden-when-not-logged-in {
+    display: none;
+}
+
+#page.logged-in .hidden-when-not-logged-in {
+    display: initial;
+}
+
+#page.logged-in .visible-when-not-logged-in {
+    display: none;
+}

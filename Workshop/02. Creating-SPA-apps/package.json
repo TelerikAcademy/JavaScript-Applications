@@ -1,18 +1,19 @@
 {
-  "name": "creating-spa-apps",
-  "version": "0.0.0",
-  "description": "",
+  "name": "fortune-cookies",
+  "version": "1.0.0",
+  "description": "##  App description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Doncho Minkov (donchominkov@gmail.com)",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "lodash": "^4.15.0",
-    "lowdb": "^0.13.1",
-    "underscore-db": "^0.11.0"
+    "body-parser": "^1.13.3",
+    "cors": "^2.8.1",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "lowdb": "^0.10.2",
+    "underscore-db": "^0.9.0"
   }
 }

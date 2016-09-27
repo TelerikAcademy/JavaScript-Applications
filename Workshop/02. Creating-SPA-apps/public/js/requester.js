@@ -13,7 +13,7 @@ let requester = {
         });
         return promise;
     },
-    putJSON(url, body, options) {
+    putJSON(url, body, options = {}) {
         let promise = new Promise((resolve, reject) => {
             var headers = options.headers || {};
             $.ajax({

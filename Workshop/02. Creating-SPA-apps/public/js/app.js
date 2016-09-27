@@ -10,6 +10,7 @@ router
     .on("my-cookie", controllersInstance.myCookie)
     .on("cookie-add", controllersInstance.addCookie)
     .on(() => {
+        $("#main-nav .home a").addClass("active");
         router.navigate("/home");
     })
     .resolve();
@@ -26,4 +27,15 @@ $(".btn-nav-logout").on("click", () => {
         .then(() => {
             $(document.body).removeClass("logged-in");
         });
+});
+
+$("#main-nav").on("click", "li", function(ev) {
+    $("#main-nav .active").removeClass("active");
+    $(this).addClass("active");
+});
+
+$(function() {
+    $("#main-nav .active").removeClass("active");
+    let $currentPageNavButton = $(`#main-nav a[href="${window.location.hash}"]`).parents("li");
+    $currentPageNavButton.addClass("active");
 });
