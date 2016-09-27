@@ -14,7 +14,7 @@ describe('#sum', function() {
 	})
 	it('expect sum() to equal 0', function() {
 		const actual = sum(),
-			expected = 0  ;
+			expected = 0;
 		expect(actual).to.equal(expected);
 	})
 	it('expect sum([]) to equal 0', function() {
@@ -27,6 +27,7 @@ describe('#sum', function() {
 
 describe('Sinon', function() {
 	let messages;
+
 	beforeEach(function() {
 		messages = [];
 		sinon.stub(console, 'log', function(msg) {
