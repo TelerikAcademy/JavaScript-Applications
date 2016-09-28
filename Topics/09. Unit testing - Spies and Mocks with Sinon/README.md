@@ -149,6 +149,6 @@ let spyCall = spy.getCall(0); // first call
 - `.callsArgOnWith(index, context, arg1, arg2, ...)`
 
 <!-- section start -->
-<!-- attr: {class: 'slide-questions', id: 'questions'} -->
-# Unit Testing with Mocha, Chai and Sinon
-## Questions
+<!-- attr: {showInPresentation:true, class: 'slide-questions', id: 'questions'} -->
+<!-- # Unit testing - Spies and Mocks with Sinon
+## Questions -->
