@@ -31,6 +31,22 @@
   - Use bower: `$ bower install sinon`
   - Use npm: `$ npm install sinon`
 
+<!-- attr: {showInPresentation:true} -->
+<!-- # SinonJS setup -->
+- In node use
+
+```javascript
+let sinon = require('sinon');
+```
+
+- In browser use
+
+```javascript
+< script src="..."></ script>
+```
+
+- You can also use a module loader
+
 <!-- section start -->
 <!-- attr: {class:'slide-section'} -->
 # Using SinonJS
