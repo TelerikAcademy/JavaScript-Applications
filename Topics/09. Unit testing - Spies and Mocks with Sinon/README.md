@@ -38,6 +38,64 @@
 ## Spies, stubs, mocks
 
 <!-- attr: {showInPresentation:true} -->
+# Test spies
+- Spy functions record information for their calls
+  - Arguments
+  - Return value
+  - Value of `this`
+  - Thrown exceptions (if any)
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Test spies -->
+- Spies are created with `sinon.spy()`
+  - `sinon.spy()` - makes anonymous function spy
+  - `sinon.spy(function)` - spies on the function
+  - `sinon.spy(object, "method")` - replaces `object.method` with a spied version of it
+    - restore with `object.method.restore()`
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Test spies -->
+- _Example_:
+
+```javascript
+sinon.spy($, "ajax");
+
+$.ajax(/* parameters */);
+
+$.ajax.restore();
+```
+
+<!-- attr: {showInPresentation:true} -->
+# Spy API
+- `.callCount`
+- `.called`
+- `.calledOnce`
+- `.calledTwice`
+- `.calledThrice`
+- `.threw`
+- `.alwaysThrew`
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Spy API -->
+- `.thisValues` - array of `this` objects
+- `.exceptions` - array of exceptions
+  - calls without exceptions store `undefined`
+- `.returnValues` - array of return values
+- `.getCall(n)` - returns the `n`-th call
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Spy API -->
+```javascript
+let spyCall = spy.getCall(0); // first call
+```
+
+- `spyCall.exception` - thrown exception (if any)
+- `spyCall.returnValue`
+- `spyCall.args` - array-like object
+  - has `.length`
+  - can be indexed
+
+<!-- attr: {showInPresentation:true} -->
 <!-- # Using SinonJS -->
 
 <!-- section start -->
