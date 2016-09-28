@@ -149,6 +149,30 @@ let spyCall = spy.getCall(0); // first call
 - `.callsArgOnWith(index, context, arg1, arg2, ...)`
 
 <!-- section start -->
+<!-- attr: {class:'slide-section'} -->
+# Using SinonJS
+## Mocks
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Mocks -->
+- **Mocks** are fake methods with predefined behavior and expectations
+- Mock only the method under test
+
+<!-- attr: {showInPresentation:true} -->
+# Mocks API
+- `let mock = sinon.mock(object)` - returns mock for `object`
+- `mock.expects("method")` - mock `object.method`, returns expectation
+- `mock.restore()` - restores mocked methods
+- `mock.verify()` - verifies all expectations
+
+<!-- attr: {showInPresentation:true} -->
+# Expectations
+- `.atLeast(number)`, `.atMost(number)` - specify expected number of calls
+- `.never()` - expect not to be called
+- `.once()`, `.twice()`, `.thrice()`, `.exactly(number)`
+- `.verify()` - verify expectation
+
+<!-- section start -->
 <!-- attr: {showInPresentation:true, class: 'slide-questions', id: 'questions'} -->
 <!-- # Unit testing - Spies and Mocks with Sinon
 ## Questions -->
