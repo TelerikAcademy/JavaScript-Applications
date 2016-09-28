@@ -77,7 +77,7 @@ void testSum() {
   - Trivial code may be omitted
     - E.g. property getters and setters
     - Private methods can be omitted
-      - Some gurus recommend to never test private methods  this can be debatable
+      - Some gurus recommend to never test private methods, this can be debatable
 - Ideally **all unit tests should pass** before check-in into the source control repository
 
 # Why Unit Tests?
