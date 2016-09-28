@@ -26,11 +26,10 @@
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # SinonJS setup -->
-- To use Sinon, follow the steps:
-  - Get Mocha:
-    - Download from [GitHub](https://github.com/sinonjs/sinon)
-    - Use bower: `$ bower install sinon`
-    - Use npm: `$ npm install sinon`
+- To get **Sinon**:
+  - Download from [GitHub](https://github.com/sinonjs/sinon)
+  - Use bower: `$ bower install sinon`
+  - Use npm: `$ npm install sinon`
 
 <!-- section start -->
 <!-- attr: {class:'slide-section'} -->
@@ -39,7 +38,7 @@
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # Test spies -->
-- Spy functions record information for their calls
+- **Spy functions** record information for their calls
   - Arguments
   - Return value
   - Value of `this`
@@ -47,7 +46,7 @@
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # Test spies -->
-- Spies are created with `sinon.spy()`
+- **Spies** are created with `sinon.spy()`
   - `sinon.spy()` - makes anonymous spy function
   - `sinon.spy(function)` - spies on the function
   - `sinon.spy(object, "method")` - replaces `object.method` with a spied version of it
@@ -102,7 +101,7 @@ let spyCall = spy.getCall(0); // first call
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # Test stubs -->
-- Stubs are spies with predefined behavior
+- **Stubs** are spies with predefined behavior
   - They support the spy API
 - They do not call the stubbed method
   - Useful to force execution of code you want to test
@@ -111,7 +110,7 @@ let spyCall = spy.getCall(0); // first call
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # Test stubs -->
-- Stubs are created with `sinon.stub()`
+- **Stubs** are created with `sinon.stub()`
   - `sinon.stub()` - makes anonymous stub
   - `sinon.stub(object, "method")` - replaces `object.method` with a stubbed version of it
     - restore with `object.method.restore()`
