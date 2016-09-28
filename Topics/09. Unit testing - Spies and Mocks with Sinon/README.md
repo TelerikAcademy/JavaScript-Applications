@@ -33,7 +33,7 @@
 
 <!-- attr: {showInPresentation:true} -->
 <!-- # SinonJS setup -->
-- In node use
+- With node.js use
 
 ```javascript
 let sinon = require('sinon');
