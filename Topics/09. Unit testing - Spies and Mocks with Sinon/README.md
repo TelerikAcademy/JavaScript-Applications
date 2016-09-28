@@ -35,10 +35,10 @@
 <!-- section start -->
 <!-- attr: {class:'slide-section'} -->
 # Using SinonJS
-## Spies, stubs, mocks
+## Test spies
 
 <!-- attr: {showInPresentation:true} -->
-# Test spies
+<!-- # Test spies -->
 - Spy functions record information for their calls
   - Arguments
   - Return value
@@ -48,7 +48,7 @@
 <!-- attr: {showInPresentation:true} -->
 <!-- # Test spies -->
 - Spies are created with `sinon.spy()`
-  - `sinon.spy()` - makes anonymous function spy
+  - `sinon.spy()` - makes anonymous spy function
   - `sinon.spy(function)` - spies on the function
   - `sinon.spy(object, "method")` - replaces `object.method` with a spied version of it
     - restore with `object.method.restore()`
@@ -95,8 +95,43 @@ let spyCall = spy.getCall(0); // first call
   - has `.length`
   - can be indexed
 
+<!-- section start -->
+<!-- attr: {class:'slide-section'} -->
+# Using SinonJS
+## Test stubs
+
 <!-- attr: {showInPresentation:true} -->
-<!-- # Using SinonJS -->
+<!-- # Test stubs -->
+- Stubs are spies with predefined behavior
+  - They support the spy API
+- They do not call the stubbed method
+  - Useful to force execution of code you want to test
+  - Useful when you want to prevent some behavior
+    - like ajax requests
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Test stubs -->
+- Stubs are created with `sinon.stub()`
+  - `sinon.stub()` - makes anonymous stub
+  - `sinon.stub(object, "method")` - replaces `object.method` with a stubbed version of it
+    - restore with `object.method.restore()`
+  - `sinon.stub(object, "method", func)` - replaces `object.method` with stubbed version of `func`
+    - restore with `object.method.restore()`
+  - `sinon.stub(object)` - stub all methods in `object`
+
+<!-- attr: {showInPresentation:true} -->
+# Stub API
+- `.onCall(n)` - define stub behavior on `n`-th call
+- `.returns(value)` - make the stub return `value`
+- `.returnsThis()` - make the stub return its `this` value
+- `.throws()` - make the stub throw exception
+
+<!-- attr: {showInPresentation:true} -->
+<!-- # Stub API -->
+- `.callsArg(index)` - make the stub call one if its arguments
+- `.callsArgOn(index, context)` - use `context` as `this` for the callback
+- `.callsArgWith(index, arg1, arg2, ...)` - call with arguments
+- `.callsArgOnWith(index, context, arg1, arg2, ...)`
 
 <!-- section start -->
 <!-- attr: {class: 'slide-questions', id: 'questions'} -->
