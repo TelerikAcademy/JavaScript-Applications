@@ -2,6 +2,25 @@ mocha.setup('bdd');
 
 const {expect, assert} = chai;
 
+function checkRoute(actual, expected, reject) {
+	if(actual !== expected) {
+		reject(new Error(`Invalid route ${actual}`));
+	}
+}
+
+function checkUserData(user, reject) {
+	const prop = Object.keys(user).sort();
+	if(prop.length !== 2 || prop[0] !== 'passHash' || prop[1] !== 'username') {
+		reject(new Error(`Invalid user data`));
+	}
+}
+
+const AUTH_KEY = "SOME_AUTH_KEY";
+const user = {
+	username: 'SOME_USERNAME',
+	passHash: 'SOME_PASSHASH'
+};
+
 describe('Tests', function() {
 	describe('Get cookies tests', function() {
 		const result = {
@@ -11,10 +30,7 @@ describe('Tests', function() {
 		beforeEach(function() {
 			sinon.stub(requester, 'getJSON', (route) => {
 				return new Promise((resolve, reject) => {
-					if(route !== '/api/cookies') {
-						reject(new Error(`Invalid route ${route}`));
-						return;
-					}
+					checkRoute(route, '/api/cookies', reject);
 					resolve(result);
 				});
 			});
@@ -36,15 +52,8 @@ describe('Tests', function() {
 		beforeEach(function() {
 			sinon.stub(requester, 'postJSON', (route, user) => {
 				return new Promise((resolve, reject) => {
-					if(route !== '/api/users') {
-						reject(new Error(`Invalid route ${route}`));
-						return;
-					}
-					const prop = Object.keys(user).sort();
-					if(prop.length !== 2 || prop[0] !== 'passHash' || prop[1] !== 'username') {
-						reject(new Error(`Invalid user data`));
-						return;
-					}
+					checkRoute(route, '/api/users', reject);
+					checkUserData(user, reject);
 					resolve(user);
 				});
 			});
@@ -52,11 +61,6 @@ describe('Tests', function() {
 		afterEach(function() {
 			requester.postJSON.restore();
 		});
-
-		const user = {
-			username: 'Cuki',
-			passHash: 'pesho42'
-		};
 
 		it('Expect registering of user to return the user', function(done) {
 			dataService.register(user)
@@ -73,6 +77,42 @@ describe('Tests', function() {
 				(err) => {
 					done();
 				});
+		});
+	});
+
+	describe('Login tests', function() {
+		beforeEach(function() {
+			sinon.stub(requester, 'putJSON', (route, user) => {
+				return new Promise((resolve, reject) => {
+					checkRoute(route, '/api/auth', reject);
+					checkUserData(user, reject);
+					
+					resolve({
+						result: {
+							username: user.username,
+							authKey: AUTH_KEY
+						}
+					});
+				});
+			});
+		});
+		afterEach(function() {
+			requester.putJSON.restore();
+		});
+
+		it('Expect login to login the right user and set him in localStorage', function(done) {
+			dataService.login(user)
+				.then(() => {
+					expect(localStorage.getItem('username')).to.equal(user.username);
+				})
+				.then(done, done);
+		});
+		it('Expect login to set auth key in localStorage', function(done) {
+			dataService.login(user)
+				.then(() => {
+					expect(localStorage.getItem('authKey')).to.equal(AUTH_KEY);
+				})
+				.then(done, done);
 		});
 	});
 });
