@@ -24,6 +24,13 @@ describe('Tests', function() {
 			requester.getJSON.restore();
 		});
 
+		it('expect dataService.cookies() to make exactly one getJSON call', function(done) {
+			dataService.cookies()
+				.then(() => {
+					expect(requester.getJSON.calledOnce).to.be.true;
+				})
+				.then(done, done);
+		})
 		it('expect dataService.cookies() to make correct getJSON call', function(done) {
 			dataService.cookies()
 				.then(obj => {
@@ -55,6 +62,13 @@ describe('Tests', function() {
 			requester.postJSON.restore();
 		});
 
+		it('expect postJSON to be called once', function(done) {
+			dataService.register(user)
+				.then(() => {
+					expect(requester.postJSON.calledOnce).to.be.true;
+				})
+				.then(done, done);
+		});
 		it('expect dataService.register() to make correct postJSON call', function(done) {
 			dataService.register(user)
 				.then(() => {
@@ -129,6 +143,13 @@ describe('Tests', function() {
 			localStorage.clear();
 		});
 
+		it('expect putJSON to be called once', function(done) {
+			dataService.login(user)
+				.then(() => {
+					expect(requester.putJSON.calledOnce).to.be.true;
+				})
+				.then(done, done);
+		});
 		it('expect dataService.login() to make correct putJSON call', function(done) {
 			dataService.login(user)
 				.then(() => {
