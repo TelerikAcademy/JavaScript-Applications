@@ -3,8 +3,14 @@ mocha.setup('bdd');
 const {expect, assert} = chai;
 
 describe('Tests', function() {
-	it('Example test', function() {
-		expect(2).to.equal(2);
+	describe('Get cookies tests', function() {
+		it('expect cookies() to return a response', function(done) {
+			dataService.cookies()
+				.then(obj => {
+					expect(obj).to.exist;
+				})
+				.then(done, done);
+		});
 	});
 });
 
