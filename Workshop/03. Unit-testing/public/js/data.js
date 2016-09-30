@@ -31,7 +31,7 @@ var dataService = {
         return requester.putJSON("/api/auth", user)
             .then(respUser => {
                 localStorage.setItem("username", respUser.result.username);
-                localStorage.setItem("authKey", respUser.result.auhKey);
+                localStorage.setItem("authKey", respUser.result.authKey);
             });
     },
     register(user) {

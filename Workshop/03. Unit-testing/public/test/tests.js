@@ -95,9 +95,11 @@ describe('Tests', function() {
 					});
 				});
 			});
+			localStorage.clear();
 		});
 		afterEach(function() {
 			requester.putJSON.restore();
+			localStorage.clear();
 		});
 
 		it('Expect login to login the right user and set him in localStorage', function(done) {
@@ -111,6 +113,45 @@ describe('Tests', function() {
 			dataService.login(user)
 				.then(() => {
 					expect(localStorage.getItem('authKey')).to.equal(AUTH_KEY);
+				})
+				.then(done, done);
+		});
+	});
+
+	describe('Is loggedIn tests', function() {
+		beforeEach(function() {
+			sinon.stub(requester, 'putJSON', (route, user) => {
+				return new Promise((resolve, reject) => {
+					checkRoute(route, '/api/auth', reject);
+					checkUserData(user, reject);
+					
+					resolve({
+						result: {
+							username: user.username,
+							authKey: AUTH_KEY
+						}
+					});
+				});
+			});
+			localStorage.clear();
+		});
+		afterEach(function() {
+			requester.putJSON.restore();
+			localStorage.clear();
+		});
+
+		it('expect not to be logged in when have not logged in', function(done) {
+			dataService.isLoggedIn()
+				.then(f => {
+					expect(f).to.be.false;
+				})
+				.then(done, done);
+		});
+		it('expect to be logged in when we have logged in', function(done) {
+			dataService.login(user)
+				.then(() => dataService.isLoggedIn())
+				.then(f => {
+					expect(f).to.be.true;
 				})
 				.then(done, done);
 		});
