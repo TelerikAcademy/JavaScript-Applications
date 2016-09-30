@@ -48,6 +48,13 @@
       "usernameToLower": "john7",
       "id": "6f2569ff-3f4b-43d8-b5e6-83b0b607e5f1",
       "authKey": "6f2569ff-3f4b-43d8-b5e6-83b0b607e5f1PhFMLXTeuRACLPZMgJURTahS"
+    },
+    {
+      "username": "--f./s.f;q34/12q@",
+      "passHash": "42",
+      "usernameToLower": "--f./s.f;q34/12q@",
+      "id": "34a32b70-ae31-427b-96fa-0d15c672e0c6",
+      "authKey": "34a32b70-ae31-427b-96fa-0d15c672e0c6GRTExYOZxrIZXBLPtsULkSOJ"
     }
   ],
   "cookies": [

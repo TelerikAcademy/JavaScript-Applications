@@ -33,12 +33,16 @@ describe('Tests', function() {
 	});
 
 	describe('Register tests', function() {
-
 		beforeEach(function() {
 			sinon.stub(requester, 'postJSON', (route, user) => {
 				return new Promise((resolve, reject) => {
 					if(route !== '/api/users') {
 						reject(new Error(`Invalid route ${route}`));
+						return;
+					}
+					const prop = Object.keys(user).sort();
+					if(prop.length !== 2 || prop[0] !== 'passHash' || prop[1] !== 'username') {
+						reject(new Error(`Invalid user data`));
 						return;
 					}
 					resolve(user);
@@ -54,12 +58,21 @@ describe('Tests', function() {
 			passHash: 'pesho42'
 		};
 
-		it('Register user test', function(done) {
+		it('Expect registering of user to return the user', function(done) {
 			dataService.register(user)
 				.then(actual => {
 					expect(actual).to.eql(user);
 				})
 				.then(done, done);
+		});
+		it('Expect registering invalid data to fail', function(done) {
+			dataService.register(42)
+				.then(actual => {
+					done(new Error('User data is valid'));
+				},
+				(err) => {
+					done();
+				});
 		});
 	});
 });
