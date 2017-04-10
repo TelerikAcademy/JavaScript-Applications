@@ -5,7 +5,7 @@
 <article class="signature">
 	<p class="signature-course">JavaScript Applications</p>
 	<p class="signature-initiative">Telerik Software Academy</p>
-	<a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+	<a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </article>
 
 
@@ -199,11 +199,11 @@
 - Web Design and UI Technologies @ Telerik Academy
     - html5course.telerik.com
   - Telerik Software Academy
-    - academy.telerik.com
+    - https://telerikacademy.com
   - Telerik Academy @ Facebook
-    - facebook.com/TelerikAcademy
+    - https://facebook.com/TelerikAcademy
   - Telerik Software Academy Forums
-    - forums.academy.telerik.com
+    - https://telerikacademy.com/Forum/Home
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic40.png" style="top:25%; left:92.16%; width:13.45%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic41.png" style="top:45%; left:68.14%; width:36.30%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic42.png" style="top:65%; left:80%; width:10.85%; z-index:-1" /> -->
