@@ -1,28 +1,25 @@
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-title', showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Applications: Course Introduction
-## Course Program, Evaluation, Exams, Resources                    
+## Course Program, Evaluation, Exams, Resources
 <article class="signature">
-	<p class="signature-course">JavaScript Applications</p>
-	<p class="signature-initiative">Telerik Software Academy</p>
-	<a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
+   <p class="signature-course">JavaScript Applications</p>
+   <p class="signature-initiative">Telerik Software Academy</p>
+   <a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </article>
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents
 -   What's next in the Academy
 -   The JavaScript Applications Course Program
 -   Exams and Evaluation
-	-   Standard Criteria
+    -   Standard Criteria
 -   Resources for the Course
-
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # JavaScript Applications
 ## Coming To The Next Module -->
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # What's next?
@@ -36,12 +33,10 @@
 -   The course exam?
     -   Creating a Single-page Application based on a given REST API
 
-
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Applications Course Program
 ## Titles to cover in the course
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # JavaScript Applications:<br/>Course program -->
@@ -55,7 +50,6 @@
         -   jQuery.ajax
     -   Build UI based on received data from a web service
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # JavaScript Applications:<br/>Course program -->
 -   Module loaders
@@ -65,7 +59,6 @@
 -   Handlebars
 -   Web storages
     -   localStorage, sessionStorage, cookies
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # JavaScript Applications:<br/>Course program -->
@@ -78,10 +71,8 @@
 -   Unit testing - Spies and Mocks with Sinon
     -   Providing spy objects and stubs
 
-
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Applications:<br/>Workshops
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # JavaScript Applications:<br/>Workshops -->
@@ -91,8 +82,7 @@
     -   Backend data from business cloud
     -   Handlebars.js, module loader, jQuery
     -   Using AJAX and Promises
--   Unit Testing    
-
+-   Unit Testing
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- JavaScript Applications:<br/>Workshops -->
@@ -104,13 +94,11 @@
     -   4 hours
     -   Building a Front-end app on top of provided REST API, written in Node.js
 
-
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Course Evaluation
 ## Thank God there are.. NO Bonuses
-    
-    
+
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Course Evaluation
 
@@ -123,7 +111,6 @@
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic24.png" style="top:58%; left:55%; width:34.99%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic25.png" style="top:58%; left:15%; width:28.21%; z-index:-1" /> -->
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Practical Exam
 
@@ -134,8 +121,7 @@
     -   Send data to the REST API
     -   Validate input and handle errors
     -   Unit-test specific components from the app
-    
-    
+
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Teamwork
 
@@ -146,22 +132,19 @@
         -   Unactive team members win a negative bonus of `-5`
 -   Each teamwork project must be uploaded to our [Showcase System](http://best.telerikacademy.com/)
 
-
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # JS Applications Resources
 ## What We Need in Addition to this Course Content?
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Resources
 - Mozilla Development Network (MDN)
-  - https://developer.mozilla.org 
+  - https://developer.mozilla.org
   - Mostly used for the presentations
 - Books:
   - Secrets of the JavaScript Ninja
   - JavaScript: the Good parts
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Course Web Site & Forums
@@ -169,10 +152,9 @@
   - Discuss the course exercises with your colleagues
   - Find solutions for the exercises
   - Share source code / discuss ideas
-  - [telerikacademy.com/Forum/Category/23/js-apps](http://telerikacademy.com/Forum/Category/23/js-apps) 
+  - [telerikacademy.com/Forum/Category/23/js-apps](http://telerikacademy.com/Forum/Category/23/js-apps)
 - The JavaScript OOP official web site:
-  - http://academy.telerik.com/student-courses/web-design-and-ui/javascript-applications 
-
+  - http://academy.telerik.com/student-courses/web-design-and-ui/javascript-applications
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Required Software
@@ -184,15 +166,12 @@
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic35.png" style="top:68%; left:24.50%; width:59.61%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic36.png" style="top:45%; left:76.72%; width:22.92%; z-index:-1" /> -->
 
-
-
 <!-- section start -->
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Applications:<br/>Course Introduction
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic37.png" style="top:55%; left:38.83%; width:32.62%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic38.png" style="top:20%; left:10.44%; width:17.19%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic39.png" style="top:25%; left:85.21%; width:19.34%; z-index:-1" /> -->
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Free Trainings @ Telerik Academy
@@ -207,7 +186,3 @@
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic40.png" style="top:25%; left:92.16%; width:13.45%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic41.png" style="top:45%; left:68.14%; width:36.30%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic42.png" style="top:65%; left:80%; width:10.85%; z-index:-1" /> -->
-
-
-
-
