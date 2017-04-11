@@ -152,7 +152,7 @@
   - Discuss the course exercises with your colleagues
   - Find solutions for the exercises
   - Share source code / discuss ideas
-  - [telerikacademy.com/Forum/Category/23/js-apps](http://telerikacademy.com/Forum/Category/23/js-apps)
+  - [telerikacademy.com/Forum/Category/23/js-apps](https://telerikacademy.com/Forum/Category/23/js-apps)
 - The JavaScript OOP official web site:
   - http://academy.telerik.com/student-courses/web-design-and-ui/javascript-applications
 
