@@ -103,7 +103,7 @@
   - Pass arguments for what you want
   - Provide callback methods to execute when the API has processed your request
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # Using Browser-provided Asynchronous APIs -->
 - Using the Geolocation API
   - Locating the device takes time
@@ -113,7 +113,7 @@
 navigator.geolocation.getCurrentPosition
 ```
   - Pass in a success and error handler
-        - i.e. pass in callback functions
+    - i.e. pass in callback functions
   - Process the data
   - Visualize it accordingly
 
@@ -121,7 +121,7 @@ navigator.geolocation.getCurrentPosition
 <!-- # Callback-based usage of the Geolocation API -->
 ## [Demo](/demos/1.%20callbacks/1.4.%20geolocation-heavy-callbacks.html)
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 # Summary on callback-based usage of Geolocation
 - We need some function nesting
   - We want to have good function cohesion
@@ -219,9 +219,9 @@ asyncComputeTheAnswerToEverything()
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
   if (/* everything turned out fine */) {
-  resolve('Stuff worked!'); // or pass some data
+    resolve('Stuff worked!'); // or pass some data
   } else {
-  reject(Error('It broke'));
+    reject(Error('It broke'));
   }
 
   return promise; // give this to someone
@@ -241,9 +241,9 @@ var promise = new Promise(function(resolve, reject) {
 var promise = new Promise(function(resolve, reject) {
   // do something
   if (somethingWorked()) {
-  resolve('Stuff worked!');
+    resolve('Stuff worked!');
   } else {
-  reject(Error('It broke'));
+    reject(Error('It broke'));
   }
 });
 
@@ -285,10 +285,10 @@ get('users.all').then((users) => {
 ```js
 get('users.all')
   .then(function(usersString) {
-  return JSON.parse(usersString);
+    return JSON.parse(usersString);
   })
   .then(function(users) {
-  myController.users = users;
+    myController.users = users;
   })
 ```
 
@@ -306,7 +306,7 @@ get('users.all')
 
 ```js
 var async = false;
-var promise = new Promise((resolve, reject) =>  resolve());
+var promise = new Promise((resolve, reject) => resolve());
 
 promise.then(() => console.log(async)); // true
 async = true;
@@ -349,12 +349,12 @@ var postsPromise = get('posts.everyone');
 Promise.all([usersPromise, postsPromise])
   .then((results) => {
   // results is an array of the responses
-  myController.users = results[0];
-  myController.posts = results[1];
+    myController.users = results[0];
+    myController.posts = results[1];
   })
   .catch(() => {
-  delete myController.users;
-  delete myController.posts;
+    delete myController.users;
+    delete myController.posts;
   })
 ```
 
@@ -371,10 +371,10 @@ Promise.all([usersPromise, postsPromise])
 ```js
 System.import('some_module')
   .then(some_module => {
-  // work with the module
+    // work with the module
   })
   .catch(error => {
-  // process error
+    // process error
   })
 ```
 
@@ -384,7 +384,7 @@ System.import('some_module')
 Promise.all(['module1', 'module2', 'module3'])
   .map(x => System.import(x))
   .then(([module1, module2, module3]) => {
-  // my code...
+    // my code...
   })
 ```
 
@@ -400,13 +400,13 @@ Promise.all(['module1', 'module2', 'module3'])
 
 ```js
 setTimeout(() => {
-    console.log("Hello World");
-},1);
+  console.log("Hello World");
+}, 1);
 
 (function foo() { // never do loops like this
-    for (var i=0; i<=1E10; i++) {
-        console.log(i);
-    }
+  for (var i = 0; i <= 1E10; i += 1) {
+    console.log(i);
+  }
 })();
 // 0..1E10
 // "Hello World"
@@ -436,13 +436,13 @@ setTimeout(() => {
 
 ```js
 function *foo() { // OR function* foo() {
-    // .. yield something
+  // .. yield something
 }
 ```
 
 - `yield` expression (not a statement)
   - Send value **out** and stops execution
-  - Takes value back **in**  when function is restarted
+  - Takes value back **in** when function is restarted
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Function generators<br/>Examples -->
