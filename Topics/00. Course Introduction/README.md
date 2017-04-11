@@ -28,10 +28,8 @@
     -   Creating web applications with JavaScript
 -   Pretty much the same
     -   Lectures 2 times a week
-    -   Practical Workshop once a week
-    -   Practical exam on **4 October 2016**
--   The course exam?
-    -   Creating a Single-page Application based on a given REST API
+    -   Practical Workshops / Live demos
+    -   Teamwork
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
@@ -58,11 +56,11 @@
 -   Routing
 -   Handlebars
 -   Web storages
-    -   localStorage, sessionStorage, cookies
+    -   `localStorage`, `sessionStorage`, cookies
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # JavaScript Applications:<br/>Course program -->
--   Unit testing basics - [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/), [Jasmine](http://jasmine.github.io/)
+-   Unit testing basics - [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/), [Jasmine](https://jasmine.github.io/)
     -   Setup of Mocha and Chai
     -   [Mocha reporters](https://mochajs.org/#reporters)
     -   Unit testing DOM
@@ -102,16 +100,21 @@
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Course Evaluation
 
+<!--
 -   **Practical exam** - up to `50%`
 -   **Practical exam peer review** - up to `10%`
--   **Homework** - up to `10%`
+-->
+-   **Team work** - up to `70%`
+-   **Homework** - up to `15%`
 -   **Homework peer review** - up to `5%`
--   **Team work** - up to `20%`
--   **Attendance** in class - up to `5%`
+-   **Attendance** in class - up to `10%`
+
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic24.png" style="top:58%; left:55%; width:34.99%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic25.png" style="top:58%; left:15%; width:28.21%; z-index:-1" /> -->
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+
+<!--
 # Practical Exam
 
 -   Your task will be to create a Single-page application (SPA)
@@ -121,6 +124,7 @@
     -   Send data to the REST API
     -   Validate input and handle errors
     -   Unit-test specific components from the app
+-->
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Teamwork
@@ -163,12 +167,14 @@
     - Microsoft **Visual Studio 2015** or Visual Studio Community 2015 (free version of VS 2015) are also good enought
   - Sublime Text 2/3
   - JetBrains WebStorm
+
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic35.png" style="top:68%; left:24.50%; width:59.61%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic36.png" style="top:45%; left:76.72%; width:22.92%; z-index:-1" /> -->
 
 <!-- section start -->
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # JavaScript Applications:<br/>Course Introduction
+
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic37.png" style="top:55%; left:38.83%; width:32.62%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic38.png" style="top:20%; left:10.44%; width:17.19%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic39.png" style="top:25%; left:85.21%; width:19.34%; z-index:-1" /> -->
@@ -183,6 +189,7 @@
     - https://facebook.com/TelerikAcademy
   - Telerik Software Academy Forums
     - https://telerikacademy.com/Forum/Home
+
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic40.png" style="top:25%; left:92.16%; width:13.45%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic41.png" style="top:45%; left:68.14%; width:36.30%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic42.png" style="top:65%; left:80%; width:10.85%; z-index:-1" /> -->
