@@ -6,7 +6,7 @@
 <aside class="signature">
   <p class="signature-course">JavaScript Applications</p>
   <p class="signature-initiative">Telerik Software Academy</p>
-  <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+  <a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </aside>
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
@@ -21,7 +21,6 @@
 	- 	CommonJS Promise/A and A+
 - 	[Using ES2015 Promises](es2015-promises)
 - 	[Async operations with ES2015 function generators](operations-async)
-
 
 <!-- section start -->
 <!-- attr: { id:'asynchrony-in-js', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
@@ -38,7 +37,6 @@
 	- 	Delayed execution
 		- 	Postpone heavy operations to<br/>the end of the event loop
 		- 	To give event handlers the ability to respond
-					
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 #	Asynchrony in JavaScript
@@ -52,12 +50,10 @@
 		- 	When beginning to do work
 		- 	After the work is done to transmit values
 
-
 <!-- section start -->
 <!-- attr: { id:'callback-oriented-programming', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Callback-oriented Programming
 ## with JavaScript -->
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Callback-oriented<br/>Programming
@@ -70,11 +66,9 @@
 	- 	**setTimeout** and **setInterval** take a callback argument
 	- 	Some OOP patterns use callbacks for `super`
 
-
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Simple Callback -->
 ## [Demo](demos/1.%20callbacks/1.1.%20simple-callback.html)
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # Callback-oriented<br/>Programming -->
@@ -90,16 +84,13 @@
 		  - 	Heavily nested functions are hard to understand
 		  - 	Errors and exceptions are a nightmare to process
 
-
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Callback with Value Needed by Other Method -->
 ## [Demo](demos/1.%20callbacks/1.2.%20callback-value.html)
 
-
 <!-- attr: { class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Using Browser-provided Async APIs
 ## How to access browser APIs asynchronously -->
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Using Browser-provided Asynchronous APIs
@@ -111,7 +102,6 @@
 	- 	Request some browser API
 		- 	Pass arguments for what you want
 	- 	Provide callback methods to execute when the API has processed your request
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Using Browser-provided Asynchronous APIs -->
@@ -127,11 +117,9 @@ navigator.geolocation.getCurrentPosition
 		- 	Process the data
 		- 	Visualize it accordingly
 
-
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Callback-based usage of the Geolocation API -->
 ## [Demo](/demos/1.%20callbacks/1.4.%20geolocation-heavy-callbacks.html)
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Summary on callback-based usage of Geolocation
@@ -150,7 +138,6 @@ navigator.geolocation.getCurrentPosition
 ## The evolution of Callback-oriented programming
 ## (switch on your imagination) -->
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Promises
 - 	A promise is an object which represents an eventual (future) value
@@ -161,7 +148,6 @@ navigator.geolocation.getCurrentPosition
 	- 	Rejected (an error happened)
 	- 	Pending (unfulfilled yet, still being computed)
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Promises -->
 - 	Promise objects can be used in code as if their value is known
@@ -169,10 +155,9 @@ navigator.geolocation.getCurrentPosition
 		- 	When the promise is fulfilled
 		- 	When the promise is rejected
 		- 	When the promise reports progress (optionally)
-- 	Promises are a pattern 
+- 	Promises are a pattern
 	- 	No defined implementation, but strict requirements
 	- 	Initially described in **CommonJS Promises/A**
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 <!-- # Promises -->
@@ -192,7 +177,6 @@ promiseMeSomething()
 ```
 -   _Note_: Provided `promiseMeSomething` returns a promise <!-- .element: style="font-size: 0.8em" -->
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.95em' } -->
 <!-- # Promises -->
 - 	Each `.then()` method returns a promise in turn
@@ -202,12 +186,11 @@ promiseMeSomething()
 asyncComputeTheAnswerToEverything()
 	.then(addTwo)
 	.then(printResult, onError);
-```	
+```
 - 	Promises enable us to:
 	- 	Remove the callback functions from the parameters and attach them to the `"result"`
 	- 	Make a sequence of operations happen
 	- 	Catch errors when we can process them
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Promises -->
@@ -219,17 +202,14 @@ asyncComputeTheAnswerToEverything()
 	- 	Several libraries fulfill the Promises spec:
 		- 	[bluebirdjs](http://bluebirdjs.com) -	use as polyfill if no ES2015
 
-
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Promises -->
 ## [Demo](/demos/2.%20promises/2.1.%20promise-creation.js)
-
 
 <!-- section start -->
 <!-- attr: { id:'es2015-promises', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # ES2015 Promises <!-- .element: style="margin-top: 15%" -->
 <!-- <img class="slide-image" showInPresentation="true"  src="imgs/why-so-asynchronous.jpg" style="border:none; position:absolute; top:35; left:25%; width: 50%" /> -->
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em' } -->
 <!-- # ES2015 Promises -->
@@ -237,13 +217,13 @@ asyncComputeTheAnswerToEverything()
 
 ```js
 var promise = new Promise(function(resolve, reject) {
-	// do a thing, possibly async, then...	
+	// do a thing, possibly async, then...
 	if (/* everything turned out fine */) {
 		resolve('Stuff worked!'); // or pass some data
 	} else {
 		reject(Error('It broke'));
 	}
-	
+
 	return promise; // give this to someone
 });
 
@@ -255,12 +235,11 @@ var promise = new Promise(function(resolve, reject) {
 	- 	Write LOTS to DOM
 	- 	Others..
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # ES2015 Promises -->
 ```javascript
 var promise = new Promise(function(resolve, reject) {
-	// do something	
+	// do something
 	if (somethingWorked()) {
 		resolve('Stuff worked!');
 	} else {
@@ -281,7 +260,7 @@ promise.then((result) => {
 function get(url) {
 	return new Promise((resolve, reject) => {
 		// jQuery http get request
-		$.get(url, (data) => { 
+		$.get(url, (data) => {
 			resolve(data);
 		})
 		.fail(() => {
@@ -342,7 +321,6 @@ var promise2 = new Promise((resolve, reject) => resolve(promise1))
 promise2.then((data) => console.log(data)) // 'one'
 ```
 
-
 <!-- section start -->
 <!-- attr: { id:'promise-methods', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Promise methods
@@ -359,7 +337,6 @@ promise2.then((data) => console.log(data)) // 'one'
 	- 	Useful to not do aync operation in some condition
 - 	`Promise.resolve(`_value_`)`
 	- 	Create a promise that is already resolved
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # `Promise.all()`
@@ -385,10 +362,8 @@ Promise.all([usersPromise, postsPromise])
 <!-- # Promise methods -->
 ## [Demo](/demos/2.%20promises/2.4.%20promise-all.js)
 
-
 <!-- attr: { class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Import modules with Promises
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.95em' } -->
 <!-- # Import modules</br>with Promises -->
@@ -413,12 +388,10 @@ Promise.all(['module1', 'module2', 'module3'])
 	})
 ```
 
-
 <!-- section start -->
 <!-- attr: { id:'function-generators', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Function generators
 ## new to EcmaScript 2015
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 # Async operations
@@ -442,7 +415,6 @@ setTimeout(() => {
 - 	JavaScript is always single-threaded
 	- 	Only one command/function executing at any given time
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 # Function generators
 - 	Different kind of function
@@ -456,13 +428,12 @@ setTimeout(() => {
 	- 	Send messages **out** with each `yield`
 	- 	Send messages **in** with each restart
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Function generators -->
 - 	A function becomes a generator if:
 	- 	Contains one or more `yield` expressions
 	- 	Uses the `function*` syntax
-	
+
 ```js
 function *foo() { // OR function* foo() {
     // .. yield something
@@ -473,7 +444,6 @@ function *foo() { // OR function* foo() {
 	- 	Send value **out** and stops execution
 	- 	Takes value back **in**	when function is restarted
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Function generators<br/>Examples -->
 
@@ -483,7 +453,6 @@ function *foo() {
     console.log(x);
 }
 ```
-
 
 ```js
 function foo(x) {
@@ -496,7 +465,6 @@ function *bar() {
 	// pause waiting for a parameter to pass into `foo(..)`
 }
 ```
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Generator Iterator
@@ -518,7 +486,6 @@ it.next(); // { value:'ivan', done:false }
 it.next(); // { value:{name: "stamat"}, done:false }
 it.next(); // { value:undefined, done:true }
 ```
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Generator Iterator<br/>Examples -->
@@ -554,14 +521,13 @@ gen.next().value; // 2
 ```
 <!-- .element: style="float:left; width: 45%" -->
 
-
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Advanced function<br/>generators
 
 ```js
 function* fibonacci(){
   var fn1 = 1, fn2 = 1, currnet, reset;
-  while (true){  
+  while (true){
     current = fn1;
     fn1 = fn2;
     fn2 = fn2 + current;
@@ -577,19 +543,14 @@ var sequence = fibonacci();
 sequence.next(true).value;     // 1
 ```
 
-
-
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Function generators -->
 ## [Demo](/demos/3.%20function-generators/)
-                    
-
 
 <!-- section start -->
 <!-- attr: { id:'operations-async', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Async operations
 ## with function generators
-
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Async operations with<br/>ES2015 function generators -->
@@ -602,7 +563,6 @@ sequence.next(true).value;     // 1
 <!-- attr: { class:'slide-section demo', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Async operations with ES2015 -->
 ## [Demo](/demos/4.%20async%20operations)
-
 
 <!-- section start -->
 <!-- attr: { id:'questions', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
