@@ -566,5 +566,5 @@ sequence.next(true).value;     // 1
 
 <!-- section start -->
 <!-- attr: { id:'questions', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-<!-- # Promises
+<!-- # Promises and Asynchronous Programming
 ## Questions -->
