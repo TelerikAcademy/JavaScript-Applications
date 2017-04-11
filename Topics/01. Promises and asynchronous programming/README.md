@@ -24,11 +24,11 @@
 
 <!-- section start -->
 <!-- attr: { id:'asynchrony-in-js', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-<!-- #	Asynchrony in JavaScript
-##	How to do it -->
+#	Asynchrony in JavaScript
+##	How to do it
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
-#	Asynchrony in JavaScript
+<!-- #	Asynchrony in JavaScript -->
 - 	JavaScript is single-threaded
 	- 	Long-running operations block other operations
 - 	Asynchronous operations in JavaScript
@@ -39,7 +39,7 @@
 		- 	To give event handlers the ability to respond
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
-#	Asynchrony in JavaScript
+<!-- #	Asynchrony in JavaScript -->
 - 	Browsers provide some asynchronous APIs
 	- 	Web workers
 	- 	AJAX
