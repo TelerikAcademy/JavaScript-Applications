@@ -104,6 +104,7 @@
 -   **Practical exam** - up to `50%`
 -   **Practical exam peer review** - up to `10%`
 -->
+
 -   **Team work** - up to `70%`
 -   **Homework** - up to `15%`
 -   **Homework peer review** - up to `5%`
@@ -112,21 +113,8 @@
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic24.png" style="top:58%; left:55%; width:34.99%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic25.png" style="top:58%; left:15%; width:28.21%; z-index:-1" /> -->
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 
-<!--
-# Practical Exam
-
--   Your task will be to create a Single-page application (SPA)
-    -   With given REST API written in `Node.js`
-    -   Create a client running in the browser
-    -   Fetch data from the REST API and visualize it
-    -   Send data to the REST API
-    -   Validate input and handle errors
-    -   Unit-test specific components from the app
--->
-
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em' } -->
 # Teamwork
 
 -   The teamwork assignment is a way to **join forces** with other colleagues to create a **more complete web application**:
