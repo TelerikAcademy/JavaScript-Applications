@@ -334,7 +334,7 @@ promise2.then((data) => console.log(data)) // 'one'
   - Wait until 1 settles
 - `Promise.reject(`_reason_`)`
   - Create a Promise that is already rejected
-  - Useful to not do aync operation in some condition
+  - Useful to not do async operation in some condition
 - `Promise.resolve(`_value_`)`
   - Create a promise that is already resolved
 
