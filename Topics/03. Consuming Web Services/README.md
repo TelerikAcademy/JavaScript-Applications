@@ -194,16 +194,16 @@
 ##  All above in one method
 
 # Building an HTTP Request
--  `XMLHttpRequest` creates a HTTP request with default characteristics
-  -  The HTTP method is "GET  "
-  -  Content-Type and Accept have different values based on the client
-  -  HTTP body is empty (NULL)
+-  `XMLHttpRequest` creates a **HTTP** request with default characteristics
+  -  The **HTTP** method is "`GET`"
+  -  `Content-Type` and `Accept` have different values based on the client
+  -  **HTTP** body is empty (NULL)
   -  etc…
 -  All of these can be customized
 
 <!-- attr: {hasScriptWrapper: true} -->
 # Building an HTTP Request
--  To set an HTTP header on the request use `httpRequest.setRequestHeader(header, value)`
+-  To set an **HTTP** header on the request use `httpRequest.setRequestHeader(header, value)`
   -  After the request is open
   -  And before the request is sent
 ```javascript
@@ -248,7 +248,7 @@ httpRequest.send({
 
 <!-- attr: {hasScriptWrapper: true} -->
 # jQuery AJAX
--  [jQuery](http://jquery.com) <!-- .element: target="_blank" -->
+-  [jQuery](https://jquery.com) <!-- .element: target="_blank" -->
 has a functionality for creating HTTP requests
 -  jQuery AJAX methods:
   -  `$.ajax(options)`
