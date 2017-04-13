@@ -453,7 +453,7 @@ found on this server.<P>
 <!-- attr: {style: 'font-size: 0.85'} -->
 # Content-Type
 
--  The Content-Type header at the server specifies how the output should be processed
+-  The `Content-Type` header at the server specifies how the output should be processed
 -  _Examples_:
   - UTF-8 encoded HTML page (in the browser)
 
@@ -534,7 +534,7 @@ found on this server.<P>
 >Representational state transfer (REST) is a style of
 >software architecture for distributed hypermedia systems
 >such as the World Wide Web.
-[Representational State Transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+[Representational State Transfer](https://en.wikipedia.org/wiki/Representational_State_Transfer)
 
 -  Application state and functionality are resources
   -  Resources are used as common data files
@@ -578,7 +578,7 @@ found on this server.<P>
 -  Technically, AJAX is a group of technologies working together
   -  **HTML & CSS** for presentation
   -  **The DOM** for data display & interaction
-  -  **XML (or JSON)** for data interchange
+  -  **XML** (or **JSON**) for data interchange
   -  **XMLHttpRequest** for async communication
   -  **JavaScript** to use the above
 
@@ -700,5 +700,3 @@ parseResponse({"age":"5"})
     - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
   - Telerik Software Academy Forums
     - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)
-
-<!-- <img class="slide-image" showInPresentation="true"  src="imgs/pic00.png" style="top:58.18%; left:90.52%; width:16.97%; z-index:-1" /> -->

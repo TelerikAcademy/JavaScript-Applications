@@ -14,13 +14,13 @@
 
 <!-- attr: {id: 'table-of-contents'} -->
 # Table of Contents
-*	Web Services Overview
-*	RESTful Services Overview
-*	`XMLHttpRequest` object
-  *	Creating request
-  *	Using the data
-*	jQuery.ajax()
-*	Creating HTTP requests with jQuery
+-	Web Services Overview
+-	RESTful Services Overview
+-	`XMLHttpRequest` object
+  -	Creating request
+  -	Using the data
+-	`jQuery.ajax()`
+-	Creating HTTP requests with jQuery
 
 <!-- section start -->
 
