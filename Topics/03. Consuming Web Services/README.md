@@ -311,13 +311,13 @@ $('#response').load('/partials/details.html');
 # Consuming Remote Data
 ## Questions
 
-<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size: 0.9em' } -->
 # Free Trainings<br/>@ Telerik Academy
 - "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
     - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
   - Telerik Software Academy
-    - [telerikacademy.com](https://telerikacademy.com)
+    - [academy.telerik.com](academy.telerik.com)
   - Telerik Academy @ Facebook
-    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
+    - [facebook.com/TelerikAcademy](facebook.com/TelerikAcademy)
   - Telerik Software Academy Forums
-    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)
+    - [forums.academy.telerik.com](http://telerikacademy.com/Forum/Home
