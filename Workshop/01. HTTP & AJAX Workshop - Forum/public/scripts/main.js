@@ -1,31 +1,31 @@
 ﻿$(() => { // on document ready
   const GLYPH_UP = 'glyphicon-chevron-up',
-        GLYPH_DOWN = 'glyphicon-chevron-down',
-        root = $('#root'),
-        navbar = root.find('nav.navbar'),
-        mainNav = navbar.find('#main-nav'),
-        contentContainer = $('#root #content'),
-        loginForm = $('#login'),
-        logoutForm = $('#logout'),
-        usernameSpan = $('#span-username'),
-        usernameInput = $('#login input'),
-        alertTemplate = $($('#alert-template').text());
+      GLYPH_DOWN = 'glyphicon-chevron-down',
+      root = $('#root'),
+      navbar = root.find('nav.navbar'),
+      mainNav = navbar.find('#main-nav'),
+      contentContainer = root.find('#content'),
+      loginForm = $('#login'),
+      logoutForm = $('#logout'),
+      usernameSpan = $('#span-username'),
+      usernameInput = loginForm.find('input'),
+      alertTemplate = $($('#alert-template').text());
 
   (function checkForLoggedUser() {
     data.users.current()
-      .then((user) => {
-        if (user) {
-          usernameSpan.text(user);
-          loginForm.addClass('hidden');
-          logoutForm.removeClass('hidden');
-        }
-      });
+        .then((user) => {
+          if (user) {
+            usernameSpan.text(user);
+            loginForm.addClass('hidden');
+            logoutForm.removeClass('hidden');
+          }
+        });
   })();
 
   function showMsg(msg, type, cssClass, delay) {
     let container = alertTemplate.clone(true)
-        .addClass(cssClass).text(`${type}: ${msg}`)
-        .appendTo(root);
+                                 .addClass(cssClass).text(`${type}: ${msg}`)
+                                 .appendTo(root);
 
     setTimeout(() => {
       container.remove();
@@ -33,62 +33,91 @@
   }
 
   // start threads
-  function loadThreadsContent(threads) {
+  function loadThreadsContent() {
     let container = $($('#threads-container-template').text()),
         threadsContainer = container.find('#threads');
 
-    function getThreadUI(title, id, creator, date) {
-      let template = $($('#thread-template').text()).attr('data-id', id),
-          threadTitle = template.find('.thread-title').text(title),
-          threadCreator = template.find('.thread-creator').text(creator || 'anonymous'),
-          threadDate = template.find('.thread-date').text(date || 'unknown');
+    getThreads()
+        .then((threads) => threads.forEach((thread) => {
+          let currentThreadUI = getThreadUI(thread);
+          threadsContainer.append(currentThreadUI);
+        }));
+
+    function getThreads() {
+      return data.threads.get()
+                 .then((response) => response.result);
+    }
+
+    function getThreadUI(thread) {
+      let dateString = getDateTimeAgoString(thread.postDate);
+
+      let template = $($('#thread-template').text()).attr('data-id', thread.id),
+          threadTitle = template.find('.thread-title').text(thread.title),
+          threadCreator = template.find('.thread-creator')
+                                  .text(thread.username || 'anonymous'),
+          threadDate = template.find('.thread-date').text(dateString);
 
       return template.clone(true);
     }
+
+    threadsContainer.append(getAddNewThreadUI());
+
     function getAddNewThreadUI() {
       let template = $($('#thread-new-template').html());
       return template.clone(true);
     }
 
-    threads.forEach((th) => {
-      let currentThreadUI = getThreadUI(th.title, th.id, th.username, th.date);
-      threadsContainer.append(currentThreadUI);
-    })
-    threadsContainer.append(getAddNewThreadUI());
-
     contentContainer.find('#container-thraeds').remove();
     contentContainer.html('').prepend(container);
   }
 
-  function loadMessagesContent(data) {
-    let container = $($('#messages-container-template').text()),
-        messagesContainer = container.find('.panel-body');
-    container.attr('data-thread-id', data.result.id);
+  function loadMessagesContent(threadId) {
+    let container = $($('#messages-container-template').text());
+    let messagesContainer = container.find('.panel-body');
+    container.attr('data-thread-id', threadId);
 
-    function getMsgUI(msg, author, date) {
-      let template = $($('#messages-template').text());
-      template.find('.message-content').text(msg);
-      template.find('.message-creator').text(author || 'anonymous');
-      template.find('.message-date').text(date || 'unknown');
-      return template.clone(true);
+    getThread(threadId)
+        .then(loadThreadMessages);
+
+    function getThread(threadId) {
+      return data.threads.getById(threadId)
+                 .then((response) => response.result)
+                 .catch((err) => showMsg(err, 'Error', 'alert-danger'));
     }
+
+    function loadThreadMessages(thread) {
+      container.find('.thread-title').text(thread.title);
+      messagesContainer.append(getAddNewMsgUI());
+
+      if (thread.messages && thread.messages.length > 0) {
+        thread.messages.forEach((msg) => {
+          appendNewMessage(messagesContainer, msg);
+
+        });
+      }
+
+      contentContainer.append(container);
+    }
+
     function getAddNewMsgUI() {
       let template = $($('#message-new-template').html());
       return template.clone(true);
     }
+  }
 
-    if (data.result.messages && data.result.messages.length > 0) {
-      data.result.messages.forEach((msg) => {
-        messagesContainer.append(getMsgUI(msg))
-      })
-    } else {
-      messagesContainer.append(getMsgUI('No messages!'))
-    }
+  function appendNewMessage(messagesContainer, message) {
+    messagesContainer.find('.add-message')
+                     .before(getMsgUI(message));
+  }
 
-    messagesContainer.append(getAddNewMsgUI());
+  function getMsgUI(message) {
+    let dateString = getDateTimeAgoString(message.postDate);
 
-    container.find('.thread-title').text(data.result.title);
-    contentContainer.append(container);
+    let template = $($('#messages-template').text());
+    template.find('.message-content').text(message.content);
+    template.find('.message-creator').text(message.username || 'anonymous');
+    template.find('.message-date').text(dateString);
+    return template.clone(true);
   }
 
   function loadGalleryContent(data) {
@@ -109,6 +138,16 @@
     contentContainer.html('').append(containerGallery);
   }
 
+  function getDateTimeAgoString(date) {
+    let momentDate = moment(date, 'YYYY-MM-DD HH:mm Z');
+    if (momentDate.isValid()) {
+      return momentDate.fromNow();
+    }
+    else {
+      return 'on unknown date';
+    }
+  }
+
   navbar.on('click', 'li', (ev) => {
     let $target = $(ev.target);
     $target.parents('nav').find('li').removeClass('active');
@@ -116,28 +155,23 @@
   });
 
   navbar.on('click', '#btn-threads', (ev) => {
-    data.threads.get()
-        .then((data) => {
-          loadThreadsContent(data.result)
-        })
+    loadThreadsContent();
   });
 
   contentContainer.on('click', '#btn-add-thread', (ev) => {
     let title = $(ev.target).parents('form').find('input#input-add-thread').val() || null;
     data.threads.add(title)
-        .then(/* add to UI */)
-        .then(showMsg('Successfuly added the new thread', 'Success', 'alert-success'))
+        .then(loadThreadsContent)
+        .then(showMsg('Successfully added the new thread', 'Success', 'alert-success'))
         .catch((err) => showMsg(JSON.parse(err.responseText).err, 'Error', 'alert-danger'));
-  })
+  });
 
   contentContainer.on('click', 'a.thread-title', (ev) => {
     let $target = $(ev.target),
         threadId = $target.parents('.thread').attr('data-id');
 
-    data.threads.getById(threadId)
-      .then(loadMessagesContent)
-      .catch((err) => showMsg(err, 'Error', 'alert-danger'))
-  })
+    loadMessagesContent(threadId);
+  });
 
   contentContainer.on('click', '.btn-add-message', (ev) => {
     let $target = $(ev.target),
@@ -146,20 +180,28 @@
         msg = $container.find('.input-add-message').val();
 
     data.threads.addMessage(thId, msg)
-        .then(/* add to UI */)
-        .then(showMsg('Successfuly added the new mssagee', 'Success', 'alert-success'))
+        .then(appendMessage)
+        .then(showMsg('Successfully added the new message', 'Success', 'alert-success'))
         .catch((err) => showMsg(JSON.parse(err.responseText).err, 'Error', 'alert-danger'));
-  })
+
+    function appendMessage(result) {
+      let last = result.messages.length - 1;
+      let message = result.messages[last];
+
+      appendNewMessage($(`[data-thread-id="${thId}"] .panel-body`), message);
+    }
+  });
 
   contentContainer.on('click', '.btn-close-msg', (ev) => {
-    let msgContainer = $(ev.target).parents('.container-messages').remove();
+    $(ev.target).parents('.container-messages').remove();
   });
 
   contentContainer.on('click', '.btn-collapse-msg', (ev) => {
     let $target = $(ev.target);
     if ($target.hasClass(GLYPH_UP)) {
       $target.removeClass(GLYPH_UP).addClass(GLYPH_DOWN);
-    } else {
+    }
+    else {
       $target.removeClass(GLYPH_DOWN).addClass(GLYPH_UP);
     }
 
@@ -170,29 +212,29 @@
   // start gallery
   navbar.on('click', '#btn-gallery', (ev) => {
     data.gallery.get()
-      .then(loadGalleryContent)
-      .catch(console.log)
-  })
+        .then(loadGalleryContent)
+        .catch(console.log)
+  });
   // end gallery
 
   // start login/logout
   navbar.on('click', '#btn-login', (ev) => {
     let username = usernameInput.val() || 'anonymous';
     data.users.login(username)
-      .then((user) => {
-        usernameInput.val('')
-        usernameSpan.text(user);
-        loginForm.addClass('hidden');
-        logoutForm.removeClass('hidden');
-      })
+        .then((user) => {
+          usernameInput.val('');
+          usernameSpan.text(user);
+          loginForm.addClass('hidden');
+          logoutForm.removeClass('hidden');
+        })
   });
   navbar.on('click', '#btn-logout', (ev) => {
     data.users.logout()
-    .then(() => {
-      usernameSpan.text('');
-      loginForm.removeClass('hidden');
-      logoutForm.addClass('hidden');
-    })
+        .then(() => {
+          usernameSpan.text('');
+          loginForm.removeClass('hidden');
+          logoutForm.addClass('hidden');
+        })
   });
   // end login/logout
 });
