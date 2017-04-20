@@ -48,7 +48,7 @@ Implement at least the following routes in your app:
 
 ## Application requirements
 
-**Mandatory** provide a good **User Experience(UX)**
+**Mandatory** provide a good **User Experience (UX)**
   * No need to be pretty, just usable
     * Please do not make your colleagues wonder where to click, to share a fortune cookie
 
@@ -131,7 +131,7 @@ You can use libraries for:
 
 * **ZIP** all your code, including the server
   * Remove only the `node_modules` folder
-* Send the ZIP file on the page, provided in http://telerikacademy.com
+* Send the ZIP file on the page, provided in https://telerikacademy.com
 
 ## Constraints and validation
 * Username
