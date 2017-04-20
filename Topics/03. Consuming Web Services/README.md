@@ -6,7 +6,7 @@
 <div class="signature">
     <p class="signature-course">JavaScript Applications</p>
     <p class="signature-initiative">Telerik Software Academy</p>
-    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+    <a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </div>
 
 
@@ -14,13 +14,13 @@
 
 <!-- attr: {id: 'table-of-contents'} -->
 # Table of Contents
-*	Web Services Overview
-*	RESTful Services Overview
-*	`XMLHttpRequest` object
-  *	Creating request
-  *	Using the data
-*	jQuery.ajax()
-*	Creating HTTP requests with jQuery
+-	Web Services Overview
+-	RESTful Services Overview
+-	`XMLHttpRequest` object
+  -	Creating request
+  -	Using the data
+-	`jQuery.ajax()`
+-	Creating HTTP requests with jQuery
 
 <!-- section start -->
 
@@ -194,16 +194,16 @@
 ##  All above in one method
 
 # Building an HTTP Request
--  `XMLHttpRequest` creates a HTTP request with default characteristics
-  -  The HTTP method is "GET  "
-  -  Content-Type and Accept have different values based on the client
-  -  HTTP body is empty (NULL)
+-  `XMLHttpRequest` creates a **HTTP** request with default characteristics
+  -  The **HTTP** method is "`GET`"
+  -  `Content-Type` and `Accept` have different values based on the client
+  -  **HTTP** body is empty (NULL)
   -  etc…
 -  All of these can be customized
 
 <!-- attr: {hasScriptWrapper: true} -->
 # Building an HTTP Request
--  To set an HTTP header on the request use `httpRequest.setRequestHeader(header, value)`
+-  To set an **HTTP** header on the request use `httpRequest.setRequestHeader(header, value)`
   -  After the request is open
   -  And before the request is sent
 ```javascript
@@ -248,7 +248,7 @@ httpRequest.send({
 
 <!-- attr: {hasScriptWrapper: true} -->
 # jQuery AJAX
--  [jQuery](http://jquery.com) <!-- .element: target="_blank" -->
+-  [jQuery](https://jquery.com) <!-- .element: target="_blank" -->
 has a functionality for creating HTTP requests
 -  jQuery AJAX methods:
   -  `$.ajax(options)`
@@ -310,3 +310,14 @@ $('#response').load('/partials/details.html');
 <!-- attr: {class: 'slide-questions', id: 'questions'}  -->
 # Consuming Remote Data
 ## Questions
+
+<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size: 0.9em' } -->
+# Free Trainings<br/>@ Telerik Academy
+- "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
+    - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
+  - Telerik Software Academy
+    - [academy.telerik.com](academy.telerik.com)
+  - Telerik Academy @ Facebook
+    - [facebook.com/TelerikAcademy](facebook.com/TelerikAcademy)
+  - Telerik Software Academy Forums
+    - [forums.academy.telerik.com](http://telerikacademy.com/Forum/Home
