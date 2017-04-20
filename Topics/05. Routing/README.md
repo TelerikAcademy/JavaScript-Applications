@@ -124,7 +124,7 @@ router.on('/home', callback)
 
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true, style:'font-size:0.95em'} -->
-# Navigo: Routs
+# Navigo: Routes
 - Multiple routes
   - In this case ordering matters
 
@@ -144,7 +144,7 @@ router.on({
 ```
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true, style:'font-size:0.95em'} -->
-# Navigo: Routs
+# Navigo: Routes
 - Main/root handler
 
 ```js
