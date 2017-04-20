@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Popup and redirect</title>
+
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.common.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.rtl.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.silver.min.css"/>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.mobile.all.min.css"/>
+
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2017.1.118/js/kendo.all.min.js"></script>
+</head>
+<body>
+  
+<div id="popup" style="display: block;">
+   
+        <pre>
+
+You will be redirected in two seconds
+
+        </pre>
+</div>
+
+<script>
+$("#popup").kendoWindow({
+  dragable: true,
+  modal: true
+});
+</script>
+<script src="index.js"></script>
+</body>
+</html>
