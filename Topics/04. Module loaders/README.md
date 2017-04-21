@@ -4,9 +4,9 @@
 ## Modular JavaScript
 
 <article class="signature">
-	<p class="signature-course">JavaScript OOP</p>
+	<p class="signature-course">JavaScript Applications</p>
 	<p class="signature-initiative">Telerik Software Academy</p>
-	<a href="http://academy.telerik.com " class="signature-link">http://academy.telerik.com </a>
+	<a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </article>
 
 <!-- section start -->
@@ -262,19 +262,17 @@ $('body').html('Cool!');
 	- [getting started](https://medium.com/@swirlycheetah/getting-started-with-jspm-systemjs-d6f2560b7eb4#.hovnr6mur) with **jspm** and **SystemJS**
 	- [jspm web site](http://jspm.io/)
 
-
 <!-- attr: { class:'slide-section', showInPresentation:true, id:'questions' } -->
 <!-- # Module loaders
 ## Questions? -->
 
-
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true, style:'font-size: 0.9em' } -->
+<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
 # Free Trainings<br/>@ Telerik Academy
 - "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
     - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
   - Telerik Software Academy
-    - [academy.telerik.com](academy.telerik.com)
+    - [telerikacademy.com](https://telerikacademy.com)
   - Telerik Academy @ Facebook
-    - [facebook.com/TelerikAcademy](facebook.com/TelerikAcademy)
+    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
   - Telerik Software Academy Forums
-    - [forums.academy.telerik.com](http://telerikacademy.com/Forum/Home
+    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)

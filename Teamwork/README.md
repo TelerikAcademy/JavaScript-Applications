@@ -16,7 +16,7 @@ It could be a simple game , component library , business application or any othe
   - Tetris
   - Xonix
   - Supermario
-  - Components library(windows, buttons, text boxes, menus, etc.)
+  - Components library (windows, buttons, text boxes, menus, etc.)
   - Book store
   - Auction
   - Movie rental
@@ -35,7 +35,7 @@ Please define and implement the following assets in your project:
   - At least 3 modules
   - At least 7 types (classes) of objects
 - Unit tests
-  - Using [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [SinonJS](http://sinonjs.org/)
+  - Using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [SinonJS](http://sinonjs.org/)
 - Implement a UI for your application
   - Use KendoUI, jQueryUI or implement your own UI logic
 - Use some kind of web data storage, one of the following is Ok
@@ -46,7 +46,7 @@ Please define and implement the following assets in your project:
 - Use some kind of local storage, one of the following is Ok:
   - `localStorage`
   - `sessionStorage`
-- Use [Twitter Bootstrap](http://getbootstrap.com/)
+- Use [Twitter Bootstrap](https://getbootstrap.com/)
   - Research and use Bootstrap for your application
   - Make the application responsive for different screens and resolutions
 - At least one third-party API to share something from your application
@@ -62,18 +62,18 @@ Follow the best practices for producing high-quality code:
   -     Use OOP and modules
 -   **Strong cohesion** and **loose coupling**
 -   Use **GIT** as a source control system
--   Host it on [http://github.com](http://github.com)
+-   Host it on [https://github.com](https://github.com)
 -   Deploy your application on a cloud server of your choice - Heroku, Firebase, Amazon S3, Microsoft Azure
+-   **Usage of a structural JavaScript framework is FORBIDDEN**:
+  -     AngularJS, React, KendoUI, Knockout.js, Backbone.js, etc...
 
 ##  Optional Requirements
 If you have a chance, time and a suitable situation, you might add some of the following to your project:
 -   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
 -   Integration tests
--   Minify your application source - minified and concatanated javascript and css files
+-   Minify your application source - minified and concatenated javascript and css files
 -   Use a module loader of your choice - SystemJS, RequireJS, etc, or roll up your own loader
 -   Use semantic tags and semantic html
--   Usage of a structural JavaScript framework:
-  -     AngularJS, KendoUI, Knockout.js, Backbone.js, etc...
 
 ##  Non-required Work
 -   Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
@@ -85,7 +85,7 @@ If you have a chance, time and a suitable situation, you might add some of the f
 
 - **Record** a short video **showcasing your application**
 - **Register** your application at [Telerik Academy Showcase System](http://best.telerikacademy.com)
-  - Provide a link for the github repository of your application
+  - Provide a link for the GitHub repository of your application
   - Provide a link to the video
   - Host your application on a server, and provide a link
     - You can host your application on http://appharbor.com, http://heroku.com or just use the http://rawgit.com
