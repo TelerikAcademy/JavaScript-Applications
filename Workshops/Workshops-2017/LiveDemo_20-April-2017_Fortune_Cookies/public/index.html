@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortune cookies</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="libs/toastr/build/toastr.min.css" />
+</head>
+<body>
+  <header>
+    <ul class="nav navbar-nav">
+      <li><a href="#/home">Home</a></li>
+      <li><a href="#/my-cookie">My cookie</a></li>
+    </ul>
+
+    <a id="auth-btn" class="btn btn-success" href="#/auth">Sign in / Register</a>
+    <a id="signout-btn" class="btn btn-danger" href="#/logout">Logout</a>
+  </header>
+
+  <main id="app-container"></main>
+
+  <script src="libs/systemjs/dist/system.js"></script>
+  <script src="libs/handlebars/dist/handlebars.js"></script> <!-- FIX ME -->
+  <script src="libs/toastr/build/toastr.min.js"></script> <!-- FIX ME -->
+  <script src="js/system-config.js"></script>
+</body>
+</html>
