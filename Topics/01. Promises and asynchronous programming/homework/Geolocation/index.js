@@ -26,10 +26,10 @@ function showPosition(position) {
     $('#map-holder').html("<img src='" + image_url + "'>");
 }
 
-// function loading () {
-//     setTimeout(function() {
-//     $('#map-holder').html('<img src="http://www.cuisson.co.uk/templates/cuisson/supersize/slideshow/img/progress.BAK-FOURTH.gif">')},
-//     2000)}
+function loading () {
+    setTimeout(function() {
+    $('#map-holder').html('<img src="http://www.cuisson.co.uk/templates/cuisson/supersize/slideshow/img/progress.BAK-FOURTH.gif">')},
+    2000)}
 
 
 function showError(error) {
@@ -46,7 +46,7 @@ function showError(error) {
 
 $(document).ready(
     checkSupportPromise()
-        // .then(loading)
+        .then(loading)
         .then(getLocationPromise)
         .then(showPosition)
         .catch(showError));
