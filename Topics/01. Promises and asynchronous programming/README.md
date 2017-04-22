@@ -334,7 +334,7 @@ promise2.then((data) => console.log(data)) // 'one'
   - Wait until 1 settles
 - `Promise.reject(`_reason_`)`
   - Create a Promise that is already rejected
-  - Useful to not do aync operation in some condition
+  - Useful to not do async operation in some condition
 - `Promise.resolve(`_value_`)`
   - Create a promise that is already resolved
 
@@ -568,3 +568,14 @@ sequence.next(true).value;     // 1
 <!-- attr: { id:'questions', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 <!-- # Promises and Asynchronous Programming
 ## Questions -->
+
+<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
+# Free Trainings<br/>@ Telerik Academy
+- "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
+    - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
+  - Telerik Software Academy
+    - [telerikacademy.com](https://telerikacademy.com)
+  - Telerik Academy @ Facebook
+    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
+  - Telerik Software Academy Forums
+    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)

@@ -5,11 +5,10 @@
 <article class="signature">
 	<p class="signature-course">JavaScript Applications</p>
 	<p class="signature-initiative">Telerik Software Academy</p>
-	<a href="http://academy.telerik.com " class="signature-link">http://academy.telerik.com </a>
+	<a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </div>
 
 <!-- section start -->
-
 # Table of Contents
 
 -  WWW and URL
@@ -41,9 +40,9 @@
 # WWW Components
 
 -  Structural components
-  -  **Internet** – provides data transfer channels over the TCP and HTTP protocols
-  -  **Clients** (Web browsers) – display Web content
-  -  **Web servers** – IIS, Apache, Tomcat, GWS, etc.
+  -  **Internet** - provides data transfer channels over the TCP and HTTP protocols
+  -  **Clients** (Web browsers) - display Web content
+  -  **Web servers** - IIS, Apache, Tomcat, GWS, etc.
 -  Semantic components
   -  Hyper Text Transfer Protocol (`HTTP`)
   -  Hyper Text Markup Language (`HTML`)
@@ -106,11 +105,11 @@ http://yoursite.com:8080/path/index.php?id=27&lang=en
 %[character hex code in ISO-Latin character set]
 ```
 
-  -  _Example_: space has decimal code 32, in hex – 20, so space in URL becomes `%20`
+  -  _Example_: space has decimal code 32, in hex - 20, so space in URL becomes `%20`
     -  Space can also be encoded as "`+`"
 
 <!-- attr: {style: 'font-size: 0.85em'} -->
-#   URL – Examples
+#   URL - Examples
 
 -  Some valid URLs:
 
@@ -155,7 +154,7 @@ http://bg.wikipedia.org:80/wiki/
 
 # HTML
 
--  HTML is straight-forward and easy to learn
+-  **HTML** is straight-forward and easy to learn
   -  HTML documents are plain text files
     -  Easy to add formatting, hyperlinks, bullets, etc.
     -  Images can be added as separate files
@@ -165,7 +164,7 @@ http://bg.wikipedia.org:80/wiki/
     -  WYSIWYG HTML editors
 
 <!-- attr: {hasScriptWrapper: true} -->
-# HTML – Example
+# HTML - Example
 
 - _Example:_
 
@@ -188,7 +187,7 @@ http://bg.wikipedia.org:80/wiki/
 <!-- attr: {hasScriptWrapper: true} -->
 # XML
 
--  XML is markup-language for encoding documents in machine-readable form
+-  **XML** is markup-language for encoding documents in machine-readable form
   -  Text-based format
   -  Consists of tags, attributes and content
   -  Provide data and meta-data in the same time
@@ -205,7 +204,7 @@ http://bg.wikipedia.org:80/wiki/
 <!-- attr: {hasScriptWrapper: true} -->
 # RSS
 
--  RSS (Really Simple Syndication)
+-  **RSS** (Really Simple Syndication)
   -  Family of Web feed formats for publishing frequently updated works
     -  E.g. blog entries, news headlines, videos, etc.
   -  Based on XML, with standardized XSD schema
@@ -216,7 +215,7 @@ http://bg.wikipedia.org:80/wiki/
 <img src="imgs/rss.png" style="position:absolute; top:-5%; right:15%; width:20%; border:none; background:none; box-shadow:none" />
 
 <!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
-# RSS – Example
+# RSS - Example
 
 - _Example_:
 
@@ -244,7 +243,7 @@ http://bg.wikipedia.org:80/wiki/
 <!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # JSON
 
--  JSON (JavaScript Object Notation)
+-  **JSON** (JavaScript Object Notation)
   -  Standard for representing simple data structures and associative arrays
   -  Lightweight text-based open standard
   -  Derived from the JavaScript language
@@ -322,9 +321,9 @@ http://bg.wikipedia.org:80/wiki/
 
 -  Request message sent by a client consists of
   -  Request line:
-    - Request method (GET, POST, HEAD, ...), resource URI, and protocol version
-  -  Request headers – additional parameters
-  -  Body – optional data
+    - Request method (`GET`, `POST`, `HEAD`, ...), resource URI, and protocol version
+  -  Request headers - additional parameters
+  -  Body - optional data
     -  E.g. posted form data, files, etc.
 
 ```xml
@@ -335,7 +334,7 @@ http://bg.wikipedia.org:80/wiki/
 ```
 
 <!-- attr: {style: 'font-size: 0.95em'} -->
-# HTTP GET Request – Example
+# HTTP GET Request - Example
 
 -  Example of HTTP GET request:
 
@@ -356,7 +355,7 @@ Cache-Control: no-cache
 -  HTTP headers
 -  The request body is empty
 
-# HTTP POST Request – Example
+# HTTP POST Request - Example
 
 -  Example of HTTP POST request:
 
@@ -377,7 +376,7 @@ LOGIN_PASS=top*secret!
 <CRLF>
 ```
 
-# Conditional HTTP GET – Example
+# Conditional HTTP GET - Example
 
 -  Example of HTTP conditional GET request:
 
@@ -399,19 +398,19 @@ LOGIN_PASS=top*secret!
 # HTTP Response Message
 
 -  Response message sent by the server
-  -  Status line – protocol version, status code, status phrase
-  -  Response headers – provide meta data
-  -  Body – the contents of the response (the requested resource)
+  -  Status line - protocol version, status code, status phrase
+  -  Response headers - provide meta data
+  -  Body - the contents of the response (the requested resource)
 
 ```http
 HTTP/<version> <status code> <status text>
 <headers>
 <CRLF>
-<response body – the requested resource>
+<response body - the requested resource>
 ```
 
 <!-- attr: {hasScriptWrapper: true} -->
-# HTTP Response – Example
+# HTTP Response - Example
 
 -  Example of HTTP response from the Web server:
 
@@ -430,7 +429,7 @@ Content-Type: text/html
 ```
 
 <!-- attr: {hasScriptWrapper: true} -->
-# HTTP Response – Example
+# HTTP Response - Example
 
 -  Example of HTTP response with error result:
 
@@ -454,7 +453,7 @@ found on this server.<P>
 <!-- attr: {style: 'font-size: 0.85'} -->
 # Content-Type
 
--  The Content-Type header at the server specifies how the output should be processed
+-  The `Content-Type` header at the server specifies how the output should be processed
 -  _Examples_:
   - UTF-8 encoded HTML page (in the browser)
 
@@ -472,7 +471,7 @@ found on this server.<P>
 
 # HTTP Request Methods
 
--  HTTP request methods:
+-  **HTTP** request methods:
   -  `GET`
     -  Return the specified resource, run a program at the server, or just download file, …
   -  `HEAD`
@@ -482,7 +481,7 @@ found on this server.<P>
 
 # HTTP Response Codes
 
--  HTTP response code classes
+-  **HTTP** response code classes
   -  `1xx`: informational (e.g., "`100 Continue`")
   -  `2xx`: success (e.g., "`200 OK`")
   -  `3xx`: redirection (e.g., "`304 Not Modified`", "`302 Found`")
@@ -535,7 +534,7 @@ found on this server.<P>
 >Representational state transfer (REST) is a style of
 >software architecture for distributed hypermedia systems
 >such as the World Wide Web.
-[Representational State Transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+[Representational State Transfer](https://en.wikipedia.org/wiki/Representational_State_Transfer)
 
 -  Application state and functionality are resources
   -  Resources are used as common data files
@@ -567,27 +566,27 @@ found on this server.<P>
 <!-- attr: {hasScriptWrapper: true} -->
 # AJAX
 
--  AJAX is acronym of **Asynchronous JavaScript and XML**
+-  **AJAX** is acronym of **Asynchronous JavaScript and XML**
   -  Technique for background loading of dynamic content and data from the server side
   -  Allows dynamic client-side changes
--  Two types of AJAX
-  -  **Partial page rendering** – loading of HTML fragment and showing it in a `<div>`
-  -  **JSON service** – loading JSON object and client-side processing it with JavaScript / jQuery
+-  Two types of **AJAX**
+  -  **Partial page rendering** - loading of HTML fragment and showing it in a `<div>`
+  -  **JSON service** - loading JSON object and client-side processing it with JavaScript / jQuery
 
 <!-- attr: {showInPresentation: true} -->
 <!-- # AJAX -->
 -  Technically, AJAX is a group of technologies working together
   -  **HTML & CSS** for presentation
   -  **The DOM** for data display & interaction
-  -  **XML (or JSON)** for data interchange
+  -  **XML** (or **JSON**) for data interchange
   -  **XMLHttpRequest** for async communication
   -  **JavaScript** to use the above
 
 <!-- attr: {showInPresentation: true} -->
 <!-- # AJAX -->
--  AJAX uses HTTP
-  -  Requests have headers – `GET`, `POST`, `HEAD`, etc.
-  -  Requests have bodies – `XML`, `JSON` or `plain text`
+-  **AJAX** uses **HTTP**
+  -  Requests have headers - `GET`, `POST`, `HEAD`, etc.
+  -  Requests have bodies - `XML`, `JSON` or `plain text`
   -  The request must target a resource with a URI
   -  The resource must understand the request
     -  Server-side logic
@@ -633,11 +632,11 @@ found on this server.<P>
   -  Large sites with lots of subdomains
   -  Accessing web services
 -  Ways of "relaxing"
-  -  document.domain – can be set to a superdomain when in proper subdomain
-  -  Cross document messaging – HTML5, `postMessage()` to page in `<iframe>`
+  -  document.domain - can be set to a superdomain when in proper subdomain
+  -  Cross document messaging - HTML5, `postMessage()` to page in `<iframe>`
   -  Cross Origin Resource Sharing
   -  WebSockets
--  Workaround – JSONP
+-  Workaround - `JSONP`
 
 
 <!-- attr: {class: 'slide-section', showInPresentation: true} -->
@@ -647,7 +646,7 @@ found on this server.<P>
 <!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
 # JSONP
 
--  JSON with padding (also JSON prefix)
+-  `JSON` with padding (also `JSON` prefix)
 -  Same origin policy denies cross-origin requests
   -  But not for the `<script>` tag
   -  The `<script>` tag can be exploited
@@ -663,31 +662,31 @@ found on this server.<P>
     -  We receive `parseResponse(…)`
 
 <!-- attr: {hasScriptWrapper: true, style: 'font-size: 0.95em'} -->
-# JSONP – How it Works
+# JSONP - How it Works
 
 -  After the script URL, we add a query parameter `?jsonp=` (or `?callback=`)
   -  This parameter tells the server what to return
   -  The server wraps its return value in the specified callback
-  -  _Example_
-    -  server returns a JSON object `{"age":"5"}`
+  -  _Example:_
+    -  server returns a `JSON` object `{"age":"5"}`
     -  the query parameter is `?callback=parseResponse`
     -  The browser executes the following JS code:
 ```
 parseResponse({"age":"5"})
 ```
 
-# JSONP – the "Padding"
+# JSONP - the "Padding"
 
 -  The callback function in the example is called the "padding"
--  Typically its used to pass the JSON to a function, which acts as a handler, but it can be anything else
+-  Typically its used to pass the `JSON` to a function, which acts as a handler, but it can be anything else
   -  Variable assignment, `if` statement, etc.
-  -  What we receive is JS code, not JSON
+  -  What we receive is JS code, not `JSON`
     -  This is a security concern
 
 <!-- section start  -->
 
 <!-- section start -->
-<!-- attr: { hasScriptWrapper:true, class:"slide-questions", id:"questions" } -->
+<!-- attr: { hasScriptWrapper:true, showInPresentation:true, class:"slide-questions", id:"questions" } -->
 <!-- # HTTP & AJAX
 ## Questions? -->
 
@@ -696,10 +695,8 @@ parseResponse({"age":"5"})
 - "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
     - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
   - Telerik Software Academy
-    - [academy.telerik.com](academy.telerik.com)
+    - [telerikacademy.com](https://telerikacademy.com)
   - Telerik Academy @ Facebook
-    - [facebook.com/TelerikAcademy](facebook.com/TelerikAcademy)
+    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
   - Telerik Software Academy Forums
-    - [forums.academy.telerik.com](http://telerikacademy.com/Forum/Home)
-
-<!-- <img class="slide-image" showInPresentation="true"  src="imgs/pic00.png" style="top:58.18%; left:90.52%; width:16.97%; z-index:-1" /> -->
+    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)

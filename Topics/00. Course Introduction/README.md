@@ -167,16 +167,16 @@
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic38.png" style="top:20%; left:10.44%; width:17.19%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic39.png" style="top:25%; left:85.21%; width:19.34%; z-index:-1" /> -->
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
-# Free Trainings @ Telerik Academy
-- Web Design and UI Technologies @ Telerik Academy
-    - html5course.telerik.com
+<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
+# Free Trainings<br/>@ Telerik Academy
+- "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
+    - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
   - Telerik Software Academy
-    - https://telerikacademy.com
+    - [telerikacademy.com](https://telerikacademy.com)
   - Telerik Academy @ Facebook
-    - https://facebook.com/TelerikAcademy
+    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
   - Telerik Software Academy Forums
-    - https://telerikacademy.com/Forum/Home
+    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)
 
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic40.png" style="top:25%; left:92.16%; width:13.45%; z-index:-1" /> -->
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic41.png" style="top:45%; left:68.14%; width:36.30%; z-index:-1" /> -->
