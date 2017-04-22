@@ -1,57 +1,51 @@
 /*jshint esversion: 6 */
 
+let stock = '',
+    periods = '6',
+    periodType = 'm',
+    xhr = new XMLHttpRequest();
 //---------------------------------
 //Another module
 
 let $root = $('.root'),
     $input = $root.append('<input class="input-field" type="text" name="Stock index"/>'),
-    $btn = $root.append('<button>Check it out</button>');
+    $btn = $root.append('<button class="button-class">Check it out</button>');
 
-
-$btn.on('click', showAdvice)
+$('.button-class').on('click', showAdvice)
 
 function showAdvice() {
     stock = $('.input-field').val();
+
+    xhr.open('GET',
+        `https://query.yahooapis.com/v1/public/yql?q=select%20*%20` +
+        `from%20csv%20where%20url%3D'https%3A%2F%2Fchartapi.finance.yahoo.com` +
+        `%2Finstrument%2F1.0%2F` +
+        `${stock}` +
+        `%2Fchartdata%3Btype%3Dquote%3Brange%3D` +
+        `${periods}${periodType}` +
+        `%2Fcsv'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`, false)
+    xhr.send();
+
+
+    let responsesAllArr = JSON.parse(xhr.response),
+        responsesCleanArr = clearResponse(responsesAllArr),
+        tankenSenNow = tankenSen(responsesCleanArr),
+        kijunSenNow = kijunSen(responsesCleanArr),
+        senkouSpanANow = senkouSpanA(responsesCleanArr),
+        senkouSpanBNow = senkouSpanB(responsesCleanArr),
+        chikouSpanNow = chikouSpan(responsesCleanArr);
+
+    // console.log(responsesCleanArr[0]);
+    console.log('price: ' + responsesCleanArr[0].close);
+    console.log('tankenSen: ' + tankenSenNow);
+    console.log('kijunSen: ' + kijunSenNow);
+    console.log('senkouSpanA: ' + senkouSpanANow);
+    console.log('senkouSpanB: ' + senkouSpanBNow);
+    console.log('chikouSpan: ' + chikouSpanNow);
     interpreteIndicators(responsesCleanArr, tankenSen, kijunSen, senkouSpanA, senkouSpanB, chikouSpan);
 }
 
 //--------------------------------
-
-
-
-let stock = 'ibm',
-    periods = '6',
-    periodType = 'm';
-var xhr = new XMLHttpRequest();
-xhr.open('GET',
-    `https://query.yahooapis.com/v1/public/yql?q=select%20*%20` +
-    `from%20csv%20where%20url%3D'https%3A%2F%2Fchartapi.finance.yahoo.com` +
-    `%2Finstrument%2F1.0%2F` +
-    `${stock}` +
-    `%2Fchartdata%3Btype%3Dquote%3Brange%3D` +
-    `${periods}${periodType}` +
-    `%2Fcsv'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=`, false)
-xhr.send();
-
-let responsesAllArr = JSON.parse(xhr.response),
-    responsesCleanArr = clearResponse(responsesAllArr),
-    tankenSenNow = tankenSen(responsesCleanArr),
-    kijunSenNow = kijunSen(responsesCleanArr),
-    senkouSpanANow = senkouSpanA(responsesCleanArr),
-    senkouSpanBNow = senkouSpanB(responsesCleanArr),
-    chikouSpanNow = chikouSpan(responsesCleanArr);
-
-// console.log(responsesCleanArr[0]);
-console.log('price: ' + responsesCleanArr[0].close);
-console.log('tankenSen: ' + tankenSenNow);
-console.log('kijunSen: ' + kijunSenNow);
-console.log('senkouSpanA: ' + senkouSpanANow);
-console.log('senkouSpanB: ' + senkouSpanBNow);
-console.log('chikouSpan: ' + chikouSpanNow);
-
-
-interpreteIndicators(responsesCleanArr, tankenSen, kijunSen, senkouSpanA, senkouSpanB, chikouSpan);
-
 
 
 //Calculating the cloud
