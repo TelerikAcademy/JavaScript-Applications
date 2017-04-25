@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "start": "node app.js"
   },
   "author": "Doncho Minkov (DonchoMinkov@gmail.com)",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.3",
-    "bower": "^1.5.2",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "lowdb": "^0.10.2",
