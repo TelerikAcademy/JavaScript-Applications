@@ -1,19 +1,15 @@
 // try to print 1 line each 2 seconds
-(function(){
-    function pause(delay) {
-        setTimeout(function() {
-            console.log('paused for ' + delay + 'ms');
-        }, delay);
-    }
-
+(function() {
     console.log('start');
-    pause(2000);
+
+    setTimeout(() => {
+        console.log('paused for ' + 2000 + 'ms');
+    }, 2000);
     console.log('middle');
-    pause(2000);
-    console.log('end');
-    // looks nice, but it doesn't work
-    // setTimeout is async
 }());
+// console.log('end');
+// looks nice, but it doesn't work
+// setTimeout is async
 
 // with callbacks
 /*

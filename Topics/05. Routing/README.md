@@ -6,7 +6,7 @@
 <div class="signature">
     <p class="signature-course">JavaScript Applications</p>
     <p class="signature-initiative">Telerik Software Academy</p>
-    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+	<a href="https://telerikacademy.com" class="signature-link">https://telerikacademy.com</a>
 </div>
 
 
@@ -30,7 +30,7 @@
 - SPA apps are WEB apps with a single HTML file
   - Yet, they have many fake pages
     - Each page is **dynamically created with JavaScript**
-- The routes of SPA apps mimic the common urls of WEB applications:
+- The routes of SPA apps mimic the common URLs of WEB applications:
   - `.../#/home` instead of `.../home.php`
   - `.../#/media` instead of `.../Media.aspx`
 - Navigation is with **links between different urls**
@@ -40,7 +40,7 @@
   - Proper handling of the browser's **back button**
   - The ability to **deep link**
   - Takes **time to load** a complex in-browser app
-      - Initializing objects, functions, event handlers
+    - Initializing objects, functions, event handlers
 - Routing is a way of organizing and managing application states
 - But **finding/fetching** the right data and **right view** is the responsibility of the browser app
 
@@ -50,14 +50,15 @@
 - There are so many frameworks for creating SPA apps
   - Complete frameworks:
     - [Telerik KendoUI](http://www.telerik.com/kendo-ui)
-    - [AngularJS](http://angulae)
-    - [Ember.js](http://emberjs.com/)
+    - [AngularJS](https://angularjs.org/)
+	- [Angular](https://angular.io/)
+    - [Ember.js](https://emberjs.com/)
     - [Backbone](http://backbonejs.org/)
     - [Durandal](http://durandaljs.com/)
     - [BatmanJS](http://batmanjs.org/)
   - Partial app features:
     - [Sammy.js](http://sammyjs.org)
-    - [jQuery](http://jquery.com)
+    - [jQuery](https://jquery.com/)
     - [Knockout](http://knockoutjs.com/)
     - ... and many more
 
@@ -109,8 +110,8 @@ const router = new Navigo(root = null, useHash = false);
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true, style:'font-size:0.95em'} -->
 # Navigo: Creating Routes
-- Each route maps to the provided url
-  - Appending the route to the base url
+- Each route maps to the provided URL
+  - Appending the route to the base URL
 - _Example_:
   - The app is running at
     - http://my-server.com/index
@@ -123,7 +124,7 @@ router.on('/home', callback)
 
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true, style:'font-size:0.95em'} -->
-# Navigo: Routs
+# Navigo: Routes
 - Multiple routes
   - In this case ordering matters
 
@@ -143,7 +144,7 @@ router.on({
 ```
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true, style:'font-size:0.95em'} -->
-# Navigo: Routs
+# Navigo: Routes
 - Main/root handler
 
 ```js
@@ -175,8 +176,8 @@ router.navigate('/products/list');
 
 
 <!-- attr: { hasScriptWrapper:true, showInPresentation:true } -->
-# Types of Routes:<br/>Params in url
-- Route with params in the url: `#/items/:id`
+# Types of Routes:<br/>Params in URL
+- Route with params in the URL: `#/items/:id`
   - Maps to `#/items/123` and `#/items/this_is_some_id`
 
 ```js
@@ -199,7 +200,7 @@ router.on('items', (params) => {
 ```
 
 <!-- attr: { class:'slide-section demo' } -->
-# Default Routes with QueryParams
+# Default Routes with Query Params
 ## [Demo](./demos/getting-query-params/)
 
 
@@ -232,8 +233,17 @@ router.on('items', () {
 ## [Demo](./demos/simple-SPA/)
 
 <!-- section start -->
-
 <!-- attr: { id:'questions', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Questions
-## Simple SPA Apps with
-## Routing and jQuery AJAX 
+## Simple SPA Apps with<br/>Routing and jQuery AJAX 
+
+<!-- attr: { showInPresentation: true, hasScriptWrapper: true, style:'font-size: 0.9em' } -->
+# Free Trainings<br/>@ Telerik Academy
+- "Web Design with HTML 5, CSS 3 and JavaScript" course @ Telerik Academy
+    - [javascript course](http://academy.telerik.com/student-courses/web-design-and-ui/javascript-fundamentals/about)
+  - Telerik Software Academy
+    - [telerikacademy.com](https://telerikacademy.com)
+  - Telerik Academy @ Facebook
+    - [facebook.com/TelerikAcademy](https://facebook.com/TelerikAcademy)
+  - Telerik Software Academy Forums
+    - [forums.academy.telerik.com](https://telerikacademy.com/Forum/Home)

@@ -1,8 +1,10 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <title></title>
 </head>
+
 <body>
     <button id="drop-bomb">Drop Bomb</button>
     <div id="bomb" style="font-size: 20em; color: red"></div>
@@ -10,13 +12,14 @@
     <script>
         var dropBomb = (function() {
             return function() {
-                setTimeout(function () {
+                setTimeout(function() {
                     document.getElementById("bomb").innerHTML = "BOOOM";
                 }, 3000);
             }
         }());
-        
+
         document.getElementById("drop-bomb").onclick = dropBomb
     </script>
 </body>
+
 </html>
