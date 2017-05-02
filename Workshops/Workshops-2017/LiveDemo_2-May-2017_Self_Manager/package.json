@@ -12,7 +12,6 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "bootstrap": "^3.3.7",
-    "bower": "^1.5.2",
     "cryptojs": "^2.5.3",
     "express": "^4.13.3",
     "handlebars": "^4.0.7",
