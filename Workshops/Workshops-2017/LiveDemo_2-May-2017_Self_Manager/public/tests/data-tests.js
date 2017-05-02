@@ -493,4 +493,23 @@ describe('Data layer tests', () => {
         .then(done, done);
     });
   });
+
+  describe('Logout tests', () => {
+    it('expect username to be cleared from localStorage', (done) => {
+      data.users.signOut()
+        .then(expect(localStorage.getItem('signed-in-user-username')).to.be.null)
+        .then(done, done);
+    });
+
+    it('expect authKey to be cleared from localStorage', (done) => {
+      data.users.signOut()
+        .then(expect(localStorage.getItem('signed-in-user-auth-key')).to.be.null)
+        .then(done, done);
+    });
+
+    it('expect signOut function to return a Promise', () => {
+      const promise = data.users.signOut();
+      expect(promise).to.be.an.instanceof(Promise);
+    });
+  });
 });
