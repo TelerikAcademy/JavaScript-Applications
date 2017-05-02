@@ -1,4 +1,15 @@
 describe('Data layer tests', () => {
+  const LOCAL_STORAGE_USERNAME_KEY = 'signed-in-user-username',
+    LOCAL_STORAGE_AUTHKEY_KEY = 'signed-in-user-auth-key';
+
+  const clearLocalStorage = () => {
+    localStorage.removeItem(LOCAL_STORAGE_USERNAME_KEY);
+    localStorage.removeItem(LOCAL_STORAGE_AUTHKEY_KEY);
+  };
+
+  beforeEach(clearLocalStorage);
+  afterEach(clearLocalStorage);
+
   describe('Register tests', () => {
     let jsonRequesterPostStub;
     let cryptoJSStub;
@@ -510,6 +521,25 @@ describe('Data layer tests', () => {
     it('expect signOut function to return a Promise', () => {
       const promise = data.users.signOut();
       expect(promise).to.be.an.instanceof(Promise);
+    });
+  });
+
+  describe('hasUser tests', () => {
+    it('expect hasUser() to return false when no one is logged in', () => {
+      expect(data.users.hasUser()).to.be.false;
+    });
+    it('expect hasUser() to return false when authKey is missing from localStorage', () => {
+      localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, 'testuser');
+      expect(data.users.hasUser()).to.be.false;
+    });
+    it('expect hasUser() to return false when username is missing from localStorage', () => {
+      localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, 'ANOTHER_BLQ_AUTH_KEY');
+      expect(data.users.hasUser()).to.be.false;
+    });
+    it('expect hasUser() to return true when both username and authKey are available in localStorage', () => {
+      localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, 'testuser');
+      localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, 'ANOTHER_BLQ_AUTH_KEY');
+      expect(data.users.hasUser()).to.be.true;
     });
   });
 });
