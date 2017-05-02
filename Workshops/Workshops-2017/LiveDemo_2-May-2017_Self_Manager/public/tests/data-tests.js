@@ -587,6 +587,58 @@ describe('Data layer tests', () => {
   });
 
   describe('Todos tests', () => {
+    let jsonRequesterGetStub;
 
+    beforeEach(() => {
+      jsonRequesterGetStub = sinon.stub(jsonRequester, 'get')
+        .returns(Promise.resolve({result: 'TODOS_WE_GET_IN_JSON'}));
+    });
+    afterEach(() => {
+      jsonRequesterGetStub.restore();
+    });
+
+    it('expect getTodos function to return a Promise', () => {
+      const promise = data.todos.get();
+      expect(promise).to.be.an.instanceof(Promise);
+    });
+
+    it('expect getTodos function to make a GET request', (done) => {
+      data.todos.get()
+        .then(() => {
+          expect(jsonRequesterGetStub).to.have.been.calledOnce;
+        })
+        .then(done, done);
+    });
+    it('expect getTodos function to make a GET request to api/todos', (done) => {
+      data.todos.get()
+        .then(() => {
+          expect(jsonRequesterGetStub).to.have.been.calledWith('api/todos');
+        })
+        .then(done, done);
+    });
+    it('expect getTodos function to make a GET request to api/todos with authKey header', (done) => {
+      const options = {
+        headers: {
+          ['x-auth-key']: 'WHATEVER_AUTH_KEY_SEEMS_VALID'
+        }
+      };
+
+      localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, 'testuser');
+      localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, options.headers['x-auth-key']);
+
+      data.todos.get()
+        .then(() => {
+          expect(jsonRequesterGetStub.args[0][1]).to.deep.equal(options);
+        })
+        .then(done, done);
+    });
+
+    it('expect getTodos function to return todos', (done) => {
+      data.todos.get()
+        .then(todos => {
+          expect(todos).to.equal('TODOS_WE_GET_IN_JSON');
+        })
+        .then(done, done);
+    });
   });
 });
