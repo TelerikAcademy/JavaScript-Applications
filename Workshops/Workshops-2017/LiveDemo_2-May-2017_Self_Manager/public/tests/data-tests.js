@@ -542,4 +542,45 @@ describe('Data layer tests', () => {
       expect(data.users.hasUser()).to.be.true;
     });
   });
+
+  describe('getUsers tests', () => {
+    let jsonRequesterGetStub;
+
+    beforeEach(() => {
+      jsonRequesterGetStub = sinon.stub(jsonRequester, 'get')
+        .returns(Promise.resolve({result: 'ARRAY'}));
+    });
+    afterEach(() => {
+      jsonRequesterGetStub.restore();
+    });
+
+    it('expect getUsers funtion to make a GET request', (done) => {
+      data.users.get()
+        .then(() => {
+          expect(jsonRequesterGetStub).to.have.been.calledOnce;
+        })
+        .then(done, done);
+    });
+
+    it('expect getUsers funtion to make a GET request to api/users', (done) => {
+      data.users.get()
+        .then(() => {
+          expect(jsonRequesterGetStub).to.have.been.calledWith('api/users');
+        })
+        .then(done, done);
+    });
+
+    it('expect getUsers funtion to return the users array', (done) => {
+      data.users.get()
+        .then((users) => {
+          expect(users).to.equal('ARRAY');
+        })
+        .then(done, done);
+    });
+
+    it('expect getUsers funtion to return a Promise', () => {
+      const promise = data.users.get();
+      expect(promise).to.be.an.instanceof(Promise);
+    });
+  });
 });
