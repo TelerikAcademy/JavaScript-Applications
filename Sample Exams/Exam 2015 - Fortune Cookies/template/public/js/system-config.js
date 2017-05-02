@@ -11,8 +11,10 @@ System.config({
         'requester': 'js/requester.js',
         'data': 'js/data.js',
         'homeController': 'js/controllers/home-controller.js',
+        'templates': 'js/templates.js',
 
         //Library files
+        'handlebars': 'libs/handlebars/dist/handlebars.min.js',
         // 'jquery': 'libs/jquery/dist/jquery.min.js',
     }
 });

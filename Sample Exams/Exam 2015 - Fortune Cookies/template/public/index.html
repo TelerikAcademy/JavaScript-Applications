@@ -5,14 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortune cookies</title>
-
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
     <!--<script src="./node_modules/navigo/lib/navigo.js"></script>-->
 </head>
 
 <body>
-    <div id="app-container"> </div>
+    <header>
+        <ul class="navigation">
+            <li><a href="">Home</a></li>
+
+        </ul>
+
+        <button id="signin-btn" class="btn btn-success">Sign In / Register</button>
+        <button id="signout-btn" class="btn btn-danger">Logout</button>
+
+    </header>
+    <main id="app-container"> </main>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="libs/systemjs/dist/system.js"></script>
+    <script src="libs/handlebars/dist/handlebars.min.js"></script>
     <script src="js/system-config.js"></script>
 </body>
 

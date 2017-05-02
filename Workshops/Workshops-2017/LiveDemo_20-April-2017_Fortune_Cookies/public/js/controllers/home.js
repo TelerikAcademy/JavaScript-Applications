@@ -16,7 +16,8 @@ export function get(params) {
             data.getCookies()
         ])
         .then(([template, cookies]) => {
-            console.log(cookies);
-            $appContainer.html(template(cookies));
+            // console.log(cookies);
+            // console.log($appContainer);
+            $appContainer.html(cookies);
         });
 }
