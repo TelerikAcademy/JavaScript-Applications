@@ -23,6 +23,11 @@
   <script src="../libs/sammy/lib/sammy.js"></script>
   <script src="../libs/handlebars/dist/handlebars.js"></script>
   <!-- <script src="../libs/sha1/sha1.js"></script> -->
+  <script>
+    const CryptoJS = {
+      SHA1: x => `SHA1-${x}` // VERY BAD, DO NOT COPY
+    };
+  </script>
   <script src="../libs/lodash/index.js"></script>
   <script src="../libs/moment/moment.js"></script>
   <script src="../libs/bootstrap/dist/js/bootstrap.js"></script>
@@ -42,8 +47,8 @@
 
   <!-- App: Loaders -->
   <script src="../app/data.js"></script>
-  <!-- <script src="app/templates.js"></script>
-  <script src="app/json-requester.js"></script> -->
+  <!-- <script src="app/templates.js"></script> -->
+  <script src="../app/json-requester.js"></script>
 
   <!-- App: Start -->
   <!-- <script src="app.js"></script> -->
