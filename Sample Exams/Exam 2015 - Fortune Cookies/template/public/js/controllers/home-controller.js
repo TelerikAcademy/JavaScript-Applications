@@ -6,6 +6,7 @@ export function homeController() {
 
     data.getCookies()
         .then(cookies => {
-            $appContainer.html('Loaded cookies');
+            console.log(cookies);
+            $appContainer.html('Showing cookies');
         });
 }
