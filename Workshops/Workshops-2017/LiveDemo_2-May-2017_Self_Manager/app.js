@@ -10,6 +10,7 @@ db._.mixin(require('underscore-db'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use('/libs', express.static('node_modules'));
+// app.use('/tests/libs', express.static('node_modules'));
 
 var usersRouter = require('./routers/usersRouter')(db);
 var todosRouter = require('./routers/todosRouter')(db);
