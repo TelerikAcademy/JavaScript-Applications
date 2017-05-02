@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "bootstrap": "^3.3.7",
+    "cryptojs": "^2.5.3",
     "express": "^4.13.3",
     "handlebars": "^4.0.7",
     "jquery": "^3.2.1",
