@@ -1,25 +1,24 @@
-(function(){
+(function() {
     var locationElement = document.getElementById("location-element");
 
-    function visualizeGeolocation(imageCreationFunction) {
+    function showLocation(geoPositionFunc) {
         navigator.geolocation.getCurrentPosition(
-            function (position) {
-                parseLatAndLongCoords(position, imageCreationFunction,
-                    function (errorMessage) {
+            function(position) {
+                parseCoords(position, geoPositionFunc,
+                    function(errorMessage) {
                         console.log("Could not parse coords: " + errorMessage);
                     });
             },
-            function (error) {
+            function(error) {
                 console.log("Could not access geolocation: " + error);
             });
     }
 
-    function parseLatAndLongCoords(geolocationPosition, success, error) {
-        if (geolocationPosition.coords) {
-            var latAndLong = { lat: geolocationPosition.coords.latitude, long: geolocationPosition.coords.longitude };
+    function parseCoords(geoPosition, success, error) {
+        if (geoPosition.coords) {
+            var latAndLong = { lat: geoPosition.coords.latitude, long: geoPosition.coords.longitude };
             success(latAndLong);
-        }
-        else {
+        } else {
             error("Could not fing coords object. Are you sure you are passing a navigator.geolocation.getCurrentPosition result?");
         }
     }
@@ -34,9 +33,9 @@
         locationElement.appendChild(imgElement);
     }
 
-    visualizeGeolocation(createGeolocationImage);
+    showLocation(createGeolocationImage);
 
-    setInterval(function () {
+    setInterval(function() {
         var currentDateTime = new Date();
         document.getElementById("clock").innerHTML = currentDateTime.getHours() +
             ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds();

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <script>
+        // navigator.geolocation.getCurrentPosition(success, error);
+
+        // function success(data) {
+        //     console.log(data);
+        // };
+
+        // function error(data) {
+        //     console.log(data);
+        // };
+
+        (function() {
+            var myFirstPromise = new Promise(
+                function(resolve, reject) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(pos) {
+                            resolve(pos);
+                        })
+                });
+
+            myFirstPromise.then(console.log).catch(console.log);
+        }());
+    </script>
+
+</body>
+
+</html>

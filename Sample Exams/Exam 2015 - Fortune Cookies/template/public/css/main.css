@@ -1,0 +1,15 @@
+.list-cookie img {
+    width: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    float: right;
+}
+
+header {
+    padding: 20px;
+}
