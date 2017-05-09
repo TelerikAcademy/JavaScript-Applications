@@ -93,7 +93,7 @@ If you have a chance, time and a suitable situation, you might add some of the f
 ##  Public Project Defense
 Each team will have to deliver a public defense of its work to the other students and trainers. You will have only 10 minutes for the following:
 - Demonstrate the application (very shortly)
-- Show the recorder video
+- Show the recorded video
 - Show the source code
 - Show the commits logs to confirm that team member have contributed.
 - Optionally you might prepare a presentation (3-4 slides)
