@@ -53,33 +53,33 @@ Please define and implement the following assets in your project:
   - Samples:
     - Share status to Facebook, Google+, Twitter, etc...
     - Upload images to Facebook, Flickr, Instagram
--   **The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, MS Edge, Internet Explorer 10/11, Opera and Apple Safari**
+- **The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, MS Edge, Internet Explorer 10/11, Opera and Apple Safari**
 
 ##  Additional Requirements
 Follow the best practices for producing high-quality code:
--   **Correct naming**
--   **Data encapsulation**
-  -     Use OOP and modules
--   **Strong cohesion** and **loose coupling**
--   Use **GIT** as a source control system
--   Host it on [https://github.com](https://github.com)
--   Deploy your application on a cloud server of your choice - Heroku, Firebase, Amazon S3, Microsoft Azure
--   **Usage of a structural JavaScript framework is FORBIDDEN**:
-  -     AngularJS, React, KendoUI, Knockout.js, Backbone.js, etc...
+- **Correct naming**
+- **Data encapsulation**
+  - Use OOP and modules
+- **Strong cohesion** and **loose coupling**
+- Use **GIT** as a source control system
+- Host it on [https://github.com](https://github.com)
+- Deploy your application on a cloud server of your choice - Heroku, Firebase, Amazon S3, Microsoft Azure
+- **Usage of a structural JavaScript framework is FORBIDDEN**:
+  - AngularJS, React, KendoUI, Knockout.js, Backbone.js, etc...
 
 ##  Optional Requirements
 If you have a chance, time and a suitable situation, you might add some of the following to your project:
--   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
--   Integration tests
--   Minify your application source - minified and concatenated javascript and css files
--   Use a module loader of your choice - SystemJS, RequireJS, etc, or roll up your own loader
--   Use semantic tags and semantic html
+- Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
+- Integration tests
+- Minify your application source - minified and concatenated javascript and css files
+- Use a module loader of your choice - SystemJS, RequireJS, etc, or roll up your own loader
+- Use semantic tags and semantic html
 
 ##  Non-required Work
--   Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
-  -     This team work project is for educational purpose
-  -     Its main purpose it to experience using graphics, DOM manipulation and OOP in a real-world-like project and to get some experience in team working and team collaboration with a source control system.
--   Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
+- Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
+  - This team work project is for educational purpose
+  - Its main purpose it to experience using graphics, DOM manipulation and OOP in a real-world-like project and to get some experience in team working and team collaboration with a source control system.
+- Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
 
 ##  Deliverables
 
